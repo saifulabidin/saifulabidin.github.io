@@ -48,6 +48,17 @@
   .projects-grid {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
+  
+  /* Tech Stack responsive styles */
+  .tech-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 20px;
+  }
+  
+  .tech-icon {
+    width: 70px;
+    height: 70px;
+  }
 }
 
 /* Medium Devices (Tablets) */
@@ -99,16 +110,30 @@
   
   .timeline-dot {
     left: 40px;
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
   }
   
   .timeline-date {
     left: 85px;
     right: auto;
+    font-size: 13px;
+    padding: 4px 12px;
+    display: none;
+  }
+  
+  .mobile-date {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 3px 10px;
+    background-color: rgba(0, 102, 204, 0.1);
+    border-radius: 12px;
   }
   
   .timeline-content {
-    max-width: calc(100% - 120px);
-    margin-left: 120px;
+    max-width: calc(100% - 80px);
+    margin-left: 80px;
+    padding: 20px;
+    animation: fadeInLeft 0.8s forwards;
   }
   
   .timeline-content::before {
@@ -118,12 +143,18 @@
   }
   
   .timeline-item:nth-child(even) .timeline-content {
-    margin-left: 120px;
+    margin-left: 80px;
   }
   
   .timeline-item:nth-child(even) .timeline-date {
     left: 85px;
     right: auto;
+  }
+  
+  .timeline-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
   }
   
   .contact-content {
@@ -134,6 +165,15 @@
   .about-content {
     flex-direction: column;
     gap: 40px;
+  }
+  
+  .tech-category h3 {
+    text-align: center;
+    display: block;
+  }
+  
+  .tech-category {
+    text-align: center;
   }
 }
 
@@ -168,7 +208,7 @@
     grid-template-columns: 1fr;
   }
   
-  .skills-grid {
+  .Tech Stack-grid {
     grid-template-columns: 1fr;
   }
   
@@ -193,6 +233,22 @@
   .filter-btn {
     padding: 6px 15px;
     font-size: 14px;
+  }
+  
+  .tech-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 15px;
+  }
+  
+  .tech-icon {
+    width: 65px;
+    height: 65px;
+    padding: 12px;
+  }
+  
+  .tech-intro {
+    font-size: 16px;
+    margin-bottom: 30px;
   }
 }
 
@@ -245,60 +301,45 @@
   
   .timeline-content {
     padding: 15px;
-    max-width: calc(100% - 100px);
-    margin-left: 100px;
+    max-width: calc(100% - 60px);
+    margin-left: 60px;
   }
   
-  .timeline-date {
-    font-size: 12px;
-    padding: 4px 10px;
+  .timeline::before {
+    left: 30px;
   }
   
-  .timeline-content h3 {
-    font-size: 18px;
+  .timeline-dot {
+    left: 30px;
+    width: 14px;
+    height: 14px;
   }
   
-  .timeline-content h4 {
+  .timeline-item {
+    margin-bottom: 35px;
+  }
+  
+  .timeline-header {
+    margin-bottom: 10px;
+  }
+  
+  .timeline-header h3 {
+    font-size: 17px;
+    width: 100%;
+  }
+  
+  .timeline-header h4 {
     font-size: 14px;
   }
   
-  .project-info h3 {
-    font-size: 18px;
+  .mobile-date {
+    font-size: 12px;
+    padding: 2px 8px;
   }
   
-  .certificate-info h3 {
-    font-size: 18px;
-  }
-  
-  .certificate-img {
-    height: auto;
-    aspect-ratio: 1026/666; /* Maintain the same aspect ratio on mobile devices */
-  }
-  
-  .contact-item .icon {
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
-  }
-  
-  .contact-item .text h4 {
-    font-size: 16px;
-  }
-  
-  .form-group input, .form-group textarea {
-    padding: 12px 15px;
-  }
-  
-  .submit-btn {
-    padding: 12px 25px;
-  }
-  
-  #scroll-top-btn {
-    right: 15px;
-    bottom: 15px;
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
+  .timeline-skills span {
+    padding: 2px 6px;
+    font-size: 10px;
   }
 }
 
@@ -452,7 +493,7 @@
     break-inside: avoid;
   }
   
-  .projects-grid, .skills-grid {
+  .projects-grid, .Tech Stack-grid {
     display: block;
   }
   

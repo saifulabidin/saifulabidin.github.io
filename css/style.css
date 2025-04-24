@@ -536,6 +536,13 @@ header .container {
   top: 20px;
   transform: translateX(-50%);
   z-index: 1;
+  box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.2);
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+  background-color: var(--primary-dark);
+  transform: translateX(-50%) scale(1.2);
 }
 
 .timeline-date {
@@ -548,6 +555,8 @@ header .container {
   border-radius: 20px;
   font-size: 14px;
   font-weight: 500;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
 }
 
 .timeline-content {
@@ -558,6 +567,12 @@ header .container {
   max-width: 45%;
   position: relative;
   margin-left: 5%;
+  transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-dark);
 }
 
 .timeline-content::before {
@@ -568,6 +583,7 @@ header .container {
   border-width: 15px 0 15px 15px;
   border-style: solid;
   border-color: transparent transparent transparent white;
+  transition: all 0.3s ease;
 }
 
 .timeline-item:nth-child(even) .timeline-content {
@@ -586,34 +602,69 @@ header .container {
   border-color: transparent white transparent transparent;
 }
 
-.timeline-content h3 {
+.timeline-header {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.timeline-header h3 {
   font-size: 20px;
   margin-bottom: 5px;
   color: var(--primary-dark);
 }
 
-.timeline-content h4 {
+.timeline-header h4 {
   font-size: 16px;
   color: var(--primary-color);
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   font-weight: 500;
 }
 
-.timeline-content p {
-  margin-bottom: 0;
+.mobile-date {
+  display: none;
+  font-size: 14px;
+  color: var(--primary-color);
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.timeline-body p {
+  margin-bottom: 15px;
   color: var(--text-light);
+  line-height: 1.6;
+}
+
+.timeline-body p:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.timeline-skills span {
+  background-color: var(--bg-light);
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  color: var(--primary-dark);
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
 /* =======================================================================
-   Skills Section
+   Tech Stack Section
 ======================================================================= */
-.skills-container {
+.Tech Stack-container {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
 
-.skills-category h3 {
+.Tech Stack-category h3 {
   font-size: 22px;
   margin-bottom: 20px;
   color: var(--primary-dark);
@@ -622,7 +673,7 @@ header .container {
   border-bottom: 2px solid var(--primary-light);
 }
 
-.skills-grid {
+.Tech Stack-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
@@ -1145,4 +1196,102 @@ footer {
 
 #scroll-top-btn:hover {
   background-color: var(--primary-dark);
+}
+
+/* =======================================================================
+   Tech Stack Section
+======================================================================= */
+.tech-intro {
+  font-size: 18px;
+  color: var(--text-light);
+  margin-bottom: 40px;
+}
+
+.tech-container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.tech-category h3 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: var(--primary-dark);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.tech-category h3::after {
+  content: '';
+  position: absolute;
+  width: 40%;
+  height: 3px;
+  background-color: var(--primary-color);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 25px;
+  justify-content: center;
+}
+
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.tech-item:hover {
+  transform: translateY(-8px);
+}
+
+.tech-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 15px;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+}
+
+.tech-icon img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.tech-item:hover .tech-icon {
+  box-shadow: 0 8px 20px rgba(0, 102, 204, 0.15);
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.tech-item p {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--secondary-color);
+  margin-bottom: 0;
+  text-align: center;
+}
+
+/* Dark mode adjustments for tech stack */
+@media (prefers-color-scheme: dark) {
+  .tech-icon {
+    background-color: var(--bg-light);
+  }
+  
+  .tech-item:hover .tech-icon {
+    background-color: rgba(30, 30, 30, 0.8);
+  }
 }

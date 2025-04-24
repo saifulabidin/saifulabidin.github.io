@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const progressBars = document.querySelectorAll('.progress');
 
     // Initialize the typing effect
-    initTypingEffect(typingText, ['Backend Developer', 'API Architect', 'Cloud Expert', 'Solution Designer']);
+    initTypingEffect(typingText, ['Backend Developer', 'Frontend Developer', 'Full-Stack Developer']);
 
     // Toggle mobile menu
     mobileMenuBtn.addEventListener('click', () => {
@@ -61,6 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Animate skill bars when in viewport
         animateSkillBars();
+        
+        // Animate tech items when in viewport
+        animateTechItems();
     });
 
     // Scroll to top button functionality
@@ -162,10 +165,10 @@ function animateOnScroll() {
 
 // Function to animate skill bars when in viewport
 function animateSkillBars() {
-    const skills = document.querySelectorAll('.skill-item');
+    const TechStack = document.querySelectorAll('.skill-item');
     const windowHeight = window.innerHeight;
     
-    skills.forEach(skill => {
+    TechStack.forEach(skill => {
         const skillPosition = skill.getBoundingClientRect().top;
         const skillVisible = 150;
         
@@ -173,6 +176,27 @@ function animateSkillBars() {
             const progressBar = skill.querySelector('.progress');
             const percent = progressBar.getAttribute('data-percent');
             progressBar.style.width = percent;
+        }
+    });
+}
+
+// Function to animate tech stack icons when in viewport
+function animateTechItems() {
+    const techItems = document.querySelectorAll('.tech-item');
+    const windowHeight = window.innerHeight;
+    
+    techItems.forEach(item => {
+        const itemPosition = item.getBoundingClientRect().top;
+        const itemVisible = 150;
+        
+        // Reset animation when item is no longer in view
+        if (itemPosition > windowHeight) {
+            item.style.opacity = '0';
+        }
+        
+        // Animate when item comes into view
+        if (itemPosition < windowHeight - itemVisible) {
+            item.style.opacity = '1';
         }
     });
 }

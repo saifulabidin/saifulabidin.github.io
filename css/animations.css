@@ -225,12 +225,12 @@
 }
 
 /* Animated Background for specific sections */
-#skills {
+#Tech Stack {
   position: relative;
   overflow: hidden;
 }
 
-#skills::before {
+#Tech Stack::before {
   content: '';
   position: absolute;
   top: -50px;
@@ -243,7 +243,7 @@
   animation: float 8s ease infinite;
 }
 
-#skills::after {
+#Tech Stack::after {
   content: '';
   position: absolute;
   bottom: -100px;
@@ -352,3 +352,66 @@
   animation: ripple 0.6s linear;
   pointer-events: none;
 }
+
+/* Tech stack animations */
+@keyframes techIconFloat {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes techPulse {
+  0% {
+    box-shadow: 0 4px 15px rgba(0, 102, 204, 0.05);
+  }
+  50% {
+    box-shadow: 0 6px 18px rgba(0, 102, 204, 0.15);
+  }
+  100% {
+    box-shadow: 0 4px 15px rgba(0, 102, 204, 0.05);
+  }
+}
+
+@keyframes fadeInStaggered {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tech-item {
+  animation: fadeInStaggered 0.6s ease forwards;
+  opacity: 0;
+}
+
+.tech-item:hover .tech-icon {
+  animation: techIconFloat 1.5s ease infinite;
+}
+
+.tech-category:hover .tech-icon {
+  animation: techPulse 2s infinite;
+}
+
+/* Staggered animation for tech items */
+.tech-item:nth-child(1) { animation-delay: 0.1s; }
+.tech-item:nth-child(2) { animation-delay: 0.15s; }
+.tech-item:nth-child(3) { animation-delay: 0.2s; }
+.tech-item:nth-child(4) { animation-delay: 0.25s; }
+.tech-item:nth-child(5) { animation-delay: 0.3s; }
+.tech-item:nth-child(6) { animation-delay: 0.35s; }
+.tech-item:nth-child(7) { animation-delay: 0.4s; }
+.tech-item:nth-child(8) { animation-delay: 0.45s; }
+.tech-item:nth-child(9) { animation-delay: 0.5s; }
+.tech-item:nth-child(10) { animation-delay: 0.55s; }
+.tech-item:nth-child(11) { animation-delay: 0.6s; }
+.tech-item:nth-child(12) { animation-delay: 0.65s; }
