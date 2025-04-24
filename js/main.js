@@ -520,23 +520,23 @@ function initRippleEffect() {
 
 // Function to lazy load images for better performance
 function initLazyLoading() {
-    if ('loading' in HTMLImageElement.prototype) {
-        // Browser supports native lazy loading
+    // Native lazy loading is already handled by the 'loading="lazy"' attribute in the HTML
+    // This function should only provide fallback for browsers that don't support native lazy loading
+    
+    // Check if browser supports native lazy loading
+    if (!('loading' in HTMLImageElement.prototype)) {
+        // If native lazy loading isn't supported, use Intersection Observer as fallback
         const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-        lazyImages.forEach(img => {
-            img.src = img.dataset.src;
-        });
-    } else {
-        // Fallback for browsers that don't support native lazy loading
-        const lazyImages = document.querySelectorAll('.lazy-image');
         
         if ('IntersectionObserver' in window) {
             const imageObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy-image');
+                        // Only set data-src if it exists, otherwise keep the original src
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                        }
                         imageObserver.unobserve(img);
                     }
                 });
@@ -555,9 +555,13 @@ function initLazyLoading() {
                     
                     setTimeout(() => {
                         lazyImages.forEach(img => {
-                            if ((img.getBoundingClientRect().top <= window.innerHeight && img.getBoundingClientRect().bottom >= 0) && getComputedStyle(img).display !== 'none') {
-                                img.src = img.dataset.src;
-                                img.classList.remove('lazy-image');
+                            if ((img.getBoundingClientRect().top <= window.innerHeight && 
+                                 img.getBoundingClientRect().bottom >= 0) && 
+                                getComputedStyle(img).display !== 'none') {
+                                
+                                if (img.dataset.src) {
+                                    img.src = img.dataset.src;
+                                }
                                 
                                 if (lazyImages.length === 0) {
                                     document.removeEventListener('scroll', lazyLoad);
@@ -578,6 +582,7 @@ function initLazyLoading() {
             lazyLoad();
         }
     }
+    // No need to do anything for browsers that support native lazy loading
 }
 
 // Smooth scrolling for navigation links
