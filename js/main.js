@@ -3,6 +3,19 @@
 // =======================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Register service worker for PWA functionality
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/js/service-worker.js')
+                .then(registration => {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                })
+                .catch(error => {
+                    console.log('ServiceWorker registration failed: ', error);
+                });
+        });
+    }
+
     // Remove loader when page is loaded
     setTimeout(() => {
         document.body.classList.add('loaded');
@@ -37,17 +50,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Variables for header hide on scroll
+    let lastScrollTop = 0;
+    const scrollThreshold = 50;
+
     // Scroll event listener
     window.addEventListener('scroll', () => {
+        const currentScrollTop = window.scrollY;
+        
         // Header shadow on scroll
-        if (window.scrollY > 50) {
+        if (currentScrollTop > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
 
+        // Hide header on scroll down, show on scroll up
+        if (currentScrollTop > lastScrollTop && currentScrollTop > 150) {
+            // Scrolling down
+            header.classList.add('hidden');
+        } else {
+            // Scrolling up
+            header.classList.remove('hidden');
+        }
+        lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+
         // Show/hide scroll to top button
-        if (window.scrollY > 500) {
+        if (currentScrollTop > 500) {
             scrollTopBtn.classList.add('show');
         } else {
             scrollTopBtn.classList.remove('show');
@@ -82,6 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add ripple effect to buttons
     initRippleEffect();
+
+    // Lazy load images
+    initLazyLoading();
 
     // Trigger initial animations
     setTimeout(() => {
@@ -403,7 +435,7 @@ function initCertificatesSlider() {
     }
 }
 
-// Function to initialize contact form
+// Function to initialize contact form with EmailJS
 function initContactForm() {
     const form = document.getElementById('contact-form');
     const formMessage = document.getElementById('form-message');
@@ -424,24 +456,39 @@ function initContactForm() {
             showFormMessage('Please fill in all fields.', 'error');
             return;
         }
+
+        // Show loading message
+        showFormMessage('Sending message...', 'sending');
         
-        // You would typically send this data to a server here
-        // For this example, we'll just simulate a successful submission
-        
-        // Show success message
-        showFormMessage('Your message has been sent successfully! I will get back to you soon.', 'success');
-        
-        // Reset form
-        form.reset();
+        // Send using EmailJS
+        emailjs.send('service_portfolio', 'template_contact_form', {
+            from_name: name,
+            reply_to: email,
+            subject: subject,
+            message: message
+        }, 'gEhhhkDKP5nkvFiXC')
+        .then(() => {
+            // Show success message
+            showFormMessage('Your message has been sent successfully! I will get back to you soon.', 'success');
+            
+            // Reset form
+            form.reset();
+        })
+        .catch(error => {
+            console.error('EmailJS error:', error);
+            showFormMessage('There was an error sending your message. Please try again or contact me directly via email.', 'error');
+        });
     });
     
     function showFormMessage(text, type) {
         formMessage.textContent = text;
         formMessage.className = type;
         
-        setTimeout(() => {
-            formMessage.className = '';
-        }, 5000);
+        if (type !== 'sending') {
+            setTimeout(() => {
+                formMessage.className = '';
+            }, 5000);
+        }
     }
 }
 
@@ -469,6 +516,68 @@ function initRippleEffect() {
             }, 600);
         });
     });
+}
+
+// Function to lazy load images for better performance
+function initLazyLoading() {
+    if ('loading' in HTMLImageElement.prototype) {
+        // Browser supports native lazy loading
+        const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+        lazyImages.forEach(img => {
+            img.src = img.dataset.src;
+        });
+    } else {
+        // Fallback for browsers that don't support native lazy loading
+        const lazyImages = document.querySelectorAll('.lazy-image');
+        
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy-image');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            
+            lazyImages.forEach(img => {
+                imageObserver.observe(img);
+            });
+        } else {
+            // Fallback for older browsers without IntersectionObserver
+            let active = false;
+            
+            const lazyLoad = function() {
+                if (active === false) {
+                    active = true;
+                    
+                    setTimeout(() => {
+                        lazyImages.forEach(img => {
+                            if ((img.getBoundingClientRect().top <= window.innerHeight && img.getBoundingClientRect().bottom >= 0) && getComputedStyle(img).display !== 'none') {
+                                img.src = img.dataset.src;
+                                img.classList.remove('lazy-image');
+                                
+                                if (lazyImages.length === 0) {
+                                    document.removeEventListener('scroll', lazyLoad);
+                                    window.removeEventListener('resize', lazyLoad);
+                                    window.removeEventListener('orientationChange', lazyLoad);
+                                }
+                            }
+                        });
+                        
+                        active = false;
+                    }, 200);
+                }
+            };
+            
+            document.addEventListener('scroll', lazyLoad);
+            window.addEventListener('resize', lazyLoad);
+            window.addEventListener('orientationChange', lazyLoad);
+            lazyLoad();
+        }
+    }
 }
 
 // Smooth scrolling for navigation links

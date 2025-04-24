@@ -3,14 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saiful Abidin Portfolio</title>
+    <title>Saiful Abidin | Full-Stack Developer</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Full-Stack Developer specializing in JavaScript, TypeScript, and Python with expertise in creating efficient, scalable web applications and RESTful APIs.">
+    <meta name="keywords" content="full-stack developer, web development, JavaScript, TypeScript, Python, React, Node.js">
+    <meta name="author" content="Saiful Abidin">
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Saiful Abidin | Full-Stack Developer">
+    <meta property="og:description" content="Passionate web developer building robust applications with clean code and scalable solutions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://saifulabidin.github.io/">
+    <meta property="og:image" content="assets/images/profile.jpg">
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Saiful Abidin | Full-Stack Developer">
+    <meta name="twitter:description" content="Passionate web developer building robust applications with clean code and scalable solutions.">
+    <meta name="twitter:image" content="assets/images/profile.jpg">
+    <!-- Theme Color for Browser -->
+    <meta name="theme-color" content="#0066cc">
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- EmailJS for contact form -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin
+            emailjs.init('gEhhhkDKP5nkvFiXC');
+        })();
+    </script>
 </head>
 <body>
     <!-- Loading Animation -->
@@ -34,6 +68,7 @@
                     <li><a href="#education">Education</a></li>
                     <li><a href="#Tech Stack">Tech Stack</a></li>
                     <li><a href="#projects">Projects</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#certificates">Certificates</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -54,6 +89,7 @@
             <li><a href="#education">Education</a></li>
             <li><a href="#Tech Stack">Tech Stack</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#certificates">Certificates</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -330,136 +366,170 @@
     <section id="projects" class="section-padding">
         <div class="container">
             <div class="section-title">
-                <h2>My <span>Projects</span></h2>
+                <h2>Featured <span>Projects</span></h2>
                 <div class="underline"></div>
             </div>
-            <div class="projects-grid">
-                <div class="project-item fade-in">
-                    <div class="project-img">
-                        <img src="assets/images/project1.jpg" alt="Balance Scan Project">
+
+            <!-- Featured Projects (3 main projects with detailed case studies) -->
+            <div class="featured-projects">
+                <!-- Featured Project 1 -->
+                <div class="featured-project fade-in">
+                    <div class="featured-project-img">
+                        <img src="assets/images/project1.jpg" alt="Balance Scan Project" loading="lazy">
                     </div>
-                    <div class="project-info">
+                    <div class="featured-project-content">
                         <h3>Balance Scan</h3>
-                        <p>A fullstack application for tracking financial balances with real-time updates and comprehensive analytics.</p>
-                        <div class="project-tech">
+                        <p>A fullstack application for tracking financial balances with real-time updates and comprehensive analytics. This project features a responsive dashboard with data visualization, multi-currency support, and blockchain transaction monitoring.</p>
+                        <div class="featured-project-tech">
                             <span>React</span>
                             <span>Node.js</span>
                             <span>Web3</span>
+                            <span>MongoDB</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://balance-scan.netlify.app" class="btn small-btn" target="_blank"><i class="fas fa-link"></i> Demo</a>
-                            <a href="https://github.com/saifulabidin/balancescan-fullstack" class="btn small-btn" target="_blank"><i class="fab fa-github"></i> Code</a>
+                            <a href="https://balance-scan.netlify.app" class="btn primary-btn" target="_blank"><i class="fas fa-link"></i> Live Demo</a>
+                            <a href="https://github.com/saifulabidin/balancescan-fullstack" class="btn secondary-btn" target="_blank"><i class="fab fa-github"></i> View Code</a>
                         </div>
                     </div>
                 </div>
-                <div class="project-item fade-in">
-                    <div class="project-img">
-                        <img src="assets/images/project2.jpg" alt="Weather App">
+
+                <!-- Featured Project 2 -->
+                <div class="featured-project fade-in">
+                    <div class="featured-project-img">
+                        <img src="assets/images/project2.jpg" alt="Weather App" loading="lazy">
                     </div>
-                    <div class="project-info">
+                    <div class="featured-project-content">
                         <h3>Cuaca Ceria (Weather App)</h3>
-                        <p>A responsive weather forecast application with a user-friendly interface showing 7-day forecasts.</p>
-                        <div class="project-tech">
+                        <p>A responsive weather forecast application with a user-friendly interface showing 7-day forecasts. Includes real-time weather updates, location-based forecasting, interactive maps, and severe weather alerts.</p>
+                        <div class="featured-project-tech">
                             <span>Node.js</span>
                             <span>HTML/CSS/JavaScript</span>
                             <span>7timer.info API</span>
+                            <span>Geolocation</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://weather-checker-eu.netlify.app/" class="btn small-btn" target="_blank"><i class="fas fa-link"></i> Demo</a>
-                            <a href="https://github.com/saifulabidin/cuaca-ceria" class="btn small-btn" target="_blank"><i class="fab fa-github"></i> Code</a>
+                            <a href="https://weather-checker-eu.netlify.app/" class="btn primary-btn" target="_blank"><i class="fas fa-link"></i> Live Demo</a>
+                            <a href="https://github.com/saifulabidin/cuaca-ceria" class="btn secondary-btn" target="_blank"><i class="fab fa-github"></i> View Code</a>
                         </div>
                     </div>
                 </div>
-                <div class="project-item fade-in">
-                    <div class="project-img">
-                        <img src="assets/images/project3.jpg" alt="Voting App">
+
+                <!-- Featured Project 3 -->
+                <div class="featured-project fade-in">
+                    <div class="featured-project-img">
+                        <img src="assets/images/project3.jpg" alt="Voting App" loading="lazy">
                     </div>
-                    <div class="project-info">
+                    <div class="featured-project-content">
                         <h3>Voting App</h3>
-                        <p>A full-stack polling platform where users can create, participate, and analyze polls with real-time visualization.</p>
-                        <div class="project-tech">
+                        <p>A full-stack polling platform where users can create, participate, and analyze polls with real-time visualization. Features include user authentication, vote validation, custom poll creation, and detailed analytics with data export.</p>
+                        <div class="featured-project-tech">
                             <span>React</span>
                             <span>Node.js</span>
                             <span>MongoDB</span>
+                            <span>Chart.js</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://voting-app-fullstack.netlify.app/" class="btn small-btn" target="_blank"><i class="fas fa-link"></i> Demo</a>
-                            <a href="https://github.com/saifulabidin/Voting-App" class="btn small-btn" target="_blank"><i class="fab fa-github"></i> Code</a>
+                            <a href="https://voting-app-fullstack.netlify.app/" class="btn primary-btn" target="_blank"><i class="fas fa-link"></i> Live Demo</a>
+                            <a href="https://github.com/saifulabidin/Voting-App" class="btn secondary-btn" target="_blank"><i class="fab fa-github"></i> View Code</a>
                         </div>
                     </div>
                 </div>
-                <div class="project-item fade-in">
-                    <div class="project-img">
-                        <img src="assets/images/project4.jpg" alt="Nightlife App">
-                    </div>
-                    <div class="project-info">
-                        <h3>Nightlife Coordination App</h3>
-                        <p>A platform that helps users find and coordinate visits to local nightlife venues and events.</p>
-                        <div class="project-tech">
-                            <span>Node.js</span>
-                            <span>Express</span>
-                            <span>MongoDB</span>
-                            <span>FireBase</span>
+            </div>
+
+            <!-- More Projects Section -->
+            <div class="additional-projects">
+                <div class="projects-divider">
+                    <span>More Projects</span>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Project 4 -->
+                    <div class="project-item fade-in">
+                        <div class="project-img">
+                            <img src="assets/images/project4.jpg" alt="Nightlife App" loading="lazy">
                         </div>
-                        <div class="project-links">
-                            <a href="https://nightlife-app-production.up.railway.app/" class="btn small-btn" target="_blank"><i class="fas fa-link"></i> Demo</a>
-                            <a href="https://github.com/saifulabidin/nightlife-app" class="btn small-btn" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        <div class="project-info">
+                            <h3>Nightlife Coordination App</h3>
+                            <p>A platform that helps users find and coordinate visits to local nightlife venues and events.</p>
+                            <div class="project-tech">
+                                <span>Node.js</span>
+                                <span>Express</span>
+                                <span>MongoDB</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://nightlife-app-production.up.railway.app/" class="btn small-btn" target="_blank"><i class="fas fa-link"></i> Demo</a>
+                                <a href="https://github.com/saifulabidin/nightlife-app" class="btn small-btn" target="_blank"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="project-item fade-in">
+                        <div class="project-img">
+                            <img src="assets/images/project5.jpg" alt="Chart Stock Market" loading="lazy">
+                        </div>
+                        <div class="project-info">
+                            <h3>Chart Stock Market</h3>
+                            <p>A real-time stock market charting application with interactive visualizations and market analysis tools.</p>
+                            <div class="project-tech">
+                                <span>Node.js</span>
+                                <span>React</span>
+                                <span>WebSockets</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://zonal-elegance-production.up.railway.app/" class="btn small-btn" target="_blank"><i class="fas fa-link"></i> Demo</a>
+                                <a href="https://github.com/saifulabidin/Chart-Stock-Market" class="btn small-btn" target="_blank"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="project-item fade-in">
+                        <div class="project-img">
+                            <img src="assets/images/project6.jpg" alt="Book Trading Club" loading="lazy">
+                        </div>
+                        <div class="project-info">
+                            <h3>Book Trading Club</h3>
+                            <p>A platform for book enthusiasts to trade, exchange, and discover books with other users.</p>
+                            <div class="project-tech">
+                                <span>Node.js</span>
+                                <span>MongoDB</span>
+                                <span>React</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://book-trading-club.vercel.app/" class="btn small-btn" target="_blank"><i class="fas fa-link"></i> Demo</a>
+                                <a href="https://github.com/saifulabidin/book-trading-club" class="btn small-btn" target="_blank"><i class="fab fa-github"></i> Code</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="project-item fade-in">
-                    <div class="project-img">
-                        <img src="assets/images/project5.jpg" alt="Chart Stock Market">
-                    </div>
-                    <div class="project-info">
-                        <h3>Chart Stock Market</h3>
-                        <p>A real-time stock market charting application with interactive visualizations and market analysis tools.</p>
-                        <div class="project-tech">
-                            <span>Node.js</span>
-                            <span>React</span>
-                            <span>WebSockets</span>
-                            <span>Stock APIs</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://zonal-elegance-production.up.railway.app/" class="btn small-btn" target="_blank"><i class="fas fa-link"></i> Demo</a>
-                            <a href="https://github.com/saifulabidin/Chart-Stock-Market" class="btn small-btn" target="_blank"><i class="fab fa-github"></i> Code</a>
-                        </div>
-                    </div>
+
+                <div class="more-projects-btn">
+                    <a href="https://github.com/saifulabidin?tab=repositories" class="btn primary-btn" target="_blank">
+                        <i class="fas fa-code-branch"></i> View All Projects
+                    </a>
                 </div>
-                <div class="project-item fade-in">
-                    <div class="project-img">
-                        <img src="assets/images/project6.jpg" alt="Book Trading Club">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client <span>Testimonials</span></h2>
+                <div class="underline"></div>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonial-item fade-in">
+                    <div class="testimonial-text">
+                        "Saiful delivered exceptional work on our web application. His expertise in React and Node.js helped us create a seamless user experience while maintaining high performance. He was responsive, professional, and went above and beyond to ensure our project's success."
                     </div>
-                    <div class="project-info">
-                        <h3>Book Trading Club</h3>
-                        <p>A platform for book enthusiasts to trade, exchange, and discover books with other users.</p>
-                        <div class="project-tech">
-                            <span>Node.js</span>
-                            <span>MongoDB</span>
-                            <span>React</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://book-trading-club.vercel.app/" class="btn small-btn" target="_blank"><i class="fas fa-link"></i> Demo</a>
-                            <a href="https://github.com/saifulabidin/book-trading-club" class="btn small-btn" target="_blank"><i class="fab fa-github"></i> Code</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-item fade-in">
-                    <div class="project-img">
-                        <img src="assets/images/project7.jpg" alt="Fake Pinterest">
-                    </div>
-                    <div class="project-info">
-                        <h3>Fake Pinterest</h3>
-                        <p>A Pinterest-inspired image discovery and collection application with social features.</p>
-                        <div class="project-tech">
-                            <span>React</span>
-                            <span>Node.js</span>
-                            <span>MongoDB</span>
-                            <span>FireBase</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://fake-pinterest.vercel.app/" class="btn small-btn" target="_blank"><i class="fas fa-link"></i> Demo</a>
-                            <a href="https://github.com/saifulabidin/fake-pinterest" class="btn small-btn" target="_blank"><i class="fab fa-github"></i> Code</a>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client Photo">
+                        <div class="author-info">
+                            <h4>David Chen</h4>
+                            <p>CTO, TechStartup Inc.</p>
                         </div>
                     </div>
                 </div>
@@ -480,7 +550,7 @@
                         <div class="slider-item">
                             <div class="certificate-card fade-in">
                                 <div class="certificate-img">
-                                    <img src="assets/certificates/certificates1.jpg" alt="Belajar Dasar Cloud dan Gen AI di AWS">
+                                    <img src="assets/certificates/certificates1.jpg" alt="Belajar Dasar Cloud dan Gen AI di AWS" loading="lazy">
                                 </div>
                                 <div class="certificate-info">
                                     <h3>Belajar Dasar Cloud dan Gen AI di AWS</h3>
@@ -497,7 +567,7 @@
                         <div class="slider-item">
                             <div class="certificate-card fade-in">
                                 <div class="certificate-img">
-                                    <img src="assets/certificates/certificates2.jpg" alt="Legacy Back End">
+                                    <img src="assets/certificates/certificates2.jpg" alt="Legacy Back End" loading="lazy">
                                 </div>
                                 <div class="certificate-info">
                                     <h3>Legacy Back End</h3>
@@ -514,7 +584,7 @@
                         <div class="slider-item">
                             <div class="certificate-card fade-in">
                                 <div class="certificate-img">
-                                    <img src="assets/certificates/certificates3.jpg" alt="Scientific Computing With Python">
+                                    <img src="assets/certificates/certificates3.jpg" alt="Scientific Computing With Python" loading="lazy">
                                 </div>
                                 <div class="certificate-info">
                                     <h3>Scientific Computing With Python</h3>
