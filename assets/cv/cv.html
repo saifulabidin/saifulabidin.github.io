@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saiful Abidin - CV</title>
+    <!-- Add these meta tags to help remove headers/footers -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="date=no">
+    <meta name="format-detection" content="address=no">
+    <meta name="format-detection" content="email=no">
     <style>
         :root {
             --primary: #2563eb;
@@ -23,6 +28,7 @@
             color: #1e293b;
             line-height: 1.6;
             padding: 20px;
+            padding-bottom: 70px; /* Space for mobile toolbar */
         }
 
         .container {
@@ -42,6 +48,21 @@
             right: 20px;
             display: flex;
             gap: 10px;
+            z-index: 10;
+        }
+        
+        /* Mobile print toolbar */
+        .mobile-print-toolbar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            padding: 12px 16px;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
+            z-index: 100;
+            justify-content: space-around;
         }
 
         .print-button {
@@ -65,6 +86,15 @@
         .print-button svg {
             width: 16px;
             height: 16px;
+        }
+        
+        /* More visible mobile buttons */
+        .mobile-print-button {
+            flex: 1;
+            max-width: 160px;
+            padding: 12px 16px;
+            font-size: 16px;
+            justify-content: center;
         }
 
         h1, h2, h3 {
@@ -170,21 +200,21 @@
 
         /* One-page specific styling (applied when printing with one-page option) */
         .one-page-mode .section {
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.35rem; /* Reduced spacing */
         }
         
         .one-page-mode h2 {
-            font-size: 1.2rem;
-            margin: 0.6rem 0 0.4rem;
+            font-size: 1.2rem; /* Slightly smaller */
+            margin: 0.4rem 0 0.2rem; /* Tighter margins */
             padding-bottom: 0.2rem;
         }
         
         .one-page-mode h3 {
-            font-size: 1rem;
+            font-size: 1rem; /* Slightly smaller */
         }
         
         .one-page-mode .text-sm {
-            font-size: 0.75rem;
+            font-size: 0.85rem; /* Smaller text */
         }
         
         .one-page-mode .job-item, 
@@ -194,7 +224,7 @@
         }
         
         .one-page-mode li {
-            margin-bottom: 0.1rem;
+            margin-bottom: 0.2rem; 
         }
         
         .one-page-mode .contact-info {
@@ -212,7 +242,7 @@
         }
         
         .one-page-mode .project-link {
-            font-size: 0.7rem;
+            font-size: 0.8rem; 
         }
         
         /* Extra compact projects for one page */
@@ -243,7 +273,7 @@
                 transform-origin: top left;
             }
             
-            .print-options {
+            .print-options, .mobile-print-toolbar {
                 display: none;
             }
             
@@ -268,58 +298,112 @@
             @page {
                 size: A4;
                 margin: 0.5cm;
-                /* Remove headers and footers */
+                margin-header: 0;
+                margin-footer: 0;
+            }
+            
+            @page :first {
+                margin-top: 0;
+                margin-header: 0;
+            }
+            
+            @page :left {
+                margin-left: 0;
+                margin-header: 0;
+                margin-footer: 0;
+            }
+            
+            @page :right {
+                margin-right: 0;
                 margin-header: 0;
                 margin-footer: 0;
             }
             
             /* For single page print mode */
             body.single-page-print {
-                zoom: 0.65; /* For non-standard but widely supported browsers */
-                transform: scale(0.65); /* Standard approach */
+                zoom: 0.7; /* More aggressive zoom */
+                transform: scale(0.7); /* More aggressive scale */
                 transform-origin: top left;
             }
             
             body.single-page-print .container {
-                padding: 5px;
-                max-height: 150vh; /* Ensure content fits on one page */
+                padding: 3px; /* Minimal padding */
+                max-height: 100vh; 
+                position: relative;
+                overflow: visible;
             }
             
             body.single-page-print h1 {
-                font-size: 1.8rem;
-                margin-bottom: 0.2rem;
+                font-size: 1.7rem; /* Smaller */
+                margin-bottom: 0.1rem;
             }
             
             body.single-page-print h2 {
-                font-size: 1.1rem;
-                margin: 0.6rem 0 0.3rem;
-                padding-bottom: 0.2rem;
+                font-size: 1.2rem; /* Smaller */
+                margin: 0.4rem 0 0.2rem;
+                padding-bottom: 0.15rem;
             }
             
             body.single-page-print h3 {
-                font-size: 0.9rem;
+                font-size: 1rem; 
             }
             
             body.single-page-print .section {
-                margin-bottom: 0.5rem;
+                margin-bottom: 0.35rem; /* Tighter spacing */
             }
             
-            /* Hide URLs, date and page numbers when printing */
-            @page {
-                size: A4;
-                margin: 0.5cm;
+            body.single-page-print p, 
+            body.single-page-print li {
+                font-size: 0.85rem; 
+                line-height: 1.3; /* Tighter line height */
             }
             
-            @page :first {
-                margin-top: 0;
+            /* More aggressive layout optimization for one-page */
+            body.single-page-print .contact-info {
+                gap: 0.4rem; /* Tighter gap */
             }
             
-            @page :left {
-                margin-left: 0;
+            body.single-page-print .job-item, 
+            body.single-page-print .education-item {
+                padding: 0.25rem; /* Minimal padding */
+                margin-bottom: 0.3rem;
             }
             
-            @page :right {
-                margin-right: 0;
+            body.single-page-print ul {
+                margin: 0.1rem 0;
+                padding-left: 1.1rem; /* Less indentation */
+            }
+            
+            body.single-page-print li {
+                margin-bottom: 0.1rem; /* Minimal margin */
+            }
+            
+            /* Specific section optimizations */
+            body.single-page-print .skills-grid {
+                gap: 0.75rem; /* Tighter gap */
+            }
+            
+            body.single-page-print .projects-container li {
+                margin-bottom: 0.1rem; /* Tighter list spacing */
+            }
+        }
+        
+        /* Mobile responsive design for print options */
+        @media screen and (max-width: 768px) {
+            .print-options {
+                display: none; /* Hide default buttons */
+            }
+            
+            .mobile-print-toolbar {
+                display: flex; /* Show mobile toolbar */
+            }
+            
+            body {
+                padding-bottom: 80px; /* Extra space for the toolbar */
+            }
+            
+            .container {
+                padding: 1.5rem; /* Slightly reduced padding */
             }
         }
     </style>
@@ -336,6 +420,26 @@
                 Cetak CV
             </button>
             <button class="print-button" onclick="printCV('one-page')" style="background-color: #10b981;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9V2h12v7"></path>
+                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                    <path d="M6 14h12v8H6z"></path>
+                </svg>
+                Satu Halaman
+            </button>
+        </div>
+        
+        <!-- Mobile print toolbar -->
+        <div class="mobile-print-toolbar">
+            <button class="print-button mobile-print-button" onclick="printCV('regular')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9V2h12v7"></path>
+                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                    <path d="M6 14h12v8H6z"></path>
+                </svg>
+                Cetak CV
+            </button>
+            <button class="print-button mobile-print-button" onclick="printCV('one-page')" style="background-color: #10b981;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M6 9V2h12v7"></path>
                     <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
@@ -430,7 +534,7 @@
                         <span>Jan 2025 - Present</span>
                     </div>
                 </div>
-                <p class="text-gray text-sm">Mengerjakan dan menyelesaikan proyek sertifikasi “Backend Development and APIs” serta “Legacy Back End”. Membangun microservice untuk Timestamp, Request Header Parser, dan Voting App menggunakan Node.js, Express, MongoDB, Passport.js, dan session-based auth. Mengintegrasikan API eksternal (7timer, Foursquare) dan menerapkan best practices REST & error handling.</p>
+                <p class="text-gray text-sm">Mengembangkan microservice untuk project sertifikasi Backend. Implementasi Node.js, Express, MongoDB, dan Passport.js. Integrasi API eksternal dan penerapan best practice RESTful API.</p>
             </div>
 
             <div class="job-item">
@@ -464,7 +568,7 @@
                         <span>Jan 2025 - Present</span>
                     </div>
                 </div>
-                <p class="text-gray text-sm">Menyelesaikan rangkaian modul dan proyek “Belajar Dasar Cloud & Gen AI di AWS” menggunakan AWS Lambda, S3, dan API Gateway. Mengembangkan REST API dengan Python (Flask) serta menyiapkan pipeline CI/CD dengan GitHub Actions dan Docker. Melakukan code review dan mentoring peer untuk mempercepat adopsi praktik coding yang baik.</p>
+                <p class="text-gray text-sm">Pengembangan API dengan Python (Flask) dan implementasi AWS (Lambda, S3, API Gateway). Setup CI/CD dengan GitHub Actions dan Docker. Mentoring peer developers.</p>
             </div>
         </div>
 
@@ -487,11 +591,14 @@
         <div class="skills-grid section">
             <div>
                 <h2>Hard Skills</h2>
-                <p class="text-gray text-sm">Bahasa & Framework: JavaScript/TypeScript, Python, PHP, Go; React, Express, Laravel, Filament, Flask/Django<br>
-                UI & Styling: Tailwind CSS, Bootstrap, Framer Motion<br>
-                Database: MongoDB/Mongoose, MySQL, PostgreSQL<br>
-                DevOps & Tools: Docker, GitHub Actions, Railway, Vercel, Ubuntu, NPM<br>
-                Blockchain & API: Web3 (Ethereum), 7timer API, Foursquare API, Firebase Auth</p>
+                <p class="text-gray text-sm">
+                    <strong>Bahasa:</strong> JavaScript/TypeScript, Python, PHP, Go<br>
+                    <strong>Frontend:</strong> React, Tailwind CSS, Bootstrap, Framer Motion<br>
+                    <strong>Backend:</strong> Express, Laravel, Flask, Django<br>
+                    <strong>Database:</strong> MongoDB, MySQL, PostgreSQL<br>
+                    <strong>DevOps:</strong> Docker, GitHub Actions, Vercel, AWS<br>
+                    <strong>Web3:</strong> Ethereum, Smart Contracts
+                </p>
             </div>
             <div>
                 <h2>Soft Skills</h2>
@@ -511,11 +618,12 @@
             <ul class="text-gray text-sm">
                 <li>1. Belajar Dasar Cloud & Gen AI di AWS • Dicoding Indonesia (2025)</li>
                 <li>2. Belajar Dasar Pemrograman JavaScript • Dicoding Indonesia (2025)</li>
-                <li>3. Scientific Computing with Python • freeCodeCamp (2025)</li>
-                <li>4. JavaScript Algorithms & Data Structures • freeCodeCamp (2025)</li>
-                <li>5. Responsive Web Design • freeCodeCamp (2025)</li>
-                <li>6. Backend Development and APIs • freeCodeCamp (2025)</li>
-                <li>7. Legacy Back End Development • freeCodeCamp (2025)</li>
+                <li>3. Belajar Back-End Pemula dengan Javascript • Dicoding Indonesia (2025)</li>
+                <li>4. Scientific Computing with Python • freeCodeCamp (2025)</li>
+                <li>5. JavaScript Algorithms & Data Structures • freeCodeCamp (2025)</li>
+                <li>6. Responsive Web Design • freeCodeCamp (2025)</li>
+                <li>7. Backend Development and APIs • freeCodeCamp (2025)</li>
+                <li>8. Legacy Back End Development • freeCodeCamp (2025)</li>
             </ul>
         </div>
 
@@ -586,6 +694,15 @@
                         item.innerHTML = `<span class="project-title">${title}</span> - ${stack} - ${link}`;
                     }
                 });
+                
+                // Apply more aggressive optimizations for one-page print
+                optimizeForOnePage();
+                
+                // Force page break elimination
+                document.querySelectorAll('.section').forEach(section => {
+                    section.style.pageBreakInside = 'avoid';
+                    section.style.breakInside = 'avoid';
+                });
             } else {
                 document.body.classList.remove('single-page-print');
                 document.querySelector('.container').classList.remove('one-page-mode');
@@ -600,12 +717,36 @@
                     @page {
                         size: A4;
                         margin: 0.5cm;
+                        marks: none;
                     }
                     @media print {
                         body { -webkit-print-color-adjust: exact; }
+                        .print-options, .mobile-print-toolbar, button { 
+                            display: none !important; 
+                            visibility: hidden !important;
+                            opacity: 0 !important;
+                        }
+                        /* Hide browser header/footer */
+                        html {
+                            height: 100%;
+                        }
                     }
                 `;
                 document.head.appendChild(style);
+                
+                // Explicitly hide all buttons before printing
+                const allButtons = document.querySelectorAll('button');
+                allButtons.forEach(btn => {
+                    btn.style.display = 'none';
+                    btn.style.visibility = 'hidden';
+                });
+                
+                document.querySelector('.print-options').style.display = 'none';
+                document.querySelector('.mobile-print-toolbar').style.display = 'none';
+                
+                // Add an empty title element to prevent browser from using document title in the print header
+                const originalTitle = document.title;
+                document.title = " ";
                 
                 // Print with specific options to hide URL/date
                 const printOptions = {
@@ -620,6 +761,23 @@
                 // Clean up
                 setTimeout(() => {
                     document.head.removeChild(style);
+                    document.title = originalTitle;
+                    
+                    // Restore button visibility
+                    allButtons.forEach(btn => {
+                        btn.style.removeProperty('display');
+                        btn.style.removeProperty('visibility');
+                    });
+                    
+                    // Restore toolbar visibility based on screen size
+                    if (window.innerWidth <= 768) {
+                        document.querySelector('.mobile-print-toolbar').style.display = 'flex';
+                        document.querySelector('.print-options').style.display = 'none';
+                    } else {
+                        document.querySelector('.print-options').style.display = 'flex';
+                        document.querySelector('.mobile-print-toolbar').style.display = 'none';
+                    }
+                    
                     if (mode === 'one-page') {
                         document.body.classList.remove('single-page-print');
                         document.querySelector('.container').classList.remove('one-page-mode');
@@ -627,6 +785,107 @@
                     }
                 }, 1000);
             }, 300);
+        }
+        
+        // Additional function to optimize content for one-page mode
+        function optimizeForOnePage() {
+            // Further optimize text for better readability while saving space
+            document.querySelectorAll('.text-sm').forEach(el => {
+                el.style.fontSize = '0.85rem'; /* Smaller text */
+                el.style.lineHeight = '1.3'; /* Tighter line height */
+            });
+            
+            // Special handling for long text sections - Fixed selector
+            const ringkasanHeadings = document.querySelectorAll('h2');
+            let ringkasanText = null;
+            
+            // Find the Ringkasan Profesional heading with standard JavaScript
+            for (let heading of ringkasanHeadings) {
+                if (heading.textContent.includes('Ringkasan Profesional')) {
+                    // Get the next element sibling (the paragraph)
+                    ringkasanText = heading.nextElementSibling;
+                    break;
+                }
+            }
+            
+            // Make professional summary more compact
+            if (ringkasanText) {
+                ringkasanText.style.fontSize = '0.82rem'; /* Even smaller */
+                // Trim text if needed - consider shortening the text
+                const text = ringkasanText.textContent;
+                if (text.length > 200) {
+                    const shortenedText = text.substring(0, text.lastIndexOf('.', 300) + 1);
+                    ringkasanText.textContent = shortenedText;
+                }
+            }
+            
+            // Make project descriptions ultra compact
+            document.querySelectorAll('.projects-container li').forEach(item => {
+                // Ensure ultra-compact representation
+                const titleMatch = item.textContent.match(/^\d+\.\s+([^\n]+)/);
+                const title = titleMatch ? titleMatch[1] : '';
+                const stackMatch = item.textContent.match(/Stack:\s+([^<]+)/);
+                const stack = stackMatch ? stackMatch[1].trim() : '';
+                
+                // Get the link element
+                const link = item.querySelector('a');
+                const linkHtml = link ? link.outerHTML : '';
+                
+                // Create ultra-compact version
+                if (title && stack) {
+                    item.innerHTML = `<span class="project-title">${title}</span> - ${stack} - ${linkHtml}`;
+                    item.style.fontSize = '0.85rem';
+                    item.style.whiteSpace = 'nowrap';
+                    item.style.overflow = 'hidden';
+                    item.style.textOverflow = 'ellipsis';
+                    item.style.maxWidth = '100%';
+                    item.style.marginBottom = '0.1rem';
+                }
+            });
+            
+            // Apply specific optimizations to skills section - Fixed jQuery-style selector
+            const skillsHeadings = document.querySelectorAll('h2');
+            let hardSkillsElem = null;
+            
+            // Find Hard Skills heading properly
+            for (let heading of skillsHeadings) {
+                if (heading.textContent.includes('Hard Skills')) {
+                    hardSkillsElem = heading;
+                    break;
+                }
+            }
+            
+            // Apply style to skills text if found
+            if (hardSkillsElem && hardSkillsElem.nextElementSibling) {
+                const skillsText = hardSkillsElem.nextElementSibling;
+                skillsText.style.fontSize = '0.82rem';
+                skillsText.style.lineHeight = '1.25';
+            }
+            
+            // Reduce certificate list spacing - Fix the jQuery-style selector
+            const headings = document.querySelectorAll('h2');
+            let sertifikatSection = null;
+            
+            // Find the Sertifikat section
+            for (let heading of headings) {
+                if (heading.textContent.includes('Sertifikat')) {
+                    // Get the parent section
+                    sertifikatSection = heading.closest('.section');
+                    break;
+                }
+            }
+            
+            // Apply styles to certificate list items
+            if (sertifikatSection) {
+                const certificateItems = sertifikatSection.querySelectorAll('li');
+                certificateItems.forEach(item => {
+                    item.style.marginBottom = '0.1rem';
+                    item.style.fontSize = '0.82rem';
+                });
+            }
+            
+            // If on mobile, apply more aggressive optimizations
+            document.body.style.zoom = '0.7'; /* More aggressive scaling */
         }
         
         // Force remove headers/footers by adding these meta tags
@@ -641,6 +900,36 @@
             meta2.name = 'creator';
             meta2.content = 'CV Generator';
             document.head.appendChild(meta2);
+            
+            // Add more meta tags to force browser to not display headers/footers
+            const metaTags = [
+                { name: 'unprintable', content: '.print-options, .mobile-print-toolbar, button' },
+                { name: 'apple-mobile-web-app-capable', content: 'yes' },
+                { name: 'mobile-web-app-capable', content: 'yes' },
+                { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' }
+            ];
+            
+            metaTags.forEach(meta => {
+                const metaTag = document.createElement('meta');
+                metaTag.name = meta.name;
+                metaTag.content = meta.content;
+                document.head.appendChild(metaTag);
+            });
+            
+            // Check if mobile view for toolbar visibility
+            function checkMobileView() {
+                if (window.innerWidth <= 768) {
+                    document.querySelector('.mobile-print-toolbar').style.display = 'flex';
+                    document.querySelector('.print-options').style.display = 'none';
+                } else {
+                    document.querySelector('.mobile-print-toolbar').style.display = 'none';
+                    document.querySelector('.print-options').style.display = 'flex';
+                }
+            }
+            
+            // Initial check and listen for window resize
+            checkMobileView();
+            window.addEventListener('resize', checkMobileView);
         });
     </script>
 </body>
