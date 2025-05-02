@@ -828,6 +828,15 @@ header .container {
   color: var(--primary-dark);
 }
 
+.project-tech .main-stack {
+  background-color: var(--primary-color);
+  color: #fff;
+  font-weight: 600;
+  border: 2px solid var(--primary-dark);
+  box-shadow: 0 2px 8px rgba(0,102,204,0.10);
+  letter-spacing: 0.5px;
+}
+
 .project-links {
   display: flex;
   gap: 10px;
