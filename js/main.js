@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const progressBars = document.querySelectorAll('.progress');
 
     // Efek typing pada hero section
-    initTypingEffect(typingText, ['Backend Developer', 'Frontend Developer', 'Full-Stack Developer']);
+    initTypingEffect(typingText, ['I Know That I Know Nothing', 'Just Freaking Man In The Middle', 'Junior Web Developer']);
 
     // Toggle mobile menu
     mobileMenuBtn.addEventListener('click', () => {
@@ -116,6 +116,72 @@ document.addEventListener('DOMContentLoaded', () => {
         animateSkillBars();
     }, 500);
 });
+
+// ===================== DYNAMIC FEATURED PROJECTS =====================
+const featuredProjects = [
+  {
+    type: 'Fullstack Project',
+    title: 'Fake Pinterest',
+    description: 'A platform for users to discover and share their favorite pins and ideas.',
+    image: 'assets/images/fullstack/fake-pinterest.jpg',
+    tech: ['React', 'Node.js', 'MongoDB'],
+    demo: 'https://fake-pinterest.vercel.app/',
+    code: 'https://github.com/saifulabidin/fake-pinterest',
+    seeMore: 'fullstack-project/index.html'
+  },
+  {
+    type: 'Frontend Project',
+    title: '25+5 Clock',
+    description: 'A time management tool that uses the Pomodoro technique to enhance productivity.',
+    image: 'frontend-project/assets/images/25-5-clock.png',
+    tech: ['React', 'HTML/CSS/JavaScript', 'Audio API', 'Hooks'],
+    demo: 'frontend-project/25-5-clock/index.html',
+    code: 'https://codepen.io/saifulabidin/pen/myyLVaw',
+    seeMore: 'frontend-project/index.html'
+  }
+];
+
+function renderFeaturedProjects() {
+  const container = document.getElementById('featured-projects');
+  if (!container) {
+    console.error('Featured projects container not found');
+    return;
+  }
+  
+  container.innerHTML = featuredProjects.map(project => `
+    <div class="featured-project fade-in">
+      <div class="featured-project-img">
+        <img src="${project.image}" alt="${project.title}" loading="lazy">
+      </div>
+      <div class="featured-project-content">
+        <span class="project-type">${project.type}</span>
+        <h3>${project.title}</h3>
+        <p>${project.description}</p>
+        <div class="featured-project-tech">
+          ${project.tech.map(t => `<span>${t}</span>`).join('')}
+        </div>
+        <div class="featured-project-links">
+          <a href="${project.demo}" class="btn small-btn primary-btn" target="_blank"><i class="fas fa-link"></i> Demo</a>
+          <a href="${project.code}" class="btn small-btn secondary-btn" target="_blank">
+            <i class="${project.type === 'Frontend Project' || project.code.includes('codepen.io') ? 'fab fa-codepen' : 'fab fa-github'}"></i> Code
+          </a>
+          <a href="${project.seeMore}" class="btn small-btn" target="_blank"><i class="fas fa-arrow-right"></i> See More</a>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  
+  console.log('Featured projects rendered:', featuredProjects.length);
+}
+
+// Make sure this function runs when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM loaded, rendering featured projects...');
+  renderFeaturedProjects();
+});
+
+// Keep the original event listener as a fallback
+document.addEventListener('DOMContentLoaded', renderFeaturedProjects);
 
 // Efek typing pada hero section
 function initTypingEffect(element, strings) {
