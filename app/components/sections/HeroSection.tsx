@@ -29,9 +29,6 @@ export default function HeroSection() {
                 threshold={0.2}
               >
                 <div className="flex flex-col items-center md:items-start gap-3 md:gap-2">
-                  <div className="flex items-center gap-2 bg-green-500/20 px-3 py-1 rounded-full border border-green-500/30">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  </div>
                   <div className="flex flex-col sm:flex-row items-center gap-2">
                     <h1 className="text-lg sm:text-xl md:text-2xl text-white font-bold">I'm Available For</h1>
                     <RotatingText
