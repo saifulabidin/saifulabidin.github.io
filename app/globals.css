@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "Poppins", serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .gradient-border {
+    background: linear-gradient(45deg, #C6F10E, #19222D);
+    padding: 2px;
+    border-radius: 8px;
+  }
+  
+  .gradient-border-inner {
+    background: #20293A;
+    border-radius: 6px;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Swiper Customization for Skills Section */
+.skills-swiper {
+  padding: 20px 0;
+  overflow: hidden;
+}
+
+.skills-swiper .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140px !important; /* Fixed width for consistent loop */
+  flex-shrink: 0;
+}
+
+.skills-swiper .swiper-wrapper {
+  transition-timing-function: linear !important;
+  will-change: transform;
+}
+
+/* Ensure proper loop behavior */
+.skills-swiper.swiper-initialized .swiper-slide {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Hover effects for skill cards */
+.skill-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Gradient overlay for section */
+.skills-section-overlay {
+  background: linear-gradient(135deg, rgba(198, 241, 14, 0.05) 0%, rgba(25, 34, 45, 0.8) 100%);
+}

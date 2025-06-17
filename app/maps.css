@@ -1,0 +1,248 @@
+/**
+ * Google Maps Styling
+ * This file contains all styling for Google Maps controls and UI elements
+ * 
+ * CONTENTS:
+ * 1. Base Map Styling
+ * 2. Map Type Toggle Control (bottom left)
+ * 3. Zoom Controls (bottom right)
+ * 4. Fullscreen Control (top right)
+ * 5. Attribution and Other Controls
+ * 6. Responsive Adjustments
+ */
+
+/* ----------------- 1. BASE MAP STYLING ----------------- */
+
+/* Base container for improved UI */
+.gm-improved-ui {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+/* Base styling for controls */
+.gm-improved-ui .gm-style > div {
+  transition: all 0.2s ease-in-out !important;
+}
+
+/* Hide default map type controls since we use custom controls */
+.gm-improved-ui .gm-style-mtc {
+  display: none !important;
+}
+
+/* Hide Google's default dropdown */
+.gm-improved-ui .gm-style-mtc div {
+  display: none !important;
+}
+
+/* ----------------- 2. MAP TYPE TOGGLE CONTROL ----------------- */
+
+/* Container positioning - BOTTOM LEFT */
+.gm-inset-map-container {
+  position: absolute !important;
+  left: 10px !important;
+  bottom: 25px !important;
+  right: auto !important;
+  top: auto !important;
+  z-index: 1000 !important;
+  margin: 10px !important;
+  pointer-events: auto !important;
+}
+
+/* Toggle button styling */
+.gm-inset-map {
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  padding: 0;
+  background: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Light mode for roadmap */
+.gm-inset-light {
+  background-color: white;
+}
+
+/* Dark mode for satellite */
+.gm-inset-dark {
+  background-color: #242f3e;
+}
+
+/* Inner container for map preview */
+.gm-inset-map-impl {
+  height: 38px;
+  width: 38px;
+  z-index: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Map type button overlay for interactions */
+.map-toggle-overlay {
+  z-index: 1;
+  position: absolute;
+  height: 38px;
+  width: 38px;
+}
+
+/* Hover effect */
+.gm-inset-map::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.gm-inset-map:hover::before {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.gm-inset-dark:hover::before {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Thumbnail backgrounds */
+.map-thumbnail, 
+.satellite-thumbnail {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Road map thumbnail */
+.map-thumbnail {
+  background-color: rgb(229, 227, 223);
+  background-image: url('/images/logo/peta.png');
+}
+
+/* Satellite thumbnail */
+.satellite-thumbnail {
+  background-color: rgb(27, 27, 27);
+  background-image: url('/images/logo/satelite.png');
+}
+
+/* ----------------- 3. ZOOM CONTROLS ----------------- */
+
+/* Zoom controls positioning - BOTTOM RIGHT */
+.gm-improved-ui .gmnoprint.gm-bundled-control {
+  position: absolute !important;
+  right: 10px !important;
+  left: auto !important;
+  bottom: 25px !important;
+  top: auto !important;
+  margin: 10px !important;
+  pointer-events: auto !important;
+  z-index: 1000 !important;
+}
+
+/* Force position for the zoom container */
+.gm-improved-ui .gmnoprint.gm-bundled-control .gm-bundled-control-on-bottom {
+  position: absolute !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  border-radius: 2px !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) !important;
+  background-color: white !important;
+  overflow: visible !important;
+}
+
+/* Force position for zoom controls container */
+.gm-improved-ui .gmnoprint.gm-bundled-control .gmnoprint {
+  position: relative !important;
+  display: block !important;
+}
+
+/* Zoom buttons */
+.gm-improved-ui .gm-bundled-control button {
+  width: 28px !important;
+  height: 28px !important;
+  background-color: white !important;
+  border: none !important;
+  transition: background-color 0.2s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Hover effect for zoom buttons */
+.gm-improved-ui .gm-bundled-control button:hover {
+  background-color: #f8f8f8 !important;
+}
+
+/* Button divider between + and - */
+.gm-improved-ui .gmnoprint.gm-bundled-control .gmnoprint > div > button + button {
+  border-top: 1px solid #e6e6e6 !important;
+}
+
+/* ----------------- 4. FULLSCREEN CONTROL ----------------- */
+
+/* Fullscreen control positioning - TOP RIGHT */
+.gm-improved-ui .gm-fullscreen-control {
+  position: absolute !important;
+  right: 10px !important;
+  top: 10px !important;
+  left: auto !important;
+  bottom: auto !important;
+  margin: 10px !important;
+  pointer-events: auto !important;
+}
+
+/* Fullscreen button styling */
+.gm-improved-ui .gm-fullscreen-control {
+  width: 40px !important;
+  height: 40px !important;
+  background-color: white !important;
+  border: none !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) !important;
+  border-radius: 2px !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* ----------------- 5. ATTRIBUTION AND OTHER CONTROLS ----------------- */
+
+/* Map attribution styling (Google logo and terms) */
+.gm-style-cc {
+  opacity: 0.8 !important;
+}
+
+.gm-style-cc:hover {
+  opacity: 1 !important;
+}
+
+/* Controls visibility on hover */
+.gm-bundled-control {
+  opacity: 0.9 !important;
+  transition: opacity 0.3s ease !important;
+}
+
+.gm-bundled-control:hover {
+  opacity: 1 !important;
+}
+
+/* ----------------- 6. RESPONSIVE ADJUSTMENTS ----------------- */
+
+@media (max-width: 768px) {
+  .gm-inset-map-container {
+    bottom: 20px !important;
+  }
+  
+  .gm-improved-ui .gmnoprint.gm-bundled-control {
+    bottom: 20px !important;
+  }
+}
