@@ -1,6 +1,7 @@
 'use client';
 
 import Image from "next/image";
+import { useState, useEffect, useRef } from "react";
 
 interface Project {
   title: string;
@@ -200,6 +201,125 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
   );
 };
 
+// Mobile Slider Component
+const MobileProjectSlider = ({ projects, categoryIcon, categoryName }: { projects: Project[], categoryIcon: string, categoryName: string }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoSliding, setIsAutoSliding] = useState(true);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  // Auto slide functionality
+  useEffect(() => {
+    if (!isAutoSliding || projects.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => 
+        prevIndex === projects.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 4000); // Auto slide every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [isAutoSliding, projects.length]);
+
+  // Touch handlers for swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsAutoSliding(false); // Pause auto slide on touch
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current - touchEndX.current > 50) {
+      // Swipe left - next slide
+      setCurrentIndex((prevIndex) => 
+        prevIndex === projects.length - 1 ? 0 : prevIndex + 1
+      );
+    }
+
+    if (touchEndX.current - touchStartX.current > 50) {
+      // Swipe right - previous slide
+      setCurrentIndex((prevIndex) => 
+        prevIndex === 0 ? projects.length - 1 : prevIndex - 1
+      );
+    }
+
+    // Resume auto slide after 5 seconds
+    setTimeout(() => setIsAutoSliding(true), 5000);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+    setIsAutoSliding(false);
+    setTimeout(() => setIsAutoSliding(true), 5000);
+  };
+
+  if (projects.length === 0) return null;
+
+  return (
+    <div className="mb-12">
+      <h3 className="text-xl sm:text-2xl font-semibold mb-6 text-center">
+        {categoryIcon} {categoryName} Projects
+      </h3>
+      
+      <div className="relative">
+        {/* Slider Container */}
+        <div 
+          ref={sliderRef}
+          className="overflow-hidden rounded-lg"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div 
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{
+              transform: `translateX(-${currentIndex * 100}%)`,
+            }}
+          >
+            {projects.map((project, index) => (
+              <div key={index} className="w-full flex-shrink-0 px-2">
+                <ProjectCard project={project} index={index} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Dots Indicator */}
+        {projects.length > 1 && (
+          <div className="flex justify-center mt-4 space-x-2">
+            {projects.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all ${
+                  index === currentIndex 
+                    ? 'bg-[#C6F10E] scale-110' 
+                    : 'bg-gray-400 hover:bg-gray-300'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        )}
+
+        {/* Auto-slide indicator */}
+        {projects.length > 1 && (
+          <div className="flex justify-center mt-2">
+            <div className={`text-xs text-gray-400 flex items-center gap-1 ${isAutoSliding ? 'opacity-100' : 'opacity-50'}`}>
+              <div className={`w-2 h-2 rounded-full ${isAutoSliding ? 'bg-[#C6F10E] animate-pulse' : 'bg-gray-400'}`}></div>
+              Auto-sliding {isAutoSliding ? 'ON' : 'OFF'}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
 export default function ProjectsSection() {
   const categories = [
     { name: "Backend", icon: "🖥️", projects: projects.filter(p => p.category === "Backend") },
@@ -211,24 +331,39 @@ export default function ProjectsSection() {
   return (
     <section id="projects" className="py-16 md:py-24">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-6">My <span className="text-[#C6F10E]">Projects</span></h2>
-        <p className="text-center text-gray-300 mb-12 max-w-3xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-6">My <span className="text-[#C6F10E]">Projects</span></h2>
+        <p className="text-center text-gray-300 mb-12 max-w-3xl mx-auto text-sm sm:text-base">
           A showcase of my professional work and current projects I'm developing at PT. Infinity Blessing Indonesia, 
           featuring enterprise-level applications, mobile development, and innovative business solutions.
         </p>
 
-        {categories.map((category, categoryIndex) => (
-          <div key={categoryIndex} className="mb-16">
-            <h3 className="text-2xl font-semibold mb-8 text-center">
-              {category.icon} {category.name} Projects
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {category.projects.map((project, index) => (
-                <ProjectCard key={index} project={project} index={index} />
-              ))}
+        {/* Mobile View - Slider */}
+        <div className="block md:hidden">
+          {categories.map((category, categoryIndex) => (
+            <MobileProjectSlider 
+              key={categoryIndex}
+              projects={category.projects}
+              categoryIcon={category.icon}
+              categoryName={category.name}
+            />
+          ))}
+        </div>
+
+        {/* Desktop View - Grid */}
+        <div className="hidden md:block">
+          {categories.map((category, categoryIndex) => (
+            <div key={categoryIndex} className="mb-16">
+              <h3 className="text-2xl font-semibold mb-8 text-center">
+                {category.icon} {category.name} Projects
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {category.projects.map((project, index) => (
+                  <ProjectCard key={index} project={project} index={index} />
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
 
         {/* View More Projects Button */}
         <div className="text-center mt-12">
