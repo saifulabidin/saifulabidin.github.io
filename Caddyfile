@@ -1,0 +1,29 @@
+{
+  email ${CADDY_EMAIL}
+  
+  # Optional: improve TLS/cert handling
+  acme_ca https://acme-v02.api.letsencrypt.org/directory
+}
+
+www.sabidzpro.my.id {
+  redir https://sabidzpro.my.id{uri}
+}
+
+sabidzpro.my.id {
+  encode zstd gzip
+  @static {
+    path /_next/*
+    path /images/*
+    path /assets/*
+    path /favicon.ico
+    path /robots.txt
+    path /sitemap.xml
+  }
+
+  handle @static {
+    reverse_proxy web:3000
+  }
+
+  reverse_proxy web:3000
+  tls ${CADDY_EMAIL}
+}

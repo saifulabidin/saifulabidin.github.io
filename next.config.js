@@ -4,6 +4,8 @@ const nextConfig = {
   images: {
     domains: ['avatars.githubusercontent.com'],
   },
+  // Enable standalone output for minimal production image
+  output: 'standalone',
 }
 
 module.exports = nextConfig

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next"
 import localFont from "next/font/local";
 import "./globals.css";
@@ -16,8 +16,45 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Saiful Abidin - Full Stack Developer | Professional Portfolio",
-  description: "Full Stack Developer from Indonesia specializing in React, Next.js, Node.js, and modern web technologies. Over 5 years of experience building scalable web applications, e-commerce platforms, and innovative digital solutions.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://sabidzpro.my.id"),
+  title: {
+    default: "Saiful Abidin - Full Stack Developer | Professional Portfolio",
+    template: "%s | Saiful Abidin",
+  },
+  description:
+    "Full Stack Developer from Indonesia specializing in React, Next.js, Node.js, and modern web technologies. Over 5 years of experience building scalable web applications, e-commerce platforms, and innovative digital solutions.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "Saiful Abidin Portfolio",
+    title: "Saiful Abidin - Full Stack Developer",
+    description:
+      "Full Stack Developer from Indonesia specializing in React, Next.js, Node.js, and modern web technologies.",
+    images: [
+      {
+        url: "/images/logo/React.svg",
+        width: 1200,
+        height: 630,
+        alt: "Saiful Abidin Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Saiful Abidin - Full Stack Developer",
+    description:
+      "Full Stack Developer from Indonesia specializing in React, Next.js, Node.js, and modern web technologies.",
+    images: ["/images/logo/React.svg"],
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#19222D",
 };
 
 export default function RootLayout({

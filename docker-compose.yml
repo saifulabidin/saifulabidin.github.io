@@ -1,0 +1,50 @@
+version: "3.9"
+
+services:
+  web:
+    build: .
+    image: sabidzpro/portfolio:latest
+    env_file:
+      - .env
+    environment:
+      # Next.js runtime envs (public ones prefixed with NEXT_PUBLIC_)
+      - NEXT_PUBLIC_SITE_URL=https://sabidzpro.my.id
+      - NODE_ENV=production
+      # Server-only envs
+      - GOOGLE_MAPS_API_KEY=${GOOGLE_MAPS_API_KEY}
+    restart: unless-stopped
+    networks:
+      - webnet
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:3000 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - ACME_AGREE=true
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+    networks:
+      - webnet
+    depends_on:
+      web:
+        condition: service_healthy
+
+networks:
+  webnet:
+    driver: bridge
+
+volumes:
+  caddy_data:
+  caddy_config:

@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Saiful Abidin Portfolio
 
-## Getting Started
+Production-ready Next.js app with Docker and Caddy reverse proxy.
 
-First, run the development server:
+## Quick start (VPS)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+1. Install Docker & Docker Compose
+2. Clone repo and set env
+
+```powershell
+# On your VPS
+git clone https://github.com/saifulabidin/saifulabidin.github.io.git
+cd saifulabidin.github.io
+copy .env.example .env
+# Edit .env and set GOOGLE_MAPS_API_KEY and CADDY_EMAIL
+
+# Build & run
+docker compose up -d --build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Your site will be available at https://sabidzpro.my.id with automatic HTTPS.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- NEXT_PUBLIC_SITE_URL: Base URL for SEO and sitemap
+- GOOGLE_MAPS_API_KEY: Server-side API key used by `/api/maps` proxy
+- CADDY_EMAIL: Email for Let's Encrypt
 
-## Learn More
+## Local development
 
-To learn more about Next.js, take a look at the following resources:
+```powershell
+npm install
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tests
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Run the Docker smoke test locally (requires Docker):
 
-## Deploy on Vercel
+```powershell
+npm run test:docker
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## SEO
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Robots: `app/robots.ts`
+- Sitemap: `app/sitemap.ts`
+- Rich metadata in `app/layout.tsx`
+
+## Notes
+
+- The Docker image uses Next.js `standalone` output for minimal size.
+- Caddy handles TLS and reverse proxy on ports 80/443.
