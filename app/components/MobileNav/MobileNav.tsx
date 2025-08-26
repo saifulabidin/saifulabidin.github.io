@@ -67,7 +67,8 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, toggleMenu }) => {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="fixed top-0 right-0 h-screen w-[75%] max-w-[350px] bg-[#19222D] border-l border-[#2A3749] shadow-xl z-50 flex flex-col"
+            className="fixed top-0 right-0 h-[100dvh] w-[75%] max-w-[350px] bg-[#19222D] border-l border-[#2A3749] shadow-xl z-50 flex flex-col overscroll-contain"
+            style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
           >
             {/* Close button */}
             <div className="flex justify-end p-4">
@@ -90,7 +91,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, toggleMenu }) => {
             </div>
 
             {/* Navigation Links */}
-            <nav className="flex-1 px-6 py-8">
+            <nav className="flex-1 overflow-y-auto px-6 py-6 sm:py-8">
               <ul className="flex flex-col space-y-4">
                 {links.map((link, index) => (
                   <motion.li
@@ -112,7 +113,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, toggleMenu }) => {
             </nav>
 
             {/* Social Links */}
-            <div className="px-6 py-8 border-t border-[#2A3749]">
+            <div className="px-6 py-5 sm:py-6 border-t border-[#2A3749] sticky bottom-0 bg-[#19222D]/95 backdrop-blur-sm z-10">
               <p className="text-gray-400 mb-4">Follow me</p>
               <div className="flex space-x-4">
                 <a
