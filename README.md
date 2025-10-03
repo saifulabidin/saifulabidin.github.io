@@ -18,7 +18,7 @@ copy .env.example .env
 docker compose up -d --build
 ```
 
-Your site will be available at https://sabidzpro.my.id with automatic HTTPS.
+Your site will be available at https://sabidzpro.is-a.dev with automatic HTTPS.
 
 ## Environment variables
 

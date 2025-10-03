@@ -16,39 +16,27 @@ import {
 
 export default function Home() {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#19222D]">
+    <main className="min-h-screen overflow-x-hidden bg-[#19222D]">
       {/* Splash Cursor Effect */}
       <SplashCursor />
       
-      {/* Navigation */}
+      {/* Navigation - Header Element */}
       <Navigation />
 
-      {/* Hero Section */}
+      {/* Hero Section - Introduction */}
       <HeroSection />
 
-      {/* About Section */}
+      {/* Main Content Sections */}
       <AboutSection />
-
-      {/* Skills Section */}
       <SkillsSection />
-
-      {/* Education Section */}
       <EducationSection />
-
-      {/* Experience Section */}
       <ExperienceSection />
-
-      {/* Projects Section */}
       <ProjectsSection />
-
-      {/* Certificates Section */}
       <CertificatesSection />
-
-      {/* Contact Section */}
       <ContactSection />
 
       {/* Footer */}
       <FooterSection />
-    </div>
+    </main>
   );
 }

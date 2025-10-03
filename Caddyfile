@@ -6,7 +6,7 @@
 }
 
 www.sabidzpro.my.id {
-  redir https://sabidzpro.my.id{uri}
+  redir https://sabidzpro.is-a.dev{uri}
 }
 
 sabidzpro.my.id {

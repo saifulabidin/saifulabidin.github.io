@@ -8,7 +8,7 @@ services:
       - .env
     environment:
       # Next.js runtime envs (public ones prefixed with NEXT_PUBLIC_)
-      - NEXT_PUBLIC_SITE_URL=https://sabidzpro.my.id
+      - NEXT_PUBLIC_SITE_URL=https://sabidzpro.is-a.dev
       - NODE_ENV=production
       # Server-only envs
       - GOOGLE_MAPS_API_KEY=${GOOGLE_MAPS_API_KEY}

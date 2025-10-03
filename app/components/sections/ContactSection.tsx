@@ -14,7 +14,7 @@ export default function ContactSection() {
           <div className="lg:col-span-5 space-y-8">
             {/* Contact Information */}
             <div className="bg-[#19222D] p-6 rounded-lg shadow-lg">
-              <h3 className="text-xl sm:text-2xl font-semibold mb-6">Let's Connect</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold mb-6">Let&apos;s Connect</h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-[#C6F10E] rounded-lg flex items-center justify-center flex-shrink-0">

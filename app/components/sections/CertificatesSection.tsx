@@ -17,56 +17,56 @@ const certificates: Certificate[] = [
     issuer: "FreeCodeCamp",
     date: "2022",
     image: "/images/sertifikat/freecodecamp-responsive-web-design.jpg",
-    credentialUrl: "https://freecodecamp.org/certification"
+    credentialUrl: "https://www.freecodecamp.org/certification/saifulabidin/responsive-web-design"
   },
   {
     title: "JavaScript Algorithms and Data Structures",
     issuer: "FreeCodeCamp", 
     date: "2022",
     image: "/images/sertifikat/freecodecamp-javascript-algorithms-and-data-structures.jpg",
-    credentialUrl: "https://freecodecamp.org/certification"
+    credentialUrl: "https://www.freecodecamp.org/certification/saifulabidin/javascript-algorithms-and-data-structures-v8"
   },
   {
     title: "Backend Development and APIs",
     issuer: "FreeCodeCamp",
     date: "2023",
     image: "/images/sertifikat/freecodecamp-backend-development-and-apis.jpg",
-    credentialUrl: "https://freecodecamp.org/certification"
+    credentialUrl: "https://www.freecodecamp.org/certification/saifulabidin/back-end-development-and-apis"
   },
   {
     title: "Scientific Computing with Python",
     issuer: "FreeCodeCamp",
     date: "2023",
     image: "/images/sertifikat/freecodecamp-scientic-computing-with-python.jpg",
-    credentialUrl: "https://freecodecamp.org/certification"
+    credentialUrl: "https://www.freecodecamp.org/certification/saifulabidin/scientific-computing-with-python-v7"
   },
   {
     title: "Legacy Backend Challenges",
     issuer: "FreeCodeCamp",
     date: "2023", 
     image: "/images/sertifikat/freecodecamp-legacy-backend.jpg",
-    credentialUrl: "https://freecodecamp.org/certification"
+    credentialUrl: "https://www.freecodecamp.org/certification/saifulabidin/legacy-back-end"
   },
   {
     title: "Belajar Dasar Pemrograman JavaScript",
     issuer: "Dicoding Indonesia",
     date: "2022",
     image: "/images/sertifikat/dicoding-dasar-pemrograman-javascript.jpg",
-    credentialUrl: "https://dicoding.com/certificates"
+    credentialUrl: "https://www.dicoding.com/certificates/0LZ0R0E63P65"
   },
   {
     title: "Belajar Backend Pemula dengan JavaScript",
     issuer: "Dicoding Indonesia", 
     date: "2023",
     image: "/images/sertifikat/dicoding-belajar-backend-pemula-dengan-javascript.jpg",
-    credentialUrl: "https://dicoding.com/certificates"
+    credentialUrl: "https://www.dicoding.com/certificates/1OP828KJ1PQK"
   },
   {
     title: "Belajar Dasar Cloud dan Gen AI di AWS",
     issuer: "Dicoding Indonesia",
     date: "2024",
     image: "/images/sertifikat/dicoding-belajar-dasar-cloud-dan-gen-ai-di-aws.jpg",
-    credentialUrl: "https://dicoding.com/certificates"
+    credentialUrl: "https://www.dicoding.com/certificates/N9ZO9RE76XG5"
   }
 ];
 

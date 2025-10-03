@@ -1,0 +1,16 @@
+/* TEAM */
+Developer: Saiful Abidin
+Site: https://sabidzpro.is-a.dev
+Twitter: @sabidzpro
+Location: Wonogiri, Indonesia
+
+/* THANKS */
+Next.js Team
+React Team
+Vercel Team
+
+/* SITE */
+Last update: 2025/01/03
+Language: English / Indonesian
+Doctype: HTML5
+IDE: Visual Studio Code

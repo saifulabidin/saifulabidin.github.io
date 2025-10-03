@@ -333,7 +333,7 @@ export default function ProjectsSection() {
       <div className="container mx-auto px-4">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-6">My <span className="text-[#C6F10E]">Projects</span></h2>
         <p className="text-center text-gray-300 mb-12 max-w-3xl mx-auto text-sm sm:text-base">
-          A showcase of my professional work and current projects I'm developing at PT. Infinity Blessing Indonesia, 
+          A showcase of my professional work and current projects I&apos;m developing at PT. Infinity Blessing Indonesia, 
           featuring enterprise-level applications, mobile development, and innovative business solutions.
         </p>
 

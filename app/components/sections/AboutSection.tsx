@@ -19,7 +19,7 @@ export default function AboutSection() {
           {/* Introduction */}
           <div className="text-center mb-12 sm:mb-16">
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
-              Hello! I'm <span className="text-[#C6F10E]">Saiful Abidin</span>
+              Hello! I&apos;m <span className="text-[#C6F10E]">Saiful Abidin</span>
             </h3>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
               A passionate <strong className="text-[#C6F10E]">Full Stack Developer</strong> from Indonesia with over 5 years of experience in creating digital solutions.
@@ -37,7 +37,7 @@ export default function AboutSection() {
                     Currently working at <strong className="text-[#C6F10E]">PT. Infinity Blessing Indonesia</strong>, where I develop comprehensive applications ranging from employee management systems to sales platforms.
                   </p>
                   <p>
-                    My journey started as a self-taught developer, and I've evolved into a versatile professional skilled in both <strong className="text-[#C6F10E]">frontend and backend development</strong>, as well as <strong className="text-[#C6F10E]">mobile app development using Flutter</strong>.
+                    My journey started as a self-taught developer, and I&apos;ve evolved into a versatile professional skilled in both <strong className="text-[#C6F10E]">frontend and backend development</strong>, as well as <strong className="text-[#C6F10E]">mobile app development using Flutter</strong>.
                   </p>
                   <p>
                     I specialize in modern technologies including <strong className="text-[#C6F10E]">React, Next.js, Node.js, and Flutter</strong>, with experience in building scalable applications that serve real business needs.

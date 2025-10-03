@@ -30,7 +30,7 @@ export default function HeroSection() {
               >
                 <div className="flex flex-col items-center md:items-start gap-3 md:gap-2">
                   <div className="flex flex-col sm:flex-row items-center gap-2">
-                    <h1 className="text-lg sm:text-xl md:text-2xl text-white font-bold">I'm Available For</h1>
+                    <h1 className="text-lg sm:text-xl md:text-2xl text-white font-bold">I&apos;m Available For</h1>
                     <RotatingText
                       texts={['Freelance', 'Full-time Job', 'Collaboration', 'Mobile Development']}
                       mainClassName="px-3 py-1 bg-[#C6F10E] text-black overflow-hidden rounded-lg text-lg sm:text-xl md:text-2xl font-bold inline-flex transition-all"
@@ -97,7 +97,7 @@ export default function HeroSection() {
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row items-center gap-4 mb-2">
                 <a href="#contact" className="w-full sm:w-auto bg-[#C6F10E] hover:bg-[#a5c70c] text-black py-3 px-8 rounded-lg font-semibold transition-all transform hover:scale-105 text-center shadow-lg shadow-[#C6F10E]/25">
-                  Let's Work Together
+                  Let&apos;s Work Together
                 </a>
                 <a href="#projects" className="w-full sm:w-auto bg-transparent hover:bg-white/10 text-white border-2 border-white/20 hover:border-[#C6F10E] py-3 px-8 rounded-lg font-semibold transition-all text-center">
                   View My Work
