@@ -24,6 +24,11 @@ export const metadata: Metadata = {
   description:
     "Professional Full Stack Developer from Indonesia with 5+ years experience. Expert in React, Next.js, Node.js, TypeScript, MongoDB, PostgreSQL. Building scalable web applications, e-commerce platforms, and innovative digital solutions. Available for freelance projects and collaborations.",
   keywords: [
+    "Saiful",
+    "itssabidz",
+    "sabidz",
+    "sabidzpro",
+    "sabidzpro.is-a.dev",
     "Saiful Abidin",
     "Full Stack Developer",
     "React Developer",
