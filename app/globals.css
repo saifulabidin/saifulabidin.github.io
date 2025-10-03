@@ -103,3 +103,35 @@ body {
 .skills-section-overlay {
   background: linear-gradient(135deg, rgba(198, 241, 14, 0.05) 0%, rgba(25, 34, 45, 0.8) 100%);
 }
+
+/* Certificate Image Optimization */
+.certificate-image-container {
+  position: relative;
+  width: 100%;
+  background: #1a1a1a;
+}
+
+/* Ensure certificates display properly with correct aspect ratio */
+@media (max-width: 640px) {
+  .certificate-image-container {
+    min-height: 200px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .certificate-image-container {
+    min-height: 250px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .certificate-image-container {
+    min-height: 280px;
+  }
+}
+
+/* Smooth image loading */
+.certificate-image-container img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}

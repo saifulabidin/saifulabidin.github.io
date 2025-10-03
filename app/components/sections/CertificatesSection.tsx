@@ -7,6 +7,7 @@ interface Certificate {
   title: string;
   issuer: string;
   date: string;
+  renewed?: string;
   image: string;
   credentialUrl?: string;
 }
@@ -16,6 +17,7 @@ const certificates: Certificate[] = [
     title: "Responsive Web Design",
     issuer: "FreeCodeCamp",
     date: "2022",
+    renewed: "2025",
     image: "/images/sertifikat/freecodecamp-responsive-web-design.jpg",
     credentialUrl: "https://www.freecodecamp.org/certification/saifulabidin/responsive-web-design"
   },
@@ -23,6 +25,7 @@ const certificates: Certificate[] = [
     title: "JavaScript Algorithms and Data Structures",
     issuer: "FreeCodeCamp", 
     date: "2022",
+    renewed: "2025",
     image: "/images/sertifikat/freecodecamp-javascript-algorithms-and-data-structures.jpg",
     credentialUrl: "https://www.freecodecamp.org/certification/saifulabidin/javascript-algorithms-and-data-structures-v8"
   },
@@ -30,6 +33,7 @@ const certificates: Certificate[] = [
     title: "Backend Development and APIs",
     issuer: "FreeCodeCamp",
     date: "2023",
+    renewed: "2025",
     image: "/images/sertifikat/freecodecamp-backend-development-and-apis.jpg",
     credentialUrl: "https://www.freecodecamp.org/certification/saifulabidin/back-end-development-and-apis"
   },
@@ -37,13 +41,15 @@ const certificates: Certificate[] = [
     title: "Scientific Computing with Python",
     issuer: "FreeCodeCamp",
     date: "2023",
+    renewed: "2025",
     image: "/images/sertifikat/freecodecamp-scientic-computing-with-python.jpg",
     credentialUrl: "https://www.freecodecamp.org/certification/saifulabidin/scientific-computing-with-python-v7"
   },
   {
     title: "Legacy Backend Challenges",
     issuer: "FreeCodeCamp",
-    date: "2023", 
+    date: "2023",
+    renewed: "2025",
     image: "/images/sertifikat/freecodecamp-legacy-backend.jpg",
     credentialUrl: "https://www.freecodecamp.org/certification/saifulabidin/legacy-back-end"
   },
@@ -51,6 +57,7 @@ const certificates: Certificate[] = [
     title: "Belajar Dasar Pemrograman JavaScript",
     issuer: "Dicoding Indonesia",
     date: "2022",
+    renewed: "2025",
     image: "/images/sertifikat/dicoding-dasar-pemrograman-javascript.jpg",
     credentialUrl: "https://www.dicoding.com/certificates/0LZ0R0E63P65"
   },
@@ -58,13 +65,15 @@ const certificates: Certificate[] = [
     title: "Belajar Backend Pemula dengan JavaScript",
     issuer: "Dicoding Indonesia", 
     date: "2023",
-    image: "/images/sertifikat/dicoding-belajar-backend-pemula-dengan-javascript.jpg",
+    renewed: "2025",
+    image: "/images/sertifikat/dicoding-belajar-backend-pemula-dengan-javascript.svg",
     credentialUrl: "https://www.dicoding.com/certificates/1OP828KJ1PQK"
   },
   {
     title: "Belajar Dasar Cloud dan Gen AI di AWS",
     issuer: "Dicoding Indonesia",
     date: "2024",
+    renewed: "2025",
     image: "/images/sertifikat/dicoding-belajar-dasar-cloud-dan-gen-ai-di-aws.jpg",
     credentialUrl: "https://www.dicoding.com/certificates/N9ZO9RE76XG5"
   }
@@ -145,13 +154,14 @@ const MobileCertificateSlider = ({ certificates }: { certificates: Certificate[]
           {certificates.map((cert, index) => (
             <div key={index} className="w-full flex-shrink-0 px-2">
               <div className="bg-[#19222D] rounded-lg overflow-hidden shadow-lg">
-                <div className="h-48 overflow-hidden relative">
+                <div className="relative w-full" style={{ aspectRatio: '1.41/1' }}>
                   <Image
                     src={cert.image}
                     alt={cert.title}
-                    width={400}
-                    height={300}
-                    className="w-full h-full object-cover object-center"
+                    width={1526}
+                    height={1080}
+                    className="w-full h-full object-contain bg-gray-900"
+                    priority={index === 0}
                   />
                   <div className="absolute top-2 right-2">
                     <span className="bg-[#C6F10E] text-black px-2 py-1 rounded-full text-xs font-semibold">
@@ -162,7 +172,15 @@ const MobileCertificateSlider = ({ certificates }: { certificates: Certificate[]
                 <div className="p-4 sm:p-6">
                   <h3 className="text-base sm:text-lg font-semibold mb-2 text-white">{cert.title}</h3>
                   <p className="text-[#C6F10E] text-sm font-medium mb-2">{cert.issuer}</p>
-                  <p className="text-gray-400 text-sm mb-4">Issued: {cert.date}</p>
+                  <div className="flex items-center gap-2 text-gray-400 text-sm mb-4">
+                    <span>Issued: {cert.date}</span>
+                    {cert.renewed && (
+                      <>
+                        <span className="text-gray-600">•</span>
+                        <span className="text-[#C6F10E]">Renewed: {cert.renewed}</span>
+                      </>
+                    )}
+                  </div>
                   {cert.credentialUrl && (
                     <a
                       href={cert.credentialUrl}
@@ -226,7 +244,7 @@ export default function CertificatesSection() {
         </p>
         
         {/* Mobile View - Slider */}
-        <div className="block lg:hidden mb-12">
+        <div className="block lg:hidden mb-12 max-w-2xl mx-auto">
           <MobileCertificateSlider certificates={certificates} />
         </div>
 
@@ -234,13 +252,14 @@ export default function CertificatesSection() {
         <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {certificates.map((cert, index) => (
             <div key={index} className="bg-[#19222D] rounded-lg overflow-hidden shadow-lg hover:shadow-xl hover:translate-y-[-5px] transition-all duration-300">
-              <div className="h-48 overflow-hidden relative">
+              <div className="relative w-full overflow-hidden" style={{ aspectRatio: '1.41/1' }}>
                 <Image
                   src={cert.image}
                   alt={cert.title}
-                  width={400}
-                  height={300}
-                  className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-300"
+                  width={1526}
+                  height={1080}
+                  className="w-full h-full object-contain bg-gray-900 hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
                 />
                 <div className="absolute top-2 right-2">
                   <span className="bg-[#C6F10E] text-black px-2 py-1 rounded-full text-xs font-semibold">
@@ -251,7 +270,15 @@ export default function CertificatesSection() {
               <div className="p-6">
                 <h3 className="text-lg font-semibold mb-2 text-white">{cert.title}</h3>
                 <p className="text-[#C6F10E] text-sm font-medium mb-2">{cert.issuer}</p>
-                <p className="text-gray-400 text-sm mb-4">Issued: {cert.date}</p>
+                <div className="flex items-center gap-2 text-gray-400 text-sm mb-4">
+                  <span>Issued: {cert.date}</span>
+                  {cert.renewed && (
+                    <>
+                      <span className="text-gray-600">•</span>
+                      <span className="text-[#C6F10E]">Renewed: {cert.renewed}</span>
+                    </>
+                  )}
+                </div>
                 {cert.credentialUrl && (
                   <a
                     href={cert.credentialUrl}
