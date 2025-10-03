@@ -4,6 +4,7 @@ import "./globals.css";
 import "./maps.css";
 import { metadata, viewport } from "./constants/seoMetadata";
 import { personSchema, websiteSchema, profilePageSchema } from "./constants/structuredData";
+import CookieConsent from "./components/CookieConsent/CookieConsent";
 
 // Export metadata and viewport from module
 export { metadata, viewport };
@@ -45,6 +46,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <CookieConsent />
         <Analytics />
       </body>
     </html>
