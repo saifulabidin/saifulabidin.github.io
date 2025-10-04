@@ -81,7 +81,7 @@ export const websiteSchema = {
   "name": "Saiful Abidin Portfolio",
   "alternateName": "sabidzpro Portfolio",
   "url": SITE_URL,
-  "description": "Professional Full Stack Developer Portfolio showcasing projects and skills in React, Next.js, Node.js, and modern web technologies. Over 5 years of experience with 50+ completed projects.",
+  "description": "Professional Full Stack Developer Portfolio showcasing projects and skills in React, Next.js, Node.js, and modern web technologies. Over 5 years of experience with 27+ completed projects.",
   "author": {
     "@type": "Person",
     "name": "Saiful Abidin"

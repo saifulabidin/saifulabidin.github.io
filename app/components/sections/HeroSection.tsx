@@ -85,7 +85,7 @@ export default function HeroSection() {
                   <div className="text-sm sm:text-base text-gray-400 mt-1">Years Experience</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#C6F10E]">50+</div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#C6F10E]">27+</div>
                   <div className="text-sm sm:text-base text-gray-400 mt-1">Projects Done</div>
                 </div>
                 <div className="text-center">

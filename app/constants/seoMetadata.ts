@@ -147,10 +147,10 @@ export const aboutMetadata: Metadata = {
 // Projects Page Metadata
 export const projectsMetadata: Metadata = {
   title: "Projects - Saiful Abidin Portfolio",
-  description: "Explore my portfolio of 50+ completed projects including web applications, e-commerce platforms, mobile apps, and enterprise solutions built with React, Next.js, Node.js, and Flutter.",
+  description: "Explore my portfolio of 27+ completed projects including web applications, e-commerce platforms, mobile apps, and enterprise solutions built with React, Next.js, Node.js, and Flutter.",
   openGraph: {
     title: "Projects - Saiful Abidin Portfolio",
-    description: "Explore my portfolio of 50+ completed projects including web applications, e-commerce platforms, mobile apps, and enterprise solutions.",
+    description: "Explore my portfolio of 27+ completed projects including web applications, e-commerce platforms, mobile apps, and enterprise solutions.",
     url: `${SITE_URL}/#projects`,
   },
 };

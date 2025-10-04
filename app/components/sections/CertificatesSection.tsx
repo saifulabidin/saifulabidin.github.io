@@ -310,7 +310,7 @@ export default function CertificatesSection() {
             <div className="text-gray-300">Hours Studied</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-[#C6F10E] mb-2">50+</div>
+            <div className="text-3xl font-bold text-[#C6F10E] mb-2">27+</div>
             <div className="text-gray-300">Projects Completed</div>
           </div>
           <div className="text-center">
