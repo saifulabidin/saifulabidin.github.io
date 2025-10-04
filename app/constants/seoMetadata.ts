@@ -77,11 +77,11 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: [
       {
-        url: "/images/logo/React.svg",
+        url: "/favicon.ico",
         width: 1200,
         height: 630,
         alt: SITE_NAME,
-        type: "image/svg+xml",
+        type: "image/x-icon",
       },
     ],
   },
@@ -93,7 +93,7 @@ export const metadata: Metadata = {
     creator: TWITTER_HANDLE,
     title: "Saiful Abidin - Full Stack Developer | React & Next.js Expert",
     description: "Professional Full Stack Developer from Indonesia. Expert in React, Next.js, Node.js, TypeScript. Building scalable web applications and innovative digital solutions.",
-    images: ["/images/logo/React.svg"],
+    images: ["/favicon.ico"],
   },
   
   // Additional Metadata
@@ -108,8 +108,8 @@ export const metadata: Metadata = {
   
   // Icons & Manifest
   icons: {
-    icon: "/images/logo/React.svg",
-    apple: "/images/logo/React.svg",
+    icon: "/favicon.ico",
+    apple: "/favicon.ico",
   },
   manifest: "/manifest.json",
 };

@@ -11,7 +11,7 @@
 
 # github
 .github 
-
+.claude
 # next.js
 /.next/
 /out/

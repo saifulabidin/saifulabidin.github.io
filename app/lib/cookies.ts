@@ -144,11 +144,84 @@ export const rejectAllCookies = (): void => {
 export const isCookieConsentExpired = (): boolean => {
   const consentDate = getCookieConsentDate();
   if (!consentDate) return true;
-  
+
   const oneYearAgo = new Date();
   oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
-  
+
   return consentDate < oneYearAgo;
+};
+
+/**
+ * Check if user has enabled Do Not Track
+ */
+export const isDoNotTrackEnabled = (): boolean => {
+  if (typeof window === 'undefined') return false;
+
+  // Check various DNT signals with proper type assertions
+  const dnt = navigator.doNotTrack || (window as any).doNotTrack;
+  const msTracking = (navigator as any).msDoNotTrack;
+
+  return dnt === '1' || dnt === 'yes' || msTracking === '1';
+};
+
+/**
+ * Check if we should show cookie consent
+ */
+export const shouldShowCookieConsent = (): boolean => {
+  const consent = getCookieConsent();
+  const hasExpired = isCookieConsentExpired();
+  const dntEnabled = isDoNotTrackEnabled();
+
+  // Show if no consent, consent expired, or DNT is enabled (to allow rejection)
+  return !consent || hasExpired || dntEnabled;
+};
+
+/**
+ * Get effective cookie preferences considering DNT
+ */
+export const getEffectiveCookiePreferences = (): CookiePreferences => {
+  const prefs = getCookiePreferences();
+  const dntEnabled = isDoNotTrackEnabled();
+
+  if (dntEnabled) {
+    // If DNT is enabled, only essential cookies
+    return {
+      essential: true,
+      analytics: false,
+      marketing: false,
+      preferences: false,
+    };
+  }
+
+  return prefs;
+};
+
+/**
+ * Cookie consent version for policy updates
+ */
+export const COOKIE_CONSENT_VERSION = '1.0';
+
+/**
+ * Check if cookie consent needs update due to version change
+ */
+export const needsCookieConsentUpdate = (): boolean => {
+  if (typeof window === 'undefined') return false;
+
+  const currentVersion = localStorage.getItem('cookieConsentVersion');
+  const consent = getCookieConsent();
+
+  // If no consent or version mismatch, needs update
+  return !consent || currentVersion !== COOKIE_CONSENT_VERSION;
+};
+
+/**
+ * Set cookie consent with version
+ */
+export const setCookieConsentWithVersion = (status: 'accepted' | 'rejected'): void => {
+  if (typeof window === 'undefined') return;
+
+  setCookieConsent(status);
+  localStorage.setItem('cookieConsentVersion', COOKIE_CONSENT_VERSION);
 };
 
 /**
@@ -156,10 +229,10 @@ export const isCookieConsentExpired = (): boolean => {
  */
 export const initializeAnalytics = (): void => {
   if (typeof window === 'undefined') return;
-  
+
   const consent = hasCookieConsent();
-  const prefs = getCookiePreferences();
-  
+  const prefs = getEffectiveCookiePreferences(); // Use effective prefs (DNT aware)
+
   if (window.gtag) {
     window.gtag('consent', 'update', {
       'analytics_storage': consent && prefs.analytics ? 'granted' : 'denied',
@@ -167,6 +240,31 @@ export const initializeAnalytics = (): void => {
       'functionality_storage': consent && prefs.preferences ? 'granted' : 'denied',
     });
   }
+};
+
+/**
+ * Complete cookie consent initialization
+ */
+export const initializeCookieConsent = (): { shouldShow: boolean; reason: string } => {
+  if (typeof window === 'undefined') return { shouldShow: false, reason: 'SSR' };
+
+  const consent = getCookieConsent();
+  const hasExpired = isCookieConsentExpired();
+  const needsUpdate = needsCookieConsentUpdate();
+  const dntEnabled = isDoNotTrackEnabled();
+  const shouldShow = shouldShowCookieConsent();
+
+  let reason = '';
+  if (!consent) reason = 'No consent found';
+  else if (hasExpired) reason = 'Consent expired';
+  else if (needsUpdate) reason = 'Policy updated';
+  else if (dntEnabled) reason = 'Do Not Track enabled';
+  else reason = 'Consent valid';
+
+  // Initialize analytics with current preferences
+  initializeAnalytics();
+
+  return { shouldShow, reason };
 };
 
 // Type declaration for gtag

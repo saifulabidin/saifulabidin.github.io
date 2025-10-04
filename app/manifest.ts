@@ -12,9 +12,9 @@ export default function manifest(): MetadataRoute.Manifest {
     orientation: 'portrait-primary',
     icons: [
       {
-        src: '/images/logo/React.svg',
+        src: '/favicon.ico',
         sizes: 'any',
-        type: 'image/svg+xml',
+        type: 'image/x-icon',
         purpose: 'any',
       },
     ],

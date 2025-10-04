@@ -14,7 +14,7 @@ export const personSchema = {
   "name": "Saiful Abidin",
   "alternateName": "sabidzpro",
   "url": SITE_URL,
-  "image": `${SITE_URL}/images/logo/React.svg`,
+  "image": `${SITE_URL}/favicon.ico`,
   "jobTitle": "Full Stack Developer",
   "worksFor": {
     "@type": "Organization",
@@ -116,7 +116,7 @@ export const profilePageSchema = {
     "alternateName": "sabidzpro",
     "identifier": "sabidzpro",
     "description": "Full Stack Developer specializing in React, Next.js, and Node.js with 5+ years of experience",
-    "image": `${SITE_URL}/images/logo/React.svg`,
+    "image": `${SITE_URL}/favicon.ico`,
     "interactionStatistic": [
       {
         "@type": "InteractionCounter",
@@ -143,7 +143,7 @@ export const organizationSchema = {
   "name": "sabidzpro",
   "alternateName": "Saiful Abidin Web Development",
   "url": SITE_URL,
-  "logo": `${SITE_URL}/images/logo/React.svg`,
+  "logo": `${SITE_URL}/favicon.ico`,
   "description": "Professional web development services specializing in React, Next.js, and Full Stack solutions",
   "founder": {
     "@type": "Person",
@@ -222,6 +222,92 @@ export const breadcrumbSchema = {
 };
 
 /**
+ * Cookie Policy Breadcrumb Schema
+ */
+export const cookiePolicyBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": SITE_URL
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Cookie Policy",
+      "item": `${SITE_URL}/cookie-policy`
+    }
+  ]
+};
+
+/**
+ * Privacy Policy Breadcrumb Schema
+ */
+export const privacyPolicyBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": SITE_URL
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Privacy Policy",
+      "item": `${SITE_URL}/privacy-policy`
+    }
+  ]
+};
+
+/**
+ * WebPage Schema for Cookie Policy
+ */
+export const cookiePolicyPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Cookie Policy - Saiful Abidin Portfolio",
+  "description": "Comprehensive Cookie Policy for Saiful Abidin Portfolio website. Learn about essential, analytics, performance, and preference cookies we use and how to manage your privacy settings.",
+  "url": `${SITE_URL}/cookie-policy`,
+  "dateModified": new Date().toISOString(),
+  "author": {
+    "@type": "Person",
+    "name": "Saiful Abidin"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Saiful Abidin Portfolio",
+    "url": SITE_URL
+  },
+  "mainEntity": {
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What are cookies?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cookies are small text files that are placed on your computer or mobile device when you visit a website. They are widely used to make websites work more efficiently and provide information to website owners."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I manage cookies?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can manage your cookie preferences through our Cookie Consent banner or through your browser settings. Most browsers allow you to control cookies through their settings."
+        }
+      }
+    ]
+  }
+};
+
+/**
  * All structured data schemas combined
  */
 export const allSchemas = [
@@ -229,7 +315,10 @@ export const allSchemas = [
   websiteSchema,
   profilePageSchema,
   organizationSchema,
-  breadcrumbSchema
+  breadcrumbSchema,
+  cookiePolicyBreadcrumbSchema,
+  privacyPolicyBreadcrumbSchema,
+  cookiePolicyPageSchema
 ];
 
 const structuredDataExport = {
@@ -238,6 +327,9 @@ const structuredDataExport = {
   profilePageSchema,
   organizationSchema,
   breadcrumbSchema,
+  cookiePolicyBreadcrumbSchema,
+  privacyPolicyBreadcrumbSchema,
+  cookiePolicyPageSchema,
   allSchemas
 };
 

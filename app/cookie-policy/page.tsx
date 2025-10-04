@@ -1,12 +1,63 @@
-'use client';
-
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import FooterSection from '@/app/components/sections/FooterSection';
+import { cookiePolicyPageSchema, cookiePolicyBreadcrumbSchema } from '@/app/constants/structuredData';
+import CookiePolicyClient from './CookiePolicyClient';
+
+export const metadata: Metadata = {
+  title: 'Cookie Policy - Saiful Abidin Portfolio',
+  description: 'Comprehensive Cookie Policy for Saiful Abidin Portfolio website. Learn about essential, analytics, performance, and preference cookies we use and how to manage your privacy settings.',
+  keywords: [
+    'Cookie Policy',
+    'Privacy Policy',
+    'Data Protection',
+    'GDPR Compliance',
+    'Cookie Consent',
+    'Privacy Settings',
+    'Essential Cookies',
+    'Analytics Cookies',
+    'Performance Cookies',
+    'Preference Cookies',
+    'Google Analytics',
+    'Vercel Analytics',
+    'Cookie Management',
+    'Data Privacy',
+    'User Consent',
+    'Browser Cookies',
+    'Local Storage',
+    'Do Not Track'
+  ],
+  openGraph: {
+    title: 'Cookie Policy - Saiful Abidin Portfolio',
+    description: 'Learn about how we use cookies and similar technologies on our website. Your privacy is important to us.',
+    url: 'https://sabidzpro.is-a.dev/cookie-policy',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cookie Policy - Saiful Abidin Portfolio',
+    description: 'Learn about how we use cookies and similar technologies on our website. Your privacy is important to us.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function CookiePolicyPage() {
   return (
-    <div className="min-h-screen bg-[#20293A] text-white">
+    <>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(cookiePolicyPageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(cookiePolicyBreadcrumbSchema) }}
+      />
+
+      <div className="min-h-screen bg-[#20293A] text-white">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-[#19222D]/95 backdrop-blur-sm border-b border-[#C6F10E]/20">
         <div className="container mx-auto px-4 py-4">
@@ -223,24 +274,7 @@ export default function CookiePolicyPage() {
               <li>Change your preferences at any time by clicking the link in the footer</li>
             </ul>
 
-            <div className="bg-[#C6F10E]/10 border border-[#C6F10E]/20 p-4 rounded-lg mb-6">
-              <button
-                onClick={() => {
-                  if (typeof window !== 'undefined') {
-                    // Clear cookie consent
-                    localStorage.removeItem('cookieConsent');
-                    localStorage.removeItem('cookieConsentDate');
-                    localStorage.removeItem('cookiePreferences');
-                    setTimeout(() => {
-                      window.location.reload();
-                    }, 100);
-                  }
-                }}
-                className="bg-[#C6F10E] hover:bg-[#a5c70c] text-black font-semibold px-6 py-3 rounded-lg transition-all duration-200 transform hover:scale-105 w-full sm:w-auto"
-              >
-                Manage Cookie Preferences
-              </button>
-            </div>
+            <CookiePolicyClient />
 
             <h3 className="text-xl font-semibold mb-3 text-white">In Your Browser</h3>
             <p className="text-gray-300 leading-relaxed mb-4">
@@ -389,5 +423,6 @@ export default function CookiePolicyPage() {
       {/* Footer */}
       <FooterSection />
     </div>
+    </>
   );
 }

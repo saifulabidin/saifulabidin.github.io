@@ -3,7 +3,13 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { CookiePreferences, getCookiePreferences, setCookiePreferences, setCookieConsent } from '@/app/lib/cookies';
+import {
+  CookiePreferences,
+  getCookiePreferences,
+  setCookiePreferences,
+  setCookieConsentWithVersion,
+  isDoNotTrackEnabled
+} from '@/app/lib/cookies';
 
 interface CookieSettingsProps {
   isOpen: boolean;
@@ -22,23 +28,44 @@ export default function CookieSettings({ isOpen, onClose, onSave }: CookieSettin
   useEffect(() => {
     if (isOpen) {
       const currentPrefs = getCookiePreferences();
-      setPreferences(currentPrefs);
+      const dntEnabled = isDoNotTrackEnabled();
+
+      if (dntEnabled) {
+        // If DNT is enabled, show warning and disable optional cookies
+        setPreferences({
+          essential: true,
+          analytics: false,
+          marketing: false,
+          preferences: false,
+        });
+      } else {
+        setPreferences(currentPrefs);
+      }
     }
   }, [isOpen]);
 
   const handleToggle = (category: keyof CookiePreferences) => {
-    if (category === 'essential') return; // Essential cannot be disabled
-    
+    const dntEnabled = isDoNotTrackEnabled();
+
+    // Essential cookies cannot be toggled
+    if (category === 'essential') return;
+
+    // If DNT is enabled, prevent toggling optional cookies
+    if (dntEnabled) return;
+
+    // Type guard to ensure we're working with optional cookie categories
+    const optionalCategory = category as Exclude<keyof CookiePreferences, 'essential'>;
+
     setPreferences(prev => ({
       ...prev,
-      [category]: !prev[category],
+      [optionalCategory]: !prev[optionalCategory],
     }));
   };
 
   const handleSave = () => {
     setCookiePreferences(preferences);
-    setCookieConsent('accepted');
-    
+    setCookieConsentWithVersion('accepted');
+
     // Update Google Analytics consent
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('consent', 'update', {
@@ -47,30 +74,33 @@ export default function CookieSettings({ isOpen, onClose, onSave }: CookieSettin
         'functionality_storage': preferences.preferences ? 'granted' : 'denied',
       });
     }
-    
+
     onSave?.(preferences);
     onClose();
   };
 
   const handleAcceptAll = () => {
+    const dntEnabled = isDoNotTrackEnabled();
+
     const allAccepted: CookiePreferences = {
       essential: true,
-      analytics: true,
-      marketing: true,
-      preferences: true,
+      analytics: !dntEnabled,
+      marketing: !dntEnabled,
+      preferences: !dntEnabled,
     };
+
     setPreferences(allAccepted);
     setCookiePreferences(allAccepted);
-    setCookieConsent('accepted');
-    
+    setCookieConsentWithVersion('accepted');
+
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('consent', 'update', {
-        'analytics_storage': 'granted',
-        'ad_storage': 'granted',
-        'functionality_storage': 'granted',
+        'analytics_storage': allAccepted.analytics ? 'granted' : 'denied',
+        'ad_storage': allAccepted.marketing ? 'granted' : 'denied',
+        'functionality_storage': allAccepted.preferences ? 'granted' : 'denied',
       });
     }
-    
+
     onSave?.(allAccepted);
     onClose();
   };
@@ -84,8 +114,8 @@ export default function CookieSettings({ isOpen, onClose, onSave }: CookieSettin
     };
     setPreferences(onlyEssential);
     setCookiePreferences(onlyEssential);
-    setCookieConsent('rejected');
-    
+    setCookieConsentWithVersion('rejected');
+
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('consent', 'update', {
         'analytics_storage': 'denied',
@@ -93,7 +123,7 @@ export default function CookieSettings({ isOpen, onClose, onSave }: CookieSettin
         'functionality_storage': 'denied',
       });
     }
-    
+
     onSave?.(onlyEssential);
     onClose();
   };
@@ -153,6 +183,22 @@ export default function CookieSettings({ isOpen, onClose, onSave }: CookieSettin
 
               {/* Content */}
               <div className="flex-1 overflow-y-auto p-6 space-y-6">
+                {/* Do Not Track Warning */}
+                {isDoNotTrackEnabled() && (
+                  <div className="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-4 mb-6">
+                    <div className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-yellow-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                      </svg>
+                      <div className="flex-1">
+                        <h4 className="text-sm font-semibold text-yellow-400 mb-1">Do Not Track Enabled</h4>
+                        <p className="text-xs text-yellow-300 leading-relaxed">
+                          Your browser has Do Not Track enabled. We respect your privacy and have automatically disabled all optional cookies. Only essential cookies required for the website to function will be used.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
                 {/* Essential Cookies */}
                 <div className="space-y-3">
                   <div className="flex items-start justify-between gap-4">

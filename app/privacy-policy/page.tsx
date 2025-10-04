@@ -1,8 +1,44 @@
-'use client';
-
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import FooterSection from '@/app/components/sections/FooterSection';
+import PrivacyPolicyClient from './PrivacyPolicyClient';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy - Saiful Abidin Portfolio',
+  description: 'Comprehensive Privacy Policy for Saiful Abidin Portfolio website. Learn how we collect, use, and protect your personal information, including data collection, cookies, analytics, and your privacy rights.',
+  keywords: [
+    'Privacy Policy',
+    'Data Protection',
+    'Personal Information',
+    'GDPR Compliance',
+    'Data Privacy',
+    'Information Security',
+    'User Rights',
+    'Data Collection',
+    'Cookie Policy',
+    'Analytics Data',
+    'Contact Information',
+    'Data Processing',
+    'Privacy Rights',
+    'Data Security',
+    'Third-party Services'
+  ],
+  openGraph: {
+    title: 'Privacy Policy - Saiful Abidin Portfolio',
+    description: 'Learn how we collect, use, and protect your personal information. Your privacy is important to us.',
+    url: 'https://sabidzpro.is-a.dev/privacy-policy',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Privacy Policy - Saiful Abidin Portfolio',
+    description: 'Learn how we collect, use, and protect your personal information. Your privacy is important to us.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function PrivacyPolicyPage() {
   return (
@@ -293,22 +329,7 @@ export default function PrivacyPolicyPage() {
                 Contact
               </Link>
               <span className="text-gray-600">•</span>
-              <button 
-                onClick={() => {
-                  if (typeof window !== 'undefined') {
-                    localStorage.removeItem('cookieConsent');
-                    localStorage.removeItem('cookieConsentDate');
-                    localStorage.removeItem('cookiePreferences');
-                    window.location.href = '/';
-                    setTimeout(() => {
-                      window.location.reload();
-                    }, 100);
-                  }
-                }}
-                className="text-gray-400 hover:text-[#C6F10E] transition-colors cursor-pointer"
-              >
-                Cookie Settings
-              </button>
+              <PrivacyPolicyClient />
             </div>
           </div>
         </div>
