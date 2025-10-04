@@ -8,11 +8,11 @@ interface CertificatesListProps {
 
 export function CertificatesList({ certificates, onEdit, onDelete }: CertificatesListProps) {
   return (
-    <div className="bg-[#20293A] rounded-lg p-6">
+    <div className="bg-[#20293A] rounded-lg p-6 h-full flex flex-col">
       <h2 className="text-xl font-semibold text-white mb-6">
         Certificates ({certificates.length})
       </h2>
-      <div className="space-y-4 max-h-[600px] overflow-y-auto">
+      <div className="space-y-4 flex-1 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800">
         {certificates.map((certificate) => (
           <div key={certificate.id} className="bg-[#19222D] rounded-lg p-4">
             <div className="flex justify-between items-start mb-2">

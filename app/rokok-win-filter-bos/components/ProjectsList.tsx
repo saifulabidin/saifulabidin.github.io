@@ -8,11 +8,11 @@ interface ProjectsListProps {
 
 export function ProjectsList({ projects, onEdit, onDelete }: ProjectsListProps) {
   return (
-    <div className="bg-[#20293A] rounded-lg p-6">
+    <div className="bg-[#20293A] rounded-lg p-6 h-full flex flex-col">
       <h2 className="text-xl font-semibold text-white mb-6">
         Projects ({projects.length})
       </h2>
-      <div className="space-y-4 max-h-[600px] overflow-y-auto">
+      <div className="space-y-4 flex-1 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800">
         {projects.map((project) => (
           <div key={project.id} className="bg-[#19222D] rounded-lg p-4">
             <div className="flex justify-between items-start mb-2">

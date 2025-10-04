@@ -94,10 +94,18 @@ export function useCertificateForm(
 
       const method = editingCertificate ? 'PUT' : 'POST';
 
+      // Prepare data with proper type conversion
+      const submitData = {
+        ...certificateForm,
+        sort_order: typeof certificateForm.sort_order === 'number' && !isNaN(certificateForm.sort_order) 
+          ? certificateForm.sort_order 
+          : 0,
+      };
+
       const response = await fetch(url, {
         method,
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(certificateForm),
+        body: JSON.stringify(submitData),
       });
 
       if (response.ok) {

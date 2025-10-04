@@ -116,7 +116,7 @@ export default function AdminPanel() {
         ) : (
           <>
             {activeTab === 'projects' ? (
-              <div className="grid lg:grid-cols-2 gap-8">
+              <div className="grid lg:grid-cols-2 gap-8 lg:items-start">
                 <ProjectFormComponent
                   form={projectForm}
                   techInput={techInput}
@@ -137,7 +137,7 @@ export default function AdminPanel() {
                 />
               </div>
             ) : (
-              <div className="grid lg:grid-cols-2 gap-8">
+              <div className="grid lg:grid-cols-2 gap-8 lg:items-start">
                 <CertificateFormComponent
                   form={certificateForm}
                   uploading={certificateUploading}

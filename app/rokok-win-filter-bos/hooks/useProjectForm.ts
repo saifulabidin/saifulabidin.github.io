@@ -119,10 +119,18 @@ export function useProjectForm(
 
       const method = editingProject ? 'PUT' : 'POST';
 
+      // Prepare data with proper type conversion
+      const submitData = {
+        ...projectForm,
+        sort_order: typeof projectForm.sort_order === 'number' && !isNaN(projectForm.sort_order) 
+          ? projectForm.sort_order 
+          : 0,
+      };
+
       const response = await fetch(url, {
         method,
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(projectForm),
+        body: JSON.stringify(submitData),
       });
 
       if (response.ok) {
