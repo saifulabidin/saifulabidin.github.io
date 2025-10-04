@@ -4,19 +4,22 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 
 interface Project {
+  id: number;
   title: string;
   description: string;
-  techStack: string[];
-  imageUrl: string;
-  githubUrl: string;
-  liveUrl: string;
+  tech_stack: string[];
+  image_url: string;
+  github_url: string;
+  live_url: string;
   category: string;
+  is_private: boolean;
+  sort_order: number;
 }
 
 // Helper function to render project links
 const renderProjectLinks = (project: Project) => {
-  const isPrivateProject = project.githubUrl === "#private-repository";
-  const isInternalDemo = project.liveUrl === "#company-internal";
+  const isPrivateProject = project.github_url === "#private-repository";
+  const isInternalDemo = project.live_url === "#company-internal";
   const isFrontendProject = project.category === "Frontend";
 
   return (
@@ -24,7 +27,7 @@ const renderProjectLinks = (project: Project) => {
       {/* GitHub Link - Only show for public projects */}
       {!isPrivateProject && (
         <a
-          href={project.githubUrl}
+          href={project.github_url}
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#C6F10E] hover:text-white transition-colors"
@@ -39,7 +42,7 @@ const renderProjectLinks = (project: Project) => {
       {/* Live Demo Link - Only show for Frontend projects or public projects */}
       {(isFrontendProject || !isInternalDemo) && (
         <a
-          href={project.liveUrl}
+          href={project.live_url}
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#C6F10E] hover:text-white transition-colors"
@@ -68,94 +71,44 @@ const renderProjectLinks = (project: Project) => {
   );
 };
 
-const projects: Project[] = [
+// Static fallback data
+const staticProjects: Project[] = [
   // Backend Projects
   {
+    id: 1,
     title: "Employee Attendance Backend System",
     description: "Comprehensive backend system for employee attendance management with real-time tracking, shift management, overtime calculation, and detailed reporting. Features role-based authentication and integration with biometric devices.",
-    techStack: ["Node.js", "Express", "PostgreSQL", "JWT", "Redis", "Cron Jobs", "RESTful API", "Docker"],
-    imageUrl: "/images/project/company/attendance-backend.jpg",
-    githubUrl: "#private-repository",
-    liveUrl: "#company-internal",
-    category: "Backend"
+    tech_stack: ["Node.js", "Express", "PostgreSQL", "JWT", "Redis", "Cron Jobs", "RESTful API", "Docker"],
+    image_url: "/images/project/company/attendance-backend.jpg",
+    github_url: "#private-repository",
+    live_url: "#company-internal",
+    category: "Backend",
+    is_private: true,
+    sort_order: 1
   },
   {
+    id: 2,
     title: "Sales Data Collection Backend",
     description: "Backend system for sales team to input and manage customer data collected in the field. Features geolocation tracking, customer relationship management, lead scoring, and territory management with Google Maps integration.",
-    techStack: ["Node.js", "Express", "MongoDB", "Google Maps API", "Geolocation", "JWT", "Multer", "Redis"],
-    imageUrl: "/images/project/company/sales-backend.jpg",
-    githubUrl: "#private-repository",
-    liveUrl: "#company-internal",
-    category: "Backend"
-  },
-  
-  // API Projects
-  {
-    title: "Attendance Mobile App API",
-    description: "RESTful API service specifically designed for the Flutter mobile attendance application. Handles GPS location tracking, photo capture validation, real-time synchronization, and offline data management.",
-    techStack: ["Node.js", "Express", "MongoDB", "Socket.io", "Google Maps API", "Firebase", "JWT"],
-    imageUrl: "/images/project/company/attendance-api.jpg",
-    githubUrl: "#private-repository",
-    liveUrl: "#company-internal",
-    category: "API"
+    tech_stack: ["Node.js", "Express", "MongoDB", "Google Maps API", "Geolocation", "JWT", "Multer", "Redis"],
+    image_url: "/images/project/company/sales-backend.jpg",
+    github_url: "#private-repository",
+    live_url: "#company-internal",
+    category: "Backend",
+    is_private: true,
+    sort_order: 2
   },
   {
-    title: "Sales Management API",
-    description: "Specialized API for the Flutter sales application enabling real-time customer data synchronization, location-based services, photo uploads, and offline-first architecture for field operations.",
-    techStack: ["Node.js", "Express", "MongoDB", "Google Maps API", "Cloudinary", "Socket.io", "JWT"],
-    imageUrl: "/images/project/company/sales-api.jpg",
-    githubUrl: "#private-repository",
-    liveUrl: "#company-internal",
-    category: "API"
-  },
-
-  // Frontend Projects
-  {
-    title: "Attendance Admin Panel",
-    description: "Web-based administrative dashboard for HR and management to monitor employee attendance, generate reports, manage shifts, approve leave requests, and configure system settings with comprehensive analytics.",
-    techStack: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Chart.js", "React Query", "Zustand"],
-    imageUrl: "/images/project/company/attendance-admin.jpg",
-    githubUrl: "#private-repository", 
-    liveUrl: "#company-internal",
-    category: "Frontend"
-  },
-  {
-    title: "Sales Performance Admin Dashboard",
-    description: "Comprehensive admin panel for monitoring sales team performance, analyzing customer data, tracking territories, generating sales reports, and visualizing key performance indicators with interactive charts.",
-    techStack: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Chart.js", "Google Maps", "React Query"], 
-    imageUrl: "/images/project/company/sales-admin.jpg",
-    githubUrl: "#private-repository",
-    liveUrl: "#company-internal",
-    category: "Frontend"
-  },
-  {
+    id: 3,
     title: "Bestie Tissue Landing Page",
     description: "Modern and responsive landing page for Bestie Tissue product featuring AI-powered chatbot integration with Google Gemini, interactive store locator with Google Maps, product showcase, and lead generation forms.",
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Google Maps API", "Google Gemini AI", "Framer Motion", "React Hook Form"],
-    imageUrl: "/images/project/company/bestie-tissue.jpg",
-    githubUrl: "#private-repository",
-    liveUrl: "https://bestie-tissue.com",
-    category: "Frontend"
-  },
-
-  // Mobile Projects
-  {
-    title: "Employee Attendance Mobile App",
-    description: "Cross-platform mobile application built with Flutter for employee clock-in/out, GPS location tracking, photo verification, leave requests, attendance history, and real-time notifications.",
-    techStack: ["Flutter", "Dart", "Provider", "HTTP", "Geolocator", "Camera", "Local Storage", "Firebase"],
-    imageUrl: "/images/project/company/attendance-mobile.jpg",
-    githubUrl: "#private-repository",
-    liveUrl: "#company-internal", 
-    category: "Mobile"
-  },
-  {
-    title: "Sales Field Mobile Application",
-    description: "Flutter-based mobile app for sales representatives to input customer data, capture geotagged photos, record customer interactions, manage leads, and sync data in real-time while working in the field.",
-    techStack: ["Flutter", "Dart", "Provider", "Geolocator", "Camera", "Google Maps", "HTTP", "SQLite"],
-    imageUrl: "/images/project/company/sales-mobile.jpg", 
-    githubUrl: "#private-repository",
-    liveUrl: "#company-internal",
-    category: "Mobile"
+    tech_stack: ["Next.js", "TypeScript", "Tailwind CSS", "Google Maps API", "Google Gemini AI", "Framer Motion", "React Hook Form"],
+    image_url: "/images/project/company/bestie-tissue.jpg",
+    github_url: "#private-repository",
+    live_url: "https://bestie-tissue.com",
+    category: "Frontend",
+    is_private: true,
+    sort_order: 3
   }
 ];
 
@@ -163,10 +116,10 @@ const projects: Project[] = [
 const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
   // Use 404 image for private projects
   const getProjectImage = () => {
-    if (project.githubUrl === "#private-repository") {
+    if (project.github_url === "#private-repository") {
       return "/images/project/privateproject.png";
     }
-    return project.imageUrl;
+    return project.image_url;
   };
 
   return (
@@ -189,7 +142,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
         <h3 className="text-xl font-semibold mb-3 text-white">{project.title}</h3>
         <p className="text-gray-400 mb-4 text-sm leading-relaxed">{project.description}</p>
         <div className="flex flex-wrap gap-2 mb-4">
-          {project.techStack.map((tech, idx) => (
+          {project.tech_stack.map((tech, idx) => (
             <span key={idx} className="bg-[#19222D] text-[#C6F10E] px-2 py-1 rounded-full text-xs">
               {tech}
             </span>
@@ -321,6 +274,32 @@ const MobileProjectSlider = ({ projects, categoryIcon, categoryName }: { project
 };
 
 export default function ProjectsSection() {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch projects from database
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch('/api/admin/projects');
+        if (response.ok) {
+          const data = await response.json();
+          setProjects(data);
+        } else {
+          // Fallback to static data if API fails
+          setProjects(staticProjects);
+        }
+      } catch (error) {
+        // Fallback to static data
+        setProjects(staticProjects);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
   const categories = [
     { name: "Backend", icon: "🖥️", projects: projects.filter(p => p.category === "Backend") },
     { name: "API", icon: "🔌", projects: projects.filter(p => p.category === "API") },
@@ -337,33 +316,41 @@ export default function ProjectsSection() {
           featuring enterprise-level applications, mobile development, and innovative business solutions.
         </p>
 
-        {/* Mobile View - Slider */}
-        <div className="block md:hidden">
-          {categories.map((category, categoryIndex) => (
-            <MobileProjectSlider 
-              key={categoryIndex}
-              projects={category.projects}
-              categoryIcon={category.icon}
-              categoryName={category.name}
-            />
-          ))}
-        </div>
-
-        {/* Desktop View - Grid */}
-        <div className="hidden md:block">
-          {categories.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="mb-16">
-              <h3 className="text-2xl font-semibold mb-8 text-center">
-                {category.icon} {category.name} Projects
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {category.projects.map((project, index) => (
-                  <ProjectCard key={index} project={project} index={index} />
-                ))}
-              </div>
+        {loading ? (
+          <div className="text-center py-12">
+            <div className="text-gray-400">Loading projects...</div>
+          </div>
+        ) : (
+          <>
+            {/* Mobile View - Slider */}
+            <div className="block md:hidden">
+              {categories.map((category, categoryIndex) => (
+                <MobileProjectSlider
+                  key={categoryIndex}
+                  projects={category.projects}
+                  categoryIcon={category.icon}
+                  categoryName={category.name}
+                />
+              ))}
             </div>
-          ))}
-        </div>
+
+            {/* Desktop View - Grid */}
+            <div className="hidden md:block">
+              {categories.map((category, categoryIndex) => (
+                <div key={categoryIndex} className="mb-16">
+                  <h3 className="text-2xl font-semibold mb-8 text-center">
+                    {category.icon} {category.name} Projects
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {category.projects.map((project, index) => (
+                      <ProjectCard key={project.id} project={project} index={index} />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
 
         {/* View More Projects Button */}
         <div className="text-center mt-12">

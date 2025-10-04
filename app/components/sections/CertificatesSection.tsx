@@ -4,78 +4,47 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 
 interface Certificate {
+  id: number;
   title: string;
   issuer: string;
   date: string;
   renewed?: string;
-  image: string;
-  credentialUrl?: string;
+  image_url: string;
+  credential_url?: string;
+  sort_order: number;
 }
 
-const certificates: Certificate[] = [
+// Static fallback data
+const staticCertificates: Certificate[] = [
   {
+    id: 1,
     title: "Responsive Web Design",
     issuer: "FreeCodeCamp",
     date: "2022",
     renewed: "2025",
-    image: "/images/sertifikat/freecodecamp-responsive-web-design.jpg",
-    credentialUrl: "https://www.freecodecamp.org/certification/saifulabidin/responsive-web-design"
+    image_url: "/images/sertifikat/freecodecamp-responsive-web-design.jpg",
+    credential_url: "https://www.freecodecamp.org/certification/saifulabidin/responsive-web-design",
+    sort_order: 1
   },
   {
+    id: 2,
     title: "JavaScript Algorithms and Data Structures",
-    issuer: "FreeCodeCamp", 
+    issuer: "FreeCodeCamp",
     date: "2022",
     renewed: "2025",
-    image: "/images/sertifikat/freecodecamp-javascript-algorithms-and-data-structures.jpg",
-    credentialUrl: "https://www.freecodecamp.org/certification/saifulabidin/javascript-algorithms-and-data-structures-v8"
+    image_url: "/images/sertifikat/freecodecamp-javascript-algorithms-and-data-structures.jpg",
+    credential_url: "https://www.freecodecamp.org/certification/saifulabidin/javascript-algorithms-and-data-structures-v8",
+    sort_order: 2
   },
   {
-    title: "Backend Development and APIs",
-    issuer: "FreeCodeCamp",
-    date: "2023",
-    renewed: "2025",
-    image: "/images/sertifikat/freecodecamp-backend-development-and-apis.jpg",
-    credentialUrl: "https://www.freecodecamp.org/certification/saifulabidin/back-end-development-and-apis"
-  },
-  {
-    title: "Scientific Computing with Python",
-    issuer: "FreeCodeCamp",
-    date: "2023",
-    renewed: "2025",
-    image: "/images/sertifikat/freecodecamp-scientic-computing-with-python.jpg",
-    credentialUrl: "https://www.freecodecamp.org/certification/saifulabidin/scientific-computing-with-python-v7"
-  },
-  {
-    title: "Legacy Backend Challenges",
-    issuer: "FreeCodeCamp",
-    date: "2023",
-    renewed: "2025",
-    image: "/images/sertifikat/freecodecamp-legacy-backend.jpg",
-    credentialUrl: "https://www.freecodecamp.org/certification/saifulabidin/legacy-back-end"
-  },
-  {
-    title: "Belajar Dasar Pemrograman JavaScript",
-    issuer: "Dicoding Indonesia",
-    date: "2022",
-    renewed: "2025",
-    image: "/images/sertifikat/dicoding-dasar-pemrograman-javascript.jpg",
-    credentialUrl: "https://www.dicoding.com/certificates/0LZ0R0E63P65"
-  },
-  {
-    title: "Belajar Backend Pemula dengan JavaScript",
-    issuer: "Dicoding Indonesia", 
-    date: "2023",
-    renewed: "2025",
-    image: "/images/sertifikat/dicoding-belajar-backend-pemula-dengan-javascript.svg",
-    credentialUrl: "https://www.dicoding.com/certificates/1OP828KJ1PQK"
-  },
-  {
+    id: 3,
     title: "Belajar Dasar Cloud dan Gen AI di AWS",
     issuer: "Dicoding Indonesia",
     date: "2024",
     renewed: "2025",
-    image: "/images/sertifikat/dicoding-belajar-dasar-cloud-dan-gen-ai-di-aws.jpg",
-    credentialUrl: "https://www.dicoding.com/certificates/N9ZO9RE76XG5"
+    image_url: "/images/sertifikat/dicoding-belajar-dasar-cloud-dan-gen-ai-di-aws.jpg",
+    credential_url: "https://www.dicoding.com/certificates/N9ZO9RE76XG5",
+    sort_order: 3
   }
 ];
 
@@ -156,7 +125,7 @@ const MobileCertificateSlider = ({ certificates }: { certificates: Certificate[]
               <div className="bg-[#19222D] rounded-lg overflow-hidden shadow-lg">
                 <div className="relative w-full" style={{ aspectRatio: '1.41/1' }}>
                   <Image
-                    src={cert.image}
+                    src={cert.image_url}
                     alt={cert.title}
                     width={1526}
                     height={1080}
@@ -181,9 +150,9 @@ const MobileCertificateSlider = ({ certificates }: { certificates: Certificate[]
                       </>
                     )}
                   </div>
-                  {cert.credentialUrl && (
+                  {cert.credential_url && (
                     <a
-                      href={cert.credentialUrl}
+                      href={cert.credential_url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 text-[#C6F10E] hover:text-white transition-colors text-sm"
@@ -235,6 +204,32 @@ const MobileCertificateSlider = ({ certificates }: { certificates: Certificate[]
 };
 
 export default function CertificatesSection() {
+  const [certificates, setCertificates] = useState<Certificate[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch certificates from database
+  useEffect(() => {
+    const fetchCertificates = async () => {
+      try {
+        const response = await fetch('/api/admin/certificates');
+        if (response.ok) {
+          const data = await response.json();
+          setCertificates(data);
+        } else {
+          // Fallback to static data if API fails
+          setCertificates(staticCertificates);
+        }
+      } catch (error) {
+        // Fallback to static data
+        setCertificates(staticCertificates);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCertificates();
+  }, []);
+
   return (
     <section id="certificates" className="py-16 md:py-24 bg-[#20293A]">
       <div className="container mx-auto px-4">
@@ -242,19 +237,25 @@ export default function CertificatesSection() {
         <p className="text-center text-gray-300 mb-12 max-w-3xl mx-auto text-sm sm:text-base">
           Professional certifications and achievements that validate my skills and commitment to continuous learning in software development.
         </p>
-        
-        {/* Mobile View - Slider */}
-        <div className="block lg:hidden mb-12 max-w-2xl mx-auto">
-          <MobileCertificateSlider certificates={certificates} />
-        </div>
 
-        {/* Desktop View - Grid */}
-        <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {certificates.map((cert, index) => (
-            <div key={index} className="bg-[#19222D] rounded-lg overflow-hidden shadow-lg hover:shadow-xl hover:translate-y-[-5px] transition-all duration-300">
+        {loading ? (
+          <div className="text-center py-12">
+            <div className="text-gray-400">Loading certificates...</div>
+          </div>
+        ) : (
+          <>
+            {/* Mobile View - Slider */}
+            <div className="block lg:hidden mb-12 max-w-2xl mx-auto">
+              <MobileCertificateSlider certificates={certificates} />
+            </div>
+
+            {/* Desktop View - Grid */}
+            <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {certificates.map((cert) => (
+                <div key={cert.id} className="bg-[#19222D] rounded-lg overflow-hidden shadow-lg hover:shadow-xl hover:translate-y-[-5px] transition-all duration-300">
               <div className="relative w-full overflow-hidden" style={{ aspectRatio: '1.41/1' }}>
                 <Image
-                  src={cert.image}
+                  src={cert.image_url}
                   alt={cert.title}
                   width={1526}
                   height={1080}
@@ -279,9 +280,9 @@ export default function CertificatesSection() {
                     </>
                   )}
                 </div>
-                {cert.credentialUrl && (
+                {cert.credential_url && (
                   <a
-                    href={cert.credentialUrl}
+                    href={cert.credential_url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-[#C6F10E] hover:text-white transition-colors text-sm"
@@ -298,6 +299,8 @@ export default function CertificatesSection() {
             </div>
           ))}
         </div>
+          </>
+        )}
 
         {/* Achievement Stats */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-8">

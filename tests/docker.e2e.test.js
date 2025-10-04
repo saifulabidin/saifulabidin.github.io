@@ -23,7 +23,7 @@ describe('Docker image', () => {
       sh('docker --version')
     } catch {
       dockerAvailable = false
-      console.warn('Docker not available; skipping docker e2e tests')
+      //console.warn('Docker not available; skipping docker e2e tests')
     }
     if (!dockerAvailable) return
     // Build image
@@ -37,7 +37,7 @@ describe('Docker image', () => {
 
   test('container starts and responds on /', () => {
     if (!dockerAvailable) {
-      console.warn('Skipping: docker not available')
+      //console.warn('Skipping: docker not available')
       return
     }
     // Run container

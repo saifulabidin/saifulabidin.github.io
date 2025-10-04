@@ -1,6 +1,6 @@
 'use client';
 
-import SplashCursor from "./components/SplashCursor/SplashCursor";
+
 import { Navigation } from "./components/ui";
 import {
   HeroSection,
@@ -17,8 +17,6 @@ import {
 export default function Home() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-[#19222D]">
-      {/* Splash Cursor Effect */}
-      <SplashCursor />
       
       {/* Navigation - Header Element */}
       <Navigation />

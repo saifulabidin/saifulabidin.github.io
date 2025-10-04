@@ -30,8 +30,6 @@ export default function CookieConsent({ onAccept, onReject }: CookieConsentProps
       // Show banner after 1 second delay
       const timer = setTimeout(() => {
         setShowBanner(true);
-        // Log reason for debugging
-        console.log(`Cookie consent shown: ${reason}`);
       }, 1000);
       return () => clearTimeout(timer);
     }

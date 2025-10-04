@@ -13,10 +13,10 @@ const educationData = [
         </p>
         <div className="mb-4">
           <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm mb-2">
-            ✅ <strong>FreeCodeCamp</strong> - Responsive Web Design, JavaScript Algorithms, and Data Structures
+            ✅ <strong>Dicoding Academy</strong> - Web Development and Backend Development with JavaScript
           </div>
           <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm mb-2">
-            ✅ <strong>Dicoding Academy</strong> - Web Development and Backend Development with JavaScript
+            ✅ <strong>FreeCodeCamp</strong> - Responsive Web Design, JavaScript Algorithms, and Data Structures
           </div>
           <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm mb-2">
             ✅ <strong>YouTube University</strong> - Advanced concepts through practical tutorials and documentation

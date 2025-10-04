@@ -1,0 +1,61 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgres"
+  url      = env("POSTGRES_PRISMA_URL")
+}
+
+model Project {
+  id          Int      @id @default(autoincrement())
+  title       String   @db.VarChar(255)
+  description String   @db.Text
+  tech_stack  String[]
+  image_url   String   @db.VarChar(500)
+  github_url  String   @db.VarChar(500) @default("#private-repository")
+  live_url    String   @db.VarChar(500) @default("#company-internal")
+  category    String   @db.VarChar(50)
+  is_private  Boolean  @default(true)
+  sort_order  Int      @default(0)
+  created_at  DateTime @default(now()) @db.Timestamptz(6)
+  updated_at  DateTime @updatedAt @db.Timestamptz(6)
+
+  @@index([category])
+  @@index([sort_order])
+}
+
+model Certificate {
+  id              Int     @id @default(autoincrement())
+  title           String  @db.VarChar(255)
+  issuer          String  @db.VarChar(255)
+  date            String  @db.VarChar(4)
+  renewed         String? @db.VarChar(4)
+  image_url       String  @db.VarChar(500)
+  credential_url  String? @db.VarChar(500)
+  sort_order      Int     @default(0)
+  created_at      DateTime @default(now()) @db.Timestamptz(6)
+  updated_at      DateTime @updatedAt @db.Timestamptz(6)
+
+  @@index([sort_order])
+}
+
+model AdminUser {
+  id         Int      @id @default(autoincrement())
+  github_id  String  @unique @db.VarChar(50)
+  username   String  @db.VarChar(100)
+  name       String  @db.VarChar(255)
+  email      String?  @db.VarChar(255)
+  avatar_url String? @db.VarChar(500)
+  is_active  Boolean  @default(true)
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  last_login DateTime? @db.Timestamptz(6)
+
+  @@index([github_id])
+}

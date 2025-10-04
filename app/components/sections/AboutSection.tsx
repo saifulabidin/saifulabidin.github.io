@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 export default function AboutSection() {
   return (
     <section id="about" className="py-16 sm:py-20 md:py-28 relative">
@@ -46,6 +48,7 @@ export default function AboutSection() {
               </div>
 
               {/* Current Focus Card */}
+              {/* Current Focus Card */}
               <div className="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 lg:p-8 rounded-2xl border border-gray-700/30 backdrop-blur-sm hover:border-[#C6F10E]/30 transition-all duration-300 hover:shadow-lg hover:shadow-[#C6F10E]/10">
                 <h4 className="text-xl lg:text-2xl font-semibold text-[#C6F10E] mb-6 flex items-center">
                   <div className="w-3 h-3 bg-[#C6F10E] rounded-full mr-3 animate-pulse"></div>
@@ -53,14 +56,14 @@ export default function AboutSection() {
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {[
-                    { icon: "🚀", title: "Full Stack Development", desc: "End-to-end web solutions with modern frameworks" },
-                    { icon: "📱", title: "Mobile App Development", desc: "Cross-platform apps with Flutter & React Native" },
-                    { icon: "🏢", title: "Enterprise Applications", desc: "Scalable business solutions for companies" },
-                    { icon: "⚙️", title: "API Development", desc: "RESTful & GraphQL APIs with robust architecture" }
+                    { icon: "/icons/rocket.svg", title: "Full Stack Development", desc: "End-to-end web solutions with modern frameworks" },
+                    { icon: "/icons/mobile.svg", title: "Mobile App Development", desc: "Cross-platform apps with Flutter & React Native" },
+                    { icon: "/icons/building.svg", title: "Enterprise Applications", desc: "Scalable business solutions for companies" },
+                    { icon: "/icons/api.svg", title: "API Development", desc: "RESTful & GraphQL APIs with robust architecture" }
                   ].map((item, index) => (
                     <div key={index} className="flex items-start gap-4 p-4 rounded-xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-gray-600/30">
-                      <div className="flex-shrink-0 w-10 h-10 bg-[#C6F10E]/10 rounded-lg flex items-center justify-center">
-                        <span className="text-xl">{item.icon}</span>
+                      <div className="flex-shrink-0 w-10 h-10 bg-[#C6F10E]/10 rounded-lg flex items-center justify-center text-[#C6F10E]">
+                        <Image src={item.icon} alt={item.title} width={20} height={20} className="w-5 h-5" />
                       </div>
                       <div className="flex-1">
                         <div className="font-semibold text-white mb-1">{item.title}</div>
@@ -71,7 +74,6 @@ export default function AboutSection() {
                 </div>
               </div>
             </div>
-
             {/* Right Column - Personal Info & CV Download */}
             <div className="lg:col-span-1 space-y-6">
               {/* Personal Info Card */}
@@ -82,14 +84,14 @@ export default function AboutSection() {
                 </h4>
                 <div className="space-y-4">
                   {[
-                    { icon: "🌏", title: "Based in Indonesia", desc: "Remote work available worldwide" },
-                    { icon: "💼", title: "5+ Years Experience", desc: "Proven track record in development" },
-                    { icon: "🎓", title: "Self-taught Developer", desc: "Continuous learner and tech enthusiast" },
-                    { icon: "✨", title: "Open to Opportunities", desc: "Ready for exciting new challenges" }
+                    { icon: "/icons/globe.svg", title: "Based in Indonesia", desc: "Remote work available worldwide" },
+                    { icon: "/icons/briefcase.svg", title: "5+ Years Experience", desc: "Proven track record in development" },
+                    { icon: "/icons/graduation.svg", title: "Self-taught Developer", desc: "Continuous learner and tech enthusiast" },
+                    { icon: "/icons/sparkles.svg", title: "Open to Opportunities", desc: "Ready for exciting new challenges" }
                   ].map((item, index) => (
                     <div key={index} className="flex items-start gap-4 p-4 rounded-xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-gray-600/30">
-                      <div className="flex-shrink-0 w-10 h-10 bg-[#C6F10E]/10 rounded-lg flex items-center justify-center">
-                        <span className="text-xl">{item.icon}</span>
+                      <div className="flex-shrink-0 w-10 h-10 bg-[#C6F10E]/10 rounded-lg flex items-center justify-center text-[#C6F10E]">
+                        <Image src={item.icon} alt={item.title} width={20} height={20} className="w-5 h-5" />
                       </div>
                       <div className="flex-1">
                         <div className="font-semibold text-white mb-1">{item.title}</div>

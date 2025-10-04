@@ -85,7 +85,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
       }, 5000);
       
     } catch (error) {
-      console.error('Error sending email:', error);
       setFormStatus({
         isSubmitting: false,
         isSubmitted: false,

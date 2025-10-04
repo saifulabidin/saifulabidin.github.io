@@ -24,6 +24,9 @@ const workExperienceData = [
           <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm mb-2">
             ✅ <strong>Established strong foundation</strong> in computer science principles and best practices
           </div>
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm mb-2">
+            ✅ <strong>Completed FreeCodeCamp curriculum</strong> - 1,800+ hours of coding challenges and projects
+          </div>
         </div>
       </div>
     ),
@@ -37,9 +40,6 @@ const workExperienceData = [
           Started professional development career by contributing to open-source projects and building personal projects while completing advanced certifications.
         </p>
         <div className="mb-4">
-          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm mb-2">
-            ✅ <strong>Completed FreeCodeCamp curriculum</strong> - 1,800+ hours of coding challenges and projects
-          </div>
           <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm mb-2">
             ✅ <strong>Built 20+ projects</strong> including 5 major full-stack applications
           </div>
