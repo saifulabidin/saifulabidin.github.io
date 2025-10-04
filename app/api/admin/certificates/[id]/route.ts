@@ -39,7 +39,6 @@ export async function GET(
 
     return NextResponse.json(certificate);
   } catch (error) {
-    console.error('Error fetching certificate:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
@@ -91,7 +90,6 @@ export async function PUT(
       throw validationError;
     }
   } catch (error) {
-    console.error('Error updating certificate:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
@@ -122,7 +120,6 @@ export async function DELETE(
 
     return NextResponse.json({ message: 'Certificate deleted successfully' });
   } catch (error) {
-    console.error('Error deleting certificate:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

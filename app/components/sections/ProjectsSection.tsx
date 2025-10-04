@@ -290,7 +290,6 @@ export default function ProjectsSection() {
           setProjects(staticProjects);
         }
       } catch (error) {
-        console.error('Error fetching projects:', error);
         // Fallback to static data
         setProjects(staticProjects);
       } finally {

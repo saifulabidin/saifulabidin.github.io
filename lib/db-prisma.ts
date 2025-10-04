@@ -48,7 +48,6 @@ export async function getProjects(): Promise<Project[]> {
     });
     return projects;
   } catch (error) {
-    console.error('Error fetching projects:', error);
     return [];
   }
 }
@@ -60,7 +59,6 @@ export async function getProject(id: number): Promise<Project | null> {
     });
     return project;
   } catch (error) {
-    console.error('Error fetching project:', error);
     return null;
   }
 }
@@ -72,7 +70,6 @@ export async function createProject(data: Omit<Project, 'id' | 'created_at' | 'u
     });
     return project;
   } catch (error) {
-    console.error('Error creating project:', error);
     return null;
   }
 }
@@ -85,7 +82,7 @@ export async function updateProject(id: number, data: Partial<Project>): Promise
     });
     return project;
   } catch (error) {
-    console.error('Error updating project:', error);
+    //console.error('Error updating project:', error);
     return null;
   }
 }
@@ -97,7 +94,7 @@ export async function deleteProject(id: number): Promise<boolean> {
     });
     return true;
   } catch (error) {
-    console.error('Error deleting project:', error);
+    //console.error('Error deleting project:', error);
     return false;
   }
 }
@@ -113,7 +110,7 @@ export async function getCertificates(): Promise<Certificate[]> {
     });
     return certificates;
   } catch (error) {
-    console.error('Error fetching certificates:', error);
+    //console.error('Error fetching certificates:', error);
     return [];
   }
 }
@@ -125,7 +122,7 @@ export async function getCertificate(id: number): Promise<Certificate | null> {
     });
     return certificate;
   } catch (error) {
-    console.error('Error fetching certificate:', error);
+    //console.error('Error fetching certificate:', error);
     return null;
   }
 }
@@ -137,7 +134,7 @@ export async function createCertificate(data: Omit<Certificate, 'id' | 'created_
     });
     return certificate;
   } catch (error) {
-    console.error('Error creating certificate:', error);
+    //console.error('Error creating certificate:', error);
     return null;
   }
 }
@@ -150,7 +147,7 @@ export async function updateCertificate(id: number, data: Partial<Certificate>):
     });
     return certificate;
   } catch (error) {
-    console.error('Error updating certificate:', error);
+    //console.error('Error updating certificate:', error);
     return null;
   }
 }
@@ -162,7 +159,7 @@ export async function deleteCertificate(id: number): Promise<boolean> {
     });
     return true;
   } catch (error) {
-    console.error('Error deleting certificate:', error);
+    //console.error('Error deleting certificate:', error);
     return false;
   }
 }

@@ -26,7 +26,6 @@ export async function GET(request: NextRequest) {
     const projects = await getProjects();
     return NextResponse.json(projects);
   } catch (error) {
-    console.error('Error fetching projects:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
@@ -60,7 +59,6 @@ export async function POST(request: NextRequest) {
       throw validationError;
     }
   } catch (error) {
-    console.error('Error creating project:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

@@ -82,10 +82,8 @@ const GoogleMapComponent: React.FC<GoogleMapComponentProps> = ({
         src="/api/maps"
         onLoad={() => {
           setIsMapLoaded(true);
-          console.log('Google Maps API loaded via proxy');
         }}
         onError={(e) => {
-          console.error('Error loading Google Maps API:', e);
         }}
       />
       

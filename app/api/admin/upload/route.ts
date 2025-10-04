@@ -52,14 +52,19 @@ export async function POST(request: NextRequest) {
       access: 'public',
     });
 
+    // Verify the blob was created successfully
+    if (!blob || !blob.url) {
+      throw new Error('Failed to upload file to blob storage');
+    }
+
     return NextResponse.json({
       url: blob.url,
       filename: blob.pathname,
       size: file.size,
       type: file.type,
+      uploadedAt: new Date().toISOString(),
     });
   } catch (error) {
-    console.error('Error uploading file:', error);
     return NextResponse.json({ error: 'Failed to upload file' }, { status: 500 });
   }
 }

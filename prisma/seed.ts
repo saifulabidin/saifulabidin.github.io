@@ -77,12 +77,11 @@ async function main() {
     skipDuplicates: true
   });
 
-  console.log('Database seeded successfully!');
+
 }
 
 main()
   .catch((e) => {
-    console.error(e);
     process.exit(1);
   })
   .finally(async () => {

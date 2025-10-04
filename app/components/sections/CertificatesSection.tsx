@@ -220,7 +220,6 @@ export default function CertificatesSection() {
           setCertificates(staticCertificates);
         }
       } catch (error) {
-        console.error('Error fetching certificates:', error);
         // Fallback to static data
         setCertificates(staticCertificates);
       } finally {

@@ -1,6 +1,6 @@
 {
   "name": "portofolio",
-  "version": "0.1.0",
+  "version": "0.5.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -12,7 +12,7 @@
     "compose:down": "docker compose down",
     "seo:check": "bash scripts/seo-check.sh",
     "analyze": "ANALYZE=true next build",
-    "postbuild": "echo '✅ Build complete! Check SEO-OPTIMIZATION-GUIDE.md for next steps'",
+    "postbuild": "echo 'Build complete!'",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate dev",

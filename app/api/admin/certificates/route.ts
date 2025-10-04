@@ -24,7 +24,6 @@ export async function GET(request: NextRequest) {
     const certificates = await getCertificates();
     return NextResponse.json(certificates);
   } catch (error) {
-    console.error('Error fetching certificates:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
@@ -58,7 +57,6 @@ export async function POST(request: NextRequest) {
       throw validationError;
     }
   } catch (error) {
-    console.error('Error creating certificate:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

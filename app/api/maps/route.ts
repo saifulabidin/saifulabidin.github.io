@@ -27,7 +27,6 @@ export async function GET(request: Request) {
     // Fetch Google Maps script dengan API key
     const url = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=${libraries}&v=${version}&language=${language}&region=${region}`;
     
-    console.log(`Proxying Google Maps API request to: ${url.replace(apiKey, 'API_KEY_HIDDEN')}`);
     
     const response = await fetch(url);
     
@@ -45,7 +44,6 @@ export async function GET(request: Request) {
       },
     });
   } catch (error) {
-    console.error('Error proxying Google Maps API:', error);
     return NextResponse.json(
       { error: 'Failed to load Google Maps API' },
       { status: 500 }
