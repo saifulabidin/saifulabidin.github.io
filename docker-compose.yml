@@ -25,7 +25,7 @@ services:
       - GOOGLE_MAPS_API_KEY=${GOOGLE_MAPS_API_KEY}
 
       # Admin access
-      - ADMIN_EMAILS=${ADMIN_EMAILS}
+      - CADDY_EMAIL=${CADDY_EMAIL}
       restart: unless-stopped
     networks:
       - webnet
