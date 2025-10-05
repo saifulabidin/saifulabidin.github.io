@@ -35,6 +35,9 @@ ENV NODE_ENV=production
 # Create non-root user
 RUN addgroup -g 1001 -S nodejs && adduser -S nextjs -u 1001
 
+# Install curl for healthcheck
+RUN apk add --no-cache curl
+
 # Copy standalone output
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static

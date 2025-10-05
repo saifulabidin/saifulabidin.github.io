@@ -1,7 +1,9 @@
 services:
   web:
-    build: .
-    image: sabidzpro/portfolio:latest
+    build:
+      context: .
+      tags:
+        - sabidzpro/portfolio:latest
     env_file:
       - .env
     environment:
@@ -29,7 +31,7 @@ services:
     networks:
       - webnet
     healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://localhost:3000 || exit 1"]
+      test: ["CMD-SHELL", "curl -f http://localhost:3000 || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
