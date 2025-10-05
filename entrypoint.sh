@@ -5,7 +5,7 @@ echo "🚀 Starting application entrypoint..."
 
 # Wait for PostgreSQL to be ready
 echo "⏳ Waiting for PostgreSQL..."
-until npx prisma db execute --stdin <<< "SELECT 1;" 2>/dev/null; do
+until echo "SELECT 1;" | npx prisma db execute --stdin 2>/dev/null; do
   echo "PostgreSQL is unavailable - sleeping"
   sleep 2
 done
