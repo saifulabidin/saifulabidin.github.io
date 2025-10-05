@@ -1,8 +1,7 @@
 #!/bin/sh
-set -e
 
 echo "Running database seed..."
-npx prisma db seed
+npx prisma db seed || echo "Seed failed or already completed, continuing..."
 
 echo "Starting Next.js server..."
-exec "$@"
+exec su nextjs -c "$@"

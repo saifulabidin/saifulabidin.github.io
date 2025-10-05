@@ -58,10 +58,6 @@ ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 EXPOSE 3000
 
-# Ubah ke user nextjs
-USER nextjs
-
-# --- PERUBAHAN CMD ---
 # Set entrypoint ke script kita, dan CMD-nya tetap node server.js
 ENTRYPOINT ["/app/entrypoint.sh"]
 CMD ["node", "server.js"]
