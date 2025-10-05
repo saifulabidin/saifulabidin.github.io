@@ -44,8 +44,8 @@ ENV NODE_ENV=production
 # Create non-root user
 RUN addgroup -g 1001 -S nodejs && adduser -S nextjs -u 1001
 
-# Install curl for healthcheck & openssl untuk Prisma
-RUN apk add --no-cache curl openssl
+# Install curl for healthcheck, openssl untuk Prisma, postgresql-client untuk pg_isready
+RUN apk add --no-cache curl openssl postgresql-client
 
 # Copy standalone output
 COPY --from=builder /app/.next/standalone ./

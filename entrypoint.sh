@@ -13,13 +13,7 @@ echo "⏳ Waiting for PostgreSQL at $DB_HOST:$DB_PORT..."
 MAX_RETRIES=30
 RETRY=0
 
-# Install postgresql-client if not available (untuk Alpine)
-if ! command -v pg_isready > /dev/null 2>&1; then
-    echo "📦 Installing postgresql-client..."
-    apk add --no-cache postgresql-client > /dev/null 2>&1 || true
-fi
-
-# Wait for PostgreSQL using pg_isready
+# Wait for PostgreSQL using pg_isready  
 until pg_isready -h "$DB_HOST" -p "${DB_PORT:-5432}" -U "$DB_USER" > /dev/null 2>&1; do
   RETRY=$((RETRY+1))
   if [ $RETRY -ge $MAX_RETRIES ]; then
