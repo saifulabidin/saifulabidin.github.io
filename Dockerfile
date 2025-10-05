@@ -18,11 +18,18 @@ RUN if [ -f package-lock.json ]; then npm ci; \
 # 2) Builder
 FROM node:20-alpine AS builder
 WORKDIR /app
+
+# Install openssl untuk Prisma
+RUN apk add --no-cache openssl
+
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 # Ensure production build
 ENV NODE_ENV=production
+
+# Copy Prisma files
+COPY prisma ./prisma
 
 # Generate Prisma Client sebelum build
 RUN npx prisma generate
@@ -37,21 +44,27 @@ ENV NODE_ENV=production
 # Create non-root user
 RUN addgroup -g 1001 -S nodejs && adduser -S nextjs -u 1001
 
-# Install curl for healthcheck
-RUN apk add --no-cache curl
+# Install curl for healthcheck & openssl untuk Prisma
+RUN apk add --no-cache curl openssl
 
 # Copy standalone output
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/public ./public
 
-# --- PERUBAHAN PENTING UNTUK SEED ---
-# Copy entrypoint script ke dalam image
-COPY --from=builder /app/entrypoint.sh /app/entrypoint.sh
+# Copy Prisma files untuk migration & seed
+COPY --from=builder /app/prisma ./prisma
+COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
+COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
 
-# Kasih permission biar bisa dieksekusi
+# Copy entrypoint script
+COPY entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
-# --- END PERUBAHAN ---
+
+# Change ownership
+RUN chown -R nextjs:nodejs /app
+
+USER nextjs
 
 # Expose port and set env for Next
 ENV PORT=3000

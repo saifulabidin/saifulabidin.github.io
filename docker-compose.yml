@@ -1,4 +1,26 @@
 services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-portfolio}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-portfolio_password}
+      POSTGRES_DB: ${POSTGRES_DB:-portfolio_db}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - webnet
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-portfolio}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+
+  # Next.js Application
   web:
     build:
       context: .
@@ -7,12 +29,15 @@ services:
     env_file:
       - .env
     environment:
-      # Next.js runtime envs (public ones prefixed with NEXT_PUBLIC_)
-      - NEXT_PUBLIC_SITE_URL=${SITE_URL:-https://sabidzpro.my.id}
+      # Next.js runtime envs
+      - NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL:-https://sabidzpro.is-a.dev}
       - NODE_ENV=production
 
-      # Database (Prisma Accelerate)
-      - POSTGRES_PRISMA_URL=${POSTGRES_PRISMA_URL}
+      # Database URL (connect to postgres service)
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-portfolio}:${POSTGRES_PASSWORD:-portfolio_password}@postgres:5432/${POSTGRES_DB:-portfolio_db}?schema=public
+
+      # Auto seed on first run
+      - AUTO_SEED=${AUTO_SEED:-true}
 
       # AUTH (GitHub OAuth)
       - AUTH_SECRET=${AUTH_SECRET}
@@ -30,12 +55,15 @@ services:
     restart: unless-stopped
     networks:
       - webnet
+    depends_on:
+      postgres:
+        condition: service_healthy
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:3000 || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 40s
+      start_period: 60s
 
   caddy:
     image: caddy:2-alpine
@@ -62,5 +90,7 @@ networks:
     driver: bridge
 
 volumes:
+  postgres_data:
+    driver: local
   caddy_data:
   caddy_config:
