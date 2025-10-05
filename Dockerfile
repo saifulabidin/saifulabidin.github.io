@@ -23,8 +23,9 @@ COPY . .
 
 # Ensure production build
 ENV NODE_ENV=production
-# Use build-time envs for Next if needed
-# ARG NEXT_PUBLIC_* and others could be passed in CI
+# Increase memory limit for building
+ENV NODE_OPTIONS="--max-old-space-size=1024"
+
 RUN npm run build
 
 # 3) Runner - minimal image
