@@ -23,8 +23,9 @@ COPY . .
 
 # Ensure production build
 ENV NODE_ENV=production
-# Increase memory limit for building
-ENV NODE_OPTIONS="--max-old-space-size=1024"
+
+# Generate Prisma Client sebelum build
+RUN npx prisma generate
 
 RUN npm run build
 
@@ -44,12 +45,23 @@ COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/public ./public
 
+# --- PERUBAHAN PENTING UNTUK SEED ---
+# Copy entrypoint script ke dalam image
+COPY --from=builder /app/entrypoint.sh /app/entrypoint.sh
+
+# Kasih permission biar bisa dieksekusi
+RUN chmod +x /app/entrypoint.sh
+# --- END PERUBAHAN ---
+
 # Expose port and set env for Next
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 EXPOSE 3000
 
+# Ubah ke user nextjs
 USER nextjs
 
-# Start the server
+# --- PERUBAHAN CMD ---
+# Set entrypoint ke script kita, dan CMD-nya tetap node server.js
+ENTRYPOINT ["/app/entrypoint.sh"]
 CMD ["node", "server.js"]
