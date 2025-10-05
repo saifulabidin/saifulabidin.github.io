@@ -13,6 +13,7 @@ services:
 
       # Database (Prisma Accelerate)
       - POSTGRES_PRISMA_URL=${POSTGRES_PRISMA_URL}
+
       # AUTH (GitHub OAuth)
       - AUTH_SECRET=${AUTH_SECRET}
       - AUTH_GITHUB_ID=${AUTH_GITHUB_ID}
@@ -26,7 +27,7 @@ services:
 
       # Admin access
       - CADDY_EMAIL=${CADDY_EMAIL}
-      restart: unless-stopped
+    restart: unless-stopped
     networks:
       - webnet
     healthcheck:
