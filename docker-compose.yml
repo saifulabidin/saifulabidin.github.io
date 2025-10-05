@@ -32,6 +32,8 @@ services:
 
       # Database
       - DATABASE_URL=postgresql://${DB_USER:-portfolio_user}:${DB_PASSWORD}@postgres:5432/portfolio_db
+      - POSTGRES_PRISMA_URL=postgresql://${DB_USER:-portfolio_user}:${DB_PASSWORD}@postgres:5432/portfolio_db?pgbouncer=true&connection_limit=1
+      - POSTGRES_URL_NON_POOLING=postgresql://${DB_USER:-portfolio_user}:${DB_PASSWORD}@postgres:5432/portfolio_db
 
       # NextAuth.js
       - NEXTAUTH_URL=${SITE_URL:-https://sabidzpro.is-a.dev}
