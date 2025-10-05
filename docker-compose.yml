@@ -1,6 +1,25 @@
 version: "3.9"
 
 services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: portfolio_db
+    environment:
+      POSTGRES_DB: portfolio_db
+      POSTGRES_USER: ${DB_USER:-portfolio_user}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - webnet
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-portfolio_user}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   web:
     build: .
     image: sabidzpro/portfolio:latest
@@ -8,18 +27,40 @@ services:
       - .env
     environment:
       # Next.js runtime envs (public ones prefixed with NEXT_PUBLIC_)
-      - NEXT_PUBLIC_SITE_URL=https://sabidzpro.is-a.dev
+      - NEXT_PUBLIC_SITE_URL=${SITE_URL:-https://sabidzpro.is-a.dev}
       - NODE_ENV=production
+
+      # Database
+      - DATABASE_URL=postgresql://${DB_USER:-portfolio_user}:${DB_PASSWORD}@postgres:5432/portfolio_db
+
+      # NextAuth.js
+      - NEXTAUTH_URL=${SITE_URL:-https://sabidzpro.is-a.dev}
+      - NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
+
+      # GitHub OAuth (required for admin panel)
+      - GITHUB_ID=${GITHUB_ID}
+      - GITHUB_SECRET=${GITHUB_SECRET}
+
+      # Vercel Blob Storage (for image uploads)
+      - BLOB_READ_WRITE_TOKEN=${BLOB_READ_WRITE_TOKEN}
+
       # Server-only envs
       - GOOGLE_MAPS_API_KEY=${GOOGLE_MAPS_API_KEY}
+
+      # Admin access
+      - ADMIN_EMAILS=${ADMIN_EMAILS}
+    depends_on:
+      postgres:
+        condition: service_healthy
     restart: unless-stopped
     networks:
       - webnet
     healthcheck:
       test: ["CMD-SHELL", "wget -qO- http://localhost:3000 || exit 1"]
-      interval: 10s
-      timeout: 5s
-      retries: 12
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
 
   caddy:
     image: caddy:2-alpine
@@ -46,5 +87,6 @@ networks:
     driver: bridge
 
 volumes:
+  postgres_data:
   caddy_data:
   caddy_config:
