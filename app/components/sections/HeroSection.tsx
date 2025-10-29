@@ -96,7 +96,7 @@ export default function HeroSection() {
 
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row items-center gap-4 mb-2">
-                <a href="#contact" className="w-full sm:w-auto bg-[#C6F10E] hover:bg-[#a5c70c] text-black py-3 px-8 rounded-lg font-semibold transition-all transform hover:scale-105 text-center shadow-lg shadow-[#C6F10E]/25">
+                <a href="https://sabidzpro.my.id" className="w-full sm:w-auto bg-[#C6F10E] hover:bg-[#a5c70c] text-black py-3 px-8 rounded-lg font-semibold transition-all transform hover:scale-105 text-center shadow-lg shadow-[#C6F10E]/25">
                   Let&apos;s Work Together
                 </a>
                 <a href="#projects" className="w-full sm:w-auto bg-transparent hover:bg-white/10 text-white border-2 border-white/20 hover:border-[#C6F10E] py-3 px-8 rounded-lg font-semibold transition-all text-center">
