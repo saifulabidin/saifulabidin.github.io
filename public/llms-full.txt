@@ -1,0 +1,57 @@
+# Saiful Abidin Portfolio - Complete Profile & Engineering Ledger
+
+> Full technical portfolio, biography, credentials, and architecture specification for Saiful Abidin (sabidzpro), Full Stack Developer & Systems Engineer based in Wonogiri, Central Java, Indonesia.
+
+## Biography & Summary
+Saiful Abidin is a Full Stack Developer and Systems Engineer with 5+ years of software development experience. Currently leading the development of enterprise backend and operational systems at PT. Infinity Blessing Indonesia. His expertise covers full-stack web development (React, Next.js, Node.js), relational database architecture and query optimization (PostgreSQL, Prisma ORM), containerization (Docker, Caddy), and mobile application development (Flutter, Dart).
+
+## Key Information
+- Full Name: Saiful Abidin
+- Handle / Username: sabidzpro
+- Role: Full Stack Developer & Systems Engineer
+- Primary Location: Wonogiri, Central Java, Indonesia (WIB / GMT+7, remote/WFH capable)
+- Years of Experience: 5+
+- Completed Projects: 27+
+- Client Satisfaction: 93.75%
+- Official Website: [https://sabidzpro.is-a.dev](https://sabidzpro.is-a.dev)
+- Email: contact@sabidzpro.is-a.dev
+- Phone: +62 822-4203-4791
+- GitHub: [https://github.com/saifulabidin](https://github.com/saifulabidin)
+- LinkedIn: [https://linkedin.com/in/saiful-abidin](https://linkedin.com/in/saiful-abidin)
+
+## Technical Stack & Tooling
+- Frontend: Next.js 14 App Router, React 18, TypeScript, Tailwind CSS, Framer Motion, Swiper
+- 3D & Graphics: Three.js, React Three Fiber, React Three Drei, Rapier Physics
+- Backend: Node.js, Express, Next.js API Routes, NextAuth.js v5 (Beta)
+- Database & ORM: PostgreSQL, Prisma ORM v6, Redis
+- Mobile: Flutter, Dart, BLoC pattern, offline synchronization
+- Cloud & Infrastructure: Vercel Serverless Edge, Vercel Blob, Docker multi-stage builds, Caddy reverse proxy
+- Runtime & Package Manager: Bun v1.2+
+
+## Work Experience
+1. PT. Infinity Blessing Indonesia (2025 - Present)
+   - Role: Full Stack Developer
+   - Core Responsibilities: Architecting enterprise backend systems, background workers, PostgreSQL database structures, internal administration dashboards, and real-time operational Flutter mobile applications.
+2. Freelance Full Stack Engineer (2023 - 2025)
+   - Built 15+ production-grade web applications and high-throughput REST APIs for clients and startups.
+3. Junior Full Stack Developer (2022 - 2023)
+   - Built full-stack prototypes, contributed to open-source repositories, and deepened React/Node.js/PostgreSQL integration.
+4. Independent Learner & Early Projects (2020 - 2022)
+   - Completed extensive algorithm training, data structures, and foundational full-stack curricula.
+
+## Certifications
+- FreeCodeCamp: Responsive Web Design
+- FreeCodeCamp: JavaScript Algorithms and Data Structures
+- FreeCodeCamp: Back End Development and APIs
+- FreeCodeCamp: Scientific Computing with Python
+- Dicoding: Dasar Pemrograman JavaScript
+- Dicoding: Belajar Backend Pemula dengan JavaScript
+- Dicoding: Belajar Dasar Cloud dan Generative AI di AWS
+
+## Navigation & Localized Endpoints
+- [Indonesian Homepage](https://sabidzpro.is-a.dev/id)
+- [English Homepage](https://sabidzpro.is-a.dev/en)
+- [Privacy Policy (ID)](https://sabidzpro.is-a.dev/id/privacy-policy)
+- [Privacy Policy (EN)](https://sabidzpro.is-a.dev/en/privacy-policy)
+- [Cookie Policy (ID)](https://sabidzpro.is-a.dev/id/cookie-policy)
+- [Cookie Policy (EN)](https://sabidzpro.is-a.dev/en/cookie-policy)

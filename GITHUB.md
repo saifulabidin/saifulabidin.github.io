@@ -2,6 +2,11 @@
 
 This document outlines branch management, contribution protocols, security standards, and CI/CD operations for the public repository [saifulabidin.github.io](https://github.com/saifulabidin/saifulabidin.github.io).
 
+See also:
+- [Code of Conduct](CODE_OF_CONDUCT.md)
+- [Security Policy](SECURITY.md)
+- [Contributing Guide](CONTRIBUTING.md)
+
 ## Branch Architecture
 
 The repository enforces a structured Git workflow:
@@ -56,9 +61,9 @@ Examples:
 
 ## Security & Vulnerability Reporting
 
-If you identify a security vulnerability, sensitive data leakage, or potential attack vector in this repository:
+Refer to [SECURITY.md](SECURITY.md) for complete disclosure instructions and SLA terms.
 
+If you identify a security vulnerability, sensitive data leakage, or potential attack vector:
 1. Do NOT open a public issue on GitHub.
-2. Report the vulnerability privately to the maintainer via email at `contact@sabidzpro.is-a.dev` or `syaiful.osd@yahoo.com`.
-3. Provide full reproduction steps, affected routes or components, and proof of concept if applicable.
-4. Allow reasonable time for remediation before any public disclosure.
+2. Report privately to `contact@sabidzpro.is-a.dev` or `syaiful.osd@yahoo.com`.
+3. Provide full reproduction steps and impact analysis.

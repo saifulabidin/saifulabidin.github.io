@@ -1,0 +1,31 @@
+# Saiful Abidin Portfolio
+
+> Production-grade personal portfolio and professional software engineering profile for Saiful Abidin (sabidzpro), Full Stack Developer & Systems Engineer based in Wonogiri, Indonesia.
+
+Saiful Abidin is a Full Stack Developer with 5+ years of experience in enterprise web architecture, real-time backend systems, cloud deployment, and cross-platform mobile development.
+
+## Core Capabilities
+- Web Applications: Next.js 14 (App Router), React 18, TypeScript, Tailwind CSS
+- 3D & Graphics: Three.js, React Three Fiber, React Three Drei, Rapier Physics
+- Backend & Systems: Node.js, Express, PostgreSQL, Prisma ORM, Redis, Caddy, Docker
+- Mobile Engineering: Flutter, Dart, BLoC pattern, offline-first mobile systems
+- Infrastructure: Vercel serverless edge, multi-stage Docker containers, Linux Kubuntu
+
+## Primary Pages & Documentation
+- [Indonesian Portfolio](https://sabidzpro.is-a.dev/id): Beranda portofolio versi Bahasa Indonesia
+- [English Portfolio](https://sabidzpro.is-a.dev/en): English version of the portfolio
+- [Privacy Policy](https://sabidzpro.is-a.dev/en/privacy-policy): Privacy and data collection policies
+- [Cookie Policy](https://sabidzpro.is-a.dev/en/cookie-policy): Cookie compliance and consent information
+- [Full LLM Specification](https://sabidzpro.is-a.dev/llms-full.txt): Complete structured profile and technical ledger
+
+## Professional Credentials
+- FreeCodeCamp: Responsive Web Design, JavaScript Algorithms & Data Structures, Back End Development and APIs, Scientific Computing with Python
+- Dicoding Indonesia: Dasar Pemrograman JavaScript, Belajar Backend Pemula dengan JavaScript, Belajar Dasar Cloud dan Generative AI di AWS
+
+## Contact & Social Links
+- Website: [https://sabidzpro.is-a.dev](https://sabidzpro.is-a.dev)
+- Email: contact@sabidzpro.is-a.dev
+- Telephone: +62 822-4203-4791
+- GitHub: [https://github.com/saifulabidin](https://github.com/saifulabidin)
+- LinkedIn: [https://linkedin.com/in/saiful-abidin](https://linkedin.com/in/saiful-abidin)
+- Location: Wonogiri, Central Java, Indonesia (WIB / GMT+7)

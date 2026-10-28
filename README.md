@@ -1,197 +1,273 @@
-# Saiful Abidin - Personal Portfolio Website
+# Saiful Abidin - Personal Portfolio & Engineering Platform
 
-Production-grade personal portfolio and interactive web platform engineered with Next.js App Router, TypeScript, React Three Fiber, Tailwind CSS, Prisma ORM, and the Bun runtime. Deployed natively on Vercel with support for self-hosted containerized deployment via Docker and Caddy.
+Production-grade personal portfolio and interactive web platform engineered with Next.js 14 App Router, TypeScript, React Three Fiber, Tailwind CSS, Prisma ORM, and the Bun runtime. Features localized routing (ID/EN), 3D interactive physics simulation, administrative content management, and hardened edge security.
 
-Live URL: [https://sabidzpro.is-a.dev](https://sabidzpro.is-a.dev)
+[![Website](https://img.shields.io/badge/Website-sabidzpro.is--a.dev-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://sabidzpro.is-a.dev)
+[![GitHub Stars](https://img.shields.io/github/stars/saifulabidin/saifulabidin.github.io?style=for-the-badge&logo=github&color=24292e)](https://github.com/saifulabidin/saifulabidin.github.io/stargazers)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE.md)
+[![Next.js](https://img.shields.io/badge/Next.js%2014-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript%205-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Bun](https://img.shields.io/badge/Bun-000000?style=for-the-badge&logo=bun&logoColor=white)](https://bun.sh/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 
-## Architecture & Technology Stack
+---
 
-- Runtime and Package Manager: Bun (v1.3.x)
-- Framework: Next.js (v14.x App Router, Standalone Output)
-- Language: TypeScript 5
-- User Interface: React 18, Tailwind CSS, Framer Motion, Motion, Swiper
-- 3D Graphics and Physics: Three.js, React Three Fiber (@react-three/fiber), React Three Drei (@react-three/drei), Rapier Physics (@react-three/rapier), MeshLine
-- Persistence Layer: Prisma ORM v6 with Prisma Postgres / Vercel Postgres
-- Authentication: NextAuth.js v5 (Beta) with GitHub OAuth provider
-- Object Storage: Vercel Blob
-- Integration: Google Maps JavaScript API via secure server-side proxy
-- Production Hosting: Vercel (Serverless and Static Edge)
-- Alternative Hosting: Multi-stage Docker container with Bun runtime behind Caddy reverse proxy
+## Visual Tour & Application Showcase
 
-## Directory Structure
+### 1. Hero Section & Interactive 3D Lanyard
+Interactive physics-driven lanyard simulation created with Three.js, React Three Fiber, and Rapier Physics, paired with high-level professional metrics and quick action controls.
+
+![Hero Section](docs/screenshots/screenshot-2026-10-29-025100.png)
+
+### 2. Professional Biography & Profile
+Concise background detailing 5+ years of software engineering journey, core engineering focus, and direct Curriculum Vitae download link.
+
+![About and Biography](docs/screenshots/screenshot-2026-10-29-025200.png)
+
+### 3. Core Technologies & Skills Marquee
+High-density visual inventory of languages, frameworks, databases, and tooling deployed across production environments.
+
+![Tech Stack & Skills](docs/screenshots/screenshot-2026-10-29-025231.png)
+
+### 4. Education & Self-Directed Learning Timeline
+Structured milestone ledger tracking self-taught computer science foundations, algorithm practice, and specialized cloud/full-stack certifications.
+
+![Education Timeline](docs/screenshots/screenshot-2026-10-29-025422.png)
+
+### 5. Career Journey & Work Experience
+Career progression covering initial explorations, freelance consulting, and leading enterprise backend and mobile operations at PT. Infinity Blessing Indonesia.
+
+![Career History](docs/screenshots/screenshot-2026-10-29-025506.png)
+![Enterprise Experience](docs/screenshots/screenshot-2026-10-29-025545.png)
+
+### 6. Featured Engineering Projects
+Filterable project showcase categorizing full-stack web applications, microservices, mobile apps, and high-throughput REST APIs.
+
+![Featured Projects](docs/screenshots/screenshot-2026-10-29-025559.png)
+
+### 7. Verified Certifications & Credentials
+Official certifications from FreeCodeCamp, Dicoding Indonesia, and AWS with verifiable credential links.
+
+![Certifications](docs/screenshots/screenshot-2026-10-29-025617.png)
+
+### 8. Direct Contact & Secure Location Proxy
+Direct contact channel with input validation and server-side Google Maps API proxy keeping upstream tokens confidential.
+
+![Contact Form](docs/screenshots/screenshot-2026-10-29-025645.png)
+
+---
+
+## Core Capabilities
+
+- **Internationalization (i18n)**: Subpath routing supporting Bahasa Indonesia (`/id`) and English (`/en`) via `next-intl` with automated language negotiation.
+- **Interactive 3D Physics**: WebGL card lanyard rendered with React Three Fiber, Three.js, and Rapier rigid-body physics.
+- **Enterprise SEO & Agentic Browsing**:
+  - Dynamic `generateMetadata` delivering self-referencing canonical URLs matching localized `hreflang` alternates.
+  - JSON-LD structured data (`Person`, `WebSite`, `ProfilePage`).
+  - Native machine-readable Agent Discoverability standards compliant with [`/llms.txt`](public/llms.txt) and [`/llms-full.txt`](public/llms-full.txt).
+- **Administrative Portal**: Protected administration routes allowing full CRUD lifecycle management for projects and credentials.
+- **Authentication**: NextAuth.js v5 (Beta) backed by GitHub OAuth provider.
+- **Cloud Object Storage**: File and asset upload handling via Vercel Blob SDK.
+- **Edge Security Headers**: Hardened HTTP security headers (CSP, HSTS, X-Frame-Options, X-Content-Type-Options).
+
+---
+
+## Technology Stack
+
+| Layer | Technology | Specification / Role |
+| --- | --- | --- |
+| Runtime & Package Engine | Bun | v1.2+ execution runtime and lockfile engine |
+| Web Framework | Next.js | v14.x App Router (SSG, SSR, Server Actions) |
+| Programming Language | TypeScript | v5.x strict mode |
+| Styling & UI | Tailwind CSS | Utility-first CSS, custom neo-brutalist theme |
+| Motion & Animation | Framer Motion / Motion | Hardware-accelerated UI transitions |
+| 3D Simulation | React Three Fiber / Rapier | `@react-three/fiber`, `@react-three/drei`, `@react-three/rapier` |
+| Database & ORM | PostgreSQL / Prisma | Prisma ORM v6 with connection pooling |
+| Authentication | NextAuth.js | v5 (Beta) session tokens with GitHub OAuth |
+| Media Storage | Vercel Blob | Cloud binary asset storage |
+| Internationalization | next-intl | Cookie & header-based locale management |
+| Deployment & Edge | Vercel | Global edge serverless hosting |
+| Containerization | Docker / Caddy | Multi-stage Alpine container with automated HTTPS |
+
+---
+
+## Repository Layout
 
 ```text
-├── app/                  # Next.js App Router routes, layouts, and components
-│   ├── api/              # API Route Handlers (auth, maps proxy, CRUD)
-│   ├── components/       # Modular UI components (3D lanyard, sections, forms)
-│   ├── constants/        # SEO metadata, schemas, structured data, static items
-│   ├── globals.css       # Global styles and Tailwind directives
-│   ├── layout.tsx        # Root HTML layout with JSON-LD schema injections
-│   ├── page.tsx          # Main landing page composition
-│   ├── robots.ts         # Automated robots.txt generation
-│   └── sitemap.ts        # Automated XML sitemap generation
-├── lib/                  # Shared utilities and Prisma client singleton
-├── prisma/               # Database schema definition and seed scripts
-├── public/               # Static assets, fonts, icons, project imagery
-├── scripts/              # Automation and SEO auditing shell scripts
-├── tests/                # Smoke tests and container verification suites
-├── Caddyfile             # Reverse proxy configuration with automatic HTTPS
-├── Dockerfile            # Multi-stage container definition using oven/bun
-├── docker-compose.yml    # Service composition for containerized deployment
-├── next.config.js        # Next.js compiler and header configuration
-├── package.json          # Project manifest and task automation
-├── tsconfig.json         # TypeScript compiler configurations
-├── bun.lock              # Bun deterministic lockfile
-├── GITHUB.md             # Repository maintenance and contribution protocol
-└── LICENSE.md            # Licensing terms and conditions
+├── app/
+│   ├── [locale]/             # Internationalized route tree (/en, /id)
+│   │   ├── cookie-policy/    # Localized cookie compliance page
+│   │   ├── privacy-policy/   # Localized privacy policy page
+│   │   ├── layout.tsx        # Localized root layout with dynamic metadata
+│   │   └── page.tsx          # Single-page portfolio composition
+│   ├── api/                  # Edge and serverless route handlers
+│   │   ├── admin/            # Authenticated CRUD handlers (projects, certificates)
+│   │   ├── auth/             # NextAuth route handler
+│   │   ├── maps/             # Confidentially proxied Google Maps handler
+│   │   └── public/           # Public read-only endpoints
+│   ├── components/           # Reusable UI widgets and 3D canvas modules
+│   └── constants/            # Structured data schemas and SEO configurations
+├── docs/                     # Media documentation and visual assets
+│   ├── screenshots/          # High-resolution application screenshots
+│   └── saweria-qr.png        # Saweria donation QR image
+├── lib/                      # Core utilities, Prisma client, and routing definitions
+├── messages/                 # Translation catalogs (en.json, id.json)
+├── prisma/                   # Database schema definitions and seed routines
+├── public/                   # Static public assets (fonts, icons, llms.txt)
+├── scripts/                  # Maintenance and SEO auditing automation
+├── Caddyfile                 # Caddy reverse proxy configuration
+├── Dockerfile                # Multi-stage Bun Alpine container specification
+├── docker-compose.yml        # Docker service definition
+├── GITHUB.md                 # Repository governance and branch standards
+├── CONTRIBUTING.md           # Contribution protocol
+├── CODE_OF_CONDUCT.md        # Contributor Covenant v2.1
+├── SECURITY.md               # Vulnerability reporting and SLA terms
+└── LICENSE.md                # MIT License
 ```
 
-## Environment Variables
+---
 
-Copy `.env.example` to `.env` and populate the required parameters:
+## Environment Configuration
+
+Create a `.env` file based on `.env.example`:
 
 ```bash
 cp .env.example .env
 ```
 
-| Variable | Description | Scope |
+| Parameter | Required | Description |
 | --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Canonical URL of the website for SEO and sitemap generation | Public (Client & Server) |
-| `NODE_ENV` | Application environment state (`development` or `production`) | Server |
-| `POSTGRES_PRISMA_URL` | Connection string for Prisma Postgres database | Server |
-| `AUTH_SECRET` | Secret key used to encrypt NextAuth session tokens | Server |
-| `AUTH_GITHUB_ID` | GitHub OAuth application client identifier | Server |
-| `AUTH_GITHUB_SECRET` | GitHub OAuth application client secret | Server |
-| `BLOB_READ_WRITE_TOKEN` | Read/write API token for Vercel Blob storage | Server |
-| `GOOGLE_MAPS_API_KEY` | Server-side Google Maps API key proxied by `/api/maps` | Server |
-| `CADDY_EMAIL` | Administrator email for automatic Let's Encrypt TLS certificates | Docker only |
+| `NEXT_PUBLIC_SITE_URL` | Yes | Canonical site domain (`https://sabidzpro.is-a.dev`) |
+| `NODE_ENV` | Yes | Runtime environment mode (`development` or `production`) |
+| `POSTGRES_PRISMA_URL` | Yes | PostgreSQL connection string |
+| `AUTH_SECRET` | Yes | Cryptographic secret for encrypting session cookies |
+| `AUTH_GITHUB_ID` | Yes | GitHub OAuth Client ID |
+| `AUTH_GITHUB_SECRET` | Yes | GitHub OAuth Client Secret |
+| `BLOB_READ_WRITE_TOKEN` | Yes | Vercel Blob access token |
+| `GOOGLE_MAPS_API_KEY` | Yes | Server-side Google Maps token proxied via `/api/maps` |
+| `CADDY_EMAIL` | Optional | Let's Encrypt notification address for Docker deployments |
+
+---
 
 ## Getting Started
 
 ### Prerequisites
 
-- Bun v1.2.0 or higher
+- [Bun](https://bun.sh/) v1.2.0 or higher
 - Git
 
-### Installation and Local Execution
+### Installation & Local Server
 
 1. Clone the repository:
-
-```bash
-git clone https://github.com/saifulabidin/saifulabidin.github.io.git
-cd saifulabidin.github.io
-```
+   ```bash
+   git clone https://github.com/saifulabidin/saifulabidin.github.io.git
+   cd saifulabidin.github.io
+   ```
 
 2. Install dependencies:
-
-```bash
-bun install
-```
+   ```bash
+   bun install
+   ```
 
 3. Generate Prisma client bindings:
+   ```bash
+   bun run db:generate
+   ```
+
+4. Start local development server:
+   ```bash
+   bun dev
+   ```
+
+Access the application at `http://localhost:3000`.
+
+### Database Operations
 
 ```bash
-bun run db:generate
-```
-
-4. Launch the local development server:
-
-```bash
-bun dev
-```
-
-The application will be accessible at `http://localhost:3000`.
-
-### Database Workflow
-
-- Synchronize Prisma schema with the target database:
-
-```bash
+# Push schema updates directly to database
 bun run db:push
-```
 
-- Execute migrations:
-
-```bash
+# Execute pending migrations
 bun run db:migrate
-```
 
-- Seed sample projects and initial data:
-
-```bash
+# Seed database with initial project data
 bun run db:seed
 ```
 
+---
+
 ## Production Deployment
 
-### Vercel (Primary Platform)
+### Option 1: Vercel (Recommended)
 
-This project is optimized for deployment on Vercel:
+1. Import the repository in the Vercel dashboard.
+2. Vercel automatically detects `bun.lock` and executes the build using Bun.
+3. Configure the required environment variables in Project Settings.
+4. Deployments execute automatically on git pushes to `main`.
 
-1. Import the repository into the Vercel Dashboard.
-2. Vercel automatically detects `bun.lock` and executes builds using Bun.
-3. Configure the environment variables listed above in the Vercel Project Settings.
-4. Attach Prisma Postgres and Vercel Blob storage instances from the Vercel Storage tab.
-5. Deployments trigger automatically on pushes to the `main` branch.
-
-### Self-Hosted Docker Deployment (Alternative)
-
-For hosting on VPS environments:
+### Option 2: Self-Hosted Container (Docker & Caddy)
 
 ```bash
 # Build and start services in detached mode
 bun run compose:up
 
-# View running container status
+# Check container health and status
 docker compose ps
 
-# Stop services
+# Shutdown containers
 bun run compose:down
 ```
 
-The Dockerfile uses `oven/bun:1-alpine` across multi-stage build layers to maintain a minimal container attack surface and fast startup times.
+---
 
 ## Quality Assurance & Verification
 
-- Lint codebase against Next.js and ESLint standards:
-
 ```bash
+# Run ESLint validation
 bun run lint
-```
 
-- Run Docker end-to-end container verification test:
+# Build production bundle
+bun run build
 
-```bash
+# Run Docker container smoke test
 bun run test:docker
-```
 
-- Execute SEO and metadata compliance verification:
-
-```bash
+# Run SEO & metadata compliance script
 bun run seo:check
-```
 
-- Generate bundle performance analysis:
-
-```bash
+# Inspect production bundle size
 bun run analyze
 ```
 
-## Security Posture
+---
 
-- Sensitive credentials (Google Maps API keys, database credentials) are stored server-side and never exposed to the client bundle.
-- State-changing administration endpoints require authenticated session tokens verified through GitHub OAuth.
-- Strict HTTP response headers are enforced at the edge:
-  - `X-Frame-Options: SAMEORIGIN`
-  - `X-Content-Type-Options: nosniff`
-  - `Referrer-Policy: origin-when-cross-origin`
-  - `X-DNS-Prefetch-Control: on`
-- Public static assets are served with isolated sandbox content-security policies for SVG rendering.
+## Governance & Documentation
 
-## Contributing and Governance
+- [Contributing Guidelines](CONTRIBUTING.md)
+- [Repository Governance](GITHUB.md)
+- [Code of Conduct](CODE_OF_CONDUCT.md)
+- [Security Policy](SECURITY.md)
+- [License Terms](LICENSE.md)
 
-Review [GITHUB.md](file:///home/sabidzpro/Documents/project/saifulabidin.github.io/GITHUB.md) for branch strategy, commit conventions, and vulnerability disclosure protocols.
+---
+
+## Support & Sponsorship
+
+If you find this project or portfolio useful, you can support continuous maintenance and open-source contributions via Saweria:
+
+<p align="center">
+  <a href="https://saweria.co/sabidzpro">
+    <img src="docs/saweria-qr.png" alt="Saweria QR Code" width="220" />
+  </a>
+  <br />
+  <a href="https://saweria.co/sabidzpro">
+    <strong>Support via Saweria (saweria.co/sabidzpro)</strong>
+  </a>
+</p>
+
+---
 
 ## License
 
-This project is licensed under the MIT License. See [LICENSE.md](file:///home/sabidzpro/Documents/project/saifulabidin.github.io/LICENSE.md) for terms.
+This project is licensed under the MIT License. See [LICENSE.md](LICENSE.md) for full text.
