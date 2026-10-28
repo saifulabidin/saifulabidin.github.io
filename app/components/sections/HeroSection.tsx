@@ -69,7 +69,7 @@ export default function HeroSection() {
                     {/* Card Top Category Pill */}
                     <div className="inline-flex items-center gap-1.5 bg-[#FF90E8] text-black border-2 border-black px-3 py-0.5 rounded-full text-xs font-black uppercase tracking-wider shadow-neo-sm mb-4">
                       <span className="w-2 h-2 rounded-full bg-black"></span>
-                      Verified Engineer ID
+                      Engineer ID
                     </div>
 
                     {/* Profile Photo Frame */}
