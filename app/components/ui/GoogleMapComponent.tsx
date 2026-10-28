@@ -67,9 +67,9 @@ const GoogleMapComponent: React.FC<GoogleMapComponentProps> = ({
     return (
       <div 
         ref={mapRef}
-        className="relative aspect-video bg-gray-100 rounded-xl animate-pulse flex items-center justify-center"
+        className="relative aspect-video bg-neutral-100 rounded-xl animate-pulse flex items-center justify-center border-2 border-black"
       >
-        <div className="text-gray-400 text-sm">Map loading...</div>
+        <div className="text-black font-black text-sm">Loading map view...</div>
       </div>
     )
   }

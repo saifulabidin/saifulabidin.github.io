@@ -1,16 +1,23 @@
 'use client';
 
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import RotatingText from "../RotatingText/RotatingText";
 
 const Lanyard = dynamic(() => import("../Lanyard/Lanyard"), {
   ssr: false,
-  loading: () => null,
+  loading: () => (
+    <div className="w-full h-full flex flex-col items-center justify-center p-8">
+      <div className="w-12 h-12 border-4 border-black border-t-[#C6F10E] rounded-full animate-spin mb-3"></div>
+      <span className="font-black text-xs uppercase tracking-wider text-black">Loading 3D Canvas...</span>
+    </div>
+  ),
 });
 
 export default function HeroSection() {
   const [isDesktop, setIsDesktop] = useState(false);
+  const [is3DActive, setIs3DActive] = useState(false);
 
   useEffect(() => {
     const checkDesktop = () => setIsDesktop(window.innerWidth >= 1024);
@@ -23,10 +30,97 @@ export default function HeroSection() {
     <section id="home" className="pt-28 md:pt-32 pb-16 md:pb-24 overflow-hidden">
       <div className="container mx-auto px-4 max-w-7xl min-h-[calc(100vh-8rem)] flex items-center">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 w-full items-center">
-          {/* Lanyard 3D Model Column - Visible on Desktop */}
-          <div className="hidden lg:flex lg:col-span-6 relative items-center justify-center h-[580px]">
+          {/* ID Badge / 3D Model Column - Visible on Desktop */}
+          <div className="hidden lg:flex lg:col-span-6 relative items-center justify-center min-h-[580px]">
             <div className="absolute inset-4 rounded-3xl border-2 border-dashed border-neutral-300 pointer-events-none" />
-            {isDesktop && <Lanyard position={[0, 0, 13]} gravity={[0, -40, 0]} />}
+
+            {isDesktop && (
+              is3DActive ? (
+                <div className="relative w-full h-[580px] flex items-center justify-center">
+                  {/* Toggle back to 2D Badge */}
+                  <button
+                    onClick={() => setIs3DActive(false)}
+                    className="absolute top-2 right-2 z-20 bg-white border-2 border-black px-3.5 py-1.5 rounded-xl font-black text-xs uppercase tracking-wider shadow-neo-sm hover:bg-[#FF90E8] hover:translate-x-[1px] hover:translate-y-[1px] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all flex items-center gap-1.5 cursor-pointer text-black"
+                    aria-label="Switch back to 2D badge view"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                    2D Badge Mode
+                  </button>
+                  <Lanyard position={[0, 0, 13]} gravity={[0, -40, 0]} />
+                </div>
+              ) : (
+                <div className="relative z-10 flex flex-col items-center">
+                  {/* Lanyard Top Strap & Clip Simulation */}
+                  <div className="flex flex-col items-center -mb-3 z-10">
+                    <div className="w-8 h-10 bg-[#FFDE59] border-2 border-black rounded-t-md shadow-neo-sm flex items-center justify-center">
+                      <span className="w-2.5 h-2.5 bg-black rounded-full" />
+                    </div>
+                    <div className="w-12 h-4 bg-neutral-200 border-2 border-black rounded-sm shadow-neo-sm" />
+                  </div>
+
+                  {/* Neo-Brutalist ID Card */}
+                  <div className="w-[340px] bg-white border-3 border-black rounded-3xl shadow-neo-lg p-6 flex flex-col items-center relative transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo">
+                    {/* Card Slot Hole */}
+                    <div className="w-14 h-2.5 bg-neutral-200 border-2 border-black rounded-full mb-4" />
+
+                    {/* Card Top Category Pill */}
+                    <div className="inline-flex items-center gap-1.5 bg-[#FF90E8] text-black border-2 border-black px-3 py-0.5 rounded-full text-xs font-black uppercase tracking-wider shadow-neo-sm mb-4">
+                      <span className="w-2 h-2 rounded-full bg-black"></span>
+                      Verified Engineer ID
+                    </div>
+
+                    {/* Profile Photo Frame */}
+                    <div className="w-28 h-28 rounded-2xl bg-[#FFDE59] border-2 border-black overflow-hidden shadow-neo-sm relative mb-4">
+                      <Image
+                        src="/images/profil/profil.png"
+                        alt="Saiful Abidin - Full Stack Engineer"
+                        width={112}
+                        height={112}
+                        priority
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+
+                    {/* Identity Information */}
+                    <h3 className="text-2xl font-black text-black font-display tracking-tight text-center">
+                      Saiful Abidin
+                    </h3>
+                    <p className="text-xs font-black text-neutral-600 uppercase tracking-widest mt-1 mb-4 text-center">
+                      Full Stack & Systems Engineer
+                    </p>
+
+                    {/* Metadata Grid */}
+                    <div className="w-full grid grid-cols-2 gap-2 p-2.5 bg-[#FFFDF5] border-2 border-black rounded-xl mb-5 shadow-neo-sm text-center">
+                      <div className="border-r-2 border-black/20 pr-1">
+                        <span className="block text-[10px] font-black uppercase tracking-wider text-neutral-500">Exp Level</span>
+                        <span className="text-xs font-black text-black">5+ Years</span>
+                      </div>
+                      <div className="pl-1">
+                        <span className="block text-[10px] font-black uppercase tracking-wider text-neutral-500">Timezone</span>
+                        <span className="text-xs font-black text-black">GMT+7 (ID)</span>
+                      </div>
+                    </div>
+
+                    {/* Interactive 3D Launch CTA */}
+                    <button
+                      onClick={() => setIs3DActive(true)}
+                      className="w-full min-h-[44px] py-3 px-4 bg-[#C6F10E] text-black font-black text-xs uppercase tracking-wider rounded-xl border-2 border-black shadow-neo hover:bg-[#FFDE59] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[3px] active:translate-y-[3px] active:shadow-none transition-all flex items-center justify-center gap-2 cursor-pointer"
+                      aria-label="Launch interactive 3D WebGL physics simulation"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                      </svg>
+                      <span>Launch 3D Physics Lanyard</span>
+                    </button>
+                  </div>
+                </div>
+              )
+            )}
           </div>
 
           {/* Hero Content Column */}
