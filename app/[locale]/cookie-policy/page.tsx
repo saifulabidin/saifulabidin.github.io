@@ -11,45 +11,55 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export const metadata: Metadata = {
-  title: 'Cookie Policy - Saiful Abidin Portfolio',
-  description: 'Comprehensive Cookie Policy for Saiful Abidin Portfolio website. Learn about essential, analytics, performance, and preference cookies we use and how to manage your privacy settings.',
-  keywords: [
-    'Cookie Policy',
-    'Privacy Policy',
-    'Data Protection',
-    'GDPR Compliance',
-    'Cookie Consent',
-    'Privacy Settings',
-    'Essential Cookies',
-    'Analytics Cookies',
-    'Performance Cookies',
-    'Preference Cookies',
-    'Google Analytics',
-    'Vercel Analytics',
-    'Cookie Management',
-    'Data Privacy',
-    'User Consent',
-    'Browser Cookies',
-    'Local Storage',
-    'Do Not Track'
-  ],
-  openGraph: {
-    title: 'Cookie Policy - Saiful Abidin Portfolio',
-    description: 'Learn about how we use cookies and similar technologies on our website. Your privacy is important to us.',
-    url: 'https://sabidzpro.is-a.dev/cookie-policy',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Cookie Policy - Saiful Abidin Portfolio',
-    description: 'Learn about how we use cookies and similar technologies on our website. Your privacy is important to us.',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+export async function generateMetadata({
+  params: { locale }
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const isId = locale === 'id';
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://sabidzpro.is-a.dev';
+  const canonicalUrl = `${SITE_URL}/${locale}/cookie-policy`;
+
+  return {
+    title: isId 
+      ? 'Kebijakan Cookie - Saiful Abidin Portfolio' 
+      : 'Cookie Policy - Saiful Abidin Portfolio',
+    description: isId
+      ? 'Kebijakan Cookie lengkap untuk website portofolio Saiful Abidin. Pelajari tentang penggunaan cookie dan cara mengatur preferensi privasi Anda.'
+      : 'Comprehensive Cookie Policy for Saiful Abidin Portfolio website. Learn about essential, analytics, performance, and preference cookies we use.',
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        id: `${SITE_URL}/id/cookie-policy`,
+        en: `${SITE_URL}/en/cookie-policy`,
+        'x-default': `${SITE_URL}/id/cookie-policy`,
+      },
+    },
+    openGraph: {
+      title: isId 
+        ? 'Kebijakan Cookie - Saiful Abidin Portfolio' 
+        : 'Cookie Policy - Saiful Abidin Portfolio',
+      description: isId
+        ? 'Pelajari tentang penggunaan cookie dan cara mengatur preferensi privasi Anda.'
+        : 'Learn about how we use cookies and similar technologies on our website.',
+      url: canonicalUrl,
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: isId 
+        ? 'Kebijakan Cookie - Saiful Abidin Portfolio' 
+        : 'Cookie Policy - Saiful Abidin Portfolio',
+      description: isId
+        ? 'Pelajari tentang penggunaan cookie dan cara mengatur preferensi privasi Anda.'
+        : 'Learn about how we use cookies and similar technologies on our website.',
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+  };
+}
 
 export default function CookiePolicyPage({
   params: { locale }

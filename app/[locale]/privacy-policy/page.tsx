@@ -10,42 +10,55 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy - Saiful Abidin Portfolio',
-  description: 'Comprehensive Privacy Policy for Saiful Abidin Portfolio website. Learn how we collect, use, and protect your personal information, including data collection, cookies, analytics, and your privacy rights.',
-  keywords: [
-    'Privacy Policy',
-    'Data Protection',
-    'Personal Information',
-    'GDPR Compliance',
-    'Data Privacy',
-    'Information Security',
-    'User Rights',
-    'Data Collection',
-    'Cookie Policy',
-    'Analytics Data',
-    'Contact Information',
-    'Data Processing',
-    'Privacy Rights',
-    'Data Security',
-    'Third-party Services'
-  ],
-  openGraph: {
-    title: 'Privacy Policy - Saiful Abidin Portfolio',
-    description: 'Learn how we collect, use, and protect your personal information. Your privacy is important to us.',
-    url: 'https://sabidzpro.is-a.dev/privacy-policy',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Privacy Policy - Saiful Abidin Portfolio',
-    description: 'Learn how we collect, use, and protect your personal information. Your privacy is important to us.',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+export async function generateMetadata({
+  params: { locale }
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const isId = locale === 'id';
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://sabidzpro.is-a.dev';
+  const canonicalUrl = `${SITE_URL}/${locale}/privacy-policy`;
+
+  return {
+    title: isId 
+      ? 'Kebijakan Privasi - Saiful Abidin Portfolio' 
+      : 'Privacy Policy - Saiful Abidin Portfolio',
+    description: isId
+      ? 'Kebijakan Privasi lengkap untuk website portofolio Saiful Abidin. Pelajari bagaimana kami mengumpulkan, menggunakan, dan melindungi data pribadi Anda.'
+      : 'Comprehensive Privacy Policy for Saiful Abidin Portfolio website. Learn how we collect, use, and protect your personal information.',
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        id: `${SITE_URL}/id/privacy-policy`,
+        en: `${SITE_URL}/en/privacy-policy`,
+        'x-default': `${SITE_URL}/id/privacy-policy`,
+      },
+    },
+    openGraph: {
+      title: isId 
+        ? 'Kebijakan Privasi - Saiful Abidin Portfolio' 
+        : 'Privacy Policy - Saiful Abidin Portfolio',
+      description: isId
+        ? 'Pelajari bagaimana kami mengumpulkan, menggunakan, dan melindungi data pribadi Anda.'
+        : 'Learn how we collect, use, and protect your personal information.',
+      url: canonicalUrl,
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: isId 
+        ? 'Kebijakan Privasi - Saiful Abidin Portfolio' 
+        : 'Privacy Policy - Saiful Abidin Portfolio',
+      description: isId
+        ? 'Pelajari bagaimana kami mengumpulkan, menggunakan, dan melindungi data pribadi Anda.'
+        : 'Learn how we collect, use, and protect your personal information.',
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+  };
+}
 
 export default function PrivacyPolicyPage({
   params: { locale }

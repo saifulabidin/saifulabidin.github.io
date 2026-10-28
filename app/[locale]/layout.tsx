@@ -3,7 +3,7 @@ import Script from "next/script";
 import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import "../globals.css";
 import "../maps.css";
-import { metadata, viewport } from "../constants/seoMetadata";
+import { metadata as baseMetadata, viewport } from "../constants/seoMetadata";
 import { personSchema, websiteSchema, profilePageSchema } from "../constants/structuredData";
 import CookieConsent from "../components/CookieConsent/CookieConsent";
 import Providers from "../components/Providers";
@@ -30,7 +30,41 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export { metadata, viewport };
+export { viewport };
+
+export async function generateMetadata({
+  params: { locale }
+}: {
+  params: { locale: string };
+}) {
+  const isId = locale === 'id';
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://sabidzpro.is-a.dev";
+  const canonicalUrl = `${SITE_URL}/${locale}`;
+
+  return {
+    ...baseMetadata,
+    title: isId
+      ? "Saiful Abidin | Biodata, Profil & Portfolio Full Stack Developer"
+      : "Saiful Abidin | Full Stack Developer & Systems Engineer Portfolio",
+    description: isId
+      ? "Biodata, profil lengkap, dan portofolio profesional Saiful Abidin (sabidzpro) - Full Stack Developer & Software Engineer asal Wonogiri, Jawa Tengah, Indonesia. Pengalaman 5+ tahun membangun aplikasi web, mobile, dan sistem enterprise modern."
+      : "Professional Full Stack Developer & Software Engineer with 5+ years experience in React, Next.js, Node.js, TypeScript, PostgreSQL, and Flutter. Building scalable enterprise web and mobile solutions.",
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        id: `${SITE_URL}/id`,
+        en: `${SITE_URL}/en`,
+        'x-default': `${SITE_URL}/id`,
+      },
+    },
+    openGraph: {
+      ...baseMetadata.openGraph,
+      url: canonicalUrl,
+      locale: isId ? 'id_ID' : 'en_US',
+      alternateLocale: isId ? ['en_US'] : ['id_ID'],
+    },
+  };
+}
 
 export default async function LocaleLayout({
   children,
