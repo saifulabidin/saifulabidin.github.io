@@ -1,10 +1,14 @@
 'use client';
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import MobileNav from "../MobileNav/MobileNav";
+import { LanguageSwitcher } from "../LanguageSwitcher";
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const t = useTranslations("common");
+  const tHero = useTranslations("hero");
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -26,13 +30,16 @@ export default function Navigation() {
 
             {/* Desktop Navigation Links */}
             <div className="hidden lg:flex items-center space-x-1 xl:space-x-2">
-              <a href="#home" className="text-black font-bold text-sm px-3 py-1.5 rounded-lg border-2 border-transparent hover:border-black hover:bg-[#C6F10E] hover:shadow-neo-sm transition-all">Home</a>
-              <a href="#about" className="text-black font-bold text-sm px-3 py-1.5 rounded-lg border-2 border-transparent hover:border-black hover:bg-[#C6F10E] hover:shadow-neo-sm transition-all">About</a>
-              <a href="#skills" className="text-black font-bold text-sm px-3 py-1.5 rounded-lg border-2 border-transparent hover:border-black hover:bg-[#C6F10E] hover:shadow-neo-sm transition-all">Skills</a>
-              <a href="#education" className="text-black font-bold text-sm px-3 py-1.5 rounded-lg border-2 border-transparent hover:border-black hover:bg-[#C6F10E] hover:shadow-neo-sm transition-all">Education</a>
-              <a href="#experience" className="text-black font-bold text-sm px-3 py-1.5 rounded-lg border-2 border-transparent hover:border-black hover:bg-[#C6F10E] hover:shadow-neo-sm transition-all">Experience</a>
-              <a href="#projects" className="text-black font-bold text-sm px-3 py-1.5 rounded-lg border-2 border-transparent hover:border-black hover:bg-[#C6F10E] hover:shadow-neo-sm transition-all">Projects</a>
-              <a href="#certificates" className="text-black font-bold text-sm px-3 py-1.5 rounded-lg border-2 border-transparent hover:border-black hover:bg-[#C6F10E] hover:shadow-neo-sm transition-all">Certificates</a>
+              <a href="#home" className="text-black font-bold text-sm px-3 py-1.5 rounded-lg border-2 border-transparent hover:border-black hover:bg-[#C6F10E] hover:shadow-neo-sm transition-all">{t("nav_home")}</a>
+              <a href="#about" className="text-black font-bold text-sm px-3 py-1.5 rounded-lg border-2 border-transparent hover:border-black hover:bg-[#C6F10E] hover:shadow-neo-sm transition-all">{t("nav_about")}</a>
+              <a href="#skills" className="text-black font-bold text-sm px-3 py-1.5 rounded-lg border-2 border-transparent hover:border-black hover:bg-[#C6F10E] hover:shadow-neo-sm transition-all">{t("nav_skills")}</a>
+              <a href="#education" className="text-black font-bold text-sm px-3 py-1.5 rounded-lg border-2 border-transparent hover:border-black hover:bg-[#C6F10E] hover:shadow-neo-sm transition-all">{t("nav_education")}</a>
+              <a href="#experience" className="text-black font-bold text-sm px-3 py-1.5 rounded-lg border-2 border-transparent hover:border-black hover:bg-[#C6F10E] hover:shadow-neo-sm transition-all">{t("nav_experience")}</a>
+              <a href="#projects" className="text-black font-bold text-sm px-3 py-1.5 rounded-lg border-2 border-transparent hover:border-black hover:bg-[#C6F10E] hover:shadow-neo-sm transition-all">{t("nav_projects")}</a>
+              <a href="#certificates" className="text-black font-bold text-sm px-3 py-1.5 rounded-lg border-2 border-transparent hover:border-black hover:bg-[#C6F10E] hover:shadow-neo-sm transition-all">{t("nav_certificates")}</a>
+              <div className="pl-2 border-l-2 border-black">
+                <LanguageSwitcher />
+              </div>
             </div>
 
             {/* Desktop CTA Button */}
@@ -41,7 +48,7 @@ export default function Navigation() {
                 href="#contact" 
                 className="inline-flex items-center gap-2 bg-[#C6F10E] text-black font-black text-sm px-4 py-1.5 rounded-xl border-2 border-black shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all"
               >
-                Let&apos;s Talk
+                {tHero("cta_talk")}
               </a>
             </div>
 

@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { Project, Certificate } from '@/lib/db-prisma';
 import { MessageType } from '@/app/components/admin';
 
-// ✅ Cache keys for sessionStorage
+// Cache keys for sessionStorage
 const CACHE_KEY_FLAG = 'admin_data_fetched';
 const CACHE_KEY_PROJECTS = 'admin_data_projects';
 const CACHE_KEY_CERTIFICATES = 'admin_data_certificates';

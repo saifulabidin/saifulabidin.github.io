@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from "next/dynamic";
+import { useTranslations } from "next-intl";
 import ContactForm from "../Contact/ContactForm";
 
 const GoogleMapComponent = dynamic(() => import("../ui/GoogleMapComponent"), {
@@ -13,19 +14,24 @@ const GoogleMapComponent = dynamic(() => import("../ui/GoogleMapComponent"), {
 });
 
 export default function ContactSection() {
+  const t = useTranslations("contact");
+
   return (
     <section id="contact" className="py-20 md:py-28 bg-[#FFFDF5] border-t-2 md:border-t-[3px] border-black">
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Section Header */}
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 bg-[#C6F10E] text-black border-2 border-black px-3.5 py-1 rounded-full font-black text-xs uppercase tracking-wider shadow-neo-sm mb-4">
-            Direct Communications
+            {t("badge")}
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black font-display tracking-tight">
-            Get In <span className="bg-[#FFDE59] border-2 border-black px-3 py-0.5 rounded-xl shadow-neo-sm">Touch</span>
+            {t("title")}{" "}
+            <span className="bg-[#FFDE59] border-2 border-black px-3 py-0.5 rounded-xl shadow-neo-sm">
+              {t("title_highlight")}
+            </span>
           </h2>
           <p className="text-neutral-700 text-base sm:text-lg font-medium max-w-2xl mx-auto mt-3">
-            Available for enterprise full-stack development, mobile contracts, and technical advisory.
+            {t("desc")}
           </p>
         </div>
         
@@ -34,7 +40,7 @@ export default function ContactSection() {
           <div className="lg:col-span-5 space-y-6">
             <div className="bg-white border-2 md:border-[3px] border-black p-6 sm:p-7 rounded-2xl shadow-neo-md">
               <h3 className="text-2xl font-black text-black font-display mb-6 pb-3 border-b-2 border-black">
-                Direct Contact
+                {t("direct_title")}
               </h3>
               
               <div className="space-y-4">
@@ -46,7 +52,7 @@ export default function ContactSection() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-black font-black text-xs uppercase tracking-wide">Email</h4>
+                    <h4 className="text-black font-black text-xs uppercase tracking-wide">{t("email_title")}</h4>
                     <a href="mailto:contact@sabidzpro.is-a.dev" className="text-neutral-800 text-sm font-bold hover:underline">
                       contact@sabidzpro.is-a.dev
                     </a>
@@ -60,7 +66,7 @@ export default function ContactSection() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-black font-black text-xs uppercase tracking-wide">Phone</h4>
+                    <h4 className="text-black font-black text-xs uppercase tracking-wide">{t("phone_title")}</h4>
                     <p className="text-neutral-800 text-sm font-bold">+62 822-4203-4791</p>
                   </div>
                 </div>
@@ -73,14 +79,14 @@ export default function ContactSection() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-black font-black text-xs uppercase tracking-wide">Base Location</h4>
-                    <p className="text-neutral-800 text-sm font-bold">Indonesia (GMT+7)</p>
+                    <h4 className="text-black font-black text-xs uppercase tracking-wide">{t("base_location_title")}</h4>
+                    <p className="text-neutral-800 text-sm font-bold">{t("base_location_val")}</p>
                   </div>
                 </div>
               </div>
               
               <div className="pt-6 border-t-2 border-black/10 mt-6">
-                <h4 className="text-black font-black text-xs uppercase tracking-wider mb-3">Professional Handles</h4>
+                <h4 className="text-black font-black text-xs uppercase tracking-wider mb-3">{t("handles_title")}</h4>
                 <div className="flex gap-3">
                   <a 
                     href="https://github.com/saifulabidin" 
@@ -91,7 +97,7 @@ export default function ContactSection() {
                     aria-label="Saiful Abidin GitHub profile contact"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                     </svg>
                   </a>
                   <a 
@@ -124,7 +130,7 @@ export default function ContactSection() {
 
             {/* Interactive Map Card */}
             <div className="bg-white border-2 md:border-[3px] border-black p-5 rounded-2xl shadow-neo-md overflow-hidden">
-              <h4 className="text-base font-black text-black font-display mb-3">Location Coordinates</h4>
+              <h4 className="text-base font-black text-black font-display mb-3">{t("coords_title")}</h4>
               <div className="rounded-xl border-2 border-black overflow-hidden">
                 <GoogleMapComponent 
                   center={{ lat: -7.9288452, lng: 110.8288609 }}
@@ -141,10 +147,10 @@ export default function ContactSection() {
           <div className="lg:col-span-7">
             <div className="bg-white border-2 md:border-[3px] border-black p-6 sm:p-8 rounded-2xl shadow-neo-md">
               <h3 className="text-2xl font-black text-black font-display mb-2">
-                Send an Inquiry
+                {t("inquiry_title")}
               </h3>
               <p className="text-neutral-700 text-sm font-medium mb-6">
-                Fill out the technical scope below to initiate project dialogue.
+                {t("inquiry_desc")}
               </p>
               <ContactForm />
             </div>

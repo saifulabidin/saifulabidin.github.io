@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { useTranslations } from 'next-intl';
 import { staticProjects, Project } from "@/app/constants/projectsData";
 
 const ProjectCard = ({ project }: { project: Project }) => {
+  const t = useTranslations('projects');
   const isPrivateProject = project.github_url === "#private-repository";
   const isInternalDemo = project.live_url === "#company-internal";
-  const isFrontendProject = project.category === "Frontend";
 
   const getProjectImage = () => {
     if (project.github_url === "#private-repository") {
@@ -66,7 +67,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl border-2 border-black bg-white hover:bg-[#A6FAFF] text-black shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[3px] active:translate-y-[3px] active:shadow-none flex items-center justify-center transition-all cursor-pointer"
-                title={project.github_url.includes('codepen.io') ? "View on CodePen" : "View Source Code on GitHub"}
+                title={project.github_url.includes('codepen.io') ? t("view_codepen") : t("view_source")}
                 aria-label={`Source code for ${project.title}`}
               >
                 {project.github_url.includes('codepen.io') ? (
@@ -91,7 +92,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
                 target={project.live_url.startsWith('http') ? "_blank" : undefined}
                 rel={project.live_url.startsWith('http') ? "noopener noreferrer" : undefined}
                 className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl border-2 border-black bg-white hover:bg-[#C6F10E] text-black shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[3px] active:translate-y-[3px] active:shadow-none flex items-center justify-center transition-all cursor-pointer"
-                title="View Live Platform"
+                title={t("view_live")}
                 aria-label={`Live platform for ${project.title}`}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -110,7 +111,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
                 <circle cx="12" cy="16" r="1"></circle>
                 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
               </svg>
-              Private System
+              {t("private_system")}
             </span>
           )}
         </div>
@@ -120,8 +121,9 @@ const ProjectCard = ({ project }: { project: Project }) => {
 };
 
 export default function ProjectsSection() {
+  const t = useTranslations('projects');
   const [projects, setProjects] = useState<Project[]>(staticProjects);
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
   const [activeCategory, setActiveCategory] = useState<string>("All");
 
   useEffect(() => {
@@ -154,13 +156,16 @@ export default function ProjectsSection() {
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-[#FF90E8] text-black border-2 border-black px-3.5 py-1 rounded-full font-black text-xs uppercase tracking-wider shadow-neo-sm mb-4">
-            Production Implementations
+            {t("badge")}
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black font-display tracking-tight">
-            Featured <span className="bg-[#C6F10E] border-2 border-black px-3 py-0.5 rounded-xl shadow-neo-sm">Projects</span>
+            {t("title")}{" "}
+            <span className="bg-[#C6F10E] border-2 border-black px-3 py-0.5 rounded-xl shadow-neo-sm">
+              {t("title_highlight")}
+            </span>
           </h2>
           <p className="text-neutral-700 text-base sm:text-lg font-medium max-w-2xl mx-auto mt-3">
-            Enterprise systems, high-availability APIs, and responsive customer interfaces built for production.
+            {t("desc")}
           </p>
         </div>
 
@@ -178,7 +183,7 @@ export default function ProjectsSection() {
                     : 'bg-white text-black shadow-neo hover:bg-[#FFDE59] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[3px] active:translate-y-[3px] active:shadow-none'
                 }`}
               >
-                {cat}
+                {cat === "All" ? t("filter_all") : cat}
               </button>
             );
           })}
@@ -194,13 +199,13 @@ export default function ProjectsSection() {
         ) : filteredProjects.length === 0 ? (
           <div className="text-center py-16">
             <div className="inline-block bg-white border-2 border-black p-8 rounded-2xl shadow-neo-md max-w-md">
-              <h4 className="text-xl font-black text-black font-display mb-2">No projects in this category</h4>
-              <p className="text-neutral-700 text-sm font-medium mb-4">Switch to another filter or view all available project entries.</p>
+              <h4 className="text-xl font-black text-black font-display mb-2">{t("no_projects")}</h4>
+              <p className="text-neutral-700 text-sm font-medium mb-4">{t("switch_filter")}</p>
               <button
                 onClick={() => setActiveCategory("All")}
                 className="bg-[#C6F10E] border-2 border-black px-4 py-2 rounded-xl font-black text-sm shadow-neo-sm"
               >
-                Show All Projects
+                {t("show_all_btn")}
               </button>
             </div>
           </div>
@@ -220,7 +225,7 @@ export default function ProjectsSection() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-[#FFDE59] text-black font-black text-base py-3.5 px-8 rounded-xl border-2 md:border-[3px] border-black shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer"
           >
-            <span>Explore All Repositories on GitHub</span>
+            <span>{t("explore_github")}</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
             </svg>

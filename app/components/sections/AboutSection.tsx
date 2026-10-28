@@ -1,18 +1,31 @@
 'use client';
 
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 export default function AboutSection() {
+  const t = useTranslations('about');
+
+  const technicalPillars = [
+    { icon: "/icons/rocket.svg", title: t("pillar1_title"), desc: t("pillar1_desc") },
+    { icon: "/icons/mobile.svg", title: t("pillar2_title"), desc: t("pillar2_desc") },
+    { icon: "/icons/building.svg", title: t("pillar3_title"), desc: t("pillar3_desc") },
+    { icon: "/icons/api.svg", title: t("pillar4_title"), desc: t("pillar4_desc") }
+  ];
+
   return (
     <section id="about" className="py-20 sm:py-24 md:py-28 relative">
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Section Header */}
         <div className="text-center mb-14 sm:mb-16">
           <div className="inline-flex items-center gap-2 bg-[#FFDE59] text-black border-2 border-black px-3.5 py-1 rounded-full font-black text-xs uppercase tracking-wider shadow-neo-sm mb-4">
-            Professional Background
+            {t("badge")}
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black font-display tracking-tight">
-            About <span className="bg-[#C6F10E] border-2 border-black px-3 py-0.5 rounded-xl shadow-neo-sm">My Journey</span>
+            {t("title")}{" "}
+            <span className="bg-[#C6F10E] border-2 border-black px-3 py-0.5 rounded-xl shadow-neo-sm">
+              {t("title_highlight")}
+            </span>
           </h2>
         </div>
 
@@ -24,21 +37,15 @@ export default function AboutSection() {
               {/* My Journey Card */}
               <div className="bg-white border-2 md:border-[3px] border-black p-6 sm:p-8 rounded-2xl shadow-neo-md">
                 <div className="inline-block bg-[#A6FAFF] border-2 border-black px-3 py-1 rounded-lg font-black text-sm uppercase tracking-wide shadow-neo-sm mb-4">
-                  Engineering Path
+                  {t("card1_tag")}
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-black text-black font-display mb-4">
-                  Full Stack Engineer with Business Impact
+                  {t("card1_title")}
                 </h3>
                 <div className="space-y-4 text-neutral-800 text-base sm:text-lg leading-relaxed font-medium">
-                  <p>
-                    Currently developing core enterprise solutions at <strong className="text-black bg-[#FFDE59] px-1.5 py-0.5 border border-black rounded shadow-[1px_1px_0px_0px_#000]">PT. Infinity Blessing Indonesia</strong>, orchestrating comprehensive systems from real-time employee tracking platforms to high-volume sales management pipelines.
-                  </p>
-                  <p>
-                    My trajectory began through disciplined, intensive self-direction. Over the past 5+ years, that foundation has evolved into robust competency across the entire engineering lifecycle, including frontend architecture, resilient backend APIs, relational database design, and cross-platform mobile development with Flutter.
-                  </p>
-                  <p>
-                    I construct clean, maintainable, and type-safe systems using modern standard toolchains including React, Next.js, TypeScript, Node.js, and PostgreSQL.
-                  </p>
+                  <p>{t("p1")}</p>
+                  <p>{t("p2")}</p>
+                  <p>{t("p3")}</p>
                 </div>
               </div>
 
@@ -47,16 +54,11 @@ export default function AboutSection() {
                 <div className="flex items-center gap-2 mb-6">
                   <span className="w-3 h-3 bg-[#C6F10E] border border-black rounded-full"></span>
                   <h4 className="text-xl sm:text-2xl font-black text-black font-display">
-                    Core Technical Pillars
+                    {t("pillars_title")}
                   </h4>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {[
-                    { icon: "/icons/rocket.svg", title: "Full Stack Architecture", desc: "Production Next.js and React web apps with high performance and accessibility." },
-                    { icon: "/icons/mobile.svg", title: "Cross-Platform Mobile", desc: "Native-quality mobile applications with Flutter and clean state management." },
-                    { icon: "/icons/building.svg", title: "Enterprise Systems", desc: "Role-based platforms, inventory engines, and business automation workflows." },
-                    { icon: "/icons/api.svg", title: "API & Data Design", desc: "RESTful endpoints, secure authentication, and optimized SQL database queries." }
-                  ].map((item, index) => (
+                  {technicalPillars.map((item, index) => (
                     <div key={index} className="bg-white border-2 border-black p-4 rounded-xl shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm transition-all flex items-start gap-4">
                       <div className="flex-shrink-0 w-10 h-10 bg-[#FFDE59] border-2 border-black rounded-lg shadow-[1px_1px_0px_0px_#000] flex items-center justify-center text-black">
                         <Image src={item.icon} alt={item.title} width={20} height={20} className="w-5 h-5" />
@@ -76,15 +78,15 @@ export default function AboutSection() {
               {/* Personal Info Card */}
               <div className="bg-white border-2 md:border-[3px] border-black p-6 sm:p-8 rounded-2xl shadow-neo-md">
                 <h4 className="text-xl font-black text-black font-display mb-6 pb-3 border-b-2 border-black flex items-center justify-between">
-                  <span>Profile Overview</span>
+                  <span>{t("profile_overview")}</span>
                   <span className="w-3 h-3 bg-[#A6FAFF] border border-black rounded-full"></span>
                 </h4>
                 <div className="space-y-4">
                   {[
-                    { icon: "/icons/globe.svg", title: "Location", desc: "Indonesia (Remote Worldwide)" },
-                    { icon: "/icons/briefcase.svg", title: "Experience", desc: "5+ Years Active Engineering" },
-                    { icon: "/icons/graduation.svg", title: "Discipline", desc: "Continuous Self-Taught Mastery" },
-                    { icon: "/icons/sparkles.svg", title: "Availability", desc: "Open for High-Impact Projects" }
+                    { icon: "/icons/globe.svg", title: t("item_location_label"), desc: t("item_location_val") },
+                    { icon: "/icons/briefcase.svg", title: t("item_exp_label"), desc: t("item_exp_val") },
+                    { icon: "/icons/graduation.svg", title: t("item_discipline_label"), desc: t("item_discipline_val") },
+                    { icon: "/icons/sparkles.svg", title: t("item_avail_label"), desc: t("item_avail_val") }
                   ].map((item, index) => (
                     <div key={index} className="flex items-start gap-3.5 p-3 rounded-xl border border-neutral-200 bg-[#FFFDF5]">
                       <div className="flex-shrink-0 w-9 h-9 bg-[#C6F10E] border-2 border-black rounded-lg flex items-center justify-center text-black shadow-[1px_1px_0px_0px_#000]">
@@ -101,9 +103,9 @@ export default function AboutSection() {
 
               {/* Download CV Neo-Card Button */}
               <div className="bg-[#B4F8C8] border-2 md:border-[3px] border-black p-6 rounded-2xl shadow-neo-md text-center">
-                <h4 className="font-black text-black text-lg mb-2 font-display">Looking for My Resume?</h4>
+                <h4 className="font-black text-black text-lg mb-2 font-display">{t("cv_title")}</h4>
                 <p className="text-neutral-800 text-xs sm:text-sm font-medium mb-4">
-                  Download a comprehensive PDF overview of technical competencies, project delivery, and career timeline.
+                  {t("cv_desc")}
                 </p>
                 <a 
                   href="/CV-SaifulAbidin.pdf" 
@@ -115,7 +117,7 @@ export default function AboutSection() {
                     <polyline points="7,10 12,15 17,10"></polyline>
                     <line x1="12" y1="15" x2="12" y2="3"></line>
                   </svg>
-                  Download Curriculum Vitae
+                  {t("cv_download_btn")}
                 </a>
               </div>
             </div>

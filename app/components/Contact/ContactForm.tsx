@@ -2,12 +2,14 @@
 
 import React, { useState, useRef, FormEvent } from 'react';
 import emailjs from '@emailjs/browser';
+import { useTranslations } from 'next-intl';
 
 interface ContactFormProps {
   className?: string;
 }
 
 const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
+  const t = useTranslations("contact");
   const form = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     name: '',
@@ -38,7 +40,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
         isSubmitting: false,
         isSubmitted: false,
         isError: true,
-        message: 'Please fill in all required fields.'
+        message: t("validation_error")
       });
       return;
     }
@@ -46,7 +48,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
     setFormStatus({
       ...formStatus, 
       isSubmitting: true,
-      message: 'Dispatching message...'
+      message: t("submitting_btn")
     });
 
     try {
@@ -61,7 +63,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
         isSubmitting: false,
         isSubmitted: true,
         isError: false,
-        message: 'Your message has been delivered successfully.'
+        message: t("dispatch_success")
       });
       
       setFormData({
@@ -85,7 +87,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
         isSubmitting: false,
         isSubmitted: false,
         isError: true,
-        message: 'Direct dispatch unconfigured or failed. Please contact contact@sabidzpro.is-a.dev.'
+        message: t("dispatch_error")
       });
     }
   };
@@ -107,7 +109,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
       
       <div>
         <label htmlFor="name" className="block text-black font-black text-xs uppercase tracking-wider mb-2">
-          Full Name <span className="text-red-600">*</span>
+          {t("name_label")} <span className="text-red-600">*</span>
         </label>
         <input 
           type="text" 
@@ -116,14 +118,14 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
           value={formData.name}
           onChange={handleChange}
           className="w-full px-4 py-3 bg-[#FFFDF5] border-2 border-black rounded-xl text-black font-medium shadow-neo-sm focus:shadow-neo focus:outline-none transition-all placeholder:text-neutral-500"
-          placeholder="e.g. John Doe"
+          placeholder={t("name_placeholder")}
           required
         />
       </div>
       
       <div>
         <label htmlFor="email" className="block text-black font-black text-xs uppercase tracking-wider mb-2">
-          Email Address <span className="text-red-600">*</span>
+          {t("email_label")} <span className="text-red-600">*</span>
         </label>
         <input 
           type="email" 
@@ -132,14 +134,14 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
           value={formData.email}
           onChange={handleChange}
           className="w-full px-4 py-3 bg-[#FFFDF5] border-2 border-black rounded-xl text-black font-medium shadow-neo-sm focus:shadow-neo focus:outline-none transition-all placeholder:text-neutral-500"
-          placeholder="john@company.com"
+          placeholder={t("email_placeholder")}
           required
         />
       </div>
       
       <div>
         <label htmlFor="subject" className="block text-black font-black text-xs uppercase tracking-wider mb-2">
-          Subject & Topic
+          {t("subject_label")}
         </label>
         <input 
           type="text" 
@@ -148,13 +150,13 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
           value={formData.subject}
           onChange={handleChange}
           className="w-full px-4 py-3 bg-[#FFFDF5] border-2 border-black rounded-xl text-black font-medium shadow-neo-sm focus:shadow-neo focus:outline-none transition-all placeholder:text-neutral-500"
-          placeholder="New Project Inquiry / Collaboration"
+          placeholder={t("subject_placeholder")}
         />
       </div>
       
       <div>
         <label htmlFor="message" className="block text-black font-black text-xs uppercase tracking-wider mb-2">
-          Detailed Message <span className="text-red-600">*</span>
+          {t("message_label")} <span className="text-red-600">*</span>
         </label>
         <textarea 
           id="message"
@@ -163,7 +165,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
           onChange={handleChange}
           rows={5}
           className="w-full px-4 py-3 bg-[#FFFDF5] border-2 border-black rounded-xl text-black font-medium shadow-neo-sm focus:shadow-neo focus:outline-none transition-all placeholder:text-neutral-500 resize-none"
-          placeholder="Outline project scope, deliverables, requirements, or inquiries..."
+          placeholder={t("message_placeholder")}
           required
         />
       </div>
@@ -173,7 +175,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
         disabled={formStatus.isSubmitting}
         className="w-full bg-[#C6F10E] hover:bg-[#b0d80c] text-black font-black text-base py-3.5 px-6 rounded-xl border-2 border-black shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed mt-2"
       >
-        {formStatus.isSubmitting ? 'Transmitting Message...' : 'Transmit Message'}
+        {formStatus.isSubmitting ? t("submitting_btn") : t("submit_btn")}
       </button>
     </form>
   );

@@ -1,15 +1,16 @@
 import { Analytics } from "@vercel/analytics/next"
 import Script from "next/script";
 import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
-import "./globals.css";
-import "./maps.css";
-import { metadata, viewport } from "./constants/seoMetadata";
-import { personSchema, websiteSchema, profilePageSchema } from "./constants/structuredData";
-import CookieConsent from "./components/CookieConsent/CookieConsent";
-import Providers from "./components/Providers";
-
-// Export metadata and viewport from module
-export { metadata, viewport };
+import "../globals.css";
+import "../maps.css";
+import { metadata, viewport } from "../constants/seoMetadata";
+import { personSchema, websiteSchema, profilePageSchema } from "../constants/structuredData";
+import CookieConsent from "../components/CookieConsent/CookieConsent";
+import Providers from "../components/Providers";
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages, setRequestLocale } from 'next-intl/server';
+import { notFound } from 'next/navigation';
+import { routing, type Locale } from '@/lib/routing';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -25,15 +26,30 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-export default function RootLayout({
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export { metadata, viewport };
+
+export default async function LocaleLayout({
   children,
-}: Readonly<{
+  params: { locale }
+}: {
   children: React.ReactNode;
-}>) {
+  params: { locale: string };
+}) {
+  if (!routing.locales.includes(locale as Locale)) {
+    notFound();
+  }
+
+  setRequestLocale(locale);
+
+  const messages = await getMessages();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <head>
-        {/* Structured Data for SEO */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
@@ -50,7 +66,6 @@ export default function RootLayout({
       <body
         className={`${plusJakartaSans.variable} ${spaceGrotesk.variable} antialiased`}
       >
-        {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-PXFQVC47"
@@ -59,15 +74,15 @@ export default function RootLayout({
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
-        {/* End Google Tag Manager (noscript) */}
-        
-        <Providers>
-          {children}
-        </Providers>
+
+        <NextIntlClientProvider messages={messages}>
+          <Providers>
+            {children}
+          </Providers>
+        </NextIntlClientProvider>
         <CookieConsent />
         <Analytics />
 
-        {/* Google Tag Manager Script */}
         <Script
           id="google-tag-manager"
           strategy="afterInteractive"

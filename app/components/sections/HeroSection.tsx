@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import RotatingText from "../RotatingText/RotatingText";
 
 const Lanyard = dynamic(() => import("../Lanyard/Lanyard"), {
@@ -18,6 +19,7 @@ const Lanyard = dynamic(() => import("../Lanyard/Lanyard"), {
 export default function HeroSection() {
   const [isDesktop, setIsDesktop] = useState(false);
   const [is3DActive, setIs3DActive] = useState(false);
+  const t = useTranslations("hero");
 
   useEffect(() => {
     const checkDesktop = () => setIsDesktop(window.innerWidth >= 1024);
@@ -47,7 +49,7 @@ export default function HeroSection() {
                       <line x1="18" y1="6" x2="6" y2="18"></line>
                       <line x1="6" y1="6" x2="18" y2="18"></line>
                     </svg>
-                    2D Badge Mode
+                    {t("switch_2d")}
                   </button>
                   <Lanyard position={[0, 0, 13]} gravity={[0, -40, 0]} />
                 </div>
@@ -69,7 +71,7 @@ export default function HeroSection() {
                     {/* Card Top Category Pill */}
                     <div className="inline-flex items-center gap-1.5 bg-[#FF90E8] text-black border-2 border-black px-3 py-0.5 rounded-full text-xs font-black uppercase tracking-wider shadow-neo-sm mb-4">
                       <span className="w-2 h-2 rounded-full bg-black"></span>
-                      Engineer ID
+                      {t("engineer_id")}
                     </div>
 
                     {/* Profile Photo Frame */}
@@ -89,18 +91,18 @@ export default function HeroSection() {
                       Saiful Abidin
                     </h3>
                     <p className="text-xs font-black text-neutral-600 uppercase tracking-widest mt-1 mb-4 text-center">
-                      Full Stack & Systems Engineer
+                      {t("badge")}
                     </p>
 
                     {/* Metadata Grid */}
                     <div className="w-full grid grid-cols-2 gap-2 p-2.5 bg-[#FFFDF5] border-2 border-black rounded-xl mb-5 shadow-neo-sm text-center">
                       <div className="border-r-2 border-black/20 pr-1">
-                        <span className="block text-[10px] font-black uppercase tracking-wider text-neutral-500">Exp Level</span>
-                        <span className="text-xs font-black text-black">5+ Years</span>
+                        <span className="block text-[10px] font-black uppercase tracking-wider text-neutral-500">{t("exp_label")}</span>
+                        <span className="text-xs font-black text-black">{t("exp_val")}</span>
                       </div>
                       <div className="pl-1">
-                        <span className="block text-[10px] font-black uppercase tracking-wider text-neutral-500">Timezone</span>
-                        <span className="text-xs font-black text-black">GMT+7 (ID)</span>
+                        <span className="block text-[10px] font-black uppercase tracking-wider text-neutral-500">{t("timezone_label")}</span>
+                        <span className="text-xs font-black text-black">{t("timezone_val")}</span>
                       </div>
                     </div>
 
@@ -115,7 +117,7 @@ export default function HeroSection() {
                         <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
                         <line x1="12" y1="22.08" x2="12" y2="12"></line>
                       </svg>
-                      <span>Launch 3D Physics Lanyard</span>
+                      <span>{t("switch_3d")}</span>
                     </button>
                   </div>
                 </div>
@@ -130,10 +132,10 @@ export default function HeroSection() {
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
                 <div className="inline-flex items-center gap-2 bg-[#C6F10E] text-black border-2 border-black px-3.5 py-1 rounded-xl font-black text-xs sm:text-sm uppercase tracking-wider shadow-neo-sm">
                   <span className="w-2.5 h-2.5 bg-black rounded-full animate-ping"></span>
-                  Available For
+                  {t("available_for")}
                 </div>
                 <RotatingText
-                  texts={['Full-Stack Solutions', 'Frontend Systems', 'Backend & Cloud', 'Mobile Development']}
+                  texts={[t("rotating_1"), t("rotating_2"), t("rotating_3"), t("rotating_4")]}
                   mainClassName="px-3 py-1 bg-[#FFDE59] text-black border-2 border-black rounded-xl font-black text-xs sm:text-sm uppercase tracking-wide shadow-neo-sm inline-flex"
                   staggerFrom={"last"}
                   initial={{ y: "100%" }}
@@ -149,34 +151,34 @@ export default function HeroSection() {
               {/* Headline */}
               <div className="flex flex-col items-center lg:items-start space-y-3">
                 <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-black leading-[1.08] tracking-tight font-display">
-                  I&apos;m Saiful Abidin
+                  {t("headline_prefix")}
                 </h1>
                 
                 <div className="inline-block bg-[#A6FAFF] border-2 md:border-[3px] border-black px-4 py-1.5 rounded-xl shadow-neo-sm">
                   <span className="text-xl sm:text-2xl md:text-3xl font-black text-black font-display tracking-tight">
-                    Full Stack Developer
+                    {t("role_tag")}
                   </span>
                 </div>
               </div>
 
               {/* Bio Description */}
               <p className="text-base sm:text-lg text-neutral-800 font-medium leading-relaxed">
-                Professional Full Stack Engineer from Indonesia with over 5 years of practical experience. Specializing in high-performance React and Next.js applications, scalable Node.js services, robust relational databases, and enterprise mobile architectures.
+                {t("bio")}
               </p>
 
               {/* Key Stats in Neo-Brutalist Cards */}
               <div className="grid grid-cols-3 gap-3 sm:gap-4 py-2">
                 <div className="bg-white border-2 border-black p-3.5 sm:p-4 rounded-xl shadow-neo text-center hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm transition-all">
-                  <div className="text-2xl sm:text-3xl font-black text-black font-display">5+</div>
-                  <div className="text-xs sm:text-sm font-bold text-neutral-700 mt-0.5">Years Exp</div>
+                  <div className="text-2xl sm:text-3xl font-black text-black font-display">{t("stat_years")}</div>
+                  <div className="text-xs sm:text-sm font-bold text-neutral-700 mt-0.5">{t("stat_years_label")}</div>
                 </div>
                 <div className="bg-[#B4F8C8] border-2 border-black p-3.5 sm:p-4 rounded-xl shadow-neo text-center hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm transition-all">
-                  <div className="text-2xl sm:text-3xl font-black text-black font-display">27+</div>
-                  <div className="text-xs sm:text-sm font-bold text-neutral-800 mt-0.5">Projects</div>
+                  <div className="text-2xl sm:text-3xl font-black text-black font-display">{t("stat_projects")}</div>
+                  <div className="text-xs sm:text-sm font-bold text-neutral-800 mt-0.5">{t("stat_projects_label")}</div>
                 </div>
                 <div className="bg-[#FF90E8] border-2 border-black p-3.5 sm:p-4 rounded-xl shadow-neo text-center hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm transition-all">
-                  <div className="text-2xl sm:text-3xl font-black text-black font-display">100%</div>
-                  <div className="text-xs sm:text-sm font-bold text-neutral-800 mt-0.5">Satisfaction</div>
+                  <div className="text-2xl sm:text-3xl font-black text-black font-display">{t("stat_satisfaction")}</div>
+                  <div className="text-xs sm:text-sm font-bold text-neutral-800 mt-0.5">{t("stat_satisfaction_label")}</div>
                 </div>
               </div>
 
@@ -186,19 +188,19 @@ export default function HeroSection() {
                   href="#contact" 
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#C6F10E] text-black font-black text-base py-3.5 px-8 rounded-xl border-2 md:border-[3px] border-black shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer"
                 >
-                  Let&apos;s Work Together
+                  {t("cta_work")}
                 </a>
                 <a 
                   href="#projects" 
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white text-black font-black text-base py-3.5 px-8 rounded-xl border-2 md:border-[3px] border-black shadow-neo hover:bg-[#FFDE59] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer"
                 >
-                  View Featured Work
+                  {t("cta_projects")}
                 </a>
               </div>
 
               {/* Social Channels */}
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 pt-2">
-                <span className="text-xs font-black uppercase tracking-wider text-neutral-600 mr-1">Social Profiles:</span>
+                <span className="text-xs font-black uppercase tracking-wider text-neutral-600 mr-1">{t("social_label")}</span>
                 
                 <a 
                   href="https://github.com/saifulabidin" 

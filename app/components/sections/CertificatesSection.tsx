@@ -2,9 +2,11 @@
 
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
+import { useTranslations } from "next-intl";
 import { staticCertificates, Certificate } from "@/app/constants/certificatesData";
 
 const MobileCertificateSlider = ({ certificates }: { certificates: Certificate[] }) => {
+  const t = useTranslations("certificates");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoSliding, setIsAutoSliding] = useState(true);
   const touchStartX = useRef(0);
@@ -101,7 +103,7 @@ const MobileCertificateSlider = ({ certificates }: { certificates: Certificate[]
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 bg-[#FFDE59] text-black font-black text-xs uppercase px-3 py-1.5 rounded-lg border-2 border-black shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer"
                     >
-                      <span>Verify Credential</span>
+                      <span>{t("verify_btn")}</span>
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                         <polyline points="15,3 21,3 21,9"></polyline>
@@ -137,8 +139,9 @@ const MobileCertificateSlider = ({ certificates }: { certificates: Certificate[]
 };
 
 export default function CertificatesSection() {
+  const t = useTranslations("certificates");
   const [certificates, setCertificates] = useState<Certificate[]>(staticCertificates);
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
 
   useEffect(() => {
     const fetchCertificates = async () => {
@@ -164,13 +167,16 @@ export default function CertificatesSection() {
         {/* Section Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-[#FFDE59] text-black border-2 border-black px-3.5 py-1 rounded-full font-black text-xs uppercase tracking-wider shadow-neo-sm mb-4">
-            Validated Accreditations
+            {t("badge")}
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black font-display tracking-tight">
-            Certifications & <span className="bg-[#C6F10E] border-2 border-black px-3 py-0.5 rounded-xl shadow-neo-sm">Achievements</span>
+            {t("title")}{" "}
+            <span className="bg-[#C6F10E] border-2 border-black px-3 py-0.5 rounded-xl shadow-neo-sm">
+              {t("title_highlight")}
+            </span>
           </h2>
           <p className="text-neutral-700 text-base sm:text-lg font-medium max-w-2xl mx-auto mt-3">
-            External credentials validating competencies across web design, algorithms, cloud fundamentals, and modern runtimes.
+            {t("desc")}
           </p>
         </div>
 
@@ -218,11 +224,11 @@ export default function CertificatesSection() {
                         </span>
                       </div>
                       <div className="flex items-center gap-2 text-xs font-bold text-neutral-600 mb-4">
-                        <span>Issued: {cert.date}</span>
+                        <span>{t("issued_label")} {cert.date}</span>
                         {cert.renewed && (
                           <>
                             <span>•</span>
-                            <span className="text-black bg-[#C6F10E] px-1.5 py-0.2 rounded border border-black">Renewed: {cert.renewed}</span>
+                            <span className="text-black bg-[#C6F10E] px-1.5 py-0.2 rounded border border-black">{t("renewed_label")} {cert.renewed}</span>
                           </>
                         )}
                       </div>
@@ -237,7 +243,7 @@ export default function CertificatesSection() {
                         rel="noopener noreferrer"
                         className="w-full inline-flex items-center justify-center gap-2 bg-[#FFDE59] text-black font-black text-xs uppercase tracking-wider py-2.5 px-4 rounded-xl border-2 border-black shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer"
                       >
-                        <span>Verify Credential Certificate</span>
+                        <span>{t("verify_cert_btn")}</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                           <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                           <polyline points="15,3 21,3 21,9"></polyline>
@@ -256,19 +262,19 @@ export default function CertificatesSection() {
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
           <div className="bg-white border-2 border-black p-4 rounded-xl shadow-neo text-center">
             <div className="text-3xl font-black text-black font-display mb-1">8+</div>
-            <div className="text-xs sm:text-sm font-bold text-neutral-800">Certificates Earned</div>
+            <div className="text-xs sm:text-sm font-bold text-neutral-800">{t("stat_certs")}</div>
           </div>
           <div className="bg-[#FF90E8] border-2 border-black p-4 rounded-xl shadow-neo text-center">
             <div className="text-3xl font-black text-black font-display mb-1">1,800+</div>
-            <div className="text-xs sm:text-sm font-bold text-black">Curriculum Hours</div>
+            <div className="text-xs sm:text-sm font-bold text-black">{t("stat_hours")}</div>
           </div>
           <div className="bg-[#A6FAFF] border-2 border-black p-4 rounded-xl shadow-neo text-center">
             <div className="text-3xl font-black text-black font-display mb-1">27+</div>
-            <div className="text-xs sm:text-sm font-bold text-black">Delivered Projects</div>
+            <div className="text-xs sm:text-sm font-bold text-black">{t("stat_projects")}</div>
           </div>
           <div className="bg-[#C6F10E] border-2 border-black p-4 rounded-xl shadow-neo text-center">
             <div className="text-3xl font-black text-black font-display mb-1">5+</div>
-            <div className="text-xs sm:text-sm font-bold text-black">Years Engineering</div>
+            <div className="text-xs sm:text-sm font-bold text-black">{t("stat_years")}</div>
           </div>
         </div>
       </div>

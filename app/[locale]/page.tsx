@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
-import { Navigation } from "./components/ui";
+import { setRequestLocale } from "next-intl/server";
+import { Navigation } from "../components/ui";
 import {
   HeroSection,
   AboutSection,
@@ -7,22 +8,23 @@ import {
   EducationSection,
   ExperienceSection,
   FooterSection
-} from "./components/sections";
+} from "../components/sections";
 
-const ProjectsSection = dynamic(() => import("./components/sections/ProjectsSection"));
-const CertificatesSection = dynamic(() => import("./components/sections/CertificatesSection"));
-const ContactSection = dynamic(() => import("./components/sections/ContactSection"));
+const ProjectsSection = dynamic(() => import("../components/sections/ProjectsSection"));
+const CertificatesSection = dynamic(() => import("../components/sections/CertificatesSection"));
+const ContactSection = dynamic(() => import("../components/sections/ContactSection"));
 
-export default function Home() {
+export default function Home({
+  params: { locale }
+}: {
+  params: { locale: string };
+}) {
+  setRequestLocale(locale);
+
   return (
     <main className="min-h-screen overflow-x-hidden bg-[#FFFDF5] text-black neo-grid-bg selection:bg-[#C6F10E] selection:text-black">
-      {/* Navigation */}
       <Navigation />
-
-      {/* Hero Section */}
       <HeroSection />
-
-      {/* Content Sections */}
       <AboutSection />
       <SkillsSection />
       <EducationSection />
@@ -30,8 +32,6 @@ export default function Home() {
       <ProjectsSection />
       <CertificatesSection />
       <ContactSection />
-
-      {/* Footer */}
       <FooterSection />
     </main>
   );

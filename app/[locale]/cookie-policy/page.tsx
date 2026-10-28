@@ -1,8 +1,15 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { setRequestLocale } from 'next-intl/server';
 import FooterSection from '@/app/components/sections/FooterSection';
 import { cookiePolicyPageSchema, cookiePolicyBreadcrumbSchema } from '@/app/constants/structuredData';
 import CookiePolicyClient from './CookiePolicyClient';
+
+const locales = ['en', 'id'];
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
 export const metadata: Metadata = {
   title: 'Cookie Policy - Saiful Abidin Portfolio',
@@ -44,7 +51,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function CookiePolicyPage() {
+export default function CookiePolicyPage({
+  params: { locale }
+}: {
+  params: { locale: string };
+}) {
+  setRequestLocale(locale);
+
   return (
     <>
       {/* Structured Data */}

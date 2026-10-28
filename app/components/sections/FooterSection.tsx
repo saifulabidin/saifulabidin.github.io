@@ -1,8 +1,11 @@
 'use client';
 
-import Link from 'next/link';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/lib/routing';
 
 export default function FooterSection() {
+  const t = useTranslations('footer');
+
   const handleCookieSettings = () => {
     if (typeof window !== 'undefined') {
       localStorage.removeItem('cookieConsent');
@@ -22,13 +25,13 @@ export default function FooterSection() {
               Saiful Abidin
             </div>
             <p className="text-neutral-700 text-sm font-bold">
-              Full Stack Developer & Systems Engineer
+              {t("role")}
             </p>
           </div>
 
           <div className="text-neutral-800 text-xs sm:text-sm font-semibold text-center md:text-right space-y-1">
-            <p>&copy; {new Date().getFullYear()} Saiful Abidin. All rights reserved.</p>
-            <p className="text-neutral-600 font-medium">Built with precision using Next.js, Tailwind CSS and Bun.</p>
+            <p>&copy; {new Date().getFullYear()} Saiful Abidin. {t("copyright")}</p>
+            <p className="text-neutral-600 font-medium">{t("built_with")}</p>
           </div>
         </div>
 
@@ -39,28 +42,28 @@ export default function FooterSection() {
               href="/privacy-policy"
               className="text-black font-black hover:bg-[#C6F10E] border-2 border-transparent hover:border-black hover:shadow-neo-sm px-3 py-2 min-h-[44px] inline-flex items-center rounded-lg transition-all"
             >
-              Privacy Policy
+              {t("privacy_policy")}
             </Link>
             <span className="text-black font-black hidden sm:inline" aria-hidden="true">•</span>
             <Link 
               href="/cookie-policy"
               className="text-black font-black hover:bg-[#FFDE59] border-2 border-transparent hover:border-black hover:shadow-neo-sm px-3 py-2 min-h-[44px] inline-flex items-center rounded-lg transition-all"
             >
-              Cookie Policy
+              {t("cookie_policy")}
             </Link>
             <span className="text-black font-black hidden sm:inline" aria-hidden="true">•</span>
             <button
               onClick={handleCookieSettings}
               className="text-black font-black hover:bg-[#A6FAFF] border-2 border-transparent hover:border-black hover:shadow-neo-sm px-3 py-2 min-h-[44px] inline-flex items-center rounded-lg transition-all cursor-pointer"
             >
-              Cookie Settings
+              {t("cookie_settings")}
             </button>
             <span className="text-black font-black hidden sm:inline" aria-hidden="true">•</span>
             <Link 
               href="/#contact"
               className="text-black font-black hover:bg-[#B4F8C8] border-2 border-transparent hover:border-black hover:shadow-neo-sm px-3 py-2 min-h-[44px] inline-flex items-center rounded-lg transition-all"
             >
-              Contact Direct
+              {t("contact_direct")}
             </Link>
           </div>
         </div>

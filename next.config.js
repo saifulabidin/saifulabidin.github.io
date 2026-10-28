@@ -1,3 +1,7 @@
+const createNextIntlPlugin = require('next-intl/plugin');
+
+const withNextIntl = createNextIntlPlugin('./lib/i18n.ts');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -33,11 +37,11 @@ const nextConfig = {
     contentDispositionType: 'inline',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-  // Enable standalone output for minimal production image
+  // Enable standalone output minimal production image
   output: 'standalone',
   // Compress HTML, CSS, and JavaScript
   compress: true,
-  // Generate ETags for pages
+  // Generate ETags pages
   generateEtags: true,
   // Power by X-Powered-By header
   poweredByHeader: false,
@@ -47,7 +51,7 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  // Headers for SEO and security
+  // Headers SEO and security
   async headers() {
     return [
       {
@@ -75,4 +79,4 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig
+module.exports = withNextIntl(nextConfig);

@@ -1,9 +1,20 @@
-import { auth } from "./auth"
+import createMiddleware from 'next-intl/middleware';
+import { routing } from './lib/routing';
+import { auth } from './auth';
+
+const intlMiddleware = createMiddleware(routing);
 
 export default auth((req) => {
-  // Handle middleware logic
-})
+  return intlMiddleware(req);
+});
 
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
-}
+  matcher: [
+    // Exclude API routes, static assets, internal paths, and static micro-apps
+    '/((?!api|_next|_vercel|frontend-project|.*\\..*).*)',
+    // Root path
+    '/',
+    // Match internationalized paths
+    '/(en|id)/:path*',
+  ],
+};

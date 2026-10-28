@@ -1,7 +1,14 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { setRequestLocale } from 'next-intl/server';
 import FooterSection from '@/app/components/sections/FooterSection';
 import PrivacyPolicyClient from './PrivacyPolicyClient';
+
+const locales = ['en', 'id'];
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
 export const metadata: Metadata = {
   title: 'Privacy Policy - Saiful Abidin Portfolio',
@@ -40,7 +47,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PrivacyPolicyPage() {
+export default function PrivacyPolicyPage({
+  params: { locale }
+}: {
+  params: { locale: string };
+}) {
+  setRequestLocale(locale);
+
   return (
     <div className="min-h-screen bg-[#FFFDF5] text-black neo-grid-bg">
       {/* Header */}
