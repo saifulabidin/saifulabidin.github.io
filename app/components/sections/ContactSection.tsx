@@ -74,7 +74,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <h4 className="text-black font-black text-xs uppercase tracking-wide">Base Location</h4>
-                    <p className="text-neutral-800 text-sm font-bold">Indonesia (UTC+7)</p>
+                    <p className="text-neutral-800 text-sm font-bold">Indonesia (GMT+7)</p>
                   </div>
                 </div>
               </div>

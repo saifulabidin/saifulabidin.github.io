@@ -75,7 +75,7 @@ export default function HeroSection() {
                     {/* Profile Photo Frame */}
                     <div className="w-28 h-28 rounded-2xl bg-[#FFDE59] border-2 border-black overflow-hidden shadow-neo-sm relative mb-4">
                       <Image
-                        src="/images/profil/profil.png"
+                        src="/images/profil/profile.jpeg"
                         alt="Saiful Abidin - Full Stack Engineer"
                         width={112}
                         height={112}
