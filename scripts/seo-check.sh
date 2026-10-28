@@ -2,7 +2,7 @@
 
 # SEO Verification & Testing Script for sabidzpro.my.id
 
-echo "🔍 SEO Verification Script"
+echo "SEO Verification Script"
 echo "=========================="
 echo ""
 
@@ -16,12 +16,12 @@ NC='\033[0m' # No Color
 SITE_URL="https://sabidzpro.is-a.dev"
 LOCAL_URL="http://localhost:3000"
 
-echo "📋 Pre-deployment Checklist:"
+echo "Pre-deployment Checklist:"
 echo ""
 
 # 1. Check if Next.js build is successful
 echo -n "1. Checking Next.js build... "
-if npm run build > /dev/null 2>&1; then
+if bun run build > /dev/null 2>&1; then
     echo -e "${GREEN}✓ Build successful${NC}"
 else
     echo -e "${RED}✗ Build failed${NC}"
@@ -58,7 +58,7 @@ else
 fi
 
 echo ""
-echo "📊 SEO Metadata Check:"
+echo "SEO Metadata Check:"
 echo ""
 
 # Check layout.tsx for important meta tags
@@ -91,7 +91,7 @@ else
 fi
 
 echo ""
-echo "🚀 Post-Deployment Actions:"
+echo "Post-Deployment Actions:"
 echo ""
 echo "After deploying to production, complete these steps:"
 echo ""
@@ -128,7 +128,7 @@ echo "   → Setup conversion goals"
 echo "   → Monitor Core Web Vitals"
 echo ""
 
-echo "✅ SEO verification complete!"
+echo "SEO verification complete!"
 echo ""
-echo "📖 For detailed SEO guide, read: SEO-OPTIMIZATION-GUIDE.md"
+echo "For detailed SEO guide, read: SEO-OPTIMIZATION-GUIDE.md"
 echo ""

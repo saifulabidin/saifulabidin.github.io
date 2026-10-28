@@ -9,27 +9,26 @@ import { Autoplay } from "swiper/modules";
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="py-16 md:py-24 bg-[#19222D] relative overflow-hidden">
-      <div className="container mx-auto px-4">
+    <section id="skills" className="py-20 md:py-24 bg-[#FAF7EE] border-y-2 md:border-y-[3px] border-black relative overflow-hidden">
+      <div className="container mx-auto px-4 max-w-7xl">
         {/* Section Header */}
-        <div className="flex flex-col items-center gap-4 mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-center">
-            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C6F10E] to-green-400">Skills</span>
-            {" & "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-red-500">
-              Technologies
-            </span>
+        <div className="flex flex-col items-center gap-3 mb-14 text-center">
+          <div className="inline-flex items-center gap-2 bg-[#A6FAFF] text-black border-2 border-black px-3.5 py-1 rounded-full font-black text-xs uppercase tracking-wider shadow-neo-sm">
+            Core Technical Stack
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black font-display tracking-tight">
+            Skills & <span className="bg-[#C6F10E] border-2 border-black px-3 py-0.5 rounded-xl shadow-neo-sm">Technologies</span>
           </h2>
-          <p className="text-gray-400 text-lg md:text-xl text-center max-w-2xl">
-            Using the latest technologies this world has to offer
+          <p className="text-neutral-700 text-base sm:text-lg font-medium max-w-xl">
+            Battle-tested engineering toolchains utilized across production platforms.
           </p>
         </div>
 
         {/* Skills Carousel */}
-        <div className="mb-16">
+        <div className="mb-14">
           <Swiper
             slidesPerView="auto"
-            spaceBetween={30}
+            spaceBetween={24}
             centeredSlides={true}
             loop={true}
             autoplay={{
@@ -37,25 +36,24 @@ export default function SkillsSection() {
               disableOnInteraction: false,
               pauseOnMouseEnter: false,
             }}
-            speed={5000}
+            speed={4000}
             allowTouchMove={false}
             modules={[Autoplay]}
-            className="skills-swiper"
+            className="skills-swiper py-4"
           >
-            {/* Triple duplicate data for ultra smooth infinite loop */}
             {[...SkillData, ...SkillData, ...SkillData].map((skill, index) => (
               <SwiperSlide key={index}>
-                <div className="flex flex-col items-center group cursor-pointer">
-                  <div className="w-20 h-20 bg-[#20293A] rounded-2xl p-3 group-hover:bg-[#C6F10E] transition-all duration-300 group-hover:scale-110 shadow-lg hover:shadow-xl">
+                <div className="flex flex-col items-center group cursor-pointer p-2">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white border-2 border-black rounded-2xl p-4 shadow-neo group-hover:translate-x-[2px] group-hover:translate-y-[2px] group-hover:shadow-neo-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all flex items-center justify-center">
                     <Image
                       src={skill.Image}
                       alt={skill.name}
                       width={skill.width}
                       height={skill.height}
-                      className="w-full h-full object-contain transition-all duration-300 group-hover:scale-110"
+                      className="w-full h-full object-contain"
                     />
                   </div>
-                  <span className="text-sm text-gray-300 mt-3 group-hover:text-[#C6F10E] transition-colors font-medium">
+                  <span className="text-xs sm:text-sm text-black font-black mt-2.5 text-center uppercase tracking-wide">
                     {skill.name}
                   </span>
                 </div>
@@ -64,23 +62,23 @@ export default function SkillsSection() {
           </Swiper>
         </div>
 
-        {/* Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
-          <div className="text-center">
-            <div className="text-3xl font-bold text-[#C6F10E] mb-2">5+</div>
-            <div className="text-gray-400 text-sm">Years Experience</div>
+        {/* Metrics Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+          <div className="bg-white border-2 border-black p-4 sm:p-5 rounded-xl shadow-neo text-center hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm transition-all">
+            <div className="text-3xl sm:text-4xl font-black text-black font-display mb-1">5+</div>
+            <div className="text-xs sm:text-sm font-bold text-neutral-800">Years Experience</div>
           </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-[#C6F10E] mb-2">20+</div>
-            <div className="text-gray-400 text-sm">Projects Completed</div>
+          <div className="bg-[#FFDE59] border-2 border-black p-4 sm:p-5 rounded-xl shadow-neo text-center hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm transition-all">
+            <div className="text-3xl sm:text-4xl font-black text-black font-display mb-1">27+</div>
+            <div className="text-xs sm:text-sm font-bold text-black">Projects Shipped</div>
           </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-[#C6F10E] mb-2">15+</div>
-            <div className="text-gray-400 text-sm">Technologies</div>
+          <div className="bg-[#A6FAFF] border-2 border-black p-4 sm:p-5 rounded-xl shadow-neo text-center hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm transition-all">
+            <div className="text-3xl sm:text-4xl font-black text-black font-display mb-1">15+</div>
+            <div className="text-xs sm:text-sm font-bold text-black">Languages & Tools</div>
           </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-[#C6F10E] mb-2">100%</div>
-            <div className="text-gray-400 text-sm">Client Satisfaction</div>
+          <div className="bg-[#B4F8C8] border-2 border-black p-4 sm:p-5 rounded-xl shadow-neo text-center hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm transition-all">
+            <div className="text-3xl sm:text-4xl font-black text-black font-display mb-1">100%</div>
+            <div className="text-xs sm:text-sm font-bold text-black">Client Satisfaction</div>
           </div>
         </div>
       </div>

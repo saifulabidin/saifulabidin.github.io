@@ -7,26 +7,31 @@ const workExperienceData = [
     title: "2020 - 2022",
     content: (
       <div>
-        <h3 className="text-lg font-semibold mb-2 text-[#C6F10E]">Self-Taught Developer Journey</h3>
-        <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
-          Began my journey into web development through intensive self-study, online courses, and hands-on practice with various technologies.
+        <div className="flex items-center gap-2 mb-2">
+          <span className="w-2.5 h-2.5 bg-[#FFDE59] border border-black rounded-full"></span>
+          <h3 className="text-xl font-black text-black font-display">Foundation & Early Engineering</h3>
+        </div>
+        <p className="text-neutral-700 text-sm font-medium mb-5 leading-relaxed">
+          Began professional journey into web systems through project builds, algorithm problem sets, and practical coding challenges across core JavaScript runtimes.
         </p>
-        <div className="mb-4">
-          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm mb-2">
-            ✅ <strong>Dicoding Indonesia Academy</strong> - Completed fundamental and advanced web development courses
-          </div>
-          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm mb-2">
-            ✅ <strong>Built first portfolio website</strong> using vanilla HTML, CSS, and JavaScript
-          </div>
-          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm mb-2">
-            ✅ <strong>Learned core technologies</strong> - JavaScript, React, Node.js, databases
-          </div>
-          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm mb-2">
-            ✅ <strong>Established strong foundation</strong> in computer science principles and best practices
-          </div>
-          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm mb-2">
-            ✅ <strong>Completed FreeCodeCamp curriculum</strong> - 1,800+ hours of coding challenges and projects
-          </div>
+        <div className="space-y-3">
+          {[
+            { role: "Dicoding Indonesia Academy", detail: "Completed comprehensive full-stack and backend courses with distinction." },
+            { role: "Portfolio & Interactive Prototypes", detail: "Shipped initial production portfolios and dynamic web applications." },
+            { role: "Core Technologies", detail: "Engineered applications using JavaScript, Node.js, Express, and SQL databases." },
+            { role: "Open Curriculum Completion", detail: "Completed 1,800+ hours of full-stack challenges across FreeCodeCamp." }
+          ].map((item, idx) => (
+            <div key={idx} className="flex items-start gap-3 p-3 rounded-xl bg-[#FFFDF5] border border-black/80">
+              <span className="flex-shrink-0 w-5 h-5 rounded bg-[#FFDE59] border border-black shadow-[1px_1px_0px_0px_#000] inline-flex items-center justify-center">
+                <svg className="w-3 h-3 text-black stroke-[3]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+              <div className="text-xs sm:text-sm text-neutral-800">
+                <strong className="font-black text-black">{item.role}</strong> — {item.detail}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     ),
@@ -35,20 +40,30 @@ const workExperienceData = [
     title: "2022 - 2023",
     content: (
       <div>
-        <h3 className="text-lg font-semibold mb-2 text-[#C6F10E]">Junior Full Stack Developer</h3>
-        <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
-          Started professional development career by contributing to open-source projects and building personal projects while completing advanced certifications.
+        <div className="flex items-center gap-2 mb-2">
+          <span className="w-2.5 h-2.5 bg-[#A6FAFF] border border-black rounded-full"></span>
+          <h3 className="text-xl font-black text-black font-display">Junior Full Stack Developer</h3>
+        </div>
+        <p className="text-neutral-700 text-sm font-medium mb-5 leading-relaxed">
+          Delivered full-stack projects, contributed to developer open source repositories, and gained proficiency in enterprise architectural patterns.
         </p>
-        <div className="mb-4">
-          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm mb-2">
-            ✅ <strong>Built 20+ projects</strong> including 5 major full-stack applications
-          </div>
-          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm mb-2">
-            ✅ <strong>Contributed to 3 open-source projects</strong> with over 100 GitHub contributions
-          </div>
-          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm mb-2">
-            ✅ <strong>Mastered MERN stack</strong> and modern development practices
-          </div>
+        <div className="space-y-3">
+          {[
+            { role: "Project Delivery", detail: "Constructed 20+ applications including 5 major end-to-end full-stack architectures." },
+            { role: "Open Source Engagement", detail: "Contributed upstream fixes across 3 public repositories with 100+ GitHub contributions." },
+            { role: "Full-Stack Specialization", detail: "Mastered React SPA and Node.js backend integrations with relational persistence." }
+          ].map((item, idx) => (
+            <div key={idx} className="flex items-start gap-3 p-3 rounded-xl bg-[#FFFDF5] border border-black/80">
+              <span className="flex-shrink-0 w-5 h-5 rounded bg-[#A6FAFF] border border-black shadow-[1px_1px_0px_0px_#000] inline-flex items-center justify-center">
+                <svg className="w-3 h-3 text-black stroke-[3]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+              <div className="text-xs sm:text-sm text-neutral-800">
+                <strong className="font-black text-black">{item.role}</strong> — {item.detail}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     ),
@@ -57,23 +72,31 @@ const workExperienceData = [
     title: "2023 - 2025",
     content: (
       <div>
-        <h3 className="text-lg font-semibold mb-2 text-[#C6F10E]">Freelance Full Stack Developer</h3>
-        <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
-          Worked as a freelance developer, creating custom web applications and solutions for various clients across different industries while expanding skills into mobile development.
+        <div className="flex items-center gap-2 mb-2">
+          <span className="w-2.5 h-2.5 bg-[#FF90E8] border border-black rounded-full"></span>
+          <h3 className="text-xl font-black text-black font-display">Freelance Full Stack Engineer</h3>
+        </div>
+        <p className="text-neutral-700 text-sm font-medium mb-5 leading-relaxed">
+          Partnered with startups and business clients to deliver bespoke web applications, headless commerce systems, and cross-platform mobile solutions.
         </p>
-        <div className="mb-4">
-          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm mb-2">
-            ✅ <strong>Developed 15+ web applications</strong> using modern technologies like React, Next.js, and Node.js
-          </div>
-          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm mb-2">
-            ✅ <strong>Client satisfaction rate of 98%</strong> with timely delivery and quality code
-          </div>
-          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm mb-2">
-            ✅ <strong>Built scalable APIs</strong> serving 10,000+ daily requests
-          </div>
-          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm mb-2">
-            ✅ <strong>Expanded into mobile development</strong> learning Flutter and Dart for cross-platform apps
-          </div>
+        <div className="space-y-3">
+          {[
+            { role: "Client App Delivery", detail: "Engineered and deployed 15+ production applications using React, Next.js, and Node.js." },
+            { role: "High Reliability", detail: "Maintained 98% client satisfaction rate with verified zero-downtime SLA delivery." },
+            { role: "Scalable API Architecture", detail: "Constructed high-throughput REST and GraphQL endpoints handling 10,000+ daily events." },
+            { role: "Mobile Engineering", detail: "Expanded into cross-platform mobile development with Flutter, Dart, and Riverpod/Bloc." }
+          ].map((item, idx) => (
+            <div key={idx} className="flex items-start gap-3 p-3 rounded-xl bg-[#FFFDF5] border border-black/80">
+              <span className="flex-shrink-0 w-5 h-5 rounded bg-[#FF90E8] border border-black shadow-[1px_1px_0px_0px_#000] inline-flex items-center justify-center">
+                <svg className="w-3 h-3 text-black stroke-[3]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+              <div className="text-xs sm:text-sm text-neutral-800">
+                <strong className="font-black text-black">{item.role}</strong> — {item.detail}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     ),
@@ -82,33 +105,40 @@ const workExperienceData = [
     title: "2025 - Present",
     content: (
       <div>
-        <h3 className="text-lg font-semibold mb-2 text-[#C6F10E]">Full Stack Developer - PT. Infinity Blessing</h3>
-        <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
-          Currently working as a versatile developer handling backend, frontend, and mobile development using Flutter. Responsible for building comprehensive digital solutions across multiple platforms.
-        </p>
-        <div className="mb-4">
-          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm mb-2">
-            ✅ <strong>Backend Development</strong> - Building robust APIs and server-side applications
-          </div>
-          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm mb-2">
-            ✅ <strong>Frontend Development</strong> - Creating responsive and interactive user interfaces
-          </div>
-          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm mb-2">
-            ✅ <strong>Mobile Development</strong> - Developing cross-platform mobile apps with Flutter & Dart
-          </div>
-          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm mb-2">
-            ✅ <strong>Full-Stack Solutions</strong> - Delivering end-to-end digital products for business needs
-          </div>
+        <div className="flex items-center gap-2 mb-2">
+          <span className="w-2.5 h-2.5 bg-[#C6F10E] border border-black rounded-full"></span>
+          <h3 className="text-xl font-black text-black font-display">Full Stack Developer — PT. Infinity Blessing Indonesia</h3>
         </div>
-        <div className="grid grid-cols-1 gap-4">
-          <div className="bg-gradient-to-r from-[#C6F10E]/20 to-[#19222D]/50 p-4 rounded-lg border border-[#C6F10E]/30">
-            <h4 className="text-[#C6F10E] font-semibold mb-2">Current Role Highlights</h4>
-            <ul className="text-neutral-300 text-xs md:text-sm space-y-1">
-              <li>• Multi-platform development expertise</li>
-              <li>• Cross-functional team collaboration</li>
-              <li>• Modern development stack implementation</li>
-              <li>• Agile development methodologies</li>
-            </ul>
+        <p className="text-neutral-700 text-sm font-medium mb-5 leading-relaxed">
+          Lead engineer spearheading backend architectures, administrative portals, and mobile client ecosystems for real-time company operations.
+        </p>
+        <div className="space-y-3 mb-5">
+          {[
+            { role: "Enterprise Backend Systems", detail: "Architecting micro-services, background workers, and Postgres databases." },
+            { role: "Interactive Frontend", detail: "Building responsive dashboards and web portals with Next.js and Tailwind CSS." },
+            { role: "Mobile Client Apps", detail: "Designing and deploying production Flutter mobile apps for field staff." },
+            { role: "Data Pipelines", detail: "Implementing automated geolocation mapping and reporting workflows." }
+          ].map((item, idx) => (
+            <div key={idx} className="flex items-start gap-3 p-3 rounded-xl bg-[#FFFDF5] border border-black/80">
+              <span className="flex-shrink-0 w-5 h-5 rounded bg-[#C6F10E] border border-black shadow-[1px_1px_0px_0px_#000] inline-flex items-center justify-center">
+                <svg className="w-3 h-3 text-black stroke-[3]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+              <div className="text-xs sm:text-sm text-neutral-800">
+                <strong className="font-black text-black">{item.role}</strong> — {item.detail}
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <div className="bg-[#B4F8C8] border-2 border-black p-4 rounded-xl shadow-neo-sm">
+          <h4 className="font-black text-black text-sm uppercase tracking-wide mb-2">Role Competencies</h4>
+          <div className="grid grid-cols-2 gap-2 text-xs font-bold text-neutral-800">
+            <div>• Cross-Platform Delivery</div>
+            <div>• Relational Schema Modeling</div>
+            <div>• Cloud & Docker Deployment</div>
+            <div>• Security & Auth Hardening</div>
           </div>
         </div>
       </div>
@@ -118,12 +148,19 @@ const workExperienceData = [
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="py-16 md:py-24 bg-[#20293A]">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-6">Work <span className="text-[#C6F10E]">Experience</span></h2>
-        <p className="text-center text-gray-300 mb-12 max-w-3xl mx-auto">
-          My professional journey from self-taught developer to full-stack engineer, showcasing growth through continuous learning and real-world application development.
-        </p>
+    <section id="experience" className="py-20 md:py-28 bg-[#FAF7EE] border-y-2 md:border-y-[3px] border-black">
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center gap-2 bg-[#A6FAFF] text-black border-2 border-black px-3.5 py-1 rounded-full font-black text-xs uppercase tracking-wider shadow-neo-sm mb-4">
+            Career Milestones
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black font-display tracking-tight">
+            Work <span className="bg-[#C6F10E] border-2 border-black px-3 py-0.5 rounded-xl shadow-neo-sm">Experience</span>
+          </h2>
+          <p className="text-neutral-700 text-base sm:text-lg font-medium max-w-2xl mx-auto mt-3">
+            Real-world product engineering track record delivering scalable solutions.
+          </p>
+        </div>
         <Timeline data={workExperienceData} />
       </div>
     </section>

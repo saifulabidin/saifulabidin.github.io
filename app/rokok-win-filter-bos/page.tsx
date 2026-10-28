@@ -62,16 +62,18 @@ export default function AdminPanel() {
   }
 
   return (
-    <div className="min-h-screen bg-[#19222D]">
+    <div className="min-h-screen bg-[#FFFDF5] text-black neo-grid-bg">
       {/* Header */}
-      <header className="bg-[#20293A] border-b border-gray-700">
+      <header className="bg-white border-b-2 border-black">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-white">Admin Panel</h1>
+          <div className="inline-block bg-[#FFDE59] border-2 border-black px-3.5 py-1 rounded-xl font-black text-xl text-black shadow-neo-sm">
+            Admin Management Console
+          </div>
           <div className="flex items-center gap-4">
-            <span className="text-gray-300">Welcome, {session.user?.name}</span>
+            <span className="font-bold text-sm text-neutral-800">Operator: {session.user?.name}</span>
             <button
               onClick={() => signOut()}
-              className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors"
+              className="bg-[#FF90E8] text-black font-black text-sm px-4 py-2 rounded-xl border-2 border-black shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer"
             >
               Sign Out
             </button>
@@ -85,33 +87,34 @@ export default function AdminPanel() {
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
         {/* Tabs */}
-        <div className="flex gap-4 mb-8">
+        <div className="flex gap-3 mb-8">
           <button
             onClick={() => setActiveTab('projects')}
-            className={`px-6 py-3 rounded-lg font-medium transition-colors ${
+            className={`px-6 py-2.5 rounded-xl font-black text-sm border-2 border-black transition-all cursor-pointer ${
               activeTab === 'projects'
-                ? 'bg-[#C6F10E] text-black'
-                : 'bg-[#20293A] text-gray-300 hover:text-white'
+                ? 'bg-[#C6F10E] text-black shadow-neo'
+                : 'bg-white text-black shadow-neo-sm hover:bg-[#FFDE59]'
             }`}
           >
-            Projects
+            Projects Catalog
           </button>
           <button
             onClick={() => setActiveTab('certificates')}
-            className={`px-6 py-3 rounded-lg font-medium transition-colors ${
+            className={`px-6 py-2.5 rounded-xl font-black text-sm border-2 border-black transition-all cursor-pointer ${
               activeTab === 'certificates'
-                ? 'bg-[#C6F10E] text-black'
-                : 'bg-[#20293A] text-gray-300 hover:text-white'
+                ? 'bg-[#C6F10E] text-black shadow-neo'
+                : 'bg-white text-black shadow-neo-sm hover:bg-[#FFDE59]'
             }`}
           >
-            Certificates
+            Certificates Catalog
           </button>
         </div>
 
         {loading ? (
-          <div className="text-center py-12">
-            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-[#C6F10E]"></div>
-            <p className="mt-4 text-white">Loading...</p>
+          <div className="text-center py-16">
+            <div className="inline-block bg-white border-2 border-black p-6 rounded-2xl shadow-neo-md font-black text-lg">
+              Loading administration assets...
+            </div>
           </div>
         ) : (
           <>

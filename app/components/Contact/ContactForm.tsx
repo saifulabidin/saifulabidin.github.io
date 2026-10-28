@@ -7,7 +7,7 @@ interface ContactFormProps {
   className?: string;
 }
 
-const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
+const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
   const form = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     name: '',
@@ -33,7 +33,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    // Client-side validation
     if (!formData.name || !formData.email || !formData.message) {
       setFormStatus({
         isSubmitting: false,
@@ -47,26 +46,24 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
     setFormStatus({
       ...formStatus, 
       isSubmitting: true,
-      message: 'Sending message...'
+      message: 'Dispatching message...'
     });
 
     try {
-      // Replace these IDs with your actual EmailJS service, template, and public key
       await emailjs.sendForm(
-        'YOUR_SERVICE_ID',  // Replace with your Service ID
-        'YOUR_TEMPLATE_ID', // Replace with your Template ID
+        'YOUR_SERVICE_ID',
+        'YOUR_TEMPLATE_ID',
         form.current!, 
-        'YOUR_PUBLIC_KEY'   // Replace with your Public Key
+        'YOUR_PUBLIC_KEY'
       );
       
       setFormStatus({
         isSubmitting: false,
         isSubmitted: true,
         isError: false,
-        message: 'Your message has been sent successfully!'
+        message: 'Your message has been delivered successfully.'
       });
       
-      // Clear the form
       setFormData({
         name: '',
         email: '',
@@ -74,7 +71,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
         message: ''
       });
       
-      // Reset form status after 5 seconds
       setTimeout(() => {
         setFormStatus({
           isSubmitting: false,
@@ -84,12 +80,12 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
         });
       }, 5000);
       
-    } catch (error) {
+    } catch {
       setFormStatus({
         isSubmitting: false,
         isSubmitted: false,
         isError: true,
-        message: 'Failed to send message. Please try again later.'
+        message: 'Direct dispatch unconfigured or failed. Please contact contact@sabidzpro.is-a.dev.'
       });
     }
   };
@@ -98,20 +94,20 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
     <form 
       ref={form} 
       onSubmit={handleSubmit} 
-      className={`bg-[#20293A] p-8 rounded-lg shadow-lg ${className}`}
+      className={`space-y-4 ${className}`}
     >
       {formStatus.message && (
-        <div className={`mb-4 p-3 text-sm rounded-md ${formStatus.isError 
-          ? 'bg-red-100/10 text-red-500 border border-red-500/20' 
-          : 'bg-green-100/10 text-green-500 border border-green-500/20'}`}
+        <div className={`p-4 rounded-xl border-2 border-black text-sm font-black shadow-neo-sm ${formStatus.isError 
+          ? 'bg-[#FF90E8] text-black' 
+          : 'bg-[#C6F10E] text-black'}`}
         >
           {formStatus.message}
         </div>
       )}
       
-      <div className="mb-4">
-        <label htmlFor="name" className="block text-white font-medium mb-2">
-          Your Name <span className="text-red-500">*</span>
+      <div>
+        <label htmlFor="name" className="block text-black font-black text-xs uppercase tracking-wider mb-2">
+          Full Name <span className="text-red-600">*</span>
         </label>
         <input 
           type="text" 
@@ -119,15 +115,15 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
           name="name"
           value={formData.name}
           onChange={handleChange}
-          className="w-full px-4 py-2 bg-[#19222D] border border-[#2A3749] rounded-md focus:outline-none focus:border-[#C6F10E] text-white"
-          placeholder="John Doe"
+          className="w-full px-4 py-3 bg-[#FFFDF5] border-2 border-black rounded-xl text-black font-medium shadow-neo-sm focus:shadow-neo focus:outline-none transition-all placeholder:text-neutral-500"
+          placeholder="e.g. John Doe"
           required
         />
       </div>
       
-      <div className="mb-4">
-        <label htmlFor="email" className="block text-white font-medium mb-2">
-          Your Email <span className="text-red-500">*</span>
+      <div>
+        <label htmlFor="email" className="block text-black font-black text-xs uppercase tracking-wider mb-2">
+          Email Address <span className="text-red-600">*</span>
         </label>
         <input 
           type="email" 
@@ -135,28 +131,30 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
           name="email"
           value={formData.email}
           onChange={handleChange}
-          className="w-full px-4 py-2 bg-[#19222D] border border-[#2A3749] rounded-md focus:outline-none focus:border-[#C6F10E] text-white"
-          placeholder="john@example.com"
+          className="w-full px-4 py-3 bg-[#FFFDF5] border-2 border-black rounded-xl text-black font-medium shadow-neo-sm focus:shadow-neo focus:outline-none transition-all placeholder:text-neutral-500"
+          placeholder="john@company.com"
           required
         />
       </div>
       
-      <div className="mb-4">
-        <label htmlFor="subject" className="block text-white font-medium mb-2">Subject</label>
+      <div>
+        <label htmlFor="subject" className="block text-black font-black text-xs uppercase tracking-wider mb-2">
+          Subject & Topic
+        </label>
         <input 
           type="text" 
           id="subject"
           name="subject"
           value={formData.subject}
           onChange={handleChange}
-          className="w-full px-4 py-2 bg-[#19222D] border border-[#2A3749] rounded-md focus:outline-none focus:border-[#C6F10E] text-white"
-          placeholder="Job Opportunity"
+          className="w-full px-4 py-3 bg-[#FFFDF5] border-2 border-black rounded-xl text-black font-medium shadow-neo-sm focus:shadow-neo focus:outline-none transition-all placeholder:text-neutral-500"
+          placeholder="New Project Inquiry / Collaboration"
         />
       </div>
       
-      <div className="mb-6">
-        <label htmlFor="message" className="block text-white font-medium mb-2">
-          Your Message <span className="text-red-500">*</span>
+      <div>
+        <label htmlFor="message" className="block text-black font-black text-xs uppercase tracking-wider mb-2">
+          Detailed Message <span className="text-red-600">*</span>
         </label>
         <textarea 
           id="message"
@@ -164,18 +162,18 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
           value={formData.message}
           onChange={handleChange}
           rows={5}
-          className="w-full px-4 py-2 bg-[#19222D] border border-[#2A3749] rounded-md focus:outline-none focus:border-[#C6F10E] text-white resize-none"
-          placeholder="Your message here..."
+          className="w-full px-4 py-3 bg-[#FFFDF5] border-2 border-black rounded-xl text-black font-medium shadow-neo-sm focus:shadow-neo focus:outline-none transition-all placeholder:text-neutral-500 resize-none"
+          placeholder="Outline project scope, deliverables, requirements, or inquiries..."
           required
-        ></textarea>
+        />
       </div>
       
       <button 
         type="submit"
         disabled={formStatus.isSubmitting}
-        className="w-full bg-[#C6F10E] hover:bg-[#a5c70c] text-black py-3 px-6 rounded-md font-medium transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+        className="w-full bg-[#C6F10E] hover:bg-[#b0d80c] text-black font-black text-base py-3.5 px-6 rounded-xl border-2 border-black shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed mt-2"
       >
-        {formStatus.isSubmitting ? 'Sending...' : 'Send Message'}
+        {formStatus.isSubmitting ? 'Transmitting Message...' : 'Transmit Message'}
       </button>
     </form>
   );

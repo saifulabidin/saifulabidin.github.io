@@ -14,7 +14,6 @@ interface Certificate {
   sort_order: number;
 }
 
-// Static fallback data
 const staticCertificates: Certificate[] = [
   {
     id: 1,
@@ -48,7 +47,6 @@ const staticCertificates: Certificate[] = [
   }
 ];
 
-// Mobile Slider Component for Certificates
 const MobileCertificateSlider = ({ certificates }: { certificates: Certificate[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoSliding, setIsAutoSliding] = useState(true);
@@ -56,7 +54,6 @@ const MobileCertificateSlider = ({ certificates }: { certificates: Certificate[]
   const touchEndX = useRef(0);
   const sliderRef = useRef<HTMLDivElement>(null);
 
-  // Auto slide functionality
   useEffect(() => {
     if (!isAutoSliding || certificates.length <= 1) return;
 
@@ -64,14 +61,13 @@ const MobileCertificateSlider = ({ certificates }: { certificates: Certificate[]
       setCurrentIndex((prevIndex) => 
         prevIndex === certificates.length - 1 ? 0 : prevIndex + 1
       );
-    }, 5000); // Auto slide every 5 seconds for certificates
+    }, 4500);
 
     return () => clearInterval(interval);
   }, [isAutoSliding, certificates.length]);
 
-  // Touch handlers for swipe
   const handleTouchStart = (e: React.TouchEvent) => {
-    setIsAutoSliding(false); // Pause auto slide on touch
+    setIsAutoSliding(false);
     touchStartX.current = e.touches[0].clientX;
   };
 
@@ -81,84 +77,75 @@ const MobileCertificateSlider = ({ certificates }: { certificates: Certificate[]
 
   const handleTouchEnd = () => {
     if (touchStartX.current - touchEndX.current > 50) {
-      // Swipe left - next slide
       setCurrentIndex((prevIndex) => 
         prevIndex === certificates.length - 1 ? 0 : prevIndex + 1
       );
     }
 
     if (touchEndX.current - touchStartX.current > 50) {
-      // Swipe right - previous slide
       setCurrentIndex((prevIndex) => 
         prevIndex === 0 ? certificates.length - 1 : prevIndex - 1
       );
     }
 
-    // Resume auto slide after 6 seconds
-    setTimeout(() => setIsAutoSliding(true), 6000);
+    setTimeout(() => setIsAutoSliding(true), 5000);
   };
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
     setIsAutoSliding(false);
-    setTimeout(() => setIsAutoSliding(true), 6000);
+    setTimeout(() => setIsAutoSliding(true), 5000);
   };
+
+  if (certificates.length === 0) return null;
 
   return (
     <div className="relative">
-      {/* Slider Container */}
       <div 
         ref={sliderRef}
-        className="overflow-hidden rounded-lg"
+        className="overflow-hidden"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
         <div 
           className="flex transition-transform duration-500 ease-in-out"
-          style={{
-            transform: `translateX(-${currentIndex * 100}%)`,
-          }}
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
-          {certificates.map((cert, index) => (
-            <div key={index} className="w-full flex-shrink-0 px-2">
-              <div className="bg-[#19222D] rounded-lg overflow-hidden shadow-lg">
-                <div className="relative w-full" style={{ aspectRatio: '1.41/1' }}>
+          {certificates.map((cert) => (
+            <div key={cert.id} className="w-full flex-shrink-0 px-2">
+              <div className="bg-white border-2 border-black rounded-2xl overflow-hidden shadow-neo-md">
+                <div className="relative w-full border-b-2 border-black bg-neutral-900" style={{ aspectRatio: '1.41/1' }}>
                   <Image
                     src={cert.image_url}
                     alt={cert.title}
                     width={1526}
                     height={1080}
-                    className="w-full h-full object-contain bg-gray-900"
-                    priority={index === 0}
+                    className="w-full h-full object-contain"
+                    priority
                   />
-                  <div className="absolute top-2 right-2">
-                    <span className="bg-[#C6F10E] text-black px-2 py-1 rounded-full text-xs font-semibold">
+                  <div className="absolute top-3 right-3">
+                    <span className="bg-[#C6F10E] text-black border-2 border-black px-2.5 py-1 rounded-lg text-xs font-black shadow-[2px_2px_0px_0px_#000]">
                       {cert.date}
                     </span>
                   </div>
                 </div>
-                <div className="p-4 sm:p-6">
-                  <h3 className="text-base sm:text-lg font-semibold mb-2 text-white">{cert.title}</h3>
-                  <p className="text-[#C6F10E] text-sm font-medium mb-2">{cert.issuer}</p>
-                  <div className="flex items-center gap-2 text-gray-400 text-sm mb-4">
-                    <span>Issued: {cert.date}</span>
-                    {cert.renewed && (
-                      <>
-                        <span className="text-gray-600">•</span>
-                        <span className="text-[#C6F10E]">Renewed: {cert.renewed}</span>
-                      </>
-                    )}
+                <div className="p-5">
+                  <h3 className="text-lg font-black text-black font-display mb-2">{cert.title}</h3>
+                  <div className="mb-3">
+                    <span className="inline-block bg-[#A6FAFF] border border-black px-2 py-0.5 rounded text-xs font-black uppercase shadow-[1px_1px_0px_0px_#000]">
+                      {cert.issuer}
+                    </span>
                   </div>
                   {cert.credential_url && (
                     <a
                       href={cert.credential_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-[#C6F10E] hover:text-white transition-colors text-sm"
+                      className="inline-flex items-center gap-2 bg-[#FFDE59] text-black font-black text-xs uppercase px-3 py-1.5 rounded-lg border-2 border-black shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer"
                     >
-                      <span>View Credential</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <span>Verify Credential</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                         <polyline points="15,3 21,3 21,9"></polyline>
                         <line x1="10" y1="14" x2="21" y2="3"></line>
@@ -172,31 +159,18 @@ const MobileCertificateSlider = ({ certificates }: { certificates: Certificate[]
         </div>
       </div>
 
-      {/* Dots Indicator */}
       {certificates.length > 1 && (
-        <div className="flex justify-center mt-4 space-x-2">
+        <div className="flex justify-center mt-5 space-x-2">
           {certificates.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all ${
-                index === currentIndex 
-                  ? 'bg-[#C6F10E] scale-110' 
-                  : 'bg-gray-400 hover:bg-gray-300'
+              className={`w-3 h-3 rounded-full border border-black transition-all ${
+                index === currentIndex ? 'bg-[#C6F10E] scale-125' : 'bg-white'
               }`}
               aria-label={`Go to certificate ${index + 1}`}
             />
           ))}
-        </div>
-      )}
-
-      {/* Auto-slide indicator */}
-      {certificates.length > 1 && (
-        <div className="flex justify-center mt-2">
-          <div className={`text-xs text-gray-400 flex items-center gap-1 ${isAutoSliding ? 'opacity-100' : 'opacity-50'}`}>
-            <div className={`w-2 h-2 rounded-full ${isAutoSliding ? 'bg-[#C6F10E] animate-pulse' : 'bg-gray-400'}`}></div>
-            Auto-sliding {isAutoSliding ? 'ON' : 'OFF'}
-          </div>
         </div>
       )}
     </div>
@@ -207,7 +181,6 @@ export default function CertificatesSection() {
   const [certificates, setCertificates] = useState<Certificate[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetch certificates from database
   useEffect(() => {
     const fetchCertificates = async () => {
       try {
@@ -216,11 +189,9 @@ export default function CertificatesSection() {
           const data = await response.json();
           setCertificates(data);
         } else {
-          // Fallback to static data if API fails
           setCertificates(staticCertificates);
         }
-      } catch (error) {
-        // Fallback to static data
+      } catch {
         setCertificates(staticCertificates);
       } finally {
         setLoading(false);
@@ -231,94 +202,116 @@ export default function CertificatesSection() {
   }, []);
 
   return (
-    <section id="certificates" className="py-16 md:py-24 bg-[#20293A]">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-6">Certifications & <span className="text-[#C6F10E]">Achievements</span></h2>
-        <p className="text-center text-gray-300 mb-12 max-w-3xl mx-auto text-sm sm:text-base">
-          Professional certifications and achievements that validate my skills and commitment to continuous learning in software development.
-        </p>
+    <section id="certificates" className="py-20 md:py-28 bg-[#FAF7EE] border-y-2 md:border-y-[3px] border-black">
+      <div className="container mx-auto px-4 max-w-7xl">
+        {/* Section Header */}
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 bg-[#FFDE59] text-black border-2 border-black px-3.5 py-1 rounded-full font-black text-xs uppercase tracking-wider shadow-neo-sm mb-4">
+            Validated Accreditations
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black font-display tracking-tight">
+            Certifications & <span className="bg-[#C6F10E] border-2 border-black px-3 py-0.5 rounded-xl shadow-neo-sm">Achievements</span>
+          </h2>
+          <p className="text-neutral-700 text-base sm:text-lg font-medium max-w-2xl mx-auto mt-3">
+            External credentials validating competencies across web design, algorithms, cloud fundamentals, and modern runtimes.
+          </p>
+        </div>
 
         {loading ? (
           <div className="text-center py-12">
-            <div className="text-gray-400">Loading certificates...</div>
+            <div className="inline-block bg-white border-2 border-black p-6 rounded-2xl shadow-neo-md font-black text-lg">
+              Loading verified credentials...
+            </div>
           </div>
         ) : (
           <>
             {/* Mobile View - Slider */}
-            <div className="block lg:hidden mb-12 max-w-2xl mx-auto">
+            <div className="block lg:hidden mb-12 max-w-xl mx-auto">
               <MobileCertificateSlider certificates={certificates} />
             </div>
 
             {/* Desktop View - Grid */}
             <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {certificates.map((cert) => (
-                <div key={cert.id} className="bg-[#19222D] rounded-lg overflow-hidden shadow-lg hover:shadow-xl hover:translate-y-[-5px] transition-all duration-300">
-              <div className="relative w-full overflow-hidden" style={{ aspectRatio: '1.41/1' }}>
-                <Image
-                  src={cert.image_url}
-                  alt={cert.title}
-                  width={1526}
-                  height={1080}
-                  className="w-full h-full object-contain bg-gray-900 hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
-                <div className="absolute top-2 right-2">
-                  <span className="bg-[#C6F10E] text-black px-2 py-1 rounded-full text-xs font-semibold">
-                    {cert.date}
-                  </span>
+                <div 
+                  key={cert.id} 
+                  className="bg-white border-2 md:border-[3px] border-black rounded-2xl shadow-neo-md hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo transition-all flex flex-col justify-between overflow-hidden"
+                >
+                  <div>
+                    <div className="relative w-full border-b-2 border-black bg-neutral-900 overflow-hidden" style={{ aspectRatio: '1.41/1' }}>
+                      <Image
+                        src={cert.image_url}
+                        alt={cert.title}
+                        width={1526}
+                        height={1080}
+                        className="w-full h-full object-contain"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-3 right-3 z-10">
+                        <span className="bg-[#C6F10E] text-black border-2 border-black px-2.5 py-1 rounded-lg text-xs font-black uppercase tracking-wider shadow-[2px_2px_0px_0px_#000]">
+                          {cert.date}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-lg font-black text-black font-display mb-2">{cert.title}</h3>
+                      <div className="mb-4">
+                        <span className="inline-block bg-[#A6FAFF] border border-black px-2.5 py-0.5 rounded text-xs font-black uppercase tracking-wide shadow-[1px_1px_0px_0px_#000]">
+                          {cert.issuer}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs font-bold text-neutral-600 mb-4">
+                        <span>Issued: {cert.date}</span>
+                        {cert.renewed && (
+                          <>
+                            <span>•</span>
+                            <span className="text-black bg-[#C6F10E] px-1.5 py-0.2 rounded border border-black">Renewed: {cert.renewed}</span>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="px-6 pb-6 pt-0">
+                    {cert.credential_url && (
+                      <a
+                        href={cert.credential_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full inline-flex items-center justify-center gap-2 bg-[#FFDE59] text-black font-black text-xs uppercase tracking-wider py-2.5 px-4 rounded-xl border-2 border-black shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer"
+                      >
+                        <span>Verify Credential Certificate</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                          <polyline points="15,3 21,3 21,9"></polyline>
+                          <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-lg font-semibold mb-2 text-white">{cert.title}</h3>
-                <p className="text-[#C6F10E] text-sm font-medium mb-2">{cert.issuer}</p>
-                <div className="flex items-center gap-2 text-gray-400 text-sm mb-4">
-                  <span>Issued: {cert.date}</span>
-                  {cert.renewed && (
-                    <>
-                      <span className="text-gray-600">•</span>
-                      <span className="text-[#C6F10E]">Renewed: {cert.renewed}</span>
-                    </>
-                  )}
-                </div>
-                {cert.credential_url && (
-                  <a
-                    href={cert.credential_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-[#C6F10E] hover:text-white transition-colors text-sm"
-                  >
-                    <span>View Credential</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                      <polyline points="15,3 21,3 21,9"></polyline>
-                      <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                  </a>
-                )}
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
           </>
         )}
 
-        {/* Achievement Stats */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="text-center">
-            <div className="text-3xl font-bold text-[#C6F10E] mb-2">8+</div>
-            <div className="text-gray-300">Certifications</div>
+        {/* Milestone Counters */}
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+          <div className="bg-white border-2 border-black p-4 rounded-xl shadow-neo text-center">
+            <div className="text-3xl font-black text-black font-display mb-1">8+</div>
+            <div className="text-xs sm:text-sm font-bold text-neutral-800">Certificates Earned</div>
           </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-[#C6F10E] mb-2">1800+</div>
-            <div className="text-gray-300">Hours Studied</div>
+          <div className="bg-[#FF90E8] border-2 border-black p-4 rounded-xl shadow-neo text-center">
+            <div className="text-3xl font-black text-black font-display mb-1">1,800+</div>
+            <div className="text-xs sm:text-sm font-bold text-black">Curriculum Hours</div>
           </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-[#C6F10E] mb-2">27+</div>
-            <div className="text-gray-300">Projects Completed</div>
+          <div className="bg-[#A6FAFF] border-2 border-black p-4 rounded-xl shadow-neo text-center">
+            <div className="text-3xl font-black text-black font-display mb-1">27+</div>
+            <div className="text-xs sm:text-sm font-bold text-black">Delivered Projects</div>
           </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-[#C6F10E] mb-2">5+</div>
-            <div className="text-gray-300">Years Experience</div>
+          <div className="bg-[#C6F10E] border-2 border-black p-4 rounded-xl shadow-neo text-center">
+            <div className="text-3xl font-black text-black font-display mb-1">5+</div>
+            <div className="text-xs sm:text-sm font-bold text-black">Years Engineering</div>
           </div>
         </div>
       </div>

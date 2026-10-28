@@ -44,7 +44,6 @@ const nextConfig = {
   // Trailing slash
   trailingSlash: false,
   // Performance optimizations
-  swcMinify: true,
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },

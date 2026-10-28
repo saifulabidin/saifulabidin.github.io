@@ -13,49 +13,54 @@ export default function FooterSection() {
   };
 
   return (
-    <footer className="py-8 bg-[#19222D] border-t border-[#2A3749]">
-      <div className="container mx-auto px-4">
-        {/* Main Footer Content */}
-        <div className="flex flex-col md:flex-row justify-between items-center mb-6">
-          <div className="mb-4 md:mb-0">
-            <div className="text-[#C6F10E] text-xl font-bold">Saiful Abidin</div>
-            <p className="text-gray-400 text-sm mt-1">Full Stack Developer</p>
+    <footer className="py-12 bg-white border-t-4 border-black">
+      <div className="container mx-auto px-4 max-w-7xl">
+        {/* Main Footer Row */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
+          <div className="text-center md:text-left">
+            <div className="inline-block bg-[#FFDE59] border-2 border-black px-3.5 py-1 rounded-xl font-black text-xl text-black shadow-neo-sm tracking-tight mb-2">
+              Saiful Abidin
+            </div>
+            <p className="text-neutral-700 text-sm font-bold">
+              Full Stack Developer & Systems Engineer
+            </p>
           </div>
-          <div className="text-gray-400 text-sm text-center md:text-right">
-            <p>&copy; {new Date().getFullYear()} All rights reserved</p>
-            <p className="mt-1">Made with ❤️ using Next.js & Tailwind CSS</p>
+
+          <div className="text-neutral-800 text-xs sm:text-sm font-semibold text-center md:text-right space-y-1">
+            <p>&copy; {new Date().getFullYear()} Saiful Abidin. All rights reserved.</p>
+            <p className="text-neutral-600 font-medium">Built with precision using Next.js, Tailwind CSS and Bun.</p>
           </div>
         </div>
 
-        {/* Policy Links */}
-        <div className="border-t border-[#2A3749] pt-4">
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-6 text-sm">
+        {/* Policy Navigation Links */}
+        <div className="border-t-2 border-black pt-6">
+          <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4 text-xs sm:text-sm">
             <Link 
               href="/privacy-policy"
-              className="text-gray-400 hover:text-[#C6F10E] transition-colors"
+              className="text-black font-black hover:bg-[#C6F10E] border-2 border-transparent hover:border-black hover:shadow-neo-sm px-3 py-1 rounded-lg transition-all"
             >
               Privacy Policy
             </Link>
-            <span className="hidden sm:inline text-gray-600">•</span>
+            <span className="text-black font-black hidden sm:inline">•</span>
             <Link 
               href="/cookie-policy"
-              className="text-gray-400 hover:text-[#C6F10E] transition-colors"
+              className="text-black font-black hover:bg-[#FFDE59] border-2 border-transparent hover:border-black hover:shadow-neo-sm px-3 py-1 rounded-lg transition-all"
             >
               Cookie Policy
             </Link>
-            <span className="hidden sm:inline text-gray-600">•</span>
+            <span className="text-black font-black hidden sm:inline">•</span>
             <button
               onClick={handleCookieSettings}
-              className="text-gray-400 hover:text-[#C6F10E] transition-colors"
+              className="text-black font-black hover:bg-[#A6FAFF] border-2 border-transparent hover:border-black hover:shadow-neo-sm px-3 py-1 rounded-lg transition-all cursor-pointer"
             >
               Cookie Settings
             </button>
-            <span className="hidden sm:inline text-gray-600">•</span>
+            <span className="text-black font-black hidden sm:inline">•</span>
             <Link 
               href="/#contact"
-              className="text-gray-400 hover:text-[#C6F10E] transition-colors"
+              className="text-black font-black hover:bg-[#B4F8C8] border-2 border-transparent hover:border-black hover:shadow-neo-sm px-3 py-1 rounded-lg transition-all"
             >
-              Contact
+              Contact Direct
             </Link>
           </div>
         </div>

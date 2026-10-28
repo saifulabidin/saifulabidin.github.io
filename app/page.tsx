@@ -1,6 +1,5 @@
 'use client';
 
-
 import { Navigation } from "./components/ui";
 import {
   HeroSection,
@@ -16,15 +15,14 @@ import {
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#19222D]">
-      
-      {/* Navigation - Header Element */}
+    <main className="min-h-screen overflow-x-hidden bg-[#FFFDF5] text-black neo-grid-bg selection:bg-[#C6F10E] selection:text-black">
+      {/* Navigation */}
       <Navigation />
 
-      {/* Hero Section - Introduction */}
+      {/* Hero Section */}
       <HeroSection />
 
-      {/* Main Content Sections */}
+      {/* Content Sections */}
       <AboutSection />
       <SkillsSection />
       <EducationSection />

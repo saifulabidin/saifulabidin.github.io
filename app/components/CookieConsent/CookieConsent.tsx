@@ -137,9 +137,9 @@ export default function CookieConsent({ onAccept, onReject }: CookieConsentProps
           aria-live="polite"
         >
           <div className="container mx-auto max-w-6xl">
-            <div className="bg-[#19222D]/95 backdrop-blur-lg border border-[#C6F10E]/20 rounded-2xl shadow-2xl overflow-hidden">
-              {/* Gradient accent line */}
-              <div className="h-1 bg-gradient-to-r from-[#C6F10E] via-[#C6F10E]/50 to-transparent"></div>
+            <div className="bg-white border-2 md:border-[3px] border-black rounded-2xl shadow-neo-lg overflow-hidden">
+              {/* Top Accent Stripe */}
+              <div className="h-2 bg-[#C6F10E] border-b-2 border-black"></div>
               
               <div className="p-6 md:p-8">
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
@@ -147,43 +147,42 @@ export default function CookieConsent({ onAccept, onReject }: CookieConsentProps
                   <div className="flex-1 space-y-3">
                     <div className="flex items-center gap-3">
                       {/* Cookie Icon */}
-                      <div className="flex-shrink-0 w-10 h-10 bg-[#C6F10E]/10 rounded-full flex items-center justify-center">
-                        <svg className="w-6 h-6 text-[#C6F10E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <div className="flex-shrink-0 w-10 h-10 bg-[#FFDE59] border-2 border-black rounded-xl shadow-[2px_2px_0px_0px_#000] flex items-center justify-center">
+                        <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                       </div>
                       
                       <div>
-                        <h3 id="cookie-consent-title" className="text-lg md:text-xl font-bold text-white">
-                          We Value Your Privacy
+                        <h3 id="cookie-consent-title" className="text-lg md:text-xl font-black text-black font-display">
+                          Privacy & Local Storage Notice
                         </h3>
                       </div>
                     </div>
 
-                    <p id="cookie-consent-description" className="text-sm md:text-base text-gray-300 leading-relaxed">
-                      We use cookies to enhance your browsing experience, analyze site traffic, and personalize content.
-                      By clicking &quot;Accept All&quot;, you consent to our use of cookies.{' '}
+                    <p id="cookie-consent-description" className="text-sm md:text-base text-neutral-800 leading-relaxed font-medium">
+                      This website utilizes essential cookies and browser telemetry to ensure reliable performance and user interface preferences.{' '}
                       <Link
                         href="/privacy-policy"
-                        className="text-[#C6F10E] hover:underline font-medium"
+                        className="text-black font-black underline hover:bg-[#FFDE59]"
                         aria-label="Learn more about our privacy policy"
                       >
-                        Learn more
+                        Review Privacy Policy
                       </Link>
                     </p>
 
                     {/* Cookie categories */}
-                    <div className="flex flex-wrap gap-2 pt-2" role="list" aria-label="Cookie categories">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#C6F10E]/10 text-[#C6F10E] border border-[#C6F10E]/20" role="listitem">
+                    <div className="flex flex-wrap gap-2 pt-1" role="list" aria-label="Cookie categories">
+                      <span className="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-black bg-[#FFFDF5] text-black border border-black shadow-[1px_1px_0px_0px_#000]" role="listitem">
                         Essential
                       </span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#C6F10E]/10 text-[#C6F10E] border border-[#C6F10E]/20" role="listitem">
+                      <span className="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-black bg-[#FFFDF5] text-black border border-black shadow-[1px_1px_0px_0px_#000]" role="listitem">
                         Analytics
                       </span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#C6F10E]/10 text-[#C6F10E] border border-[#C6F10E]/20" role="listitem">
+                      <span className="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-black bg-[#FFFDF5] text-black border border-black shadow-[1px_1px_0px_0px_#000]" role="listitem">
                         Marketing
                       </span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#C6F10E]/10 text-[#C6F10E] border border-[#C6F10E]/20" role="listitem">
+                      <span className="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-black bg-[#FFFDF5] text-black border border-black shadow-[1px_1px_0px_0px_#000]" role="listitem">
                         Preferences
                       </span>
                     </div>
@@ -194,7 +193,7 @@ export default function CookieConsent({ onAccept, onReject }: CookieConsentProps
                     {/* Accept Button */}
                     <button
                       onClick={handleAccept}
-                      className="w-full sm:flex-1 lg:w-full bg-[#C6F10E] hover:bg-[#a5c70c] text-black font-semibold px-6 py-3 rounded-lg transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-lg shadow-[#C6F10E]/25"
+                      className="w-full sm:flex-1 lg:w-full bg-[#C6F10E] text-black font-black px-6 py-3 rounded-xl border-2 border-black shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer"
                       aria-label="Accept all cookies"
                     >
                       Accept All
@@ -203,19 +202,19 @@ export default function CookieConsent({ onAccept, onReject }: CookieConsentProps
                     {/* Reject Button */}
                     <button
                       onClick={handleReject}
-                      className="w-full sm:flex-1 lg:w-full bg-transparent hover:bg-white/5 text-white border-2 border-white/20 hover:border-[#C6F10E] font-semibold px-6 py-3 rounded-lg transition-all duration-200"
+                      className="w-full sm:flex-1 lg:w-full bg-white text-black font-black px-6 py-3 rounded-xl border-2 border-black shadow-neo hover:bg-[#FFDE59] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer"
                       aria-label="Reject all non-essential cookies"
                     >
-                      Reject All
+                      Reject Non-Essential
                     </button>
 
                     {/* Customize Button */}
                     <button
                       onClick={handleCustomize}
-                      className="w-full text-sm text-gray-400 hover:text-[#C6F10E] font-medium transition-colors duration-200 py-2"
+                      className="w-full text-xs font-black uppercase text-neutral-700 hover:text-black py-1 cursor-pointer transition-colors"
                       aria-label="Customize cookie settings"
                     >
-                      Customize Settings
+                      Configure Preferences
                     </button>
                   </div>
                 </div>

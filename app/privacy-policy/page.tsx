@@ -42,296 +42,124 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className="min-h-screen bg-[#20293A] text-white">
+    <div className="min-h-screen bg-[#FFFDF5] text-black neo-grid-bg">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-[#19222D]/95 backdrop-blur-sm border-b border-[#C6F10E]/20">
-        <div className="container mx-auto px-4 py-4">
+      <header className="sticky top-0 z-50 bg-white border-b-2 border-black">
+        <div className="container mx-auto px-4 py-4 max-w-5xl">
           <div className="flex items-center justify-between">
-            <Link href="/" className="text-xl font-bold text-[#C6F10E] hover:text-white transition-colors">
+            <Link 
+              href="/" 
+              className="inline-flex items-center gap-2 bg-[#FFDE59] border-2 border-black px-3.5 py-1.5 rounded-xl font-black text-sm text-black shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer"
+            >
               ← Back to Portfolio
             </Link>
-            <div className="text-sm text-gray-400">
-              Last Updated: October 3, 2025
+            <div className="text-xs sm:text-sm font-black uppercase tracking-wider text-neutral-600">
+              Updated: October 2026
             </div>
           </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-12 max-w-4xl">
+      <main className="container mx-auto px-4 py-14 max-w-4xl">
         {/* Title */}
-        <div className="mb-12 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Privacy <span className="text-[#C6F10E]">Policy</span>
+        <div className="mb-14 text-center">
+          <div className="inline-block bg-[#A6FAFF] border-2 border-black px-3.5 py-1 rounded-full font-black text-xs uppercase tracking-wider shadow-neo-sm mb-4">
+            Legal Transparency
+          </div>
+          <h1 className="text-4xl md:text-5xl font-black mb-3 font-display tracking-tight text-black">
+            Privacy <span className="bg-[#C6F10E] border-2 border-black px-3 py-0.5 rounded-xl shadow-neo-sm">Policy</span>
           </h1>
-          <p className="text-lg text-gray-300">
-            Your privacy is important to us. This policy explains how we handle your information.
+          <p className="text-base sm:text-lg text-neutral-700 font-medium">
+            This policy outlines personal data handling, security architecture, and your rights.
           </p>
         </div>
 
         {/* Content Sections */}
-        <div className="space-y-8">
-          {/* Introduction */}
-          <section className="bg-[#19222D] p-8 rounded-2xl border border-[#C6F10E]/10">
-            <h2 className="text-2xl font-bold mb-4 text-[#C6F10E]">1. Introduction</h2>
-            <p className="text-gray-300 leading-relaxed mb-4">
+        <div className="space-y-6">
+          <section className="bg-white p-6 sm:p-8 rounded-2xl border-2 md:border-[3px] border-black shadow-neo-md">
+            <h2 className="text-xl sm:text-2xl font-black mb-3 font-display text-black">1. Introduction</h2>
+            <p className="text-neutral-800 leading-relaxed font-medium mb-3">
               Welcome to sabidzpro.is-a.dev (&quot;Website&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.
             </p>
-            <p className="text-gray-300 leading-relaxed">
-              Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.
+            <p className="text-neutral-800 leading-relaxed font-medium">
+              Please review this policy carefully. If you do not agree with the terms outlined, please discontinue use of this site.
             </p>
           </section>
 
-          {/* Information We Collect */}
-          <section className="bg-[#19222D] p-8 rounded-2xl border border-[#C6F10E]/10">
-            <h2 className="text-2xl font-bold mb-4 text-[#C6F10E]">2. Information We Collect</h2>
+          <section className="bg-white p-6 sm:p-8 rounded-2xl border-2 md:border-[3px] border-black shadow-neo-md">
+            <h2 className="text-xl sm:text-2xl font-black mb-3 font-display text-black">2. Information Collection</h2>
             
-            <h3 className="text-xl font-semibold mb-3 text-white">2.1 Personal Information</h3>
-            <p className="text-gray-300 leading-relaxed mb-4">
-              We may collect personal information that you voluntarily provide to us when you:
+            <h3 className="text-lg font-black mb-2 text-black">2.1 Voluntary Transmission</h3>
+            <p className="text-neutral-800 leading-relaxed font-medium mb-3">
+              We may receive contact information you directly submit via our contact form:
             </p>
-            <ul className="list-disc list-inside space-y-2 text-gray-300 mb-6 ml-4">
-              <li>Fill out contact forms</li>
-              <li>Send us emails</li>
-              <li>Subscribe to our newsletter (if applicable)</li>
-              <li>Interact with our website features</li>
+            <ul className="list-disc list-inside space-y-1.5 text-neutral-800 font-medium mb-5 ml-2">
+              <li>Full Name and Professional Title</li>
+              <li>Electronic mail address</li>
+              <li>Project scope and message content</li>
             </ul>
 
-            <h3 className="text-xl font-semibold mb-3 text-white">2.2 Automatically Collected Information</h3>
-            <p className="text-gray-300 leading-relaxed mb-4">
-              When you visit our website, we automatically collect certain information about your device, including:
+            <h3 className="text-lg font-black mb-2 text-black">2.2 Automated Diagnostics</h3>
+            <p className="text-neutral-800 leading-relaxed font-medium mb-3">
+              When navigating this web application, standard telemetry metrics are collected via Edge analytics:
             </p>
-            <ul className="list-disc list-inside space-y-2 text-gray-300 ml-4">
-              <li>IP address</li>
-              <li>Browser type and version</li>
-              <li>Operating system</li>
-              <li>Pages visited and time spent</li>
-              <li>Referring website</li>
-              <li>Device information</li>
+            <ul className="list-disc list-inside space-y-1.5 text-neutral-800 font-medium ml-2">
+              <li>IP address and geo-locality</li>
+              <li>Browser engine and device viewport dimensions</li>
+              <li>Operating system configuration</li>
+              <li>Page navigation latency and server response time</li>
             </ul>
           </section>
 
-          {/* How We Use Your Information */}
-          <section className="bg-[#19222D] p-8 rounded-2xl border border-[#C6F10E]/10">
-            <h2 className="text-2xl font-bold mb-4 text-[#C6F10E]">3. How We Use Your Information</h2>
-            <p className="text-gray-300 leading-relaxed mb-4">
-              We use the information we collect in the following ways:
+          <section className="bg-white p-6 sm:p-8 rounded-2xl border-2 md:border-[3px] border-black shadow-neo-md">
+            <h2 className="text-xl sm:text-2xl font-black mb-3 font-display text-black">3. Purpose and Data Usage</h2>
+            <p className="text-neutral-800 leading-relaxed font-medium mb-3">
+              Collected information serves targeted operational purposes:
             </p>
-            <ul className="list-disc list-inside space-y-2 text-gray-300 ml-4">
-              <li>To respond to your inquiries and provide customer support</li>
-              <li>To improve our website and user experience</li>
-              <li>To analyze website traffic and usage patterns</li>
-              <li>To send periodic emails (if you opted in)</li>
-              <li>To prevent fraudulent activity and improve security</li>
-              <li>To comply with legal obligations</li>
+            <ul className="list-disc list-inside space-y-1.5 text-neutral-800 font-medium ml-2">
+              <li>Replying to project inquiries and direct technical messages</li>
+              <li>Ensuring network security and mitigating automated malicious requests</li>
+              <li>Monitoring core web vitals and client rendering metrics</li>
+              <li>Executing legal compliance and data protection standards</li>
             </ul>
           </section>
 
-          {/* Cookies and Tracking */}
-          <section className="bg-[#19222D] p-8 rounded-2xl border border-[#C6F10E]/10">
-            <h2 className="text-2xl font-bold mb-4 text-[#C6F10E]">4. Cookies and Tracking Technologies</h2>
-            
-            <h3 className="text-xl font-semibold mb-3 text-white">4.1 What Are Cookies?</h3>
-            <p className="text-gray-300 leading-relaxed mb-6">
-              Cookies are small text files stored on your device that help us provide a better experience. We use both session cookies (expire when you close your browser) and persistent cookies (remain until deleted or expired).
-            </p>
-
-            <h3 className="text-xl font-semibold mb-3 text-white">4.2 Types of Cookies We Use</h3>
-            
-            <div className="space-y-4 mb-6">
-              <div className="bg-[#20293A] p-4 rounded-lg">
-                <h4 className="font-semibold text-[#C6F10E] mb-2">Essential Cookies</h4>
-                <p className="text-gray-300 text-sm">
-                  Required for the website to function properly. Cannot be disabled.
-                </p>
+          <section className="bg-white p-6 sm:p-8 rounded-2xl border-2 md:border-[3px] border-black shadow-neo-md">
+            <h2 className="text-xl sm:text-2xl font-black mb-3 font-display text-black">4. Third-Party Infrastructure</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+              <div className="p-4 bg-[#FFFDF5] border-2 border-black rounded-xl shadow-neo-sm">
+                <h4 className="font-black text-black mb-1">Vercel Analytics</h4>
+                <p className="text-xs sm:text-sm text-neutral-700 font-medium">Privacy-focused edge telemetry without tracking cross-site persistent cookies.</p>
               </div>
-
-              <div className="bg-[#20293A] p-4 rounded-lg">
-                <h4 className="font-semibold text-[#C6F10E] mb-2">Analytics Cookies</h4>
-                <p className="text-gray-300 text-sm">
-                  Help us understand how visitors interact with our website (Google Analytics, Vercel Analytics).
-                </p>
-              </div>
-
-              <div className="bg-[#20293A] p-4 rounded-lg">
-                <h4 className="font-semibold text-[#C6F10E] mb-2">Performance Cookies</h4>
-                <p className="text-gray-300 text-sm">
-                  Monitor website performance and improve user experience.
-                </p>
-              </div>
-            </div>
-
-            <h3 className="text-xl font-semibold mb-3 text-white">4.3 Managing Cookies</h3>
-            <p className="text-gray-300 leading-relaxed">
-              You can control cookies through our Cookie Settings banner or your browser settings. Note that disabling certain cookies may limit website functionality.
-            </p>
-          </section>
-
-          {/* Third-Party Services */}
-          <section className="bg-[#19222D] p-8 rounded-2xl border border-[#C6F10E]/10">
-            <h2 className="text-2xl font-bold mb-4 text-[#C6F10E]">5. Third-Party Services</h2>
-            <p className="text-gray-300 leading-relaxed mb-4">
-              We use the following third-party services:
-            </p>
-            
-            <div className="space-y-4">
-              <div className="bg-[#20293A] p-4 rounded-lg">
-                <h4 className="font-semibold text-white mb-2">Google Analytics</h4>
-                <p className="text-gray-300 text-sm mb-2">
-                  Tracks website usage and visitor behavior.
-                </p>
-                <a 
-                  href="https://policies.google.com/privacy" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-[#C6F10E] hover:underline text-sm"
-                >
-                  Google Privacy Policy →
-                </a>
-              </div>
-
-              <div className="bg-[#20293A] p-4 rounded-lg">
-                <h4 className="font-semibold text-white mb-2">Vercel Analytics</h4>
-                <p className="text-gray-300 text-sm mb-2">
-                  Monitors website performance and analytics.
-                </p>
-                <a 
-                  href="https://vercel.com/legal/privacy-policy" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-[#C6F10E] hover:underline text-sm"
-                >
-                  Vercel Privacy Policy →
-                </a>
-              </div>
-
-              <div className="bg-[#20293A] p-4 rounded-lg">
-                <h4 className="font-semibold text-white mb-2">EmailJS</h4>
-                <p className="text-gray-300 text-sm mb-2">
-                  Handles contact form submissions.
-                </p>
-                <a 
-                  href="https://www.emailjs.com/legal/privacy-policy/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-[#C6F10E] hover:underline text-sm"
-                >
-                  EmailJS Privacy Policy →
-                </a>
+              <div className="p-4 bg-[#FFFDF5] border-2 border-black rounded-xl shadow-neo-sm">
+                <h4 className="font-black text-black mb-1">Google Maps API</h4>
+                <p className="text-xs sm:text-sm text-neutral-700 font-medium">Reverse-proxied map assets for geographic coordinates display.</p>
               </div>
             </div>
           </section>
 
-          {/* Data Security */}
-          <section className="bg-[#19222D] p-8 rounded-2xl border border-[#C6F10E]/10">
-            <h2 className="text-2xl font-bold mb-4 text-[#C6F10E]">6. Data Security</h2>
-            <p className="text-gray-300 leading-relaxed mb-4">
-              We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.
+          <section className="bg-white p-6 sm:p-8 rounded-2xl border-2 md:border-[3px] border-black shadow-neo-md">
+            <h2 className="text-xl sm:text-2xl font-black mb-3 font-display text-black">5. Data Subject Rights & Contact</h2>
+            <p className="text-neutral-800 leading-relaxed font-medium mb-4">
+              In accordance with international privacy legislation (including GDPR), you retain the right to inspect, correct, or request deletion of any stored contact data.
             </p>
-            <p className="text-gray-300 leading-relaxed">
-              However, please note that no method of transmission over the internet or electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security.
-            </p>
-          </section>
-
-          {/* Your Rights */}
-          <section className="bg-[#19222D] p-8 rounded-2xl border border-[#C6F10E]/10">
-            <h2 className="text-2xl font-bold mb-4 text-[#C6F10E]">7. Your Privacy Rights</h2>
-            <p className="text-gray-300 leading-relaxed mb-4">
-              Under GDPR and other privacy laws, you have the following rights:
-            </p>
-            <ul className="list-disc list-inside space-y-2 text-gray-300 ml-4">
-              <li><strong className="text-white">Right to Access:</strong> Request copies of your personal data</li>
-              <li><strong className="text-white">Right to Rectification:</strong> Request correction of inaccurate data</li>
-              <li><strong className="text-white">Right to Erasure:</strong> Request deletion of your data</li>
-              <li><strong className="text-white">Right to Restrict Processing:</strong> Request limitation of data processing</li>
-              <li><strong className="text-white">Right to Data Portability:</strong> Request transfer of your data</li>
-              <li><strong className="text-white">Right to Object:</strong> Object to processing of your data</li>
-              <li><strong className="text-white">Right to Withdraw Consent:</strong> Withdraw consent at any time</li>
-            </ul>
-          </section>
-
-          {/* Children's Privacy */}
-          <section className="bg-[#19222D] p-8 rounded-2xl border border-[#C6F10E]/10">
-            <h2 className="text-2xl font-bold mb-4 text-[#C6F10E]">8. Children&apos;s Privacy</h2>
-            <p className="text-gray-300 leading-relaxed">
-              Our website is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe we have collected information from your child, please contact us immediately.
-            </p>
-          </section>
-
-          {/* Data Retention */}
-          <section className="bg-[#19222D] p-8 rounded-2xl border border-[#C6F10E]/10">
-            <h2 className="text-2xl font-bold mb-4 text-[#C6F10E]">9. Data Retention</h2>
-            <p className="text-gray-300 leading-relaxed">
-              We retain your personal information only for as long as necessary to fulfill the purposes outlined in this privacy policy, unless a longer retention period is required by law. Analytics data is typically retained for 26 months, while contact form data is retained until you request deletion.
-            </p>
-          </section>
-
-          {/* International Transfers */}
-          <section className="bg-[#19222D] p-8 rounded-2xl border border-[#C6F10E]/10">
-            <h2 className="text-2xl font-bold mb-4 text-[#C6F10E]">10. International Data Transfers</h2>
-            <p className="text-gray-300 leading-relaxed">
-              Your information may be transferred to and processed in countries other than your country of residence. These countries may have different data protection laws. By using our website, you consent to the transfer of your information to these countries.
-            </p>
-          </section>
-
-          {/* Changes to Policy */}
-          <section className="bg-[#19222D] p-8 rounded-2xl border border-[#C6F10E]/10">
-            <h2 className="text-2xl font-bold mb-4 text-[#C6F10E]">11. Changes to This Privacy Policy</h2>
-            <p className="text-gray-300 leading-relaxed">
-              We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page and updating the &quot;Last Updated&quot; date. You are advised to review this privacy policy periodically for any changes.
-            </p>
-          </section>
-
-          {/* Contact Information */}
-          <section className="bg-[#19222D] p-8 rounded-2xl border border-[#C6F10E]/10">
-            <h2 className="text-2xl font-bold mb-4 text-[#C6F10E]">12. Contact Us</h2>
-            <p className="text-gray-300 leading-relaxed mb-4">
-              If you have any questions about this Privacy Policy or our data practices, please contact us:
-            </p>
-            <div className="space-y-2 text-gray-300">
-              <p><strong className="text-white">Email:</strong> <a href="mailto:contact@sabidzpro.is-a.dev" className="text-[#C6F10E] hover:underline">contact@sabidzpro.is-a.dev</a></p>
-              <p><strong className="text-white">Website:</strong> <a href="https://sabidzpro.is-a.dev" className="text-[#C6F10E] hover:underline">sabidzpro.is-a.dev</a></p>
-              <p><strong className="text-white">Location:</strong> Wonogiri, Indonesia</p>
+            <div className="p-4 bg-[#C6F10E]/20 border-2 border-black rounded-xl shadow-neo-sm">
+              <div className="text-sm font-black text-black">Direct Security & Privacy Contact:</div>
+              <div className="text-sm font-bold text-neutral-800 mt-1">contact@sabidzpro.is-a.dev</div>
             </div>
-          </section>
-
-          {/* GDPR Compliance */}
-          <section className="bg-[#19222D] p-8 rounded-2xl border border-[#C6F10E]/10">
-            <h2 className="text-2xl font-bold mb-4 text-[#C6F10E]">13. GDPR Compliance</h2>
-            <p className="text-gray-300 leading-relaxed mb-4">
-              We are committed to complying with the General Data Protection Regulation (GDPR) and other applicable data protection laws. This includes:
-            </p>
-            <ul className="list-disc list-inside space-y-2 text-gray-300 ml-4">
-              <li>Obtaining explicit consent before processing personal data</li>
-              <li>Providing clear information about data processing</li>
-              <li>Implementing appropriate security measures</li>
-              <li>Respecting your rights regarding your personal data</li>
-              <li>Reporting data breaches within 72 hours</li>
-              <li>Appointing a Data Protection Officer (if required)</li>
-            </ul>
           </section>
         </div>
 
         {/* Footer Navigation */}
-        <div className="mt-12 pt-8 border-t border-[#C6F10E]/20">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <Link 
-              href="/"
-              className="text-[#C6F10E] hover:text-white transition-colors font-medium"
-            >
-              ← Back to Home
-            </Link>
-            <div className="flex gap-4">
-              <Link 
-                href="/#contact"
-                className="text-gray-400 hover:text-[#C6F10E] transition-colors"
-              >
-                Contact
-              </Link>
-              <span className="text-gray-600">•</span>
-              <PrivacyPolicyClient />
-            </div>
-          </div>
+        <div className="mt-14 pt-8 border-t-2 border-black flex flex-col sm:flex-row justify-between items-center gap-4">
+          <Link 
+            href="/"
+            className="inline-flex items-center gap-2 text-black font-black bg-white hover:bg-[#FFDE59] border-2 border-black px-4 py-2.5 rounded-xl shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer"
+          >
+            ← Back to Portfolio
+          </Link>
+          <PrivacyPolicyClient />
         </div>
       </main>
 

@@ -2,23 +2,21 @@
 
 export default function CookiePolicyClient() {
   return (
-    <div className="bg-[#C6F10E]/10 border border-[#C6F10E]/20 p-4 rounded-lg mb-6">
-      <button
-        onClick={() => {
-          if (typeof window !== 'undefined') {
-            // Clear cookie consent
-            localStorage.removeItem('cookieConsent');
-            localStorage.removeItem('cookieConsentDate');
-            localStorage.removeItem('cookiePreferences');
-            setTimeout(() => {
-              window.location.reload();
-            }, 100);
-          }
-        }}
-        className="bg-[#C6F10E] hover:bg-[#a5c70c] text-black font-semibold px-6 py-3 rounded-lg transition-all duration-200 transform hover:scale-105 w-full sm:w-auto"
-      >
-        Manage Cookie Preferences
-      </button>
-    </div>
+    <button
+      onClick={() => {
+        if (typeof window !== 'undefined') {
+          // Clear cookie consent
+          localStorage.removeItem('cookieConsent');
+          localStorage.removeItem('cookieConsentDate');
+          localStorage.removeItem('cookiePreferences');
+          setTimeout(() => {
+            window.location.reload();
+          }, 100);
+        }
+      }}
+      className="inline-flex items-center justify-center gap-2 bg-[#C6F10E] text-black font-black text-sm px-5 py-2.5 rounded-xl border-2 border-black shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer"
+    >
+      Manage Cookie Preferences
+    </button>
   );
 }
