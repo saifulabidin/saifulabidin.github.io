@@ -3,61 +3,79 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>25 + 5 Clock</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>25 + 5 Clock | Saiful Abidin</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>25 + 5 Clock</h1>
+  <div class="clock-app">
+    <header class="app-header">
+      <a href="../index.html" class="nav-back-btn">
+        <i class="fas fa-arrow-left"></i> Hub
+      </a>
+      <span class="app-badge">FCC Project</span>
+      <a href="https://codepen.io/saifulabidin/pen/myyLVaw" target="_blank" rel="noopener noreferrer" class="nav-code-btn">
+        <i class="fab fa-codepen"></i> Code
+      </a>
+    </header>
+
+    <h1 class="app-title">25 + 5 Clock</h1>
     
-    <div class="length-controls">
-      <div class="time-control">
-        <div id="break-label">Break Length</div>
-        <div class="settings">
-          <button id="break-decrement" class="control-btn">
-            <i class="fas fa-arrow-down"></i>
-          </button>
-          <div id="break-length" class="length-display">5</div>
-          <button id="break-increment" class="control-btn">
-            <i class="fas fa-arrow-up"></i>
-          </button>
+    <main class="clock-container">
+      <div class="length-controls">
+        <div class="time-control-card break-card">
+          <div id="break-label" class="control-label">Break Length</div>
+          <div class="settings">
+            <button id="break-decrement" class="control-btn" aria-label="Decrease Break Length">
+              <i class="fas fa-arrow-down"></i>
+            </button>
+            <div id="break-length" class="length-display">5</div>
+            <button id="break-increment" class="control-btn" aria-label="Increase Break Length">
+              <i class="fas fa-arrow-up"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="time-control-card session-card">
+          <div id="session-label" class="control-label">Session Length</div>
+          <div class="settings">
+            <button id="session-decrement" class="control-btn" aria-label="Decrease Session Length">
+              <i class="fas fa-arrow-down"></i>
+            </button>
+            <div id="session-length" class="length-display">25</div>
+            <button id="session-increment" class="control-btn" aria-label="Increase Session Length">
+              <i class="fas fa-arrow-up"></i>
+            </button>
+          </div>
         </div>
       </div>
       
-      <div class="time-control">
-        <div id="session-label">Session Length</div>
-        <div class="settings">
-          <button id="session-decrement" class="control-btn">
-            <i class="fas fa-arrow-down"></i>
-          </button>
-          <div id="session-length" class="length-display">25</div>
-          <button id="session-increment" class="control-btn">
-            <i class="fas fa-arrow-up"></i>
-          </button>
-        </div>
+      <div class="timer">
+        <div id="timer-label">Session</div>
+        <div id="time-left">25:00</div>
       </div>
-    </div>
-    
-    <div class="timer">
-      <div id="timer-label">Session</div>
-      <div id="time-left">25:00</div>
-    </div>
-    
-    <div class="timer-controls">
-      <button id="start_stop" class="main-btn">
-        <i class="fas fa-play"></i>
-        <i class="fas fa-pause"></i>
-      </button>
-      <button id="reset" class="main-btn">
-        <i class="fas fa-sync-alt"></i>
-      </button>
-    </div>
-    
-    <audio id="beep" src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"></audio>
+      
+      <div class="timer-controls">
+        <button id="start_stop" class="main-btn btn-primary" aria-label="Start or Pause Timer">
+          <i class="fas fa-play"></i>
+          <i class="fas fa-pause"></i>
+          <span class="btn-text">Start / Stop</span>
+        </button>
+        <button id="reset" class="main-btn btn-secondary" aria-label="Reset Timer">
+          <i class="fas fa-sync-alt"></i>
+          <span class="btn-text">Reset</span>
+        </button>
+      </div>
+      
+      <audio id="beep" preload="auto" src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"></audio>
+    </main>
     
     <footer class="footer">
-      <p>Created by Saiful Abidin</p>
+      <p>Created by <a href="https://sabidzpro.is-a.dev" target="_blank">Saiful Abidin</a></p>
     </footer>
   </div>
   

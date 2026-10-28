@@ -1,104 +1,277 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    transition: all 0.3s ease;
-  }
+/* Neo-Brutalist Random Quote Machine */
+
+:root {
+  --bg-color: #FFFDF5;
+  --surface-color: #FFFFFF;
+  --text-color: #000000;
+  --border-color: #000000;
   
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #3498db;
-  }
+  --accent-yellow: #FFDE59;
+  --accent-volt: #C6F10E;
+  --accent-cyan: #A6FAFF;
+  --accent-pink: #FF90E8;
   
+  --border-thick: 3px solid #000000;
+  --border-thin: 2px solid #000000;
+  
+  --shadow-sm: 2px 2px 0px #000000;
+  --shadow-md: 4px 4px 0px #000000;
+  --shadow-lg: 6px 6px 0px #000000;
+  
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 9999px;
+  
+  --font-heading: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  color: var(--text-color);
+  padding: 24px 16px;
+}
+
+.quote-app {
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* App Header */
+.app-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.nav-back-btn, .nav-code-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--surface-color);
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 6px 12px;
+  border: var(--border-thin);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.nav-back-btn:hover, .nav-code-btn:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px #000000;
+  background-color: var(--accent-yellow);
+}
+
+.nav-back-btn:active, .nav-code-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px #000000;
+}
+
+.app-badge {
+  border: var(--border-thin);
+  background-color: var(--accent-yellow);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sm);
+}
+
+.app-title {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* Quote Box Chassis */
+#quote-box {
+  width: 100%;
+  padding: 36px 32px;
+  background-color: var(--surface-color);
+  border-radius: var(--radius-lg);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+.quote-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--accent-volt);
+  border: var(--border-thin);
+  box-shadow: var(--shadow-sm);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.quote-content {
+  margin-bottom: 28px;
+}
+
+#text {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3.5vw, 1.85rem);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text-color);
+  margin-bottom: 16px;
+  transition: opacity 0.2s ease;
+  position: relative;
+}
+
+#text::before {
+  content: '"';
+  font-size: 1.2em;
+}
+
+#text::after {
+  content: '"';
+  font-size: 1.2em;
+}
+
+#author {
+  text-align: right;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #4B5563;
+  transition: opacity 0.2s ease;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 2px dashed #E5E7EB;
+}
+
+#tweet-quote {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--text-color);
+  background-color: var(--surface-color);
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-md);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.95rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+#tweet-quote:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000000;
+  background-color: var(--accent-cyan);
+}
+
+#tweet-quote:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px #000000;
+}
+
+#new-quote {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  color: var(--text-color);
+  background-color: var(--accent-volt);
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-md);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 800;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.3s ease;
+}
+
+#new-quote:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000000;
+}
+
+#new-quote:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px #000000;
+}
+
+/* Footer */
+.footer {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.footer p {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #4B5563;
+}
+
+.footer a {
+  color: #000000;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 800;
+}
+
+@media (max-width: 480px) {
   #quote-box {
-    width: 90%;
-    max-width: 550px;
-    padding: 40px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-  }
-  
-  #text {
-    font-size: 1.75rem;
-    text-align: center;
-    margin-bottom: 20px;
-    position: relative;
-    line-height: 1.4;
-  }
-  
-  #text::before, #text::after {
-    content: '"';
-    font-size: 2.5rem;
-    opacity: 0.8;
-  }
-  
-  #author {
-    text-align: right;
-    font-style: italic;
-    font-size: 1.1rem;
-    margin-top: 10px;
+    padding: 24px 20px;
   }
   
   .buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
+    flex-direction: column-reverse;
   }
   
-  #tweet-quote {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: white;
-    background-color: #3498db;
-    padding: 8px 16px;
-    border-radius: 4px;
-    font-weight: 500;
+  #tweet-quote, #new-quote {
+    width: 100%;
   }
-  
-  #tweet-quote svg {
-    margin-right: 8px;
-  }
-  
-  #new-quote {
-    cursor: pointer;
-    border: none;
-    outline: none;
-    color: white;
-    background-color: #3498db;
-    padding: 8px 16px;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: 500;
-  }
-  
-  #new-quote:hover, #tweet-quote:hover {
-    opacity: 0.9;
-  }
-  
-  @media (max-width: 480px) {
-    #quote-box {
-      padding: 25px;
-    }
-    
-    #text {
-      font-size: 1.5rem;
-    }
-    
-    .buttons {
-      flex-direction: column;
-      gap: 15px;
-      align-items: center;
-    }
-    
-    #tweet-quote, #new-quote {
-      width: 100%;
-      text-align: center;
-      justify-content: center;
-    }
-  }
+}

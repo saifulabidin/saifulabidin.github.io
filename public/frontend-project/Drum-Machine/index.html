@@ -3,35 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drum Machine By Saiful Abidin</title>
+    <title>Drum Machine | Saiful Abidin</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div id="drum-machine">
-            <div class="drum-title">Drum Machine</div>
+    <div class="drum-app">
+        <header class="app-header">
+            <a href="../index.html" class="nav-back-btn">
+                <i class="fas fa-arrow-left"></i> Hub
+            </a>
+            <span class="app-badge">FCC Project</span>
+            <a href="https://codepen.io/saifulabidin/pen/WbbJQxr" target="_blank" rel="noopener noreferrer" class="nav-code-btn">
+                <i class="fab fa-codepen"></i> Code
+            </a>
+        </header>
+
+        <h1 class="app-title">Drum Machine</h1>
+
+        <main id="drum-machine">
             <div class="controls-container">
                 <div class="control-panel">
-                    <div class="control">
-                        <p>Power</p>
-                        <div class="toggle-container">
-                            <div class="toggle-switch" id="power-switch">
+                    <div class="control-group">
+                        <span class="control-label">Power</span>
+                        <div class="toggle-container" id="power-switch" role="button" aria-label="Toggle Power">
+                            <div class="toggle-switch">
                                 <div class="toggle-button"></div>
                             </div>
                         </div>
                     </div>
                     
-                    <div id="display">Press a key or click a pad</div>
-                    
-                    <div class="control">
-                        <p>Volume</p>
-                        <input type="range" min="0" max="100" value="50" class="volume-slider" id="volume-control">
+                    <div class="display-box">
+                        <div id="display">Ready</div>
                     </div>
                     
-                    <div class="control">
-                        <p>Bank</p>
-                        <div class="toggle-container">
-                            <div class="toggle-switch" id="bank-switch">
+                    <div class="control-group volume-group">
+                        <label for="volume-control" class="control-label">Volume</label>
+                        <input type="range" min="0" max="100" value="50" class="volume-slider" id="volume-control" aria-label="Volume Slider">
+                    </div>
+                    
+                    <div class="control-group">
+                        <span class="control-label">Bank</span>
+                        <div class="toggle-container" id="bank-switch" role="button" aria-label="Switch Sound Bank">
+                            <div class="toggle-switch">
                                 <div class="toggle-button"></div>
                             </div>
                         </div>
@@ -39,49 +57,51 @@
                 </div>
                 
                 <div class="drum-pads">
-                    <div class="drum-pad" id="heater-1">
+                    <button class="drum-pad pad-yellow" id="heater-1" aria-label="Pad Q">
                         Q
                         <audio class="clip" id="Q" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"></audio>
-                    </div>
-                    <div class="drum-pad" id="heater-2">
+                    </button>
+                    <button class="drum-pad pad-yellow" id="heater-2" aria-label="Pad W">
                         W
                         <audio class="clip" id="W" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3"></audio>
-                    </div>
-                    <div class="drum-pad" id="heater-3">
+                    </button>
+                    <button class="drum-pad pad-yellow" id="heater-3" aria-label="Pad E">
                         E
                         <audio class="clip" id="E" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3"></audio>
-                    </div>
-                    <div class="drum-pad" id="heater-4">
+                    </button>
+                    <button class="drum-pad pad-cyan" id="heater-4" aria-label="Pad A">
                         A
                         <audio class="clip" id="A" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3"></audio>
-                    </div>
-                    <div class="drum-pad" id="clap">
+                    </button>
+                    <button class="drum-pad pad-cyan" id="clap" aria-label="Pad S">
                         S
                         <audio class="clip" id="S" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3"></audio>
-                    </div>
-                    <div class="drum-pad" id="open-hh">
+                    </button>
+                    <button class="drum-pad pad-cyan" id="open-hh" aria-label="Pad D">
                         D
                         <audio class="clip" id="D" src="https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3"></audio>
-                    </div>
-                    <div class="drum-pad" id="kick-n-hat">
+                    </button>
+                    <button class="drum-pad pad-pink" id="kick-n-hat" aria-label="Pad Z">
                         Z
                         <audio class="clip" id="Z" src="https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3"></audio>
-                    </div>
-                    <div class="drum-pad" id="kick">
+                    </button>
+                    <button class="drum-pad pad-pink" id="kick" aria-label="Pad X">
                         X
                         <audio class="clip" id="X" src="https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3"></audio>
-                    </div>
-                    <div class="drum-pad" id="closed-hh">
+                    </button>
+                    <button class="drum-pad pad-pink" id="closed-hh" aria-label="Pad C">
                         C
                         <audio class="clip" id="C" src="https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3"></audio>
-                    </div>
+                    </button>
                 </div>
             </div>
-        </div>
-        <div class="footer">
-            Created by Saiful Abidin
-        </div>
+        </main>
+
+        <footer class="footer">
+            <p>Created by <a href="https://sabidzpro.is-a.dev" target="_blank">Saiful Abidin</a></p>
+        </footer>
     </div>
+    
     <script src="script.js"></script>
 </body>
 </html>

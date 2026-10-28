@@ -5,90 +5,130 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frontend Projects | Saiful Abidin</title>
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Collection of frontend web projects showcasing React, JavaScript, CSS and more.">
-    <meta name="keywords" content="frontend developer, React, JavaScript, CSS, web development, portfolio">
+    <meta name="description" content="FreeCodeCamp certified frontend web applications built with React, JavaScript, and modern DOM/Audio APIs.">
+    <meta name="keywords" content="frontend developer, React, JavaScript, CSS, web development, portfolio, freeCodeCamp">
     <meta name="author" content="Saiful Abidin">
+    
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="Frontend Projects | Saiful Abidin">
-    <meta property="og:description" content="Collection of frontend web projects showcasing React, JavaScript, CSS and more.">
+    <meta property="og:description" content="FreeCodeCamp certified frontend web applications built with React, JavaScript, and modern DOM/Audio APIs.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://saifulabidin.github.io/frontend-project/">
-    <meta property="og:image" content="../assets/preview.png">
+    <meta property="og:url" content="https://sabidzpro.is-a.dev/frontend-project/">
+    
     <!-- Favicon -->
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/responsive.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Fonts -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Header Section -->
     <header>
         <div class="container">
-            <div class="logo">
-                <h1>Saiful<span>Abidin</span></h1>
+            <div class="header-inner">
+                <a href="/" class="logo-link">
+                    <span class="logo-badge">SA</span>
+                    <span class="logo-label">Saiful Abidin</span>
+                </a>
+                
+                <nav class="desktop-nav">
+                    <a href="#projects" class="nav-link active">Projects</a>
+                    <a href="#skills" class="nav-link">Stack</a>
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="/" class="nav-cta">
+                        <i class="fas fa-arrow-left"></i> Main Portfolio
+                    </a>
+                </nav>
+                
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-            <nav id="desktop-nav">
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../index.html#about">About</a></li>
-                    <li><a href="index.html" class="active">Frontend Projects</a></li>
-                    <li><a href="../fullstack-project/index.html">Fullstack Projects</a></li>
-                    <li><a href="../index.html#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="mobile-menu-btn">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
+            
+            <div class="mobile-nav-menu" id="mobile-menu">
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Stack</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="/" class="nav-cta">
+                    <i class="fas fa-arrow-left"></i> Main Portfolio
+                </a>
             </div>
         </div>
     </header>
 
-    <!-- Mobile Navigation -->
-    <nav id="mobile-nav">
-        <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../index.html#about">About</a></li>
-            <li><a href="index.html" class="active">Frontend Projects</a></li>
-            <li><a href="../fullstack-project/index.html">Fullstack Projects</a></li>
-            <li><a href="../index.html#contact">Contact</a></li>
-        </ul>
-    </nav>
-
     <!-- Hero Section -->
-    <section id="hero">
+    <section class="hero-section">
         <div class="container">
-            <div class="hero-content">
+            <div class="hero-grid">
                 <div class="hero-text">
-                    <h1 class="fade-in">Frontend <span>Projects</span></h1>
-                    <p class="fade-in">A collection of interactive, responsive, and user-friendly web applications built with modern frontend technologies.</p>
-                    <div class="hero-buttons fade-in">
-                        <a href="#projects" class="btn primary-btn">View Projects</a>
-                        <a href="../fullstack-project/index.html" class="btn secondary-btn">Fullstack Projects</a>
+                    <div class="neo-badge">
+                        <i class="fas fa-certificate"></i> FreeCodeCamp Certified Suite
+                    </div>
+                    <h1>Frontend <span>Projects</span></h1>
+                    <p class="hero-desc">
+                        A focused suite of interactive, accessible, and responsive micro-applications demonstrating core state management, Web Audio APIs, and test-driven UI implementation.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#projects" class="neo-btn neo-btn-primary">
+                            <i class="fas fa-th-large"></i> Explore Apps
+                        </a>
+                        <a href="https://github.com/saifulabidin" target="_blank" rel="noopener noreferrer" class="neo-btn neo-btn-secondary">
+                            <i class="fab fa-github"></i> GitHub Profile
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">5</div>
+                            <div class="stat-label">Micro-Apps</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">FCC Test Pass</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">0</div>
+                            <div class="stat-label">AI-Slop Code</div>
+                        </div>
                     </div>
                 </div>
-                <div class="hero-image fade-in">
-                    <div class="floating-cards">
-                        <div class="card card1 tilt-effect">
-                            <div class="card-icon"><i class="fas fa-calculator"></i></div>
-                            <h3>Calculator</h3>
-                            <p>JavaScript</p>
+                
+                <div class="hero-stack-showcase">
+                    <div class="showcase-header">
+                        <div class="showcase-dots">
+                            <span class="dot dot-red"></span>
+                            <span class="dot dot-yellow"></span>
+                            <span class="dot dot-green"></span>
                         </div>
-                        <div class="card card2 tilt-effect">
-                            <div class="card-icon"><i class="fas fa-clock"></i></div>
-                            <h3>25+5 Clock</h3>
-                            <p>React</p>
+                        <span class="showcase-title">Certified Suite Status</span>
+                    </div>
+                    <div class="showcase-content">
+                        <div class="showcase-item">
+                            <span><i class="fas fa-calculator"></i> JavaScript Calculator</span>
+                            <span class="showcase-status">Passing</span>
                         </div>
-                        <div class="card card3 tilt-effect">
-                            <div class="card-icon"><i class="fas fa-drum"></i></div>
-                            <h3>Drum Machine</h3>
-                            <p>JavaScript</p>
+                        <div class="showcase-item">
+                            <span><i class="fas fa-stopwatch"></i> 25 + 5 Clock</span>
+                            <span class="showcase-status">Passing</span>
+                        </div>
+                        <div class="showcase-item">
+                            <span><i class="fas fa-drum"></i> Drum Machine</span>
+                            <span class="showcase-status">Passing</span>
+                        </div>
+                        <div class="showcase-item">
+                            <span><i class="fas fa-file-code"></i> Markdown Previewer</span>
+                            <span class="showcase-status">Passing</span>
+                        </div>
+                        <div class="showcase-item">
+                            <span><i class="fas fa-quote-right"></i> Random Quote Machine</span>
+                            <span class="showcase-status">Passing</span>
                         </div>
                     </div>
                 </div>
@@ -99,37 +139,62 @@
     <!-- Skills Section -->
     <section id="skills" class="section-padding">
         <div class="container">
-            <div class="skills-content">
-                <h2>Technical <span>Skills</span></h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3><i class="fas fa-code"></i> Core Technologies</h3>
-                        <div class="skill-items">
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-                            <span>JavaScript</span>
-                            <span>TypeScript</span>
-                            <span>React</span>
+            <div class="section-head">
+                <div class="neo-badge neo-badge-cyan">
+                    <i class="fas fa-layer-group"></i> Architecture & Tools
+                </div>
+                <h2 class="section-title">Technical Pillars</h2>
+                <p class="section-subtitle">
+                    Every micro-application is built on clean DOM manipulation, predictable state lifecycles, and strict accessibility standards.
+                </p>
+            </div>
+            
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-card-header">
+                        <div class="skill-icon-box skill-icon-yellow">
+                            <i class="fas fa-code"></i>
                         </div>
+                        <h3>Core Technologies</h3>
                     </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-paint-brush"></i> UI Libraries</h3>
-                        <div class="skill-items">
-                            <span>Tailwind CSS</span>
-                            <span>Bootstrap</span>
-                            <span>Styled Components</span>
-                            <span>Framer Motion</span>
-                        </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML5 Semantic</span>
+                        <span class="skill-tag">CSS3 Modern</span>
+                        <span class="skill-tag">JavaScript ES6+</span>
+                        <span class="skill-tag">React Hooks</span>
+                        <span class="skill-tag">Web Audio API</span>
                     </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-tools"></i> Tools & Methods</h3>
-                        <div class="skill-items">
-                            <span>Responsive Design</span>
-                            <span>Web Accessibility</span>
-                            <span>Git</span>
-                            <span>Vite</span>
-                            <span>Webpack</span>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-card-header">
+                        <div class="skill-icon-box skill-icon-cyan">
+                            <i class="fas fa-sliders-h"></i>
                         </div>
+                        <h3>State & Libraries</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Marked.js</span>
+                        <span class="skill-tag">Audio Synthesis</span>
+                        <span class="skill-tag">Formula Parsers</span>
+                        <span class="skill-tag">Interval Timers</span>
+                        <span class="skill-tag">DOM Event Bus</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-card-header">
+                        <div class="skill-icon-box skill-icon-pink">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Quality & Standards</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">WCAG 2.1 AA</span>
+                        <span class="skill-tag">Keyboard Access</span>
+                        <span class="skill-tag">FCC Test Harness</span>
+                        <span class="skill-tag">Mobile Responsive</span>
+                        <span class="skill-tag">Zero Bloat</span>
                     </div>
                 </div>
             </div>
@@ -137,38 +202,50 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="section-padding bg-light">
+    <section id="projects" class="section-padding">
         <div class="container">
-            <div class="section-title">
-                <h2>Frontend <span>Projects</span></h2>
-                <div class="underline"></div>
+            <div class="section-head">
+                <div class="neo-badge neo-badge-volt">
+                    <i class="fas fa-cubes"></i> Interactive Applications
+                </div>
+                <h2 class="section-title">Frontend Applications</h2>
+                <p class="section-subtitle">
+                    Select any project to launch the standalone interactive application or review the source on CodePen.
+                </p>
             </div>
             
             <div class="project-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn active" data-filter="all">All (5)</button>
                 <button class="filter-btn" data-filter="react">React</button>
                 <button class="filter-btn" data-filter="javascript">JavaScript</button>
-                <button class="filter-btn" data-filter="responsive">Responsive</button>
-                <button class="filter-btn" data-filter="interactive">Interactive</button>
+                <button class="filter-btn" data-filter="audio">Audio / Sound</button>
+                <button class="filter-btn" data-filter="tool">Tools & Utilities</button>
             </div>
             
             <div class="projects-grid">
                 <!-- JavaScript Calculator -->
-                <div class="project-card" data-category="react javascript interactive">
-                    <div class="card-image">
-                        <img src="./assets/images/javascript-calculator.png" alt="JavaScript Calculator">
-                    </div>
-                    <div class="card-content">
-                        <h3>JavaScript Calculator</h3>
-                        <p>A fully functional calculator app with keyboard support, built using React.</p>
-                        <div class="card-tags">
-                            <span>React</span>
-                            <span>JavaScript</span>
-                            <span>CSS Grid</span>
+                <div class="project-card" data-category="react javascript tool">
+                    <div class="project-card-image">
+                        <img src="./assets/images/javascript-calculator.png" alt="JavaScript Calculator Screenshot">
+                        <div class="project-card-badge">
+                            <span class="neo-badge neo-badge-yellow">React</span>
                         </div>
-                        <div class="card-links">
-                            <a href="JavaScript-Calculator/index.html" class="btn primary-btn">Live Demo</a>
-                            <a href="https://codepen.io/saifulabidin/pen/emmrJKo" class="btn secondary-btn" target="_blank">
+                    </div>
+                    <div class="project-card-content">
+                        <h3>JavaScript Calculator</h3>
+                        <p class="project-card-desc">
+                            Digital calculator featuring immediate execution logic, negative number support, and formula history evaluation matching FreeCodeCamp test criteria.
+                        </p>
+                        <div class="project-card-tags">
+                            <span class="project-tag">Formula Parser</span>
+                            <span class="project-tag">Keyboard Support</span>
+                            <span class="project-tag">CSS Grid</span>
+                        </div>
+                        <div class="project-card-actions">
+                            <a href="JavaScript-Calculator/index.html" class="neo-btn neo-btn-primary">
+                                <i class="fas fa-play"></i> Launch
+                            </a>
+                            <a href="https://codepen.io/saifulabidin/pen/emmrJKo" target="_blank" rel="noopener noreferrer" class="neo-btn neo-btn-secondary">
                                 <i class="fab fa-codepen"></i> Code
                             </a>
                         </div>
@@ -176,21 +253,28 @@
                 </div>
                 
                 <!-- 25+5 Clock -->
-                <div class="project-card" data-category="react javascript interactive">
-                    <div class="card-image">
-                        <img src="./assets/images/25-5-clock.png" alt="25+5 Clock">
-                    </div>
-                    <div class="card-content">
-                        <h3>25+5 Clock</h3>
-                        <p>A Pomodoro timer application with customizable work and break intervals.</p>
-                        <div class="card-tags">
-                            <span>React</span>
-                            <span>Hooks</span>
-                            <span>Audio API</span>
+                <div class="project-card" data-category="react javascript audio tool">
+                    <div class="project-card-image">
+                        <img src="./assets/images/25-5-clock.png" alt="25+5 Clock Screenshot">
+                        <div class="project-card-badge">
+                            <span class="neo-badge neo-badge-cyan">React</span>
                         </div>
-                        <div class="card-links">
-                            <a href="25-5-clock/index.html" class="btn primary-btn">Live Demo</a>
-                            <a href="https://codepen.io/saifulabidin/pen/myyLVaw" class="btn secondary-btn" target="_blank">
+                    </div>
+                    <div class="project-card-content">
+                        <h3>25 + 5 Clock</h3>
+                        <p class="project-card-desc">
+                            Pomodoro countdown timer with customizable session and break durations, pause/resume capability, and automated audio alarms on interval transitions.
+                        </p>
+                        <div class="project-card-tags">
+                            <span class="project-tag">Interval Timer</span>
+                            <span class="project-tag">HTML5 Audio</span>
+                            <span class="project-tag">State Machine</span>
+                        </div>
+                        <div class="project-card-actions">
+                            <a href="25-5-clock/index.html" class="neo-btn neo-btn-primary">
+                                <i class="fas fa-play"></i> Launch
+                            </a>
+                            <a href="https://codepen.io/saifulabidin/pen/myyLVaw" target="_blank" rel="noopener noreferrer" class="neo-btn neo-btn-secondary">
                                 <i class="fab fa-codepen"></i> Code
                             </a>
                         </div>
@@ -198,21 +282,28 @@
                 </div>
                 
                 <!-- Drum Machine -->
-                <div class="project-card" data-category="react javascript interactive">
-                    <div class="card-image">
-                        <img src="./assets/images/drum-machine.png" alt="Drum Machine">
-                    </div>
-                    <div class="card-content">
-                        <h3>Drum Machine</h3>
-                        <p>An interactive drum pad app with keyboard support and sound bank switching.</p>
-                        <div class="card-tags">
-                            <span>React</span>
-                            <span>Audio API</span>
-                            <span>Event Listeners</span>
+                <div class="project-card" data-category="react javascript audio">
+                    <div class="project-card-image">
+                        <img src="./assets/images/drum-machine.png" alt="Drum Machine Screenshot">
+                        <div class="project-card-badge">
+                            <span class="neo-badge neo-badge-volt">Audio</span>
                         </div>
-                        <div class="card-links">
-                            <a href="Drum-Machine/index.html" class="btn primary-btn">Live Demo</a>
-                            <a href="https://codepen.io/saifulabidin/pen/WbbJQxr" class="btn secondary-btn" target="_blank">
+                    </div>
+                    <div class="project-card-content">
+                        <h3>Drum Machine</h3>
+                        <p class="project-card-desc">
+                            Tactile 9-pad virtual sampler featuring real-time keybinding triggers, sound bank switching, volume gain adjustment, and visual pad feedback.
+                        </p>
+                        <div class="project-card-tags">
+                            <span class="project-tag">Web Audio</span>
+                            <span class="project-tag">Keyboard Triggers</span>
+                            <span class="project-tag">Bank Switcher</span>
+                        </div>
+                        <div class="project-card-actions">
+                            <a href="Drum-Machine/index.html" class="neo-btn neo-btn-primary">
+                                <i class="fas fa-play"></i> Launch
+                            </a>
+                            <a href="https://codepen.io/saifulabidin/pen/WbbJQxr" target="_blank" rel="noopener noreferrer" class="neo-btn neo-btn-secondary">
                                 <i class="fab fa-codepen"></i> Code
                             </a>
                         </div>
@@ -220,21 +311,28 @@
                 </div>
                 
                 <!-- Markdown Previewer -->
-                <div class="project-card" data-category="react javascript responsive">
-                    <div class="card-image">
-                        <img src="./assets/images/Markdown-Previewer.png" alt="Markdown Previewer">
-                    </div>
-                    <div class="card-content">
-                        <h3>Markdown Previewer</h3>
-                        <p>A real-time markdown editor and previewer with a responsive layout.</p>
-                        <div class="card-tags">
-                            <span>React</span>
-                            <span>Marked.js</span>
-                            <span>Responsive Design</span>
+                <div class="project-card" data-category="react javascript tool">
+                    <div class="project-card-image">
+                        <img src="./assets/images/Markdown-Previewer.png" alt="Markdown Previewer Screenshot">
+                        <div class="project-card-badge">
+                            <span class="neo-badge neo-badge-pink">Parser</span>
                         </div>
-                        <div class="card-links">
-                            <a href="Markdown-Previewer/index.html" class="btn primary-btn">Live Demo</a>
-                            <a href="https://codepen.io/saifulabidin/pen/dPPeYbj" class="btn secondary-btn" target="_blank">
+                    </div>
+                    <div class="project-card-content">
+                        <h3>Markdown Previewer</h3>
+                        <p class="project-card-desc">
+                            Real-time GitHub-flavored Markdown editor and sanitizer utilizing Marked.js with split-view layout, toolbar toggles, and formatted code rendering.
+                        </p>
+                        <div class="project-card-tags">
+                            <span class="project-tag">Marked.js</span>
+                            <span class="project-tag">GFM Syntax</span>
+                            <span class="project-tag">Live Parser</span>
+                        </div>
+                        <div class="project-card-actions">
+                            <a href="Markdown-Previewer/index.html" class="neo-btn neo-btn-primary">
+                                <i class="fas fa-play"></i> Launch
+                            </a>
+                            <a href="https://codepen.io/saifulabidin/pen/dPPeYbj" target="_blank" rel="noopener noreferrer" class="neo-btn neo-btn-secondary">
                                 <i class="fab fa-codepen"></i> Code
                             </a>
                         </div>
@@ -242,21 +340,28 @@
                 </div>
                 
                 <!-- Random Quote Machine -->
-                <div class="project-card" data-category="javascript responsive">
-                    <div class="card-image">
-                        <img src="./assets/images/Random-Quote-Machine.png" alt="Random Quote Machine">
-                    </div>
-                    <div class="card-content">
-                        <h3>Random Quote Machine</h3>
-                        <p>A quote generator with social media sharing and animated transitions.</p>
-                        <div class="card-tags">
-                            <span>JavaScript</span>
-                            <span>API Integration</span>
-                            <span>CSS Animations</span>
+                <div class="project-card" data-category="javascript tool">
+                    <div class="project-card-image">
+                        <img src="./assets/images/Random-Quote-Machine.png" alt="Random Quote Machine Screenshot">
+                        <div class="project-card-badge">
+                            <span class="neo-badge neo-badge-yellow">Vanilla JS</span>
                         </div>
-                        <div class="card-links">
-                            <a href="Random-Quote-Machine/index.html" class="btn primary-btn">Live Demo</a>
-                            <a href="https://codepen.io/saifulabidin/pen/ZYYoGNB" class="btn secondary-btn" target="_blank">
+                    </div>
+                    <div class="project-card-content">
+                        <h3>Random Quote Machine</h3>
+                        <p class="project-card-desc">
+                            Dynamic quote generator displaying curated wisdom with high-contrast tactile design, random palette transitions, and Twitter/X intent sharing.
+                        </p>
+                        <div class="project-card-tags">
+                            <span class="project-tag">Async Logic</span>
+                            <span class="project-tag">Social Share</span>
+                            <span class="project-tag">Theme Engine</span>
+                        </div>
+                        <div class="project-card-actions">
+                            <a href="Random-Quote-Machine/index.html" class="neo-btn neo-btn-primary">
+                                <i class="fas fa-play"></i> Launch
+                            </a>
+                            <a href="https://codepen.io/saifulabidin/pen/ZYYoGNB" target="_blank" rel="noopener noreferrer" class="neo-btn neo-btn-secondary">
                                 <i class="fab fa-codepen"></i> Code
                             </a>
                         </div>
@@ -266,98 +371,64 @@
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Engineering Highlights Section -->
     <section id="features" class="section-padding">
         <div class="container">
-            <div class="section-title">
-                <h2>Project <span>Features</span></h2>
-                <div class="underline"></div>
+            <div class="section-head">
+                <div class="neo-badge neo-badge-pink">
+                    <i class="fas fa-check-double"></i> Standards
+                </div>
+                <h2 class="section-title">Engineering Standards</h2>
+                <p class="section-subtitle">
+                    Designed to adhere to industry best practices without bloat, synthetic frameworks, or accessibility compromises.
+                </p>
             </div>
             
-            <div class="features-content">
-                <div class="features-overview">
-                    <div class="feature-layer fade-in">
-                        <h3><i class="fas fa-mobile-alt"></i> Responsive Design</h3>
-                        <ul>
-                            <li>Fully adapts to any screen size, from mobile to desktop</li>
-                            <li>Flexible grid layouts and media queries</li>
-                            <li>Touch-friendly UI elements for mobile users</li>
-                            <li>Optimized images for all devices</li>
-                        </ul>
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-box-icon skill-icon-yellow">
+                        <i class="fas fa-universal-access"></i>
                     </div>
-                    
-                    <div class="feature-layer fade-in">
-                        <h3><i class="fas fa-universal-access"></i> Accessibility</h3>
-                        <ul>
-                            <li>WCAG 2.1 AA compliance for inclusive design</li>
-                            <li>Semantic HTML structure for screen readers</li>
-                            <li>Keyboard navigation support</li>
-                            <li>Proper color contrast for better readability</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="feature-layer fade-in">
-                        <h3><i class="fas fa-bolt"></i> Performance</h3>
-                        <ul>
-                            <li>Optimized code for fast loading times</li>
-                            <li>Efficient asset loading strategies</li>
-                            <li>Smooth transitions and animations</li>
-                            <li>Lightweight dependencies for better performance</li>
-                        </ul>
-                    </div>
+                    <h3>Accessibility First</h3>
+                    <p>
+                        Full keyboard navigation support, high-contrast color pairings conforming to WCAG 2.1 AA specifications, explicit ARIA roles, and accessible names on all interactive controls.
+                    </p>
                 </div>
                 
-                <div class="features-diagram fade-in">
-                    <div class="diagram-container">
-                        <div class="diagram-layer client">
-                            <h4>User Interface</h4>
-                            <div class="diagram-components">
-                                <div class="component">Responsive UI</div>
-                                <div class="component">Animations</div>
-                                <div class="component">Interactions</div>
-                            </div>
-                        </div>
-                        
-                        <div class="diagram-arrow">
-                            <i class="fas fa-arrow-down"></i>
-                        </div>
-                        
-                        <div class="diagram-layer server">
-                            <h4>Code Quality</h4>
-                            <div class="diagram-components">
-                                <div class="component">Clean Code</div>
-                                <div class="component">Best Practices</div>
-                                <div class="component">Maintainability</div>
-                            </div>
-                        </div>
-                        
-                        <div class="diagram-arrow">
-                            <i class="fas fa-arrow-down"></i>
-                        </div>
-                        
-                        <div class="diagram-layer database">
-                            <h4>Final Output</h4>
-                            <div class="diagram-components">
-                                <div class="component">User Experience</div>
-                                <div class="component">Performance</div>
-                                <div class="component">Accessibility</div>
-                            </div>
-                        </div>
+                <div class="feature-box">
+                    <div class="feature-box-icon skill-icon-volt">
+                        <i class="fas fa-vial"></i>
                     </div>
+                    <h3>Automated Test Suite</h3>
+                    <p>
+                        Every application complies with FreeCodeCamp automated test harness criteria, covering state cycles, audio clip trigger IDs, input sanitization, and mathematical precision.
+                    </p>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-box-icon skill-icon-cyan">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Responsive & Tactile</h3>
+                    <p>
+                        Pure Neo-Brutalist layout with hard geometric drop shadows, inward tactile press feedback on interactions, zero blurry gradients, and full mobile viewport scaling.
+                    </p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section id="cta" class="section-padding">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to collaborate on your next project?</h2>
-                <p>I'm open for freelance projects and full-time opportunities. Let's build something amazing together!</p>
+            
+            <!-- CTA Banner -->
+            <div class="cta-banner">
+                <div class="cta-text">
+                    <h2>Looking for fullstack production applications?</h2>
+                    <p>Explore full-scale Laravel, Next.js, and cloud architecture projects on the main portfolio.</p>
+                </div>
                 <div class="cta-buttons">
-                    <a href="../index.html#contact" class="btn primary-btn">Get in Touch</a>
-                    <a href="../fullstack-project/index.html" class="btn secondary-btn">View Fullstack Projects</a>
+                    <a href="/" class="neo-btn neo-btn-primary">
+                        <i class="fas fa-home"></i> Portfolio Home
+                    </a>
+                    <a href="/#contact" class="neo-btn neo-btn-secondary">
+                        <i class="fas fa-paper-plane"></i> Contact Me
+                    </a>
                 </div>
             </div>
         </div>
@@ -366,24 +437,29 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h2>Saiful<span>Abidin</span></h2>
+            <div class="footer-inner">
+                <div class="footer-copy">
+                    &copy; 2026 Saiful Abidin. All rights reserved. FreeCodeCamp certified frontend suite.
                 </div>
-                <p>© 2025 All rights reserved.</p>
-                <div class="footer-social">
-                    <a href="https://github.com/saifulabidin" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/saiful-abidin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://x.com/syaifulosd" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/itssabidz" target="_blank"><i class="fab fa-instagram"></i></a>
+                <div class="footer-socials">
+                    <a href="https://github.com/saifulabidin" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub Profile">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/saiful-abidin" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn Profile">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://x.com/syaifulosd" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="X Profile">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://codepen.io/saifulabidin" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="CodePen Profile">
+                        <i class="fab fa-codepen"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
-    <script src="../js/main.js"></script>
-    <script src="../js/animations.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
