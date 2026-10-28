@@ -37,28 +37,28 @@ export default function FooterSection() {
           <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4 text-xs sm:text-sm">
             <Link 
               href="/privacy-policy"
-              className="text-black font-black hover:bg-[#C6F10E] border-2 border-transparent hover:border-black hover:shadow-neo-sm px-3 py-1 rounded-lg transition-all"
+              className="text-black font-black hover:bg-[#C6F10E] border-2 border-transparent hover:border-black hover:shadow-neo-sm px-3 py-2 min-h-[44px] inline-flex items-center rounded-lg transition-all"
             >
               Privacy Policy
             </Link>
-            <span className="text-black font-black hidden sm:inline">•</span>
+            <span className="text-black font-black hidden sm:inline" aria-hidden="true">•</span>
             <Link 
               href="/cookie-policy"
-              className="text-black font-black hover:bg-[#FFDE59] border-2 border-transparent hover:border-black hover:shadow-neo-sm px-3 py-1 rounded-lg transition-all"
+              className="text-black font-black hover:bg-[#FFDE59] border-2 border-transparent hover:border-black hover:shadow-neo-sm px-3 py-2 min-h-[44px] inline-flex items-center rounded-lg transition-all"
             >
               Cookie Policy
             </Link>
-            <span className="text-black font-black hidden sm:inline">•</span>
+            <span className="text-black font-black hidden sm:inline" aria-hidden="true">•</span>
             <button
               onClick={handleCookieSettings}
-              className="text-black font-black hover:bg-[#A6FAFF] border-2 border-transparent hover:border-black hover:shadow-neo-sm px-3 py-1 rounded-lg transition-all cursor-pointer"
+              className="text-black font-black hover:bg-[#A6FAFF] border-2 border-transparent hover:border-black hover:shadow-neo-sm px-3 py-2 min-h-[44px] inline-flex items-center rounded-lg transition-all cursor-pointer"
             >
               Cookie Settings
             </button>
-            <span className="text-black font-black hidden sm:inline">•</span>
+            <span className="text-black font-black hidden sm:inline" aria-hidden="true">•</span>
             <Link 
               href="/#contact"
-              className="text-black font-black hover:bg-[#B4F8C8] border-2 border-transparent hover:border-black hover:shadow-neo-sm px-3 py-1 rounded-lg transition-all"
+              className="text-black font-black hover:bg-[#B4F8C8] border-2 border-transparent hover:border-black hover:shadow-neo-sm px-3 py-2 min-h-[44px] inline-flex items-center rounded-lg transition-all"
             >
               Contact Direct
             </Link>

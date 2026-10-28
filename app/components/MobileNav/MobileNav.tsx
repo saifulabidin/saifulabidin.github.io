@@ -74,8 +74,8 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, toggleMenu }) => {
               </div>
               <button
                 onClick={toggleMenu}
-                className="p-2 rounded-lg border-2 border-black bg-[#FF90E8] shadow-neo-sm hover:translate-x-[1px] hover:translate-y-[1px] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all"
-                aria-label="Close menu"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-lg border-2 border-black bg-[#FF90E8] shadow-neo-sm hover:translate-x-[1px] hover:translate-y-[1px] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all flex items-center justify-center cursor-pointer"
+                aria-label="Close navigation menu"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-black">
                   <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -112,7 +112,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, toggleMenu }) => {
                   href="https://github.com/saifulabidin"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl border-2 border-black bg-[#A6FAFF] shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none flex items-center justify-center text-black font-bold transition-all cursor-pointer"
+                  className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl border-2 border-black bg-[#A6FAFF] shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none flex items-center justify-center text-black font-bold transition-all cursor-pointer"
                   aria-label="GitHub Profile"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -123,7 +123,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, toggleMenu }) => {
                   href="https://linkedin.com/in/saiful-abidin"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl border-2 border-black bg-[#C6F10E] shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none flex items-center justify-center text-black font-bold transition-all cursor-pointer"
+                  className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl border-2 border-black bg-[#C6F10E] shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none flex items-center justify-center text-black font-bold transition-all cursor-pointer"
                   aria-label="LinkedIn Profile"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -134,7 +134,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, toggleMenu }) => {
                   href="https://twitter.com/syaifulosd"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl border-2 border-black bg-[#FFBD59] shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none flex items-center justify-center text-black font-bold transition-all cursor-pointer"
+                  className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl border-2 border-black bg-[#FFBD59] shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none flex items-center justify-center text-black font-bold transition-all cursor-pointer"
                   aria-label="Twitter Profile"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">

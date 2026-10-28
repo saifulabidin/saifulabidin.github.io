@@ -1,5 +1,4 @@
-'use client';
-
+import dynamic from "next/dynamic";
 import { Navigation } from "./components/ui";
 import {
   HeroSection,
@@ -7,11 +6,12 @@ import {
   SkillsSection,
   EducationSection,
   ExperienceSection,
-  ProjectsSection,
-  CertificatesSection,
-  ContactSection,
   FooterSection
 } from "./components/sections";
+
+const ProjectsSection = dynamic(() => import("./components/sections/ProjectsSection"));
+const CertificatesSection = dynamic(() => import("./components/sections/CertificatesSection"));
+const ContactSection = dynamic(() => import("./components/sections/ContactSection"));
 
 export default function Home() {
   return (

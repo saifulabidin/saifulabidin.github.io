@@ -1,6 +1,6 @@
 import { Analytics } from "@vercel/analytics/next"
 import Script from "next/script";
-import localFont from "next/font/local";
+import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import "./maps.css";
 import { metadata, viewport } from "./constants/seoMetadata";
@@ -11,15 +11,18 @@ import Providers from "./components/Providers";
 // Export metadata and viewport from module
 export { metadata, viewport };
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-plus-jakarta",
+  display: "swap",
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-space-grotesk",
+  display: "swap",
 });
 
 export default function RootLayout({
@@ -45,7 +48,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${plusJakartaSans.variable} ${spaceGrotesk.variable} antialiased`}
       >
         {/* Google Tag Manager (noscript) */}
         <noscript>

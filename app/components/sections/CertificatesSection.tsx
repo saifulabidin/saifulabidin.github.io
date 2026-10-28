@@ -160,16 +160,18 @@ const MobileCertificateSlider = ({ certificates }: { certificates: Certificate[]
       </div>
 
       {certificates.length > 1 && (
-        <div className="flex justify-center mt-5 space-x-2">
+        <div className="flex justify-center mt-5 space-x-1">
           {certificates.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full border border-black transition-all ${
-                index === currentIndex ? 'bg-[#C6F10E] scale-125' : 'bg-white'
-              }`}
-              aria-label={`Go to certificate ${index + 1}`}
-            />
+              className="w-11 h-11 flex items-center justify-center p-2 cursor-pointer"
+              aria-label={`Go to certificate slide ${index + 1}`}
+            >
+              <span className={`w-3.5 h-3.5 rounded-full border-2 border-black transition-all ${
+                index === currentIndex ? 'bg-[#C6F10E] scale-125 shadow-[1px_1px_0px_0px_#000]' : 'bg-white'
+              }`} />
+            </button>
           ))}
         </div>
       )}

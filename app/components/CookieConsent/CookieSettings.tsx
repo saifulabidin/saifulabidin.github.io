@@ -183,14 +183,14 @@ export default function CookieSettings({ isOpen, onClose, onSave }: CookieSettin
               <div className="flex-1 overflow-y-auto p-6 space-y-6">
                 {/* Do Not Track Warning */}
                 {isDoNotTrackEnabled() && (
-                  <div className="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-4 mb-6">
+                  <div className="bg-[#FFDE59] border-2 border-black rounded-xl p-4 mb-6 shadow-neo-sm">
                     <div className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-yellow-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                      <svg className="w-5 h-5 text-black mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
                       </svg>
                       <div className="flex-1">
-                        <h4 className="text-sm font-semibold text-yellow-400 mb-1">Do Not Track Enabled</h4>
-                        <p className="text-xs text-yellow-300 leading-relaxed">
+                        <h4 className="text-sm font-black text-black mb-1">Do Not Track Enabled</h4>
+                        <p className="text-xs text-neutral-800 font-medium leading-relaxed">
                           Your browser has Do Not Track enabled. We respect your privacy and have automatically disabled all optional cookies. Only essential cookies required for the website to function will be used.
                         </p>
                       </div>
@@ -198,117 +198,117 @@ export default function CookieSettings({ isOpen, onClose, onSave }: CookieSettin
                   </div>
                 )}
                 {/* Essential Cookies */}
-                <div className="space-y-3">
+                <div className="space-y-3 bg-white p-4 rounded-xl border-2 border-black shadow-neo-sm">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
-                        <h3 className="text-lg font-semibold text-white">Essential Cookies</h3>
-                        <span className="text-xs bg-[#C6F10E]/20 text-[#C6F10E] px-2 py-1 rounded-full font-medium">
+                        <h3 className="text-lg font-black text-black font-display">Essential Cookies</h3>
+                        <span className="text-xs bg-[#C6F10E] text-black border border-black px-2.5 py-0.5 rounded-md font-black uppercase">
                           Always Active
                         </span>
                       </div>
-                      <p className="text-sm text-gray-400 leading-relaxed">
+                      <p className="text-sm text-neutral-700 font-medium leading-relaxed">
                         These cookies are necessary for the website to function and cannot be switched off. 
                         They are usually only set in response to actions made by you such as setting your privacy preferences, 
                         logging in or filling in forms.
                       </p>
                       <div className="mt-3 flex flex-wrap gap-2">
-                        <span className="text-xs bg-gray-700/50 text-gray-300 px-2 py-1 rounded">Session Management</span>
-                        <span className="text-xs bg-gray-700/50 text-gray-300 px-2 py-1 rounded">Security</span>
-                        <span className="text-xs bg-gray-700/50 text-gray-300 px-2 py-1 rounded">Authentication</span>
+                        <span className="text-xs bg-[#FFFDF5] border border-black text-black font-bold px-2.5 py-1 rounded-md">Session Management</span>
+                        <span className="text-xs bg-[#FFFDF5] border border-black text-black font-bold px-2.5 py-1 rounded-md">Security</span>
+                        <span className="text-xs bg-[#FFFDF5] border border-black text-black font-bold px-2.5 py-1 rounded-md">Authentication</span>
                       </div>
                     </div>
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-6 bg-[#C6F10E] rounded-full flex items-center justify-end px-1 cursor-not-allowed opacity-50">
-                        <div className="w-4 h-4 bg-white rounded-full"></div>
+                    <div className="flex-shrink-0 pt-1">
+                      <div className="w-12 h-7 bg-[#C6F10E] border-2 border-black rounded-full flex items-center justify-end px-1 cursor-not-allowed">
+                        <div className="w-4 h-4 bg-black rounded-full"></div>
                       </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Analytics Cookies */}
-                <div className="space-y-3 pt-4 border-t border-gray-700/50">
+                <div className="space-y-3 bg-white p-4 rounded-xl border-2 border-black shadow-neo-sm">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-white mb-2">Analytics Cookies</h3>
-                      <p className="text-sm text-gray-400 leading-relaxed">
+                      <h3 className="text-lg font-black text-black font-display mb-2">Analytics Cookies</h3>
+                      <p className="text-sm text-neutral-700 font-medium leading-relaxed">
                         These cookies allow us to count visits and traffic sources so we can measure and improve 
                         the performance of our site. They help us understand which pages are the most and least popular 
                         and see how visitors move around the site.
                       </p>
                       <div className="mt-3 flex flex-wrap gap-2">
-                        <span className="text-xs bg-gray-700/50 text-gray-300 px-2 py-1 rounded">Google Analytics</span>
-                        <span className="text-xs bg-gray-700/50 text-gray-300 px-2 py-1 rounded">Vercel Analytics</span>
-                        <span className="text-xs bg-gray-700/50 text-gray-300 px-2 py-1 rounded">Usage Stats</span>
+                        <span className="text-xs bg-[#FFFDF5] border border-black text-black font-bold px-2.5 py-1 rounded-md">Google Analytics</span>
+                        <span className="text-xs bg-[#FFFDF5] border border-black text-black font-bold px-2.5 py-1 rounded-md">Vercel Analytics</span>
+                        <span className="text-xs bg-[#FFFDF5] border border-black text-black font-bold px-2.5 py-1 rounded-md">Usage Stats</span>
                       </div>
                     </div>
-                    <div className="flex-shrink-0">
+                    <div className="flex-shrink-0 pt-1">
                       <button
                         onClick={() => handleToggle('analytics')}
-                        className={`w-12 h-6 rounded-full transition-colors ${
-                          preferences.analytics ? 'bg-[#C6F10E]' : 'bg-gray-600'
-                        } flex items-center ${preferences.analytics ? 'justify-end' : 'justify-start'} px-1`}
+                        className={`w-12 h-7 rounded-full border-2 border-black transition-colors ${
+                          preferences.analytics ? 'bg-[#C6F10E]' : 'bg-neutral-200'
+                        } flex items-center ${preferences.analytics ? 'justify-end' : 'justify-start'} px-1 cursor-pointer`}
                         aria-label="Toggle analytics cookies"
                       >
-                        <div className="w-4 h-4 bg-white rounded-full transition-transform"></div>
+                        <div className="w-4 h-4 bg-black rounded-full transition-transform"></div>
                       </button>
                     </div>
                   </div>
                 </div>
 
                 {/* Marketing Cookies */}
-                <div className="space-y-3 pt-4 border-t border-gray-700/50">
+                <div className="space-y-3 bg-white p-4 rounded-xl border-2 border-black shadow-neo-sm">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-white mb-2">Marketing Cookies</h3>
-                      <p className="text-sm text-gray-400 leading-relaxed">
+                      <h3 className="text-lg font-black text-black font-display mb-2">Marketing Cookies</h3>
+                      <p className="text-sm text-neutral-700 font-medium leading-relaxed">
                         These cookies may be set through our site by our advertising partners. They may be used by those 
                         companies to build a profile of your interests and show you relevant adverts on other sites.
                       </p>
                       <div className="mt-3 flex flex-wrap gap-2">
-                        <span className="text-xs bg-gray-700/50 text-gray-300 px-2 py-1 rounded">Ad Targeting</span>
-                        <span className="text-xs bg-gray-700/50 text-gray-300 px-2 py-1 rounded">Social Media</span>
-                        <span className="text-xs bg-gray-700/50 text-gray-300 px-2 py-1 rounded">Remarketing</span>
+                        <span className="text-xs bg-[#FFFDF5] border border-black text-black font-bold px-2.5 py-1 rounded-md">Ad Targeting</span>
+                        <span className="text-xs bg-[#FFFDF5] border border-black text-black font-bold px-2.5 py-1 rounded-md">Social Media</span>
+                        <span className="text-xs bg-[#FFFDF5] border border-black text-black font-bold px-2.5 py-1 rounded-md">Remarketing</span>
                       </div>
                     </div>
-                    <div className="flex-shrink-0">
+                    <div className="flex-shrink-0 pt-1">
                       <button
                         onClick={() => handleToggle('marketing')}
-                        className={`w-12 h-6 rounded-full transition-colors ${
-                          preferences.marketing ? 'bg-[#C6F10E]' : 'bg-gray-600'
-                        } flex items-center ${preferences.marketing ? 'justify-end' : 'justify-start'} px-1`}
+                        className={`w-12 h-7 rounded-full border-2 border-black transition-colors ${
+                          preferences.marketing ? 'bg-[#C6F10E]' : 'bg-neutral-200'
+                        } flex items-center ${preferences.marketing ? 'justify-end' : 'justify-start'} px-1 cursor-pointer`}
                         aria-label="Toggle marketing cookies"
                       >
-                        <div className="w-4 h-4 bg-white rounded-full transition-transform"></div>
+                        <div className="w-4 h-4 bg-black rounded-full transition-transform"></div>
                       </button>
                     </div>
                   </div>
                 </div>
 
                 {/* Preferences Cookies */}
-                <div className="space-y-3 pt-4 border-t border-gray-700/50">
+                <div className="space-y-3 bg-white p-4 rounded-xl border-2 border-black shadow-neo-sm">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-white mb-2">Preference Cookies</h3>
-                      <p className="text-sm text-gray-400 leading-relaxed">
+                      <h3 className="text-lg font-black text-black font-display mb-2">Preference Cookies</h3>
+                      <p className="text-sm text-neutral-700 font-medium leading-relaxed">
                         These cookies enable the website to remember choices you make (such as your language or the region 
                         you are in) and provide enhanced, more personal features.
                       </p>
                       <div className="mt-3 flex flex-wrap gap-2">
-                        <span className="text-xs bg-gray-700/50 text-gray-300 px-2 py-1 rounded">Language</span>
-                        <span className="text-xs bg-gray-700/50 text-gray-300 px-2 py-1 rounded">Theme</span>
-                        <span className="text-xs bg-gray-700/50 text-gray-300 px-2 py-1 rounded">Layout</span>
+                        <span className="text-xs bg-[#FFFDF5] border border-black text-black font-bold px-2.5 py-1 rounded-md">Language</span>
+                        <span className="text-xs bg-[#FFFDF5] border border-black text-black font-bold px-2.5 py-1 rounded-md">Theme</span>
+                        <span className="text-xs bg-[#FFFDF5] border border-black text-black font-bold px-2.5 py-1 rounded-md">Layout</span>
                       </div>
                     </div>
-                    <div className="flex-shrink-0">
+                    <div className="flex-shrink-0 pt-1">
                       <button
                         onClick={() => handleToggle('preferences')}
-                        className={`w-12 h-6 rounded-full transition-colors ${
-                          preferences.preferences ? 'bg-[#C6F10E]' : 'bg-gray-600'
-                        } flex items-center ${preferences.preferences ? 'justify-end' : 'justify-start'} px-1`}
+                        className={`w-12 h-7 rounded-full border-2 border-black transition-colors ${
+                          preferences.preferences ? 'bg-[#C6F10E]' : 'bg-neutral-200'
+                        } flex items-center ${preferences.preferences ? 'justify-end' : 'justify-start'} px-1 cursor-pointer`}
                         aria-label="Toggle preference cookies"
                       >
-                        <div className="w-4 h-4 bg-white rounded-full transition-transform"></div>
+                        <div className="w-4 h-4 bg-black rounded-full transition-transform"></div>
                       </button>
                     </div>
                   </div>

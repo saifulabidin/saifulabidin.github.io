@@ -34,6 +34,10 @@ const config: Config = {
       borderRadius: {
         'neo': '12px',
       },
+      fontFamily: {
+        sans: ["var(--font-plus-jakarta)", "system-ui", "-apple-system", "sans-serif"],
+        display: ["var(--font-space-grotesk)", "var(--font-plus-jakarta)", "sans-serif"],
+      },
     },
   },
   plugins: [],

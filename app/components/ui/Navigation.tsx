@@ -49,7 +49,7 @@ export default function Navigation() {
             <div className="lg:hidden">
               <button 
                 onClick={toggleMobileMenu} 
-                className="p-2 border-2 border-black bg-[#C6F10E] rounded-xl shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center border-2 border-black bg-[#C6F10E] rounded-xl shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer"
                 aria-label="Toggle navigation menu"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
