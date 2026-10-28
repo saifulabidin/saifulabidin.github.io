@@ -45,6 +45,20 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
       return;
     }
 
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      setFormStatus({
+        isSubmitting: false,
+        isSubmitted: false,
+        isError: true,
+        message: t("dispatch_error")
+      });
+      return;
+    }
+
     setFormStatus({
       ...formStatus, 
       isSubmitting: true,
@@ -52,11 +66,18 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
     });
 
     try {
-      await emailjs.sendForm(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
-        form.current!, 
-        'YOUR_PUBLIC_KEY'
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          name: formData.name,
+          email: formData.email,
+          from_name: formData.name,
+          reply_to: formData.email,
+          subject: formData.subject || 'Portfolio Contact Form Inquiry',
+          message: formData.message,
+        },
+        publicKey
       );
       
       setFormStatus({
