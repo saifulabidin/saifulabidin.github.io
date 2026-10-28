@@ -12,7 +12,7 @@ export interface Project {
 }
 
 export const staticProjects: Project[] = [
-  // Backend Projects
+  // Enterprise / Company Systems (Private Repositories)
   {
     id: 1,
     title: "Employee Attendance Backend System",
@@ -37,8 +37,6 @@ export const staticProjects: Project[] = [
     is_private: true,
     sort_order: 2
   },
-
-  // API Projects
   {
     id: 3,
     title: "Attendance Mobile App API",
@@ -63,8 +61,6 @@ export const staticProjects: Project[] = [
     is_private: true,
     sort_order: 4
   },
-
-  // Frontend Projects
   {
     id: 5,
     title: "Bestie Tissue Landing Page",
@@ -101,8 +97,6 @@ export const staticProjects: Project[] = [
     is_private: true,
     sort_order: 7
   },
-
-  // Mobile Projects
   {
     id: 8,
     title: "Employee Attendance Mobile App",
@@ -128,135 +122,137 @@ export const staticProjects: Project[] = [
     sort_order: 9
   },
 
-  // Fullstack & Web Apps
+  // Fullstack Projects (from fullstack-project/index.html & index.html in old-pages)
   {
     id: 10,
-    title: "Balance Scan",
-    description: "Fullstack application for tracking financial balances with real-time updates and comprehensive analytics. Features a responsive dashboard with data visualization, multi-currency support, and blockchain transaction monitoring.",
-    tech_stack: ["React", "Node.js", "Web3", "MongoDB", "Express", "Tailwind CSS"],
-    image_url: "/images/project/fullstack/balance-scan.jpg",
-    github_url: "https://github.com/saifulabidin/balancescan-fullstack",
-    live_url: "https://balance-scan.netlify.app",
+    title: "Book Trading Club",
+    description: "A platform that enables users to trade books with each other. Features include user authentication, book listing, trade proposals, and profile management.",
+    tech_stack: ["React", "Node.js", "MongoDB", "Mongoose"],
+    image_url: "/images/project/fullstack/book-trading-club.jpg",
+    github_url: "https://github.com/saifulabidin/book-trading-club",
+    live_url: "https://book-trading-club.vercel.app/",
     category: "Fullstack",
     is_private: false,
     sort_order: 10
   },
   {
     id: 11,
-    title: "Cuaca Ceria (Weather App)",
-    description: "Responsive weather forecast application showing 7-day forecasts with real-time meteorological metrics, location-based forecasting, and interactive regional maps.",
-    tech_stack: ["Node.js", "JavaScript", "HTML/CSS", "Weather API", "Geolocation"],
-    image_url: "/images/project/fullstack/cuaca-ceria.jpg",
-    github_url: "https://github.com/saifulabidin/cuaca-ceria",
-    live_url: "https://weather-checker-eu.netlify.app/",
-    category: "Frontend",
+    title: "Nightlife Coordination App",
+    description: "An application that helps users coordinate their nightlife activities. Users can search for venues, indicate their attendance, and see how many people are going to each venue.",
+    tech_stack: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+    image_url: "/images/project/fullstack/nightlife-app.jpg",
+    github_url: "https://github.com/saifulabidin/nightlife-app",
+    live_url: "https://nightlife-app-staging.up.railway.app/",
+    category: "Fullstack",
     is_private: false,
     sort_order: 11
   },
   {
     id: 12,
-    title: "Chart Stock Market",
-    description: "Fullstack real-time stock tracking application with interactive visualizations, WebSocket live pricing updates, and technical market trend analysis tools.",
-    tech_stack: ["Node.js", "React", "WebSockets", "Chart.js", "Express", "MongoDB"],
-    image_url: "/images/project/fullstack/stock-market.jpg",
-    github_url: "https://github.com/saifulabidin/Chart-Stock-Market",
-    live_url: "https://zonal-elegance-production.up.railway.app/",
+    title: "Fake Pinterest",
+    description: "A Pinterest-inspired application where users can upload, save, and organize images. Features include masonry layout, image upload, user collections, and social sharing.",
+    tech_stack: ["React", "Node.js", "MongoDB", "Firebase"],
+    image_url: "/images/project/fullstack/fake-pinterest.jpg",
+    github_url: "https://github.com/saifulabidin/fake-pinterest",
+    live_url: "https://fake-pinterest.vercel.app/",
     category: "Fullstack",
     is_private: false,
     sort_order: 12
   },
   {
     id: 13,
-    title: "Book Trading Club",
-    description: "Community platform for book enthusiasts to trade, exchange, catalogue personal libraries, and request books from fellow members worldwide.",
-    tech_stack: ["React", "Node.js", "MongoDB", "Express", "JWT"],
-    image_url: "/images/project/fullstack/book-trading-club.jpg",
-    github_url: "https://github.com/saifulabidin/book-trading-club",
-    live_url: "https://book-trading-club.vercel.app/",
+    title: "Balance Scan",
+    description: "A fullstack application for tracking financial balances with real-time updates and comprehensive analytics. This project features a responsive dashboard with data visualization, multi-currency support, and blockchain transaction monitoring.",
+    tech_stack: ["React", "Node.js", "Web3", "MongoDB"],
+    image_url: "/images/project/fullstack/balance-scan.jpg",
+    github_url: "https://github.com/saifulabidin/balancescan-fullstack",
+    live_url: "https://balance-scan.netlify.app",
     category: "Fullstack",
     is_private: false,
     sort_order: 13
   },
   {
     id: 14,
-    title: "Nightlife Coordination App",
-    description: "Location-aware platform helping users find, RSVP, and coordinate visits to local nightlife venues, events, and evening entertainment spaces.",
-    tech_stack: ["Node.js", "Express", "MongoDB", "Yelp API", "Passport.js"],
-    image_url: "/images/project/fullstack/nightlife-app.jpg",
-    github_url: "https://github.com/saifulabidin/nightlife-app",
-    live_url: "https://nightlife-app-production.up.railway.app/",
-    category: "Fullstack",
+    title: "Cuaca Ceria (Weather App)",
+    description: "A responsive weather forecast application with a user-friendly interface showing 7-day forecasts. Includes real-time weather updates, location-based forecasting, interactive maps, and severe weather alerts.",
+    tech_stack: ["Node.js", "HTML/CSS/JavaScript", "7timer.info API", "Geolocation"],
+    image_url: "/images/project/fullstack/cuaca-ceria.jpg",
+    github_url: "https://github.com/saifulabidin/cuaca-ceria",
+    live_url: "https://weather-checker-eu.netlify.app/",
+    category: "Frontend",
     is_private: false,
     sort_order: 14
   },
   {
     id: 15,
-    title: "Fake Pinterest",
-    description: "Image discovery and curation platform inspired by Pinterest with dynamic masonry grid layouts, personal board collections, and image search.",
-    tech_stack: ["React", "Node.js", "MongoDB", "Cloudinary", "Express"],
-    image_url: "/images/project/fullstack/fake-pinterest.jpg",
-    github_url: "https://github.com/saifulabidin/fake-pinterest",
-    live_url: "https://fake-pinterest.vercel.app/",
+    title: "Voting App",
+    description: "A full-stack polling platform where users can create, participate, and analyze polls with real-time visualization. Features include user authentication, vote validation, custom poll creation, and detailed analytics with data export.",
+    tech_stack: ["React", "Node.js", "MongoDB", "Chart.js"],
+    image_url: "/images/project/fullstack/voting-app.jpg",
+    github_url: "https://github.com/saifulabidin/Voting-App",
+    live_url: "https://voting-app-fullstack.netlify.app/",
     category: "Fullstack",
     is_private: false,
     sort_order: 15
   },
   {
     id: 16,
-    title: "Voting App",
-    description: "Fullstack polling application allowing authenticated users to create custom polls, share voting links, cast votes, and observe real-time chart results.",
-    tech_stack: ["React", "Node.js", "MongoDB", "Chart.js", "Express"],
-    image_url: "/images/project/fullstack/voting-app.jpg",
-    github_url: "https://github.com/saifulabidin/voting-app",
-    live_url: "https://voting-app-production.up.railway.app/",
+    title: "Chart Stock Market",
+    description: "A real-time stock market charting application with interactive visualizations and market analysis tools.",
+    tech_stack: ["Node.js", "React", "WebSockets"],
+    image_url: "/images/project/fullstack/stock-market.jpg",
+    github_url: "https://github.com/saifulabidin/Chart-Stock-Market",
+    live_url: "https://zonal-elegance-production.up.railway.app/",
     category: "Fullstack",
     is_private: false,
     sort_order: 16
   },
+
+  // Frontend Micro-apps (from frontend-project/index.html in old-pages)
   {
     id: 17,
-    title: "Markdown Previewer",
-    description: "Fast in-browser Markdown editor with instant live HTML preview, syntax highlighting, and GitHub Flavored Markdown compliance.",
-    tech_stack: ["React", "Marked.js", "Prism.js", "CSS3"],
-    image_url: "/images/project/frontend/Markdown-Previewer.png",
-    github_url: "https://github.com/saifulabidin/markdown-previewer",
-    live_url: "https://saifulabidin.github.io/markdown-previewer",
+    title: "JavaScript Calculator",
+    description: "A fully functional calculator app with keyboard support, built using React.",
+    tech_stack: ["React", "JavaScript", "CSS Grid"],
+    image_url: "/images/project/frontend/javascript-calculator.png",
+    github_url: "https://codepen.io/saifulabidin/pen/emmrJKo",
+    live_url: "/frontend-project/JavaScript-Calculator/index.html",
     category: "Frontend",
     is_private: false,
     sort_order: 17
   },
   {
     id: 18,
-    title: "JavaScript Calculator",
-    description: "Formula-logic precision web calculator with chained operations, decimal validation, and clear error boundaries conforming to FCC specifications.",
-    tech_stack: ["React", "JavaScript", "HTML5", "CSS3"],
-    image_url: "/images/project/frontend/javascript-calculator.png",
-    github_url: "https://github.com/saifulabidin/javascript-calculator",
-    live_url: "https://saifulabidin.github.io/javascript-calculator",
+    title: "25+5 Clock",
+    description: "A Pomodoro timer application with customizable work and break intervals.",
+    tech_stack: ["React", "Hooks", "Audio API"],
+    image_url: "/images/project/frontend/25-5-clock.png",
+    github_url: "https://codepen.io/saifulabidin/pen/myyLVaw",
+    live_url: "/frontend-project/25-5-clock/index.html",
     category: "Frontend",
     is_private: false,
     sort_order: 18
   },
   {
     id: 19,
-    title: "25 + 5 Clock (Pomodoro)",
-    description: "Productivity timer supporting customizable work/break session intervals, audio alerts, pause/resume, and active cycle indicators.",
-    tech_stack: ["React", "HTML5 Audio", "CSS3", "JavaScript"],
-    image_url: "/images/project/frontend/25-5-clock.png",
-    github_url: "https://github.com/saifulabidin/25-5-clock",
-    live_url: "https://saifulabidin.github.io/25-5-clock",
+    title: "Drum Machine",
+    description: "An interactive drum pad app with keyboard support and sound bank switching.",
+    tech_stack: ["React", "Audio API", "Event Listeners"],
+    image_url: "/images/project/frontend/drum-machine.png",
+    github_url: "https://codepen.io/saifulabidin/pen/WbbJQxr",
+    live_url: "/frontend-project/Drum-Machine/index.html",
     category: "Frontend",
     is_private: false,
     sort_order: 19
   },
   {
     id: 20,
-    title: "Drum Machine",
-    description: "Interactive musical pad with 9 audio trigger zones, keyboard keybind listener mappings, dynamic volume control, and sound clip display.",
-    tech_stack: ["React", "Web Audio", "CSS3", "JavaScript"],
-    image_url: "/images/project/frontend/drum-machine.png",
-    github_url: "https://github.com/saifulabidin/drum-machine",
-    live_url: "https://saifulabidin.github.io/drum-machine",
+    title: "Markdown Previewer",
+    description: "A real-time markdown editor and previewer with a responsive layout.",
+    tech_stack: ["React", "Marked.js", "Responsive Design"],
+    image_url: "/images/project/frontend/Markdown-Previewer.png",
+    github_url: "https://codepen.io/saifulabidin/pen/dPPeYbj",
+    live_url: "/frontend-project/Markdown-Previewer/index.html",
     category: "Frontend",
     is_private: false,
     sort_order: 20
@@ -264,11 +260,11 @@ export const staticProjects: Project[] = [
   {
     id: 21,
     title: "Random Quote Machine",
-    description: "Inspirational quote generator fetching wisdom quotes dynamically with Twitter intent sharing and color palette transitions.",
-    tech_stack: ["React", "Quotable API", "CSS3", "JavaScript"],
+    description: "A quote generator with social media sharing and animated transitions.",
+    tech_stack: ["JavaScript", "API Integration", "CSS Animations"],
     image_url: "/images/project/frontend/Random-Quote-Machine.png",
-    github_url: "https://github.com/saifulabidin/random-quote-machine",
-    live_url: "https://saifulabidin.github.io/random-quote-machine",
+    github_url: "https://codepen.io/saifulabidin/pen/ZYYoGNB",
+    live_url: "/frontend-project/Random-Quote-Machine/index.html",
     category: "Frontend",
     is_private: false,
     sort_order: 21
