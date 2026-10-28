@@ -7,9 +7,9 @@ import type { Metadata, Viewport } from "next";
 import { allKeywords } from "./seoKeywords";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://sabidzpro.is-a.dev";
-const SITE_NAME = "Saiful Abidin - Full Stack Developer Portfolio";
-const SITE_TITLE = "Saiful Abidin - Full Stack Developer | React, Next.js, Node.js Expert";
-const SITE_DESCRIPTION = "Professional Full Stack Developer from Indonesia with 5+ years experience. Expert in React, Next.js, Node.js, TypeScript, MongoDB, PostgreSQL. Building scalable web applications, e-commerce platforms, and innovative digital solutions. Available for freelance projects and collaborations.";
+const SITE_NAME = "Saiful Abidin - Biodata, Profil & Portfolio";
+const SITE_TITLE = "Saiful Abidin | Biodata, Profil & Portfolio Full Stack Developer";
+const SITE_DESCRIPTION = "Biodata, profil lengkap, dan portofolio profesional Saiful Abidin (sabidzpro) - Full Stack Developer & Software Engineer asal Wonogiri, Jawa Tengah, Indonesia. Pengalaman 5+ tahun membangun aplikasi web, mobile, dan sistem enterprise modern.";
 const AUTHOR_NAME = "Saiful Abidin";
 const TWITTER_HANDLE = "@syaifulosd";
 
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   // Title Configuration
   title: {
     default: SITE_TITLE,
-    template: `%s | ${AUTHOR_NAME} - Full Stack Developer`,
+    template: `%s | ${AUTHOR_NAME}`,
   },
   
   // Description
@@ -43,7 +43,12 @@ export const metadata: Metadata = {
   
   // Alternate URLs
   alternates: {
-    canonical: "/",
+    canonical: SITE_URL,
+    languages: {
+      'id': `${SITE_URL}/id`,
+      'en': `${SITE_URL}/en`,
+      'x-default': `${SITE_URL}/id`,
+    },
   },
   
   // Robots Configuration
@@ -68,20 +73,20 @@ export const metadata: Metadata = {
   
   // Open Graph (Facebook, LinkedIn, etc)
   openGraph: {
-    type: "website",
+    type: "profile",
     locale: "id_ID",
     alternateLocale: ["en_US"],
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "Saiful Abidin - Professional Full Stack Developer | React & Next.js Expert",
+    title: "Saiful Abidin | Biodata, Profil & Portfolio Full Stack Developer",
     description: SITE_DESCRIPTION,
     images: [
       {
-        url: "/favicon.ico",
-        width: 1200,
-        height: 630,
-        alt: SITE_NAME,
-        type: "image/x-icon",
+        url: "/images/profil/profile.jpeg",
+        width: 800,
+        height: 800,
+        alt: "Saiful Abidin - Full Stack Developer Wonogiri",
+        type: "image/jpeg",
       },
     ],
   },
@@ -91,9 +96,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: TWITTER_HANDLE,
     creator: TWITTER_HANDLE,
-    title: "Saiful Abidin - Full Stack Developer | React & Next.js Expert",
-    description: "Professional Full Stack Developer from Indonesia. Expert in React, Next.js, Node.js, TypeScript. Building scalable web applications and innovative digital solutions.",
-    images: ["/favicon.ico"],
+    title: "Saiful Abidin | Biodata, Profil & Portfolio Full Stack Developer",
+    description: SITE_DESCRIPTION,
+    images: ["/images/profil/profile.jpeg"],
   },
   
   // Additional Metadata

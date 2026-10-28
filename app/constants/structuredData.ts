@@ -12,20 +12,39 @@ export const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Saiful Abidin",
-  "alternateName": "sabidzpro",
+  "givenName": "Saiful",
+  "familyName": "Abidin",
+  "alternateName": [
+    "sabidzpro",
+    "Saiful",
+    "Abidin",
+    "sabidz",
+    "itssabidz",
+    "Saiful Abidin Wonogiri",
+    "Saiful Abidin Developer",
+    "Saiful Abidin Software Engineer"
+  ],
   "url": SITE_URL,
-  "image": `${SITE_URL}/favicon.ico`,
+  "image": `${SITE_URL}/images/profil/profile.jpeg`,
   "jobTitle": "Full Stack Developer",
   "worksFor": {
     "@type": "Organization",
-    "name": "Freelance"
+    "name": "PT. Infinity Blessing Indonesia"
   },
-  "description": "Professional Full Stack Developer with expertise in React, Next.js, Node.js, and modern web technologies. Over 5 years of experience building scalable web applications and innovative digital solutions.",
+  "description": "Biodata, biografi, dan profil profesional Saiful Abidin (sabidzpro) - Full Stack Developer & Software Engineer asal Wonogiri, Jawa Tengah, Indonesia.",
+  "nationality": {
+    "@type": "Country",
+    "name": "Indonesia"
+  },
+  "homeLocation": {
+    "@type": "Place",
+    "name": "Wonogiri, Jawa Tengah, Indonesia"
+  },
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Wonogiri",
     "addressRegion": "Jawa Tengah",
-    "addressCountry": "Indonesia"
+    "addressCountry": "ID"
   },
   "sameAs": [
     "https://github.com/saifulabidin",
@@ -33,26 +52,28 @@ export const personSchema = {
     "https://twitter.com/syaifulosd",
     "https://instagram.com/itssabidz"
   ],
+  "hasOccupation": {
+    "@type": "Occupation",
+    "name": "Full Stack Developer",
+    "skills": "React, Next.js, Node.js, TypeScript, PostgreSQL, Flutter, Docker"
+  },
   "knowsAbout": [
+    "Saiful Abidin",
+    "Biodata Saiful Abidin",
+    "Biografi Saiful Abidin",
+    "Profil Saiful Abidin",
+    "Software Engineering",
+    "Full Stack Development",
     "React",
     "Next.js",
     "Node.js",
     "TypeScript",
     "JavaScript",
-    "MongoDB",
     "PostgreSQL",
     "Docker",
     "AWS",
     "Flutter",
-    "Mobile Development",
-    "Full Stack Development",
-    "Web Development",
-    "Frontend Development",
-    "Backend Development",
-    "API Development",
-    "Database Design",
-    "Cloud Computing",
-    "DevOps"
+    "Mobile Development"
   ],
   "knowsLanguage": [
     {
@@ -78,15 +99,15 @@ export const personSchema = {
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "Saiful Abidin Portfolio",
+  "name": "Saiful Abidin - Biodata, Profil & Portfolio",
   "alternateName": "sabidzpro Portfolio",
   "url": SITE_URL,
-  "description": "Professional Full Stack Developer Portfolio showcasing projects and skills in React, Next.js, Node.js, and modern web technologies. Over 5 years of experience with 27+ completed projects.",
+  "description": "Biodata, profil lengkap, dan portofolio profesional Saiful Abidin (sabidzpro) - Full Stack Developer & Software Engineer asal Wonogiri, Jawa Tengah, Indonesia.",
   "author": {
     "@type": "Person",
     "name": "Saiful Abidin"
   },
-  "inLanguage": "en-US",
+  "inLanguage": ["id", "en"],
   "copyrightYear": new Date().getFullYear(),
   "copyrightHolder": {
     "@type": "Person",
@@ -108,30 +129,12 @@ export const websiteSchema = {
 export const profilePageSchema = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
+  "name": "Biodata & Profil Saiful Abidin",
+  "headline": "Biodata dan Profil Lengkap Saiful Abidin - Full Stack Developer",
+  "url": SITE_URL,
   "dateCreated": "2020-01-01T00:00:00+00:00",
   "dateModified": new Date().toISOString(),
-  "mainEntity": {
-    "@type": "Person",
-    "name": "Saiful Abidin",
-    "alternateName": "sabidzpro",
-    "identifier": "sabidzpro",
-    "description": "Full Stack Developer specializing in React, Next.js, and Node.js with 5+ years of experience",
-    "image": `${SITE_URL}/favicon.ico`,
-    "interactionStatistic": [
-      {
-        "@type": "InteractionCounter",
-        "interactionType": "https://schema.org/CreateAction",
-        "userInteractionCount": 50,
-        "name": "Projects Completed"
-      },
-      {
-        "@type": "InteractionCounter",
-        "interactionType": "https://schema.org/LikeAction",
-        "userInteractionCount": 8,
-        "name": "Certifications"
-      }
-    ]
-  }
+  "mainEntity": personSchema
 };
 
 /**
