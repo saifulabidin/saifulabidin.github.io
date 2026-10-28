@@ -9,6 +9,9 @@
 
 # agent & local config
 .claude
+/.specify/
+/spec/
+/.remember/
 
 # next.js
 /.next/
