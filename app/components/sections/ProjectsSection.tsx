@@ -2,59 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
-
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  tech_stack: string[];
-  image_url: string;
-  github_url: string;
-  live_url: string;
-  category: string;
-  is_private: boolean;
-  sort_order: number;
-}
-
-// Static fallback data
-const staticProjects: Project[] = [
-  {
-    id: 1,
-    title: "Employee Attendance Backend System",
-    description: "Comprehensive backend system for employee attendance management with real-time tracking, shift management, overtime calculation, and detailed reporting. Features role-based authentication and integration with biometric devices.",
-    tech_stack: ["Node.js", "Express", "PostgreSQL", "JWT", "Redis", "Docker"],
-    image_url: "/images/project/company/attendance-backend.jpg",
-    github_url: "#private-repository",
-    live_url: "#company-internal",
-    category: "Backend",
-    is_private: true,
-    sort_order: 1
-  },
-  {
-    id: 2,
-    title: "Sales Data Collection Backend",
-    description: "Backend system for sales team to input and manage customer data collected in the field. Features geolocation tracking, customer relationship management, lead scoring, and territory management with Google Maps integration.",
-    tech_stack: ["Node.js", "Express", "MongoDB", "Google Maps API", "JWT", "Redis"],
-    image_url: "/images/project/company/sales-backend.jpg",
-    github_url: "#private-repository",
-    live_url: "#company-internal",
-    category: "Backend",
-    is_private: true,
-    sort_order: 2
-  },
-  {
-    id: 3,
-    title: "Bestie Tissue Landing Page",
-    description: "Modern and responsive landing page for Bestie Tissue product featuring AI-powered chatbot integration with Google Gemini, interactive store locator with Google Maps, product showcase, and lead generation forms.",
-    tech_stack: ["Next.js", "TypeScript", "Tailwind CSS", "Google Maps API", "Framer Motion"],
-    image_url: "/images/project/company/bestie-tissue.jpg",
-    github_url: "#private-repository",
-    live_url: "https://bestie-tissue.com",
-    category: "Frontend",
-    is_private: true,
-    sort_order: 3
-  }
-];
+import { staticProjects, Project } from "@/app/constants/projectsData";
 
 const ProjectCard = ({ project }: { project: Project }) => {
   const isPrivateProject = project.github_url === "#private-repository";
@@ -162,31 +110,29 @@ const ProjectCard = ({ project }: { project: Project }) => {
 };
 
 export default function ProjectsSection() {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [projects, setProjects] = useState<Project[]>(staticProjects);
+  const [loading, setLoading] = useState(false);
   const [activeCategory, setActiveCategory] = useState<string>("All");
 
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await fetch('/api/admin/projects');
+        const response = await fetch('/api/public/projects');
         if (response.ok) {
           const data = await response.json();
-          setProjects(data);
-        } else {
-          setProjects(staticProjects);
+          if (Array.isArray(data) && data.length > 0) {
+            setProjects(data);
+          }
         }
       } catch {
-        setProjects(staticProjects);
-      } finally {
-        setLoading(false);
+        // Fallback remains staticProjects
       }
     };
 
     fetchProjects();
   }, []);
 
-  const categoryList = ["All", "Backend", "Frontend", "API", "Mobile"];
+  const categoryList = ["All", "Backend", "Frontend", "API", "Mobile", "Fullstack"];
 
   const filteredProjects = activeCategory === "All" 
     ? projects 

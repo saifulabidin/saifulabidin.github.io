@@ -2,50 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
-
-interface Certificate {
-  id: number;
-  title: string;
-  issuer: string;
-  date: string;
-  renewed?: string;
-  image_url: string;
-  credential_url?: string;
-  sort_order: number;
-}
-
-const staticCertificates: Certificate[] = [
-  {
-    id: 1,
-    title: "Responsive Web Design",
-    issuer: "FreeCodeCamp",
-    date: "2022",
-    renewed: "2025",
-    image_url: "/images/sertifikat/freecodecamp-responsive-web-design.jpg",
-    credential_url: "https://www.freecodecamp.org/certification/saifulabidin/responsive-web-design",
-    sort_order: 1
-  },
-  {
-    id: 2,
-    title: "JavaScript Algorithms and Data Structures",
-    issuer: "FreeCodeCamp",
-    date: "2022",
-    renewed: "2025",
-    image_url: "/images/sertifikat/freecodecamp-javascript-algorithms-and-data-structures.jpg",
-    credential_url: "https://www.freecodecamp.org/certification/saifulabidin/javascript-algorithms-and-data-structures-v8",
-    sort_order: 2
-  },
-  {
-    id: 3,
-    title: "Belajar Dasar Cloud dan Gen AI di AWS",
-    issuer: "Dicoding Indonesia",
-    date: "2024",
-    renewed: "2025",
-    image_url: "/images/sertifikat/dicoding-belajar-dasar-cloud-dan-gen-ai-di-aws.jpg",
-    credential_url: "https://www.dicoding.com/certificates/N9ZO9RE76XG5",
-    sort_order: 3
-  }
-];
+import { staticCertificates, Certificate } from "@/app/constants/certificatesData";
 
 const MobileCertificateSlider = ({ certificates }: { certificates: Certificate[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -180,23 +137,21 @@ const MobileCertificateSlider = ({ certificates }: { certificates: Certificate[]
 };
 
 export default function CertificatesSection() {
-  const [certificates, setCertificates] = useState<Certificate[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [certificates, setCertificates] = useState<Certificate[]>(staticCertificates);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchCertificates = async () => {
       try {
-        const response = await fetch('/api/admin/certificates');
+        const response = await fetch('/api/public/certificates');
         if (response.ok) {
           const data = await response.json();
-          setCertificates(data);
-        } else {
-          setCertificates(staticCertificates);
+          if (Array.isArray(data) && data.length > 0) {
+            setCertificates(data);
+          }
         }
       } catch {
-        setCertificates(staticCertificates);
-      } finally {
-        setLoading(false);
+        // Fallback remains staticCertificates
       }
     };
 
