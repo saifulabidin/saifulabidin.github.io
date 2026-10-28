@@ -2,7 +2,6 @@ import { Analytics } from "@vercel/analytics/next"
 import Script from "next/script";
 import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import "../globals.css";
-import "../maps.css";
 import { metadata as baseMetadata, viewport } from "../constants/seoMetadata";
 import { personSchema, websiteSchema, profilePageSchema } from "../constants/structuredData";
 import CookieConsent from "../components/CookieConsent/CookieConsent";

@@ -34,7 +34,8 @@ If you discover a security vulnerability, authentication bypass, data exposure r
 
 ## Security Architecture & Best Practices
 
-- **Strict Environment Isolation**: API keys, OAuth client secrets, and database credentials (`AUTH_SECRET`, `POSTGRES_PRISMA_URL`, `BLOB_READ_WRITE_TOKEN`, `GOOGLE_MAPS_API_KEY`) are kept exclusively in server-side runtime environments and never exposed to the client bundle.
+- **Strict Environment Isolation**: API keys, OAuth client secrets, and database credentials (`AUTH_SECRET`, `POSTGRES_PRISMA_URL`, `BLOB_READ_WRITE_TOKEN`) are kept exclusively in server-side runtime environments and never exposed to the client bundle.
+- **Zero-Key Location Embedding**: Maps are rendered via sandboxed Google Maps Embed iframe with `referrerPolicy="strict-origin-when-cross-origin"`, completely eliminating client-side API key exposure.
 - **API Boundary Protection**: State-changing endpoints enforce session verification with NextAuth.js. Client requests undergo schema validation and rate limiting.
 - **Secure Edge Headers**:
   - `X-Frame-Options: SAMEORIGIN` prevents clickjacking.

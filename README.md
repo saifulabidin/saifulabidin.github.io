@@ -51,8 +51,8 @@ Official certifications from FreeCodeCamp, Dicoding Indonesia, and AWS with veri
 
 ![Certifications](docs/screenshots/screenshot-2026-10-29-025617.png)
 
-### 8. Direct Contact & Secure Location Proxy
-Direct contact channel with input validation and server-side Google Maps API proxy keeping upstream tokens confidential.
+### 8. Direct Contact & Interactive Location Map
+Direct contact channel with input validation and zero-key Google Maps Embed iframe with strict referrer policy.
 
 ![Contact Form](docs/screenshots/screenshot-2026-10-29-025645.png)
 
@@ -104,7 +104,6 @@ Direct contact channel with input validation and server-side Google Maps API pro
 │   ├── api/                  # Edge and serverless route handlers
 │   │   ├── admin/            # Authenticated CRUD handlers (projects, certificates)
 │   │   ├── auth/             # NextAuth route handler
-│   │   ├── maps/             # Confidentially proxied Google Maps handler
 │   │   └── public/           # Public read-only endpoints
 │   ├── components/           # Reusable UI widgets and 3D canvas modules
 │   └── constants/            # Structured data schemas and SEO configurations
@@ -145,7 +144,6 @@ cp .env.example .env
 | `AUTH_GITHUB_ID` | Yes | GitHub OAuth Client ID |
 | `AUTH_GITHUB_SECRET` | Yes | GitHub OAuth Client Secret |
 | `BLOB_READ_WRITE_TOKEN` | Yes | Vercel Blob access token |
-| `GOOGLE_MAPS_API_KEY` | Yes | Server-side Google Maps token proxied via `/api/maps` |
 | `CADDY_EMAIL` | Optional | Let's Encrypt notification address for Docker deployments |
 
 ---
