@@ -173,16 +173,16 @@ export default function CookieConsent({ onAccept, onReject }: CookieConsentProps
 
                     {/* Cookie categories */}
                     <div className="flex flex-wrap gap-2 pt-1" role="list" aria-label="Cookie categories">
-                      <span className="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-black bg-[#FFFDF5] text-black border border-black shadow-[1px_1px_0px_0px_#000]" role="listitem">
+                      <span className="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-black bg-[#FAFAFA] text-black border border-black shadow-[1px_1px_0px_0px_#000]" role="listitem">
                         Essential
                       </span>
-                      <span className="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-black bg-[#FFFDF5] text-black border border-black shadow-[1px_1px_0px_0px_#000]" role="listitem">
+                      <span className="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-black bg-[#FAFAFA] text-black border border-black shadow-[1px_1px_0px_0px_#000]" role="listitem">
                         Analytics
                       </span>
-                      <span className="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-black bg-[#FFFDF5] text-black border border-black shadow-[1px_1px_0px_0px_#000]" role="listitem">
+                      <span className="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-black bg-[#FAFAFA] text-black border border-black shadow-[1px_1px_0px_0px_#000]" role="listitem">
                         Marketing
                       </span>
-                      <span className="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-black bg-[#FFFDF5] text-black border border-black shadow-[1px_1px_0px_0px_#000]" role="listitem">
+                      <span className="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-black bg-[#FAFAFA] text-black border border-black shadow-[1px_1px_0px_0px_#000]" role="listitem">
                         Preferences
                       </span>
                     </div>

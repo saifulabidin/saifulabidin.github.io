@@ -62,7 +62,7 @@ export default function AdminPanel() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FFFDF5] text-black neo-grid-bg">
+    <div className="min-h-screen bg-[#FAFAFA] text-black neo-grid-bg">
       {/* Header */}
       <header className="bg-white border-b-2 border-black">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">

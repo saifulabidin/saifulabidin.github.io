@@ -80,7 +80,7 @@ export default function CookiePolicyPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(cookiePolicyBreadcrumbSchema) }}
       />
 
-      <div className="min-h-screen bg-[#FFFDF5] text-black neo-grid-bg">
+      <div className="min-h-screen bg-[#FAFAFA] text-black neo-grid-bg">
         {/* Header */}
         <header className="sticky top-0 z-50 bg-white border-b-2 border-black">
           <div className="container mx-auto px-4 py-4 max-w-5xl">
@@ -157,7 +157,7 @@ export default function CookiePolicyPage({
               <h2 className="text-xl sm:text-2xl font-black mb-4 font-display text-black">3. Cookie Specification Table</h2>
               <div className="overflow-x-auto rounded-xl border-2 border-black shadow-neo-sm">
                 <table className="w-full text-sm text-left">
-                  <thead className="text-xs uppercase bg-[#FFFDF5] border-b-2 border-black font-black">
+                  <thead className="text-xs uppercase bg-[#FAFAFA] border-b-2 border-black font-black">
                     <tr>
                       <th className="px-4 py-3 text-black">Category</th>
                       <th className="px-4 py-3 text-black">Purpose</th>

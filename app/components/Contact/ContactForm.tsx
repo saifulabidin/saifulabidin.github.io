@@ -138,7 +138,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
           name="name"
           value={formData.name}
           onChange={handleChange}
-          className="w-full px-4 py-3 bg-[#FFFDF5] border-2 border-black rounded-xl text-black font-medium shadow-neo-sm focus:shadow-neo focus:outline-none transition-all placeholder:text-neutral-500"
+          className="w-full px-4 py-3 bg-[#FAFAFA] border-2 border-black rounded-xl text-black font-medium shadow-neo-sm focus:shadow-neo focus:outline-none transition-all placeholder:text-neutral-500"
           placeholder={t("name_placeholder")}
           required
         />
@@ -154,7 +154,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
           name="email"
           value={formData.email}
           onChange={handleChange}
-          className="w-full px-4 py-3 bg-[#FFFDF5] border-2 border-black rounded-xl text-black font-medium shadow-neo-sm focus:shadow-neo focus:outline-none transition-all placeholder:text-neutral-500"
+          className="w-full px-4 py-3 bg-[#FAFAFA] border-2 border-black rounded-xl text-black font-medium shadow-neo-sm focus:shadow-neo focus:outline-none transition-all placeholder:text-neutral-500"
           placeholder={t("email_placeholder")}
           required
         />
@@ -170,7 +170,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
           name="subject"
           value={formData.subject}
           onChange={handleChange}
-          className="w-full px-4 py-3 bg-[#FFFDF5] border-2 border-black rounded-xl text-black font-medium shadow-neo-sm focus:shadow-neo focus:outline-none transition-all placeholder:text-neutral-500"
+          className="w-full px-4 py-3 bg-[#FAFAFA] border-2 border-black rounded-xl text-black font-medium shadow-neo-sm focus:shadow-neo focus:outline-none transition-all placeholder:text-neutral-500"
           placeholder={t("subject_placeholder")}
         />
       </div>
@@ -185,7 +185,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
           value={formData.message}
           onChange={handleChange}
           rows={5}
-          className="w-full px-4 py-3 bg-[#FFFDF5] border-2 border-black rounded-xl text-black font-medium shadow-neo-sm focus:shadow-neo focus:outline-none transition-all placeholder:text-neutral-500 resize-none"
+          className="w-full px-4 py-3 bg-[#FAFAFA] border-2 border-black rounded-xl text-black font-medium shadow-neo-sm focus:shadow-neo focus:outline-none transition-all placeholder:text-neutral-500 resize-none"
           placeholder={t("message_placeholder")}
           required
         />

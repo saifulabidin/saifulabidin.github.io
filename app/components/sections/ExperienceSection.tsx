@@ -15,7 +15,7 @@ export default function ExperienceSection() {
             <span className="w-2.5 h-2.5 bg-[#FFDE59] border border-black rounded-full"></span>
             <h3 className="text-xl font-black text-black font-display">{t("t1_title")}</h3>
           </div>
-          <p className="text-neutral-700 text-sm font-medium mb-5 leading-relaxed max-w-prose">
+          <p className="text-neutral-700 text-sm font-medium mb-5 leading-relaxed max-w-lg">
             {t("t1_desc")}
           </p>
           <div className="space-y-1">
@@ -48,7 +48,7 @@ export default function ExperienceSection() {
             <span className="w-2.5 h-2.5 bg-[#A6FAFF] border border-black rounded-full"></span>
             <h3 className="text-xl font-black text-black font-display">{t("t2_title")}</h3>
           </div>
-          <p className="text-neutral-700 text-sm font-medium mb-5 leading-relaxed max-w-prose">
+          <p className="text-neutral-700 text-sm font-medium mb-5 leading-relaxed max-w-lg">
             {t("t2_desc")}
           </p>
           <div className="space-y-1">
@@ -80,7 +80,7 @@ export default function ExperienceSection() {
             <span className="w-2.5 h-2.5 bg-[#FF90E8] border border-black rounded-full"></span>
             <h3 className="text-xl font-black text-black font-display">{t("t3_title")}</h3>
           </div>
-          <p className="text-neutral-700 text-sm font-medium mb-5 leading-relaxed max-w-prose">
+          <p className="text-neutral-700 text-sm font-medium mb-5 leading-relaxed max-w-lg">
             {t("t3_desc")}
           </p>
           <div className="space-y-1">
@@ -113,7 +113,7 @@ export default function ExperienceSection() {
             <span className="w-2.5 h-2.5 bg-[#C6F10E] border border-black rounded-full"></span>
             <h3 className="text-xl font-black text-black font-display">{t("t4_title")}</h3>
           </div>
-          <p className="text-neutral-700 text-sm font-medium mb-5 leading-relaxed max-w-prose">
+          <p className="text-neutral-700 text-sm font-medium mb-5 leading-relaxed max-w-lg">
             {t("t4_desc")}
           </p>
           <div className="space-y-1 mb-5">

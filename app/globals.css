@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #FFFDF5;
+  --background: #FAFAFA;
   --foreground: #000000;
 }
 
@@ -17,13 +17,9 @@ h1, h2, h3, h4, .font-display {
   font-family: var(--font-space-grotesk), var(--font-plus-jakarta), sans-serif;
 }
 
-/* Neo-Brutalism Grid Pattern */
+/* Base Canvas Surface */
 .neo-grid-bg {
-  background-color: #FFFDF5;
-  background-size: 32px 32px;
-  background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-color: var(--background);
 }
 
 .neo-grid-dark {
@@ -207,7 +203,7 @@ h1, h2, h3, h4, .font-display {
 /* Custom Scrollbar Styles for Admin Panel */
 .scrollbar-thin {
   scrollbar-width: thin;
-  scrollbar-color: #000000 #FFFDF5;
+  scrollbar-color: #000000 #FAFAFA;
 }
 
 .scrollbar-thin::-webkit-scrollbar {
@@ -215,7 +211,7 @@ h1, h2, h3, h4, .font-display {
 }
 
 .scrollbar-thin::-webkit-scrollbar-track {
-  background: #FFFDF5;
+  background: #FAFAFA;
   border-left: 2px solid #000000;
 }
 

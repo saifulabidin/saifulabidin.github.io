@@ -50,7 +50,7 @@ export default function AboutSection() {
               </div>
 
               {/* Current Focus Card */}
-              <div className="bg-[#FFFDF5] border-2 md:border-[3px] border-black p-6 sm:p-8 rounded-2xl shadow-neo-md">
+              <div className="bg-white border-2 md:border-[3px] border-black p-6 sm:p-8 rounded-2xl shadow-neo-md">
                 <div className="flex items-center gap-2 mb-6">
                   <span className="w-3 h-3 bg-[#C6F10E] border border-black rounded-full"></span>
                   <h4 className="text-xl sm:text-2xl font-black text-black font-display">

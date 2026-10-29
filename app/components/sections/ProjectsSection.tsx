@@ -50,7 +50,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             {project.tech_stack.map((tech, idx) => (
               <span 
                 key={idx} 
-                className="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-bold bg-[#FFFDF5] text-black border border-black shadow-[1px_1px_0px_0px_#000]"
+                className="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-bold bg-[#FAFAFA] text-black border border-black shadow-[1px_1px_0px_0px_#000]"
               >
                 {tech}
               </span>

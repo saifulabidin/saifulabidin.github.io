@@ -12,7 +12,7 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         neo: {
-          bg: "#FFFDF5",
+          bg: "#FAFAFA",
           surface: "#FFFFFF",
           black: "#000000",
           yellow: "#FFDE59",

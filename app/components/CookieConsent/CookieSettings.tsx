@@ -152,7 +152,7 @@ export default function CookieSettings({ isOpen, onClose, onSave }: CookieSettin
           >
             <div className="bg-white border-2 md:border-[3px] border-black rounded-2xl shadow-neo-xl max-w-3xl w-full max-h-[90vh] overflow-hidden flex flex-col text-black">
               {/* Header */}
-              <div className="relative p-6 border-b-2 border-black bg-[#FFFDF5]">
+              <div className="relative p-6 border-b-2 border-black bg-[#FAFAFA]">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-[#FFDE59] border-2 border-black rounded-xl shadow-[2px_2px_0px_0px_#000] flex items-center justify-center">
@@ -213,9 +213,9 @@ export default function CookieSettings({ isOpen, onClose, onSave }: CookieSettin
                         logging in or filling in forms.
                       </p>
                       <div className="mt-3 flex flex-wrap gap-2">
-                        <span className="text-xs bg-[#FFFDF5] border border-black text-black font-bold px-2.5 py-1 rounded-md">Session Management</span>
-                        <span className="text-xs bg-[#FFFDF5] border border-black text-black font-bold px-2.5 py-1 rounded-md">Security</span>
-                        <span className="text-xs bg-[#FFFDF5] border border-black text-black font-bold px-2.5 py-1 rounded-md">Authentication</span>
+                        <span className="text-xs bg-[#FAFAFA] border border-black text-black font-bold px-2.5 py-1 rounded-md">Session Management</span>
+                        <span className="text-xs bg-[#FAFAFA] border border-black text-black font-bold px-2.5 py-1 rounded-md">Security</span>
+                        <span className="text-xs bg-[#FAFAFA] border border-black text-black font-bold px-2.5 py-1 rounded-md">Authentication</span>
                       </div>
                     </div>
                     <div className="flex-shrink-0 pt-1">
@@ -237,9 +237,9 @@ export default function CookieSettings({ isOpen, onClose, onSave }: CookieSettin
                         and see how visitors move around the site.
                       </p>
                       <div className="mt-3 flex flex-wrap gap-2">
-                        <span className="text-xs bg-[#FFFDF5] border border-black text-black font-bold px-2.5 py-1 rounded-md">Google Analytics</span>
-                        <span className="text-xs bg-[#FFFDF5] border border-black text-black font-bold px-2.5 py-1 rounded-md">Vercel Analytics</span>
-                        <span className="text-xs bg-[#FFFDF5] border border-black text-black font-bold px-2.5 py-1 rounded-md">Usage Stats</span>
+                        <span className="text-xs bg-[#FAFAFA] border border-black text-black font-bold px-2.5 py-1 rounded-md">Google Analytics</span>
+                        <span className="text-xs bg-[#FAFAFA] border border-black text-black font-bold px-2.5 py-1 rounded-md">Vercel Analytics</span>
+                        <span className="text-xs bg-[#FAFAFA] border border-black text-black font-bold px-2.5 py-1 rounded-md">Usage Stats</span>
                       </div>
                     </div>
                     <div className="flex-shrink-0 pt-1">
@@ -266,9 +266,9 @@ export default function CookieSettings({ isOpen, onClose, onSave }: CookieSettin
                         companies to build a profile of your interests and show you relevant adverts on other sites.
                       </p>
                       <div className="mt-3 flex flex-wrap gap-2">
-                        <span className="text-xs bg-[#FFFDF5] border border-black text-black font-bold px-2.5 py-1 rounded-md">Ad Targeting</span>
-                        <span className="text-xs bg-[#FFFDF5] border border-black text-black font-bold px-2.5 py-1 rounded-md">Social Media</span>
-                        <span className="text-xs bg-[#FFFDF5] border border-black text-black font-bold px-2.5 py-1 rounded-md">Remarketing</span>
+                        <span className="text-xs bg-[#FAFAFA] border border-black text-black font-bold px-2.5 py-1 rounded-md">Ad Targeting</span>
+                        <span className="text-xs bg-[#FAFAFA] border border-black text-black font-bold px-2.5 py-1 rounded-md">Social Media</span>
+                        <span className="text-xs bg-[#FAFAFA] border border-black text-black font-bold px-2.5 py-1 rounded-md">Remarketing</span>
                       </div>
                     </div>
                     <div className="flex-shrink-0 pt-1">
@@ -295,9 +295,9 @@ export default function CookieSettings({ isOpen, onClose, onSave }: CookieSettin
                         you are in) and provide enhanced, more personal features.
                       </p>
                       <div className="mt-3 flex flex-wrap gap-2">
-                        <span className="text-xs bg-[#FFFDF5] border border-black text-black font-bold px-2.5 py-1 rounded-md">Language</span>
-                        <span className="text-xs bg-[#FFFDF5] border border-black text-black font-bold px-2.5 py-1 rounded-md">Theme</span>
-                        <span className="text-xs bg-[#FFFDF5] border border-black text-black font-bold px-2.5 py-1 rounded-md">Layout</span>
+                        <span className="text-xs bg-[#FAFAFA] border border-black text-black font-bold px-2.5 py-1 rounded-md">Language</span>
+                        <span className="text-xs bg-[#FAFAFA] border border-black text-black font-bold px-2.5 py-1 rounded-md">Theme</span>
+                        <span className="text-xs bg-[#FAFAFA] border border-black text-black font-bold px-2.5 py-1 rounded-md">Layout</span>
                       </div>
                     </div>
                     <div className="flex-shrink-0 pt-1">
@@ -316,7 +316,7 @@ export default function CookieSettings({ isOpen, onClose, onSave }: CookieSettin
               </div>
 
               {/* Footer */}
-              <div className="border-t-2 border-black p-6 bg-[#FFFDF5]">
+              <div className="border-t-2 border-black p-6 bg-[#FAFAFA]">
                 <div className="flex flex-col sm:flex-row gap-3">
                   <button
                     onClick={handleRejectAll}

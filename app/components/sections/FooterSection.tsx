@@ -21,9 +21,9 @@ export default function FooterSection() {
         {/* Main Footer Row */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
           <div className="text-center md:text-left">
-            <div className="inline-block bg-[#FFDE59] border-2 border-black px-3.5 py-1 rounded-xl font-black text-xl text-black shadow-neo-sm tracking-tight mb-2">
+            <span className="inline-block bg-[#FFDE59] px-3.5 py-1 rounded-xl font-black text-xl text-black tracking-tight mb-2">
               Saiful Abidin
-            </div>
+            </span>
             <p className="text-neutral-700 text-sm font-bold">
               {t("role")}
             </p>

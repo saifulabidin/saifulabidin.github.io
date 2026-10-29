@@ -68,7 +68,7 @@ export default function PrivacyPolicyPage({
   setRequestLocale(locale);
 
   return (
-    <div className="min-h-screen bg-[#FFFDF5] text-black neo-grid-bg">
+    <div className="min-h-screen bg-[#FAFAFA] text-black neo-grid-bg">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white border-b-2 border-black">
         <div className="container mx-auto px-4 py-4 max-w-5xl">

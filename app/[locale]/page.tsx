@@ -22,7 +22,7 @@ export default function Home({
   setRequestLocale(locale);
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#FFFDF5] text-black neo-grid-bg selection:bg-[#C6F10E] selection:text-black">
+    <main className="min-h-screen overflow-x-hidden bg-[#FAFAFA] text-black selection:bg-[#C6F10E] selection:text-black">
       <Navigation />
       <HeroSection />
       <AboutSection />
