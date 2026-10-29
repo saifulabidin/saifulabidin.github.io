@@ -162,7 +162,7 @@ export default function CertificatesSection() {
   }, []);
 
   return (
-    <section id="certificates" className="py-20 md:py-28 bg-[#FAF7EE] border-y-2 md:border-y-[3px] border-black">
+    <section id="certificates" className="py-20 md:py-28 relative">
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Section Header */}
         <div className="text-center mb-12">

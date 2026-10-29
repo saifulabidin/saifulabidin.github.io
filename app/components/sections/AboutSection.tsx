@@ -36,7 +36,7 @@ export default function AboutSection() {
             <div className="lg:col-span-8 space-y-8">
               {/* My Journey Card */}
               <div className="bg-white border-2 md:border-[3px] border-black p-6 sm:p-8 rounded-2xl shadow-neo-md">
-                <span className="inline-block bg-[#A6FAFF] border-2 border-black px-3 py-1 rounded-lg font-black text-sm uppercase tracking-wide mb-4">
+                <span className="inline-block bg-[#A6FAFF] px-3.5 py-1.5 rounded-lg font-black text-sm uppercase tracking-wide text-black mb-4">
                   {t("card1_tag")}
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-black text-black font-display mb-4">

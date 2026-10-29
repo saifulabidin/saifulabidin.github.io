@@ -57,12 +57,20 @@ body {
   overflow-x: hidden;
 }
 
+section[id] {
+  scroll-margin-top: 96px;
+}
+
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   color: var(--text-color);
   font-weight: 700;
   line-height: 1.2;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 a {
@@ -234,6 +242,8 @@ header {
 
 /* Hero Section */
 .hero-section {
+  position: relative;
+  z-index: 1;
   padding: 64px 0 48px;
 }
 

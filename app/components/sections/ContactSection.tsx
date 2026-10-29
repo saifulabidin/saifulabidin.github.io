@@ -7,7 +7,7 @@ import ContactForm from "../Contact/ContactForm";
 const GoogleMapComponent = dynamic(() => import("../ui/GoogleMapComponent"), {
   ssr: false,
   loading: () => (
-    <div className="h-[280px] bg-[#FFFDF5] flex items-center justify-center font-bold text-sm text-black">
+    <div className="h-[280px] p-6 bg-[#FFFDF5] flex items-center justify-center font-bold text-sm text-black">
       Loading interactive map coordinates...
     </div>
   ),
@@ -17,7 +17,7 @@ export default function ContactSection() {
   const t = useTranslations("contact");
 
   return (
-    <section id="contact" className="py-20 md:py-28 bg-[#FFFDF5] border-t-2 md:border-t-[3px] border-black">
+    <section id="contact" className="py-20 md:py-28 relative">
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Section Header */}
         <div className="text-center mb-14">
@@ -131,7 +131,7 @@ export default function ContactSection() {
             {/* Interactive Map Card */}
             <div className="bg-white border-2 md:border-[3px] border-black p-5 rounded-2xl shadow-neo-md overflow-hidden">
               <h4 className="text-base font-black text-black font-display mb-3">{t("coords_title")}</h4>
-              <div className="rounded-xl border-2 border-black overflow-hidden">
+              <div className="rounded-xl border border-neutral-300 overflow-hidden">
                 <GoogleMapComponent 
                   center={{ lat: -7.9288452, lng: 110.8288609 }}
                   zoom={16}

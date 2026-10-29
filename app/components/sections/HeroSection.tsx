@@ -97,11 +97,11 @@ export default function HeroSection() {
                     {/* Metadata Grid */}
                     <div className="w-full grid grid-cols-2 gap-2 p-2.5 bg-[#FFFDF5] rounded-xl mb-5 text-center">
                       <div className="border-r-2 border-black/20 pr-1">
-                        <span className="block text-[10px] font-black uppercase tracking-wider text-neutral-500">{t("exp_label")}</span>
+                        <span className="block text-[11px] font-black uppercase tracking-wider text-neutral-500">{t("exp_label")}</span>
                         <span className="text-xs font-black text-black">{t("exp_val")}</span>
                       </div>
                       <div className="pl-1">
-                        <span className="block text-[10px] font-black uppercase tracking-wider text-neutral-500">{t("timezone_label")}</span>
+                        <span className="block text-[11px] font-black uppercase tracking-wider text-neutral-500">{t("timezone_label")}</span>
                         <span className="text-xs font-black text-black">{t("timezone_val")}</span>
                       </div>
                     </div>
@@ -131,7 +131,7 @@ export default function HeroSection() {
               {/* Availability Badge & Rotating Text */}
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
                 <div className="inline-flex items-center gap-2 bg-[#C6F10E] text-black border-2 border-black px-3.5 py-1 rounded-xl font-black text-xs sm:text-sm uppercase tracking-wider shadow-neo-sm">
-                  <span className="w-2.5 h-2.5 bg-black rounded-full animate-ping"></span>
+                  <span className="w-2.5 h-2.5 bg-black rounded-full"></span>
                   {t("available_for")}
                 </div>
                 <RotatingText

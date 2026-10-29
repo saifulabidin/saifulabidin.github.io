@@ -25,7 +25,7 @@ export default function Navigation() {
               className="inline-flex items-center gap-2 bg-[#FFDE59] border-2 border-black px-3 py-1 rounded-xl shadow-neo-sm hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
             >
               <span className="font-black text-base sm:text-lg text-black tracking-tight">Saiful Abidin</span>
-              <span className="w-2.5 h-2.5 bg-[#C6F10E] border border-black rounded-full animate-pulse"></span>
+              <span className="w-2.5 h-2.5 bg-[#C6F10E] border border-black rounded-full"></span>
             </a>
 
             {/* Desktop Navigation Links */}

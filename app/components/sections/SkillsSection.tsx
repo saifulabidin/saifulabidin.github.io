@@ -11,7 +11,7 @@ import { Autoplay } from "swiper/modules";
 export default function SkillsSection() {
   const t = useTranslations("skills");
   return (
-    <section id="skills" className="py-20 md:py-24 bg-[#FAF7EE] border-y-2 md:border-y-[3px] border-black relative overflow-hidden">
+    <section id="skills" className="py-20 md:py-24 relative overflow-hidden">
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Section Header */}
         <div className="flex flex-col items-center gap-3 mb-14 text-center">
