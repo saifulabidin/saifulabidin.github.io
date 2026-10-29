@@ -95,7 +95,7 @@ export default function HeroSection() {
                     </p>
 
                     {/* Metadata Grid */}
-                    <div className="w-full grid grid-cols-2 gap-2 p-2.5 bg-[#FFFDF5] border-2 border-black rounded-xl mb-5 shadow-neo-sm text-center">
+                    <div className="w-full grid grid-cols-2 gap-2 p-2.5 bg-[#FFFDF5] rounded-xl mb-5 text-center">
                       <div className="border-r-2 border-black/20 pr-1">
                         <span className="block text-[10px] font-black uppercase tracking-wider text-neutral-500">{t("exp_label")}</span>
                         <span className="text-xs font-black text-black">{t("exp_val")}</span>

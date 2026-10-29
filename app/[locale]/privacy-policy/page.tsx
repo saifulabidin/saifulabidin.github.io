@@ -154,13 +154,13 @@ export default function PrivacyPolicyPage({
           <section className="bg-white p-6 sm:p-8 rounded-2xl border-2 md:border-[3px] border-black shadow-neo-md">
             <h2 className="text-xl sm:text-2xl font-black mb-3 font-display text-black">4. Third-Party Infrastructure</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
-              <div className="p-4 bg-[#FFFDF5] border-2 border-black rounded-xl shadow-neo-sm">
-                <h4 className="font-black text-black mb-1">Vercel Analytics</h4>
+              <div className="p-4 rounded-xl bg-neutral-50">
+                <h3 className="font-black text-black text-base mb-1">Vercel Analytics</h3>
                 <p className="text-xs sm:text-sm text-neutral-700 font-medium">Privacy-focused edge telemetry without tracking cross-site persistent cookies.</p>
               </div>
-              <div className="p-4 bg-[#FFFDF5] border-2 border-black rounded-xl shadow-neo-sm">
-                <h4 className="font-black text-black mb-1">Google Maps API</h4>
-                <p className="text-xs sm:text-sm text-neutral-700 font-medium">Reverse-proxied map assets for geographic coordinates display.</p>
+              <div className="p-4 rounded-xl bg-neutral-50">
+                <h3 className="font-black text-black text-base mb-1">Google Maps Embed</h3>
+                <p className="text-xs sm:text-sm text-neutral-700 font-medium">Interactive embedded location map without requiring client API key credentials.</p>
               </div>
             </div>
           </section>
@@ -170,7 +170,7 @@ export default function PrivacyPolicyPage({
             <p className="text-neutral-800 leading-relaxed font-medium mb-4">
               In accordance with international privacy legislation (including GDPR), you retain the right to inspect, correct, or request deletion of any stored contact data.
             </p>
-            <div className="p-4 bg-[#C6F10E]/20 border-2 border-black rounded-xl shadow-neo-sm">
+            <div className="p-4 rounded-xl bg-[#C6F10E]/30">
               <div className="text-sm font-black text-black">Direct Security & Privacy Contact:</div>
               <div className="text-sm font-bold text-neutral-800 mt-1">contact@sabidzpro.is-a.dev</div>
             </div>

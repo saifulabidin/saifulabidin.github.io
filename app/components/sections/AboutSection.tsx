@@ -36,9 +36,9 @@ export default function AboutSection() {
             <div className="lg:col-span-8 space-y-8">
               {/* My Journey Card */}
               <div className="bg-white border-2 md:border-[3px] border-black p-6 sm:p-8 rounded-2xl shadow-neo-md">
-                <div className="inline-block bg-[#A6FAFF] border-2 border-black px-3 py-1 rounded-lg font-black text-sm uppercase tracking-wide shadow-neo-sm mb-4">
+                <span className="inline-block bg-[#A6FAFF] border-2 border-black px-3 py-1 rounded-lg font-black text-sm uppercase tracking-wide mb-4">
                   {t("card1_tag")}
-                </div>
+                </span>
                 <h3 className="text-2xl sm:text-3xl font-black text-black font-display mb-4">
                   {t("card1_title")}
                 </h3>
@@ -59,8 +59,8 @@ export default function AboutSection() {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {technicalPillars.map((item, index) => (
-                    <div key={index} className="bg-white border-2 border-black p-4 rounded-xl shadow-neo hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-sm transition-all flex items-start gap-4">
-                      <div className="flex-shrink-0 w-10 h-10 bg-[#FFDE59] border-2 border-black rounded-lg shadow-[1px_1px_0px_0px_#000] flex items-center justify-center text-black">
+                    <div key={index} className="flex items-start gap-3.5 p-3 rounded-lg hover:bg-black/[0.03] transition-colors">
+                      <div className="flex-shrink-0 w-10 h-10 bg-[#FFDE59] border-2 border-black rounded-lg flex items-center justify-center text-black">
                         <Image src={item.icon} alt={item.title} width={20} height={20} className="w-5 h-5" />
                       </div>
                       <div className="flex-1">
@@ -88,8 +88,8 @@ export default function AboutSection() {
                     { icon: "/icons/graduation.svg", title: t("item_discipline_label"), desc: t("item_discipline_val") },
                     { icon: "/icons/sparkles.svg", title: t("item_avail_label"), desc: t("item_avail_val") }
                   ].map((item, index) => (
-                    <div key={index} className="flex items-start gap-3.5 p-3 rounded-xl border border-neutral-200 bg-[#FFFDF5]">
-                      <div className="flex-shrink-0 w-9 h-9 bg-[#C6F10E] border-2 border-black rounded-lg flex items-center justify-center text-black shadow-[1px_1px_0px_0px_#000]">
+                    <div key={index} className="flex items-start gap-3.5 p-3 rounded-xl bg-neutral-50">
+                      <div className="flex-shrink-0 w-9 h-9 bg-[#C6F10E] border-2 border-black rounded-lg flex items-center justify-center text-black">
                         <Image src={item.icon} alt={item.title} width={18} height={18} className="w-4 h-4" />
                       </div>
                       <div className="flex-1 min-w-0">

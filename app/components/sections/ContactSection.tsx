@@ -44,7 +44,7 @@ export default function ContactSection() {
               </h3>
               
               <div className="space-y-4">
-                <div className="flex items-center gap-4 p-3 rounded-xl bg-[#FFFDF5] border border-black">
+                <div className="flex items-center gap-4 p-3 rounded-xl bg-[#FFFDF5]">
                   <div className="w-11 h-11 bg-[#C6F10E] border-2 border-black rounded-xl flex items-center justify-center flex-shrink-0 shadow-[2px_2px_0px_0px_#000]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-black">
                       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
@@ -59,7 +59,7 @@ export default function ContactSection() {
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-4 p-3 rounded-xl bg-[#FFFDF5] border border-black">
+                <div className="flex items-center gap-4 p-3 rounded-xl bg-[#FFFDF5]">
                   <div className="w-11 h-11 bg-[#FFDE59] border-2 border-black rounded-xl flex items-center justify-center flex-shrink-0 shadow-[2px_2px_0px_0px_#000]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-black">
                       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
@@ -71,7 +71,7 @@ export default function ContactSection() {
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-4 p-3 rounded-xl bg-[#FFFDF5] border border-black">
+                <div className="flex items-center gap-4 p-3 rounded-xl bg-[#FFFDF5]">
                   <div className="w-11 h-11 bg-[#A6FAFF] border-2 border-black rounded-xl flex items-center justify-center flex-shrink-0 shadow-[2px_2px_0px_0px_#000]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-black">
                       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>

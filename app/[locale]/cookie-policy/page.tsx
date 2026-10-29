@@ -127,8 +127,8 @@ export default function CookiePolicyPage({
 
             <section className="bg-white p-6 sm:p-8 rounded-2xl border-2 md:border-[3px] border-black shadow-neo-md">
               <h2 className="text-xl sm:text-2xl font-black mb-3 font-display text-black">2. Categories of Storage Deployed</h2>
-              <div className="space-y-4">
-                <div className="p-4 bg-[#FFFDF5] border-2 border-black rounded-xl shadow-neo-sm">
+              <div className="divide-y divide-neutral-200">
+                <div className="py-3.5 first:pt-0 last:pb-0">
                   <div className="flex items-center gap-2 mb-1.5">
                     <span className="w-2.5 h-2.5 bg-[#C6F10E] border border-black rounded-full"></span>
                     <h3 className="font-black text-black text-base">Essential Tokens</h3>
@@ -139,7 +139,7 @@ export default function CookiePolicyPage({
                   </p>
                 </div>
 
-                <div className="p-4 bg-[#FFFDF5] border-2 border-black rounded-xl shadow-neo-sm">
+                <div className="py-3.5 first:pt-0 last:pb-0">
                   <div className="flex items-center gap-2 mb-1.5">
                     <span className="w-2.5 h-2.5 bg-[#FFDE59] border border-black rounded-full"></span>
                     <h3 className="font-black text-black text-base">Performance & Analytics</h3>

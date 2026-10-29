@@ -183,7 +183,7 @@ export default function CookieSettings({ isOpen, onClose, onSave }: CookieSettin
               <div className="flex-1 overflow-y-auto p-6 space-y-6">
                 {/* Do Not Track Warning */}
                 {isDoNotTrackEnabled() && (
-                  <div className="bg-[#FFDE59] border-2 border-black rounded-xl p-4 mb-6 shadow-neo-sm">
+                  <div className="bg-[#FFDE59]/80 border-l-4 border-black p-3.5 mb-6">
                     <div className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-black mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
@@ -198,7 +198,7 @@ export default function CookieSettings({ isOpen, onClose, onSave }: CookieSettin
                   </div>
                 )}
                 {/* Essential Cookies */}
-                <div className="space-y-3 bg-white p-4 rounded-xl border-2 border-black shadow-neo-sm">
+                <div className="space-y-3 py-5 border-b border-neutral-200">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
@@ -227,7 +227,7 @@ export default function CookieSettings({ isOpen, onClose, onSave }: CookieSettin
                 </div>
 
                 {/* Analytics Cookies */}
-                <div className="space-y-3 bg-white p-4 rounded-xl border-2 border-black shadow-neo-sm">
+                <div className="space-y-3 py-5 border-b border-neutral-200">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
                       <h3 className="text-lg font-black text-black font-display mb-2">Analytics Cookies</h3>
@@ -257,7 +257,7 @@ export default function CookieSettings({ isOpen, onClose, onSave }: CookieSettin
                 </div>
 
                 {/* Marketing Cookies */}
-                <div className="space-y-3 bg-white p-4 rounded-xl border-2 border-black shadow-neo-sm">
+                <div className="space-y-3 py-5 border-b border-neutral-200">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
                       <h3 className="text-lg font-black text-black font-display mb-2">Marketing Cookies</h3>
@@ -286,7 +286,7 @@ export default function CookieSettings({ isOpen, onClose, onSave }: CookieSettin
                 </div>
 
                 {/* Preferences Cookies */}
-                <div className="space-y-3 bg-white p-4 rounded-xl border-2 border-black shadow-neo-sm">
+                <div className="space-y-3 py-5 last:border-b-0">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
                       <h3 className="text-lg font-black text-black font-display mb-2">Preference Cookies</h3>
