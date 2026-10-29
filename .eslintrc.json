@@ -1,9 +1,3 @@
 {
-  "extends": "next",
-  "plugins": ["react-doctor"],
-  "rules": {
-    "react-doctor/no-nested-card-surface": "warn",
-    "react-doctor/html-no-nested-interactive": "warn",
-    "react-doctor/html-no-nested-form": "warn"
-  }
+  "extends": "next"
 }
