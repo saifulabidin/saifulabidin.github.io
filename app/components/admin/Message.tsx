@@ -27,10 +27,10 @@ export default function Message({ message, onClose, duration = 3000 }: MessagePr
   if (!message) return null;
 
   const styles = {
-    success: 'bg-green-600 border-green-500',
-    error: 'bg-red-600 border-red-500',
-    info: 'bg-blue-600 border-blue-500',
-    warning: 'bg-yellow-600 border-yellow-500',
+    success: 'bg-[#C6F10E] text-black border-2 border-black',
+    error: 'bg-[#FF6B6B] text-black border-2 border-black',
+    info: 'bg-[#A6FAFF] text-black border-2 border-black',
+    warning: 'bg-[#FFDE59] text-black border-2 border-black',
   };
 
   const icons = {
@@ -61,11 +61,9 @@ export default function Message({ message, onClose, duration = 3000 }: MessagePr
       <div
         className={`
           ${styles[message.type]} 
-          border-l-4 
-          text-white 
-          px-6 py-4 
-          rounded-md 
-          shadow-2xl 
+          px-5 py-3.5 
+          rounded-xl 
+          shadow-neo 
           flex 
           items-center 
           gap-3 

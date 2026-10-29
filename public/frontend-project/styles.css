@@ -475,21 +475,24 @@ header {
   margin-bottom: 16px;
 }
 
-.skill-icon-box {
-  width: 44px;
-  height: 44px;
-  display: flex;
+.skill-heading-icon,
+.feature-heading-icon {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 36px;
+  height: 36px;
   border: var(--border-thin);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  font-size: 1.25rem;
+  border-radius: var(--radius-sm);
+  margin-right: 10px;
+  vertical-align: middle;
+  font-size: 1.1rem;
 }
 
 .skill-icon-yellow { background-color: var(--accent-yellow); }
 .skill-icon-cyan { background-color: var(--accent-cyan); }
 .skill-icon-pink { background-color: var(--accent-pink); }
+.skill-icon-volt { background-color: var(--accent-volt); }
 
 .skill-tags {
   display: flex;

@@ -132,10 +132,8 @@ body {
 }
 
 .time-control-card {
-  border: var(--border-thin);
-  border-radius: var(--radius-md);
   padding: 16px 12px;
-  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-md);
 }
 
 .break-card {
@@ -200,7 +198,6 @@ body {
 .timer {
   background-color: var(--accent-volt);
   border: var(--border-thick);
-  box-shadow: var(--shadow-md);
   padding: 28px 20px;
   border-radius: var(--radius-lg);
   margin-bottom: 28px;

@@ -69,7 +69,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, toggleMenu }) => {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="fixed top-0 right-0 h-[100dvh] w-[85%] max-w-[340px] bg-[#FFFDF5] border-l-4 border-black shadow-[-8px_0px_0px_0px_#000] z-50 flex flex-col overscroll-contain"
+            className="fixed top-0 right-0 h-[100dvh] w-[85%] max-w-[340px] bg-[#FFFDF5] border-l-2 md:border-l-[3px] border-black shadow-[-8px_0px_0px_0px_#000] z-50 flex flex-col overscroll-contain"
             style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
           >
             {/* Header with Close button */}

@@ -1,0 +1,9 @@
+{
+  "detector": {
+    "ignoreRules": [
+      "overused-font",
+      "cream-palette"
+    ],
+    "ignoreFiles": []
+  }
+}

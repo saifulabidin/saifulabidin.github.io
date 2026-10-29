@@ -126,11 +126,8 @@ body {
 /* Display */
 .display-container {
   margin-bottom: 20px;
-  border-radius: var(--radius-sm);
-  border: var(--border-thin);
   background-color: #F8F9FA;
   overflow: hidden;
-  box-shadow: inset 1px 1px 0px rgba(0, 0, 0, 0.1);
 }
 
 .formula {
